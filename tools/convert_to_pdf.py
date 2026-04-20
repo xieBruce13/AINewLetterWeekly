@@ -10,7 +10,9 @@ DESIGN.md.
 Usage (run from inside a dated newsletter_runs folder):
     py ../../tools/convert_to_pdf.py
 
-Output: ai_newsletter_weekly_YYYY-MM-DD.html -> Ctrl+P -> PDF
+Output: ai_newsletter_weekly_YYYY-MM-DD.html. For a PDF that matches the
+on-screen layout, use ../../tools/render_pdf.py (Chromium + screen media);
+browser Ctrl+P may differ unless background graphics are enabled.
 """
 
 import markdown
@@ -97,8 +99,28 @@ CSS = r"""
 }
 
 @page { size: A4; margin: 14mm 16mm 16mm 16mm; }
+
+/* Preserve card / table / footer backgrounds when using 打印 or Save as PDF.
+ * Browsers default to stripping backgrounds unless this is set. */
+html {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
 @media print {
-    body { font-size: 10.5pt !important; background: var(--sema-surface-page) !important; }
+    html, body {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    body {
+        font-size: 10.5pt !important;
+        background: var(--sema-surface-page) !important;
+        /* Match on-screen column width so the column isn’t full-bleed on paper. */
+        max-width: 820px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        padding: 22px 4px 4px !important;
+    }
     h2, h3, .story-kicker, .deck-label { page-break-after: avoid; }
     .story, .deck, .references-section, table, blockquote, .title-card {
         page-break-inside: avoid;
@@ -883,6 +905,7 @@ def main():
 <html lang="zh">
 <head>
 <meta charset="utf-8">
+<meta name="color-scheme" content="light">
 <title>AI Weekly - {DATE_STR}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

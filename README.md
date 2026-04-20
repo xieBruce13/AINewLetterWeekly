@@ -88,14 +88,28 @@ LICENSE
 
 ## 本地渲染与导出
 
-在 **带日期的期号目录** 下执行：
+在 **带日期的期号目录** 下先生成 HTML：
 
 ```bash
 cd newsletter_runs/YYYY-MM-DD
 python ../../tools/convert_to_pdf.py
 ```
 
-用浏览器打开 `ai_newsletter_weekly_YYYY-MM-DD.html`，**打印 → 另存为 PDF**。版式兼顾常见 A4 / Letter 打印。
+### 导出与网页一致的 PDF（推荐）
+
+浏览器里 **打印 → 另存为 PDF** 常会套用 `@media print`、且默认不印背景色，版式容易和屏幕上不一致。请用 Chromium 一键导出（按 **屏幕样式** 排版，并保留卡片 / 表格底色）：
+
+```bash
+pip install -r ../../requirements-pdf.txt
+playwright install chromium
+python ../../tools/render_pdf.py
+```
+
+会在同一目录生成 `ai_newsletter_weekly_YYYY-MM-DD.pdf`。也可指定文件：`python ../../tools/render_pdf.py ./ai_newsletter_weekly_2026-04-19.html`。
+
+### 仍想用浏览器打印时
+
+用浏览器打开 HTML 后，在打印对话框中 **开启「背景图形」**（Chrome：**更多设置 → 背景图形**），版式会更接近网页；CSS 里已加入 `print-color-adjust` 以尽量保留底色。
 
 ## 视觉设计
 

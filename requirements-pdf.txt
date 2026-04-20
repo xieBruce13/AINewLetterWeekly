@@ -1,0 +1,3 @@
+# Optional: PDF export that matches on-screen layout (tools/render_pdf.py)
+# After pip install:  playwright install chromium
+playwright>=1.40
