@@ -7,7 +7,7 @@
 
 ## 本周结论
 
-> **核心判断：** **模型工程能力**（Opus 4.7 刷新 SWE-bench）与 **Skill 产品化**（Chrome / Claude Code / Adobe 同周落地）在同一条时间线上交汇——从单点模型到可编排工作流。
+> **核心判断：** 模型层进入 **工程能力深水区**：Opus 4.7 在 SWE-bench、Terminal-Bench 等任务上刷新纪录，定价不变，实质是在争夺「最难工程问题谁最能扛」。与此同时，**Skill 层被多家大厂同时产品化**——Chrome 把 prompt 固化为可复用 Skills、Claude Code Desktop 用并行 session + Routines 做开发者侧编排、Adobe 用 Firefly AI Assistant 把多应用创作链路收进对话——三条路径指向同一结论：竞争从「模型单点能力」转向「可编排、可定时、可沉淀的工作流技能」，本周是这一转折在舆论与产品上同时显形的一周。
 
 ---
 

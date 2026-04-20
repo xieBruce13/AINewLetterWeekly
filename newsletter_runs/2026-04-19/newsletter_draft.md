@@ -7,7 +7,7 @@
 
 ## 本周结论
 
-> **核心判断：** 本周两条主线：**应用层**（Claude Design：prompt → 可交付设计）与 **workspace agent**（Codex 全桌面能力 vs Claude Code）。模型侧：**Opus 4.7 长上下文检索明显弱化**，与 benchmark 高分脱节——依赖长 context 的 skill 须单独验证。
+> **核心判断：** 本周两条产品主线同时清晰：**应用层**上，Claude Design 把「prompt → 可交互原型 / 物料」做成独立产品，Anthropic 从模型供应商跨入与 Figma、Canva 重叠的场景；**开发者侧**，Codex Desktop 以 Computer Use、内置浏览器与定时自动化把「写代码」扩展为「操控整台电脑」，与 Claude Code 的并行 session、Routines 形成正面竞争，**workspace agent** 的形态正在收敛。模型层则出现 **benchmark 与实际任务的分裂**：Opus 4.7 在窄任务榜单上仍领先，但独立评测显示长上下文检索明显退化——凡依赖长 context 的 agent / skill，都需要自建验证，而不能只看厂商分数。
 
 ---
 
