@@ -1,103 +1,68 @@
 # Awsome AI Newsletter
 
-用 **多智能体流水线** 自动产出 **AI 行业周报**：收集 → 过滤 → 结构化 → 交叉验证 → 评分 → 分流 → 撰写 → 质检 → 发布。最终得到 `newsletter_draft.md` 以及可在浏览器中 **打印为 PDF** 的 HTML。
-
-**这不是新闻聚合器** —— 它强制「编辑结构」：区分官方说法、第三方验证、社区声音与明确的编辑判断；主条目包含 Reddit 用户原声（正文译为中文）与真实产品截图。
+面向团队的 **AI 行业周报**：不是简单资讯汇总，而是一套固定流程——从选题、核实到成稿、排版——保证每一期都**有据可查、结构统一、方便内部传阅**（网页或 PDF）。
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-## 目录
+---
 
-- [概览](#概览)
-- [流水线](#流水线)
-- [仓库结构](#仓库结构)
-- [快速开始](#快速开始)
-- [本地渲染与导出](#本地渲染与导出)
-- [视觉设计](#视觉设计)
-- [自定义与扩展](#自定义与扩展)
-- [开源许可](#开源许可)
+## 这套流程在做什么？
 
-## 概览
+你可以把它想成编辑部的一条「流水线」，从 **「这周写什么」** 一路走到 **「可分享的成品」**：
 
-| | |
-|---|---|
-| **适用对象** | 正在做 AI 原生创意 / 工作流 / 技能系统类产品的团队，需要一份篇幅较长（约 15–30 页）的内部策略向周报。 |
-| **运行环境** | **Claude Code** 使用 [`.claude/agents/`](.claude/agents/) 中的子智能体；**Cursor** 可通过内置的 newsletter 编排类子智能体跑同一套流程。流程与规范的权威来源是 **`skill/SKILL.md`**。 |
-| **Python** | 仅用于把 Markdown **渲染成 HTML**（`tools/convert_to_pdf.py`）。需 Python 3.9+，依赖安装：`pip install -r requirements.txt`。 |
+1. **定范围**  
+   先锁定本期时间窗和侧重点（模型 / 产品 / 初创等），避免后面跑散。
 
-**版本管理：** `*.pdf` 仍被忽略（本地打印即可）。`newsletter_runs/**/` 下的 **`ai_newsletter_weekly_*.html` 会纳入仓库**，便于在 GitHub 上直接浏览；其他路径的 `*.html` 仍忽略。若需更新 HTML，在对应期号目录运行 `convert_to_pdf.py` 后提交。每期 Markdown、JSON 产物与 `newsletter_runs/.../images/` 照常纳入版本库。
+2. **收集线索**  
+   按优先级扫一圈：官方发布、技术评测与榜单、行业通讯、社区讨论（例如 Reddit）。模型与产品两条线可以并行收集。
 
-**为何拆成多个智能体：** 单条超长提示词容易漂移（跳过验证、把打分和撰稿混在一起）。拆成多个智能体后，提示词更小、第一步可并行收集模型与产品线索、各步之间落盘 **可审计的 JSON**。改评分改 `rubric.json`，改文风改 `writer.md`，不必重写整份 SOP。
+3. **过筛与整理**  
+   去掉噪声、把零散信息整理成统一格式，方便后面打分和写作。
 
-## 流水线
+4. **核对与补声音**  
+   重要说法尽量能对上原始出处；同时补上真实用户的说法（例如 Reddit），让「社区里的人在说什么」有据可查。
 
-```
-编排器 orchestrator  → run_header.md
-收集器 collector     → raw_*_records.json    （模型 ‖ 产品 并行）
-过滤 filter          → filtered_records.json
-规范化 normalizer    → normalized_records.json
-核验 verifier        → verified_records.json （信源 + Reddit 引语）
-打分 scorer          → scored_records.json
-分流 triage-editor    → triage_decisions.json
-撰稿 writer           → newsletter_draft.md
-质检 qa-reviewer      → 通过 或 退回修改（撰稿可循环）
-发布 publisher        → ai_newsletter_weekly_YYYY-MM-DD.html
-```
+5. **打分与取舍**  
+   按既定标准给每条线索打分，再决定：哪些写长文、哪些短讯、哪些本期不写，并兼顾多样性（避免整期只聊一家公司）。
 
-| 步骤 | 职责 |
-|------|------|
-| 0 | 划定本周范围、调度后续步骤、驱动质检闭环 |
-| 1 | 分层收集：官方 → 技术信号 → 通讯 / 订阅 → 社区 |
-| 2–3 | 闸门过滤 + 符合 schema 的结构化记录 |
-| 4 | 核对官方表述；采集 Reddit 引语 |
-| 5–6 | 按量表打分；主条 / 简讯 / 丢弃 + 多样性等规则 |
-| 7–8 | 按 `output_template.md` 成稿；执行编辑质检清单 |
-| 9 | 拉取配图；调用 `convert_to_pdf.py` 生成 HTML |
+6. **撰稿**  
+   按统一骨架写 `newsletter_draft.md`：主条目里会区分「官方 / 外部验证 / 社区 / 编辑判断」等层次，避免混成一段新闻摘要。
 
-## 仓库结构
+7. **质检**  
+   对照清单检查结构、引用与风格；不通过就回到上一步改稿，直到达标。
 
-```
-.claude/agents/          # 各子智能体提示词
-skill/
-  SKILL.md               # 权威 SOP（建议先读）
-  DESIGN.md              # 视觉规范（v4，ElevenLabs 灵感）
-  output_template.md     # 撰稿骨架
-  rubric.json            # 闸门与打分维度
-  record_schemas.json    # 步骤间 JSON 形状
-  RUNBOOK.md, INSTALL.md, HEARTBEAT.sample.md
-tools/convert_to_pdf.py  # Markdown → HTML 渲染
-newsletter_runs/YYYY-MM-DD/   # 每期：草稿、JSON 链、图片等
-requirements.txt
-LICENSE
-```
+8. **发布**  
+   配图就位后，生成可在浏览器阅读的 **HTML**；需要存档或分享时再导出 **PDF**（推荐用仓库里的脚本导出，版式与屏幕一致）。
 
-## 快速开始
+整条流水线由 **多个专职智能体** 分工完成（在 Claude Code、Cursor 等环境里可按同一套说明调度）。这样做的好处是：每一步只做一件事，**不容易漏步骤**，也方便以后只改「收集规则」或「排版」而不用重写全部指令。
 
-1. 安装渲染脚本依赖：
+---
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+## 你怎么用？
 
-2. 在 **Claude Code**（或你已配置好的智能体界面）里生成一期，例如：
+1. **装一下本地渲染依赖**（把 Markdown 变成 HTML）：  
+   `pip install -r requirements.txt`
 
-   - 自然语言：「按 newsletter SOP 跑本周周报。」
-   - 或调用：`@newsletter-orchestrator`，意图同上。
+2. **在智能体里说一句**，例如：「按 newsletter SOP 跑本周周报」或使用项目里配置的 **newsletter 编排**能力。
 
-3. 在 `newsletter_runs/<日期>/` 下查看输出：撰稿 Markdown、各步 JSON、发布步骤完成后的 HTML。
+3. **到 `newsletter_runs/某期日期/` 里取稿**：  
+   主文件是 `newsletter_draft.md`，同目录下还有当期素材与生成好的网页文件。
 
-## 本地渲染与导出
+需要 **PDF** 时，进入该期目录后执行 `tools/render_pdf.py`（详见下文「导出 PDF」）；详细步骤与规则以 **`skill/SKILL.md`** 为准。
 
-在 **带日期的期号目录** 下先生成 HTML：
+---
+
+## 导出网页与 PDF
+
+在 **某一期的文件夹**（如 `newsletter_runs/2026-04-19/`）里：
 
 ```bash
-cd newsletter_runs/YYYY-MM-DD
 python ../../tools/convert_to_pdf.py
 ```
 
-### 导出与网页一致的 PDF（推荐）
+会生成（或更新）当期的 `ai_newsletter_weekly_*.html`。
 
-浏览器里 **打印 → 另存为 PDF** 常会套用 `@media print`、且默认不印背景色，版式容易和屏幕上不一致。请用 Chromium 一键导出（按 **屏幕样式** 排版，并保留卡片 / 表格底色）：
+**更推荐**用脚本导出 PDF（与浏览器里看到的效果一致）：
 
 ```bash
 pip install -r ../../requirements-pdf.txt
@@ -105,30 +70,20 @@ playwright install chromium
 python ../../tools/render_pdf.py
 ```
 
-会在同一目录生成 `ai_newsletter_weekly_YYYY-MM-DD.pdf`。也可指定文件：`python ../../tools/render_pdf.py ./ai_newsletter_weekly_YYYY-MM-DD.html`。
+---
 
-### 仍想用浏览器打印时
+## 仓库里大致有什么？
 
-用浏览器打开 HTML 后，在打印对话框中 **开启「背景图形」**（Chrome：**更多设置 → 背景图形**），版式会更接近网页；CSS 里已加入 `print-color-adjust` 以尽量保留底色。
+| 位置 | 作用（一句话） |
+|------|----------------|
+| `skill/SKILL.md` | 整条流程的说明书（想深入从这里读） |
+| `skill/DESIGN.md` | 版面与配色约定 |
+| `newsletter_runs/` | 按日期归档的每一期草稿、图片与网页 |
+| `tools/` | 把 Markdown 渲染成 HTML、导出 PDF 的脚本 |
 
-## 视觉设计
+更技术向的目录说明、文件名与改法，见 **`skill/RUNBOOK.md`**。
 
-颜色、字号、间距等 **设计令牌** 一律以 **`skill/DESIGN.md`** 为准；**`tools/convert_to_pdf.py`** 负责实现该规范。若要改观感，请先改 `DESIGN.md`，再改脚本。
-
-## 自定义与扩展
-
-| 想改什么 | 主要改这些文件 |
-|----------|----------------|
-| 信源与收集范围 | `skill/SKILL.md`（收集相关章节）+ `.claude/agents/collector.md` |
-| 闸门与打分 | `skill/rubric.json` |
-| 记录结构 | `skill/record_schemas.json` + `normalizer.md` |
-| 章节结构与文风 | `skill/output_template.md` + `writer.md` |
-| 质检规则 | `skill/SKILL.md` 第 8 步 + `qa-reviewer.md` |
-| 版式与渲染 | `skill/DESIGN.md` + `tools/convert_to_pdf.py` |
-
-**后续可做：** 每日 `HEARTBEAT` 信号累积进周报；单独「运维 / 成本」模块与量表；加强 Reddit / X 自动化；用 CI 对 fixture 跑干跑以发现 schema 漂移。
-
-更细的流程说明见 **`skill/SKILL.md`**，安装与 OpenClaw 相关说明见 **`skill/INSTALL.md`**，紧凑执行备忘见 **`skill/RUNBOOK.md`**。
+---
 
 ## 开源许可
 
