@@ -1,10 +1,11 @@
 # ============================================================
 # Newsletter build artifacts
 # ============================================================
-# HTML + PDF are re-generated from newsletter_draft.md via
-# tools/convert_to_pdf.py — no need to check them in.
-*.html
+# PDF: generated locally (print from browser); do not commit.
 *.pdf
+# HTML: ignore by default, but track rendered issues under newsletter_runs/.
+*.html
+!newsletter_runs/**/*.html
 
 # Legacy config from an earlier rendering pipeline
 pdf-config.json

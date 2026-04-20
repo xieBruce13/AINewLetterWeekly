@@ -25,7 +25,7 @@
 | **运行环境** | **Claude Code** 使用 [`.claude/agents/`](.claude/agents/) 中的子智能体；**Cursor** 可通过内置的 newsletter 编排类子智能体跑同一套流程。流程与规范的权威来源是 **`skill/SKILL.md`**。 |
 | **Python** | 仅用于把 Markdown **渲染成 HTML**（`tools/convert_to_pdf.py`）。需 Python 3.9+，依赖安装：`pip install -r requirements.txt`。 |
 
-**版本管理：** `*.html`、`*.pdf` 已列入 **`.gitignore`**，应从 `newsletter_draft.md` 重新生成后本地使用。每期运行的 Markdown、流水线 JSON 产物，以及 `newsletter_runs/.../images/` 可纳入版本库。
+**版本管理：** `*.pdf` 仍被忽略（本地打印即可）。`newsletter_runs/**/` 下的 **`ai_newsletter_weekly_*.html` 会纳入仓库**，便于在 GitHub 上直接浏览；其他路径的 `*.html` 仍忽略。若需更新 HTML，在对应期号目录运行 `convert_to_pdf.py` 后提交。每期 Markdown、JSON 产物与 `newsletter_runs/.../images/` 照常纳入版本库。
 
 **为何拆成多个智能体：** 单条超长提示词容易漂移（跳过验证、把打分和撰稿混在一起）。拆成多个智能体后，提示词更小、第一步可并行收集模型与产品线索、各步之间落盘 **可审计的 JSON**。改评分改 `rubric.json`，改文风改 `writer.md`，不必重写整份 SOP。
 
