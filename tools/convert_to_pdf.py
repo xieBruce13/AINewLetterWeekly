@@ -1,8 +1,8 @@
 """
 Newsletter Markdown -> Publication-Ready HTML converter.
 
-Implements the Pinterest-adapted editorial design system defined in
-`skill/DESIGN.md` (v3). All tokens (colors, type scale, spacing) come from
+Implements the editorial design system in `skill/DESIGN.md` (v4, ElevenLabs-
+inspired). All tokens (colors, type scale, spacing) come from
 that file; this script is the authoritative renderer but not the authoritative
 design source. Do not introduce hexes or sizes that are not declared in
 DESIGN.md.
@@ -56,46 +56,42 @@ GOOGLE_FONTS = (
 
 CSS = r"""
 /* ==================================================================
- * AI Weekly Briefing — implements skill/DESIGN.md v3 (Pinterest-adapted)
- * Warm canvas + Pinterest Red + plum-black + Pin Sans (Inter substitute).
- * Generous rounding, sand-pill kickers, 8px white image mats,
- * dark-warm references footer. No shadows, no cool grays.
+ * AI Weekly — skill/DESIGN.md v4 (ElevenLabs-inspired).
+ * Warm near-white canvas, ink rails, Inter-only, tight type scale.
  * ================================================================== */
 
 :root {
-    /* ---- base tokens ---- */
-    --pin-red:      #e60023;
-    --plum-black:   #211922;
-    --olive-gray:   #62625b;
-    --warm-silver:  #91918c;
-    --sand-gray:    #e5e5e0;
-    --warm-light:   #e0e0d9;
-    --fog:          #f6f6f3;
-    --warm-wash:    hsla(60, 20%, 98%, 0.55);
-    --canvas-warm:  #faf9f5;
-    --paper:        #ffffff;
-    --dark-warm:    #33332e;
-    --link-blue:    #2b48d4;
+    /* ---- base (ElevenLabs-style warm neutrals) ---- */
+    --ink:            #111111;
+    --text-secondary: #4e4e4e;
+    --text-muted:     #777169;
+    --border-subtle:  #e5e5e5;
+    --surface-page:   #f5f5f5;
+    --surface-card:   #ffffff;
+    --surface-sand:   #ebe8e4;
+    --surface-fog:    #f0f0ee;
+    --surface-zebra:  #e8e6e1;
+    --warm-wash:      rgba(245, 242, 239, 0.65);
+    --surface-inv:    #1c1c1c;
+    --link-blue:      #2563eb;
 
-    /* ---- semantic ---- */
-    --sema-text-primary:    var(--plum-black);
-    --sema-text-secondary:  var(--olive-gray);
-    --sema-text-muted:      var(--warm-silver);
-    --sema-text-inverse:    var(--paper);
-    --sema-accent:          var(--pin-red);
-    --sema-surface-page:    var(--canvas-warm);
-    --sema-surface-card:    var(--paper);
-    --sema-surface-wrap:    var(--fog);
-    --sema-surface-sand:    var(--sand-gray);
+    /* ---- semantic (map old names for minimal churn) ---- */
+    --sema-text-primary:    var(--ink);
+    --sema-text-secondary:  var(--text-secondary);
+    --sema-text-muted:      var(--text-muted);
+    --sema-text-inverse:    var(--surface-card);
+    --sema-accent:          var(--ink);
+    --sema-surface-page:    var(--surface-page);
+    --sema-surface-card:    var(--surface-card);
+    --sema-surface-wrap:    var(--surface-fog);
+    --sema-surface-sand:    var(--surface-sand);
     --sema-surface-wash:    var(--warm-wash);
-    --sema-surface-inverse: var(--dark-warm);
-    --sema-border-hairline: var(--sand-gray);
+    --sema-surface-inverse: var(--surface-inv);
+    --sema-border-hairline: var(--border-subtle);
 
-    /* ---- type ---- */
-    --font-sans: "Pin Sans", "Inter", -apple-system, system-ui, "Segoe UI",
+    --font-sans: "Inter", -apple-system, system-ui, "Segoe UI",
                  Roboto, "PingFang SC", "Microsoft YaHei",
-                 "Source Han Sans SC", "ヒラギノ角ゴ Pro W3",
-                 "メイリオ", Meiryo, "Helvetica Neue", Helvetica, Arial, sans-serif;
+                 "Source Han Sans SC", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 @page { size: A4; margin: 14mm 16mm 16mm 16mm; }
@@ -136,6 +132,7 @@ body {
     font-family: var(--font-sans);
     font-size: 10.5pt;
     line-height: 1.6;
+    letter-spacing: 0.12px;
     color: var(--sema-text-primary);
     max-width: 820px;
     margin: 0 auto;
@@ -203,20 +200,20 @@ hr {
 }
 h1 {
     display: inline;
-    font-size: 32pt;
+    font-size: 17pt;
     font-weight: 700;
     color: var(--sema-text-primary);
-    line-height: 1.05;
-    letter-spacing: -1.2px;
+    line-height: 1.15;
+    letter-spacing: -0.4px;
     margin: 0;
 }
 .header-sub {
     margin: 12px 0 0;
-    font-size: 10pt;
+    font-size: 10.5pt;
     font-weight: 500;
     color: var(--sema-text-secondary);
-    line-height: 1.4;
-    letter-spacing: 0.1px;
+    line-height: 1.45;
+    letter-spacing: 0.12px;
 }
 .header-sub p { margin: 0; }
 .header-sub strong { color: var(--sema-text-secondary); font-weight: 600; }
@@ -224,11 +221,11 @@ h1 {
 /* ---------- Section headers (h2) ---------- */
 
 h2 {
-    font-size: 20pt;
+    font-size: 12.5pt;
     font-weight: 700;
     color: var(--sema-text-primary);
-    line-height: 1.15;
-    letter-spacing: -0.8px;
+    line-height: 1.25;
+    letter-spacing: -0.2px;
     padding: 2px 0 2px 12px;
     margin: 24px 0 12px;
     border-left: 4px solid var(--sema-accent);
@@ -247,9 +244,9 @@ h2 {
     display: inline-block;
     background: var(--sema-surface-sand);
     color: var(--sema-text-primary);
-    font-size: 9pt;
+    font-size: 9.5pt;
     font-weight: 600;
-    letter-spacing: 0.4px;
+    letter-spacing: 0.35px;
     padding: 3px 11px;
     border-radius: 14px;
     margin: 0 0 8px;
@@ -258,16 +255,16 @@ h2 {
 }
 
 h3 {
-    font-size: 17pt;
+    font-size: 11pt;
     font-weight: 700;
     color: var(--sema-text-primary);
-    line-height: 1.2;
-    letter-spacing: -0.4px;
+    line-height: 1.3;
+    letter-spacing: -0.15px;
     margin: 0 0 10px;
 }
 
 h4 {
-    font-size: 11pt;
+    font-size: 10.5pt;
     font-weight: 700;
     color: var(--sema-text-primary);
     margin: 10px 0 4px;
@@ -294,20 +291,20 @@ h4 {
 }
 .deck .deck-label {
     display: block;
-    font-size: 10pt;
+    font-size: 9.5pt;
     font-weight: 700;
-    letter-spacing: 0.4px;
+    letter-spacing: 0.35px;
     text-transform: uppercase;
     color: var(--sema-accent);
     margin-bottom: 6px;
-    line-height: 1.3;
+    line-height: 1.35;
 }
 .deck .deck-body {
     display: block;
-    font-size: 14pt;
+    font-size: 10.5pt;
     font-weight: 500;
-    line-height: 1.55;
-    letter-spacing: -0.1px;
+    line-height: 1.58;
+    letter-spacing: 0.12px;
     color: var(--sema-text-primary);
 }
 .deck .deck-body strong {
@@ -342,7 +339,7 @@ table {
     border-collapse: separate;
     border-spacing: 0;
     margin: 10px 0;
-    font-size: 10pt;
+    font-size: 10.5pt;
     line-height: 1.55;
     table-layout: fixed;
     border-radius: 16px;
@@ -387,9 +384,9 @@ table.summary-row-emphasis td:last-child { width: 85%; }
 table.summary-row-emphasis td:first-child {
     background: var(--sema-surface-sand);
     color: var(--sema-text-primary);
-    font-size: 9pt;
+    font-size: 9.5pt;
     font-weight: 700;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.28px;
     text-transform: uppercase;
     padding: 10px 12px;
     vertical-align: top;
@@ -399,9 +396,7 @@ table.summary-row-emphasis td:not(:first-child) {
     padding: 10px 14px;
 }
 
-/* TL;DR (first row) — #2 highlight surface.
- * Sand bg + 6px pin-red left rail on the content cell, red label.
- * Red is the ONE chromatic cue on the page. */
+/* TL;DR (first row): same body size, bold — summary sentence scan */
 table.summary-row-emphasis tr:first-child td {
     background: var(--sema-surface-sand) !important;
     border-top: none;
@@ -415,12 +410,12 @@ table.summary-row-emphasis tr:first-child td:first-child::after {
     font-weight: 700;
 }
 table.summary-row-emphasis tr:first-child td:last-child {
-    font-size: 13pt;
+    font-size: 10.5pt;
     font-weight: 700;
-    letter-spacing: -0.1px;
-    line-height: 1.5;
-    padding: 16px 18px;
-    border-left: 6px solid var(--sema-accent);
+    letter-spacing: 0.12px;
+    line-height: 1.55;
+    padding: 14px 16px;
+    border-left: 5px solid var(--sema-accent);
 }
 
 /* ---------- Info 2×2 tables (官方声明 | 外部验证, 社区反馈 | 编辑判断) ---------- */
@@ -444,7 +439,7 @@ table.info-table th {
 }
 table.info-table td {
     background: var(--sema-surface-card);
-    font-size: 10pt;
+    font-size: 10.5pt;
     color: var(--sema-text-primary);
     padding: 10px 14px;
     border-top: 1px solid var(--sema-border-hairline);
@@ -466,11 +461,11 @@ table.info-table td {
 }
 .brief-section thead { display: none; }
 .brief-section tbody tr:nth-child(odd) td  { background: var(--sema-surface-card); }
-.brief-section tbody tr:nth-child(even) td { background: var(--warm-light); }
+.brief-section tbody tr:nth-child(even) td { background: var(--surface-zebra); }
 .brief-section td {
     padding: 9px 14px;
     border: none;
-    font-size: 9.5pt;
+    font-size: 10.5pt;
     line-height: 1.5;
     color: var(--sema-text-primary);
 }
@@ -482,9 +477,9 @@ table.info-table td {
 .brief-section th:last-child,
 .brief-section td:last-child  { width: 72%; }
 .brief-section td:first-child {
-    font-size: 11pt;
+    font-size: 10.5pt;
     font-weight: 700;
-    letter-spacing: -0.1px;
+    letter-spacing: 0.05px;
 }
 
 /* ---------- References (inverted dark-warm footer) ---------- */
@@ -495,27 +490,27 @@ table.info-table td {
     padding: 20px 24px 22px;
     margin: 24px 0 0;
     border-radius: 28px;
-    font-size: 7.5pt;
-    line-height: 1.4;
+    font-size: 8.5pt;
+    line-height: 1.45;
 }
 .references-section p { color: rgba(255,255,255,0.82); }
 .references-section h2 {
-    font-size: 14pt;
+    font-size: 11pt;
     color: var(--sema-text-inverse);
     margin: 0 0 10px;
-    border-left: 4px solid var(--sema-accent);
+    border-left: 4px solid rgba(255,255,255,0.35);
     padding: 2px 0 2px 12px;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.15px;
 }
 .references-section h3 {
-    font-size: 10pt;
+    font-size: 9.5pt;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.28px;
     color: var(--sema-text-inverse);
     margin-top: 10px;
     margin-bottom: 4px;
-    line-height: 1.2;
+    line-height: 1.25;
 }
 .references-section h3:first-of-type { margin-top: 2px; }
 .references-section ul {
@@ -523,12 +518,12 @@ table.info-table td {
     color: rgba(255,255,255,0.82);
 }
 .references-section li {
-    margin-bottom: 2px;
-    line-height: 1.35;
-    font-size: 7.5pt;
+    margin-bottom: 3px;
+    line-height: 1.45;
+    font-size: 8.5pt;
 }
 .references-section a { color: var(--sema-text-inverse); }
-.references-section a:hover { color: var(--sand-gray); }
+.references-section a:hover { color: var(--text-muted); }
 /* If any .story wrappers slipped in (rare), flatten them against the dark
  * footer so the inverted block stays uninterrupted. */
 .references-section .story {
@@ -559,12 +554,12 @@ img {
 p > em:only-child {
     display: block;
     text-align: center;
-    font-size: 8.5pt;
+    font-size: 9pt;
     font-weight: 500;
     font-style: italic;
     color: var(--sema-text-secondary);
-    line-height: 1.4;
-    letter-spacing: 0.1px;
+    line-height: 1.45;
+    letter-spacing: 0.12px;
     margin: 4px 0 12px;
 }
 
@@ -687,7 +682,7 @@ def transform_conclusion_blockquotes(block_html: str) -> str:
 
 
 def wrap_structure(html: str) -> str:
-    """Apply DESIGN.md §4 structure — Pinterest v3.
+    """Apply DESIGN.md structure — editorial cards (v4).
 
     Transformations:
       - Title block: h1 + its blockquote subtitle become a .title-card with

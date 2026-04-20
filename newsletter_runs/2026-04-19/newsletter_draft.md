@@ -7,7 +7,7 @@
 
 ## 本周结论
 
-> **核心判断：** 三天内两件事定义了本周。**Claude Design** 让 Anthropic <mark>从基础模型直接跳入设计应用层</mark>，把"prompt → 可交付原型"做成了产品，直面 Figma / Canva 的核心场景；**Codex Desktop 重大升级**把"AI 写代码"变成<mark>"AI 操控整台电脑"</mark>，与 Claude Code Routines 形成正面竞争，**workspace agent** 开始替代 IDE。模型层则暴露了能力分裂的信号：Opus 4.7 benchmark 继续领先，但长文本检索出现明显退化。
+> **核心判断：** 本周两条主线：**应用层**（Claude Design：prompt → 可交付设计）与 **workspace agent**（Codex 全桌面能力 vs Claude Code）。模型侧：**Opus 4.7 长上下文检索明显弱化**，与 benchmark 高分脱节——依赖长 context 的 skill 须单独验证。
 
 ---
 
@@ -19,7 +19,7 @@
 
 | 模块 | 具体详情 |
 |------|---------|
-| 总结 | 上周发布的 Opus 4.7 在 benchmark 上继续领先，本周第一批独立评测显示：**<mark>长上下文检索能力出现明显退化</mark>**，实际工作负载中出现"自信幻觉"——这是对所有用 Claude 做 context 密集型 agent 的团队的直接预警。 |
+| 总结 | **TL;DR：** 长文本检索显著退化（独立 MRCR 复现），短任务 benchmark 仍领先——长 context 场景务必自建评测。 |
 | 关键发现 | ● Epsilla（4/18 分析）复现：**MRCR 长文本检索准确率从 Opus 4.6 的 78.3% 跌至 32.2%**，模型在找不到信息时倾向于"自信编造"而不是承认未知 ● SWE-bench / Terminal-Bench 这类窄任务 benchmark 仍然领先，但 **benchmark 高分与长 context 实用性之间的差距被拉大** ● 一些 Cursor / Claude Code 用户报告长 session 下的工程质量下滑，与 4.6 相反的体验 |
 | 落点 | ● 影响所有长 context 场景：RAG、代码库级重构、多文件 agent、知识库问答 ● 不影响短任务：单文件修复、benchmark 类任务仍然稳定 ● Anthropic 尚未官方回应，社区推测与新 tokenizer 或 adaptive thinking 有关 |
 | 对 skill 设计的含义 | ● 做 context 密集型 skill 时，不能把"模型能读更长上下文"作为免费假设——必须显式检索 / 摘要 / 分段 ● 对"模型会承认不知道"的依赖要降低，加一层显式验证（让模型列出它用的 source，或让第二个 pass 复核） ● 选型时区分：短任务用 Opus 4.7 没问题，长 context 任务保守使用或保留 4.6 fallback |
@@ -47,7 +47,7 @@
 
 | 模块 | 具体详情 |
 |------|---------|
-| 总结 | Anthropic Labs 发布 Claude Design，用自然语言直接生成交互原型、演示文稿、落地页和营销物料。**<mark>Anthropic 从基础模型公司正式跨入应用层</mark>**，直接挑战 Figma 和 Canva 的核心场景。 |
+| 总结 | **TL;DR：** 首款面向终端的设计应用层产品：自然语言直达原型/物料，直接切入 Figma/Canva 场景。 |
 | 核心定位 | "prompt → 可交付设计产物"的端到端工具——不是辅助设计，而是替代设计工具的起步阶段。 |
 | 产品重点 | ● 自然语言描述需求 → 生成交互原型、多屏应用、slide deck、落地页、营销素材 ● **设计系统自动识别**：初次使用时读取团队代码库和设计文件，自动构建配色 / 字体 / 组件规范并持续应用 ● 精修交互四通道：对话 / 行内批注 / 直接编辑 / 自定义调节滑块（间距、颜色、布局） ● 输入支持文本、图片、DOCX / PPTX / XLSX 文件导入并重新设计 ● 导出到 **Canva / PDF / PowerPoint / HTML**，可直接交接给 Claude Code 开发 ● Figma MCP 集成：从 Figma 拉取设计上下文，生成对齐的代码 |
 | 用户场景 | ● 产品经理：一句话生成 PRD 配套的交互原型，会议结束前拿到可点击的 demo ● 营销团队：从 brief 到社媒素材套件，跳过 Figma → Canva 的手工流程 ● 创始人 / 独立开发者：从想法到 pitch deck 到落地页到前端代码，单一工具链完成 |
@@ -83,7 +83,7 @@
 
 | 模块 | 具体详情 |
 |------|---------|
-| 总结 | OpenAI 对 Codex Desktop 做了定义性升级：新增 **Computer Use**（操控桌面应用）、**内置浏览器**、**图像生成**、**定时自动化**，从"AI 写代码"变成**<mark>"AI 操控你的整台电脑"</mark>**。 |
+| 总结 | **TL;DR：** 全桌面 agent：Computer Use + 内置浏览器 + 定时自动化——与 Claude Code 竞争「整台电脑的 workspace」。 |
 | 核心定位 | 通用 workspace agent——不只写代码，还能看屏幕、点鼠标、开浏览器、排日程、记上下文。 |
 | 产品重点 | ● **Computer Use**：Codex 可以看到、点击、输入 macOS 应用，后台多 agent 并行工作不打扰用户 ● **内置浏览器**：基于 Atlas 技术，可打开本地/公网页面，直接在渲染页面上批注下指令 ● **图像生成**：集成 gpt-image-1.5，无需切换到 ChatGPT ● **111 个新插件**：集成 CircleCI / GitLab / Atlassian / Microsoft Suite 等 ● **Thread Automations**：定时任务调度，跨天/跨周保持上下文 ● **Memory**：跨 session 记忆用户习惯和项目规范 ● **远程 SSH**（alpha）+ 多终端标签 + GitHub PR Review 集成 |
 | 用户场景 | ● 设置"每周五自动跑回归测试 + 生成修复 PR"——定时 agent 工作流 ● Computer Use 测试原生 Mac 应用的 GUI 流程——不需要手动操作模拟器 ● 内置浏览器 + 批注：看到页面渲染结果后直接告诉 Codex 要改什么 |
@@ -119,7 +119,7 @@
 
 | 模块 | 具体详情 |
 |------|---------|
-| 总结 | rtrvr.ai 4/15 发布 AI Subroutines v33，把"**<mark>AI 学习一次浏览器操作 → 之后用零 token 脚本重放</mark>**"做成了可用的产品，对所有基于 LLM 循环的 RPA 产品是成本结构级降维。 |
+| 总结 | **TL;DR：** 「学一次 → 零 token 重放」把浏览器自动化边际成本压到接近零。 |
 | 核心机制 | ● 录制一次网页操作，后续重放**零 token、零推理延迟** ● 脚本在页面内原地执行，自动继承身份验证 / CSRF 保护，无需外部代理架构 ● 智能过滤把网络请求从数百个精简到 **~5 个** ● 支持 ChatGPT / Claude 订阅直接 OAuth 登录，不需要单独 API 账单 |
 | 典型场景 | ● WhatsApp 消息触发自动化、语音输入 prompt、结果自动推送到 Google Sheets ● Instagram DM / X 发帖 / LinkedIn 邀请等社交平台批量操作 |
 | 为什么关注 | 当所有人用 LLM token 驱动浏览器自动化时，rtrvr.ai 选了另一条路：**AI 只负责"学习一次"，之后用确定性脚本执行**，把边际成本从"每次都要推理"降到接近零。对我们的 skill 系统是直接启发——**一次性编译的 skill vs. 每次重新推理**可能才是正确的成本曲线。 |
@@ -150,10 +150,10 @@
 
 **项目动作**
 
-- **本周必做：** <mark>深度试用 Claude Design，记录它解决不了的垂直创作场景</mark>——这些就是我们的切入点
-- **本周必做：** <mark>测试 Codex Thread Automations vs Claude Code Routines 的调度能力对比</mark>，选一个作为我们 skill 的调度底座
-- **立刻调整：** <mark>V1 skill 原型中为 Opus 4.7 长 context 退化加 fallback</mark>（显式检索 + 分段摘要），不要等 Anthropic 修复
-- **V1 方向确认：** Claude Design 验证了"prompt → 设计产物"可行，我们的差异化**<mark>必须在垂直深度</mark>**（素材 → 风格 → 成品），不是通用宽度
+- **本周必做：** 深度试用 Claude Design，记录它解决不了的垂直创作场景——这些就是我们的切入点
+- **本周必做：** 测试 Codex Thread Automations vs Claude Code Routines 的调度能力对比，选一个作为我们 skill 的调度底座
+- **立刻调整：** V1 skill 原型中为 Opus 4.7 长 context 退化加 fallback（显式检索 + 分段摘要），不要等 Anthropic 修复
+- **V1 方向确认：** Claude Design 验证了"prompt → 设计产物"可行，我们的差异化**必须在垂直深度**（素材 → 风格 → 成品），不是通用宽度
 
 **下周监控**
 

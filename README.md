@@ -60,7 +60,7 @@
 .claude/agents/          # 各子智能体提示词
 skill/
   SKILL.md               # 权威 SOP（建议先读）
-  DESIGN.md              # 视觉规范（v3）
+  DESIGN.md              # 视觉规范（v4，ElevenLabs 灵感）
   output_template.md     # 撰稿骨架
   rubric.json            # 闸门与打分维度
   record_schemas.json    # 步骤间 JSON 形状

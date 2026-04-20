@@ -7,7 +7,7 @@
 
 ## 本周结论
 
-> **核心判断：** 模型竞争正式进入**<mark>工程能力深水区</mark>**（Opus 4.7 SWE-bench 87.6%），同时 **<mark>Skill 层被三家大厂同时产品化</mark>**（Chrome Skills / Claude Code Routines / Adobe Creative Skills）——从单点能力到可编排工作流，这个转变本周集中发生了。
+> **核心判断：** **模型工程能力**（Opus 4.7 刷新 SWE-bench）与 **Skill 产品化**（Chrome / Claude Code / Adobe 同周落地）在同一条时间线上交汇——从单点模型到可编排工作流。
 
 ---
 
@@ -17,7 +17,7 @@
 
 | 模块 | 具体详情 |
 |------|---------|
-| 总结 | Anthropic 发布的新旗舰模型，用 SWE-bench Verified **87.6%** <mark>把工程场景的能力基准拉高了一个台阶</mark>，价格不变。 |
+| 总结 | **TL;DR：** 新旗舰工程与 agent 能力全面抬升，定价不变；升级需评估 tokenizer 与稳定性。 |
 | 模型能力 | ● 更强的工程能力：SWE-bench Verified **87.6%**（对比 Opus 4.6 的 80.8%、GPT-5.4 的 77.2%）；SWE-bench Pro **64.3%** ● 更强的 Agent 长任务：Terminal-Bench 2.0 **69.4%**；新增自验证机制——模型在执行前自己跑一遍证明，之前的模型没有这个行为 ● 更强的视觉：分辨率提升至 ~3.75MP（3× 提升）；XBOW 视觉精度从 54.5% 跳到 **98.5%** ● 更擅长知识工作：GDPVal-AA Elo **1753**（GPT-5.4: 1674，Gemini 3.1 Pro: 1314） |
 | 产品功能 | ● 已同步上线 Claude API、Amazon Bedrock、Google Vertex AI、Microsoft Foundry ● 新 tokenizer 带来 API breaking change，token 用量增加 1.0–1.35× ● Claude Code Desktop 同步重构为并行 session + Routines 自动化（见 P1） ● 新增 Cyber Verification Program，安全研究者可用于漏洞研究 |
 | 新使用场景 | ● 复杂代码库的长时间自主修复——从"辅助写代码"到"独立完成工程任务" ● 高分辨率视觉理解：设计稿审阅、复杂图表分析、文档扫描 ● 多文件多 session 的 agent 工作流，配合 Routines 实现定时自动化 |
@@ -59,7 +59,7 @@
 
 | 模块 | 具体详情 |
 |------|---------|
-| 总结 | Anthropic 对 Claude Code Desktop 做了架构级重构，<mark>从单一对话窗口变成支持并行 session 的"开发者指挥台"</mark>，同时发布了 Routines 定时自动化。 |
+| 总结 | **TL;DR：** 并行 session + Routines——开发者「多 agent 指挥台」与定时自动化成型。 |
 | 核心定位 | 开发者 AI agent 编排中枢——同时管理多个 repo 的代码修复、重构、测试任务。 |
 | 产品重点 | ● 并行 Session：侧边栏管理所有活跃/历史任务，支持筛选分组，PR 合并后自动归档 ● Routines：prompt + 仓库 + 连接器打包为定时任务，cron / API / GitHub 事件触发，**无需机器在线** ● Side Chat：分支提问不污染主线程上下文（Cmd + ;） ● 内置终端 + diff 查看器 + SSH 支持（Mac/Linux） |
 | 用户场景 | ● 设置 Routine 实现"夜间自动跑回归测试 + 生成修复 PR" ● 远程 SSH session 中完成整个开发-测试-部署循环 |
@@ -85,7 +85,7 @@
 
 | 模块 | 具体详情 |
 |------|---------|
-| 总结 | Google 在 Chrome 中推出 Skills 功能，让用户把常用 Gemini prompt 保存为一键可复用技能，支持多标签页批量执行。<mark>浏览器开始变成 skill runtime</mark>。 |
+| 总结 | **TL;DR：** 浏览器原生 Skills：prompt 资产化 + 多标签批量执行。 |
 | 核心定位 | 浏览器原生的轻量 AI 技能层，把一次性 prompt 固化为可跨页面执行的技能组件。 |
 | 产品重点 | ● 从 Gemini 聊天历史一键保存 prompt 为 Skill ● 侧边栏 `/` 或 `+` 快速调出已保存技能 ● 多标签页同时执行同一 Skill ● Skills Library 预置模板库（规格对比、营养计算、PDF 扫描），可自定义 |
 | 用户场景 | ● 跨多标签页比对产品规格和价格 ● 长文档 / PDF 快速扫描提取关键信息 ● 把"prompt 资产"沉淀为可复用技能库 |
@@ -109,7 +109,7 @@
 
 | 模块 | 具体详情 |
 |------|---------|
-| 总结 | Adobe 发布 Firefly AI Assistant，把 Photoshop / Premiere / Illustrator / Lightroom / Express 抽象成单一对话驱动的 agent 工作流。<mark>创作软件开始被 agent 统一</mark>。 |
+| 总结 | **TL;DR：** 跨 Adobe 套件的统一对话式 agent；Creative Skills 沉淀可复用创作链。 |
 | 核心定位 | 统一的创意 agent 入口——描述目标，系统在多个 Adobe 应用间自动规划和执行多步工作流。 |
 | 产品重点 | ● 自然语言描述目标，agent 自动选工具和步骤 ● ~100 个内置 tools & skills，agent 自行决定用法 ● Creative Skills：常用创作链路固化为可复用多步技能 ● 原生可编辑输出（PSD / AI / Premiere），不是扁平导出 ● 集成 30+ 行业 AI 模型（Kling 3.0 / Runway / ElevenLabs） |
 | 用户场景 | ● "做一套社媒素材"：一句话触发裁切 + 扩图 + 多平台适配 + 优化导出 ● "把这张图变成一个 15 秒短视频"：跨 Firefly → Premiere → Express |
@@ -135,7 +135,7 @@
 
 | 模块 | 具体详情 |
 |------|----------|
-| 总结 | Product Hunt #1（**558 票**）。<mark>把语音做成桌面操作系统级交互层</mark>：**200+ WPM 听写** + 跨 10+ 应用语音指令，三平台覆盖。 |
+| 总结 | **TL;DR：** PH #1：桌面级语音 OS；200+ WPM 听写 + 跨应用指令，三平台。 |
 | 核心卖点 | ● **200+ WPM 听写**（约 4× 键盘打字速度）● 上下文感知格式化：邮件 → 正式语气、Slack → 口语、Notion → Markdown ● 跨 10+ 应用语音指令：Gmail / Calendar / Todoist / VS Code 等 ● Windows / macOS / Linux 三平台覆盖 |
 | 使用场景 | ● 长文档写作 / 邮件回复 / 代码注释 全部用语音完成 ● 开会时同步整理会议纪要与待办 ● 视障或轻度重复性劳损（RSI）用户的替代输入方案 |
 | 商业模式 | 桌面订阅制，早期采用者定价未完全公开。PH 发布当天 558 票位列日榜 #1，冲榜策略明显。 |
@@ -171,9 +171,9 @@
 
 **项目动作**
 
-- **本周必做：** <mark>上手 Claude Code Routines + Chrome Skills</mark>
-- **等待跟进：** <mark>Adobe Firefly beta 深度测试</mark>
-- **V1 方向：** <mark>锁定窄创作链路</mark>（素材整理 → 风格参考 → brief 生成），做第一个可复用 skill
+- **本周必做：** 上手 Claude Code Routines + Chrome Skills
+- **等待跟进：** Adobe Firefly beta 深度测试
+- **V1 方向：** 锁定窄创作链路（素材整理 → 风格参考 → brief 生成），做第一个可复用 skill
 
 **下周监控**
 
