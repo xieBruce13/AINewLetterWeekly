@@ -1,0 +1,66 @@
+# ============================================================
+# Newsletter build artifacts
+# ============================================================
+# HTML + PDF are re-generated from newsletter_draft.md via
+# tools/convert_to_pdf.py — no need to check them in.
+*.html
+*.pdf
+
+# Legacy config from an earlier rendering pipeline
+pdf-config.json
+pdf-style.css
+
+# Per-run scratch / image cache (keep the JSON artifacts, skip binaries)
+# Uncomment if you prefer not to version run images:
+# newsletter_runs/**/images/
+
+# ============================================================
+# Python
+# ============================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+env/
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ============================================================
+# Secrets / env
+# ============================================================
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+
+# ============================================================
+# OS
+# ============================================================
+.DS_Store
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# ============================================================
+# Editors / IDEs
+# ============================================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.cursor/
+
+# Claude Code per-user local settings (allow-lists, etc.)
+.claude/settings.local.json
+
+# ============================================================
+# Logs
+# ============================================================
+*.log
+logs/

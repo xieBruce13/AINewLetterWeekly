@@ -1,0 +1,2 @@
+# Newsletter HTML renderer (tools/convert_to_pdf.py)
+markdown>=3.4

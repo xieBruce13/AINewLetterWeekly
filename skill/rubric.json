@@ -1,0 +1,182 @@
+{
+  "models": {
+    "gates": [
+      {
+        "gate": "is_model_event",
+        "description": "Only these qualify: new model release, version upgrade, benchmark/capability jump, context/latency/pricing major change, API capability addition, open-weight release, significant training method paper. Company funding, executive quotes, and general AI commentary do NOT qualify unless they directly affect model availability or roadmap.",
+        "fail_action": "drop immediately"
+      },
+      {
+        "gate": "has_tier1_or_tier2_source",
+        "description": "Must have at least one official source (Tier 1) or technical signal source (Tier 2: HF Trending, GitHub Trending, HN, arXiv, benchmark repo). If only Tier 3 newsletter mentions exist, move to watchlist.",
+        "fail_action": "move to watchlist"
+      },
+      {
+        "gate": "minimum_evidence_met",
+        "description": "At least one concrete, verifiable claim with a traceable URL. Vague summaries without checkable facts fail this gate.",
+        "fail_action": "move to watchlist"
+      }
+    ],
+
+    "dimensions": {
+      "real_capability_change": {
+        "min": 0, "max": 3,
+        "anchors": {
+          "3": "New flagship model, major upgrade, or clear jump in reasoning / coding / agent / multimodal / context capability",
+          "2": "Meaningful but narrower improvement in a specific capability axis",
+          "1": "Mostly packaging, messaging, or minor tuning",
+          "0": "No real capability change detected"
+        }
+      },
+      "selection_impact": {
+        "min": 0, "max": 2,
+        "anchors": {
+          "2": "Clearly changes what model a product team should choose for a real workflow",
+          "1": "Affects a niche workflow or edge case only",
+          "0": "Interesting but no practical selection impact"
+        }
+      },
+      "evidence_quality": {
+        "min": 0, "max": 2,
+        "anchors": {
+          "2": "Official release + independent third-party validation (benchmark, Artificial Analysis, community reproduction)",
+          "1": "Official release + credible secondary discussion, but no independent benchmark yet",
+          "0": "Official claims only, or weaker"
+        }
+      },
+      "ecosystem_echo": {
+        "min": 0, "max": 2,
+        "anchors": {
+          "2": "Widespread adoption signals: ecosystem tooling already adapting, multiple independent projects building on it",
+          "1": "Some community discussion or early integrations",
+          "0": "No visible ecosystem reaction"
+        }
+      },
+      "durability": {
+        "min": 0, "max": 1,
+        "anchors": {
+          "1": "Expected to remain relevant for 1+ months; not likely to be superseded next week",
+          "0": "Likely short-lived, already being superseded, or one-off event"
+        }
+      },
+      "hype_penalty": {
+        "min": -3, "max": 0,
+        "anchors": {
+          "0": "Claims are proportionate to available evidence",
+          "-1": "Official claim only, no external validation yet — stated confidently by vendor",
+          "-2": "Demo-driven buzz, no independent reproduction or benchmark",
+          "-3": "Pure media/community hype, no technical evidence or verifiable artifact"
+        }
+      }
+    },
+    "total_formula": "real_capability_change + selection_impact + evidence_quality + ecosystem_echo + durability + hype_penalty",
+    "total_range": "theoretical -3 to 10",
+
+    "thresholds": {
+      "main": { "min_score": 7, "description": "Full expanded entry in the newsletter" },
+      "brief": { "min_score": 5, "description": "2-3 line mention in the brief section" },
+      "drop": { "below": 5, "description": "Archived with reason, not published" }
+    },
+
+    "editorial_gates": [
+      "Is the capability change real (not just messaging)?",
+      "Does it affect product model selection for a concrete workflow?"
+    ],
+    "note": "Both editorial gates must pass for a main entry. If either is weak, demote to brief or drop."
+  },
+
+  "products": {
+    "gates": [
+      {
+        "gate": "user_can_perceive_today",
+        "description": "The product/feature must be publicly available, in public beta, or have a confirmed imminent launch date. Pure concept or closed alpha with no public access fails.",
+        "fail_action": "deprioritize; max tier = brief"
+      },
+      {
+        "gate": "evidence_beyond_single_source",
+        "description": "Must appear in more than one independent source. A single newsletter mention without any corroborating official page or community discussion fails.",
+        "fail_action": "move to watchlist"
+      }
+    ],
+
+    "dimensions": {
+      "user_visibility": {
+        "min": 0, "max": 2,
+        "anchors": {
+          "2": "User can perceive and use the change today",
+          "1": "Announced but not yet widely available, or backend change with visible downstream effect",
+          "0": "Pure infrastructure / internal change"
+        }
+      },
+      "access_barrier_change": {
+        "min": 0, "max": 2,
+        "anchors": {
+          "2": "Free tier opened, new region, new platform, API opened — significantly lowers barrier",
+          "1": "Partial opening or minor access improvement",
+          "0": "No access change"
+        }
+      },
+      "workflow_change": {
+        "min": 0, "max": 3,
+        "anchors": {
+          "3": "Fundamentally changes how users complete a task end-to-end (single-turn→multi-step agent, text→multimodal, tool-calling→computer-use, single-asset→full-chain)",
+          "2": "Notable improvement in an existing workflow step",
+          "1": "Incremental convenience improvement",
+          "0": "No workflow change"
+        }
+      },
+      "distribution_change": {
+        "min": 0, "max": 2,
+        "anchors": {
+          "2": "New platform, system-level integration, or major partnership that changes reach",
+          "1": "Minor distribution expansion",
+          "0": "No distribution change"
+        }
+      },
+      "user_reaction": {
+        "min": 0, "max": 2,
+        "anchors": {
+          "2": "Spontaneous, widespread community discussion on Reddit/X/HN; real user testimonials",
+          "1": "Some discussion, mostly prompted by official announcement",
+          "0": "No visible user reaction beyond press coverage"
+        }
+      },
+      "relevance_to_our_direction": {
+        "min": 0, "max": 3,
+        "anchors": {
+          "3": "Directly aligned: creation workflow, AIGC, design, video generation, material organization, style learning, context/skill layer",
+          "2": "Adjacent: productivity tools, knowledge management, AI-native interfaces",
+          "1": "Loosely related: general AI tooling",
+          "0": "Unrelated to our direction"
+        }
+      },
+      "evidence_quality": {
+        "min": 0, "max": 2,
+        "anchors": {
+          "2": "Official product page + visible market signal (PH rank, user counts, community adoption)",
+          "1": "Official announcement + media coverage, but limited real user evidence",
+          "0": "Mostly commentary, no primary source"
+        }
+      },
+      "hype_penalty": {
+        "min": -3, "max": 0,
+        "anchors": {
+          "0": "Product evidence matches the narrative",
+          "-1": "Impressive demo but limited real user feedback yet",
+          "-2": "Flashy demo, no public access or reproducible experience",
+          "-3": "Vaporware vibes — concept video only, no product artifact"
+        }
+      }
+    },
+    "total_formula": "user_visibility + access_barrier_change + workflow_change + distribution_change + user_reaction + relevance_to_our_direction + evidence_quality + hype_penalty",
+    "total_range": "theoretical -3 to 16",
+
+    "thresholds": {
+      "main": { "min_score": 10, "description": "Full expanded entry in the newsletter" },
+      "brief": { "min_score": 7, "description": "2-3 line mention in the brief section" },
+      "drop": { "below": 7, "description": "Archived with reason, not published" }
+    },
+
+    "diversity_rule": "Top N items should have at most N-1 entries from the same company. If one company dominates, demote the weakest entry to brief and promote the next-best from a different company."
+  }
+}

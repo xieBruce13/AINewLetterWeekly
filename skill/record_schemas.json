@@ -1,0 +1,114 @@
+{
+  "model_record": {
+    "module": "model",
+    "name": "",
+    "version": "",
+    "company": "",
+    "updated_at": "",
+
+    "source_tier": "official | third-party-validation | secondary | community-only",
+    "source_primary": [],
+    "source_validation": [],
+    "source_secondary": [],
+    "raw_urls": [],
+
+    "update_type": "",
+    "official_claims": [],
+    "external_validation_summary": "",
+    "verification_status": "verified | partially-verified | unverified",
+    "confidence": "high | medium | low",
+
+    "real_change_notes": "",
+    "selection_impact_notes": "",
+    "price_speed_cost_notes": "",
+    "app_api_workflow_notes": "",
+    "new_use_cases": [],
+    "business_model": "",
+    "ecosystem_echo": "",
+    "durability_notes": "",
+    "risk_caveat": "",
+
+    "user_market_feedback": {
+      "good": [],
+      "bad": []
+    },
+
+    "one_line_judgment": "",
+    "relevance_to_us": "",
+
+    "gate_results": {
+      "is_model_event": null,
+      "has_tier1_or_tier2_source": null,
+      "minimum_evidence_met": null
+    },
+    "score_breakdown": {
+      "real_capability_change": null,
+      "selection_impact": null,
+      "evidence_quality": null,
+      "ecosystem_echo": null,
+      "durability": null,
+      "relevance_to_our_direction": null,
+      "hype_penalty": null,
+      "total": null,
+      "justifications": {}
+    },
+    "item_tier": "main | brief | dropped",
+    "drop_reason": ""
+  },
+
+  "product_record": {
+    "module": "product",
+    "name": "",
+    "company": "",
+    "updated_at": "",
+
+    "source_tier": "official-changelog | discovery-platform | media | community-only",
+    "source_primary": [],
+    "source_secondary": [],
+    "raw_urls": [],
+
+    "launch_signal": "",
+    "core_positioning": "",
+    "problem_it_solves": "",
+
+    "user_visibility": "",
+    "access_barrier_change": "",
+    "workflow_change": "",
+    "distribution_change": "",
+    "new_product_form": "",
+    "interaction_pattern": "",
+    "user_scenarios": [],
+    "business_model": "",
+    "risk_caveat": "",
+
+    "market_feedback": {
+      "good": [],
+      "bad": []
+    },
+
+    "verification_status": "verified | partially-verified | unverified",
+    "confidence": "high | medium | low",
+    "market_signal_strength": "",
+    "relevance_to_us": "",
+    "one_line_judgment": "",
+
+    "gate_results": {
+      "user_can_perceive_today": null,
+      "evidence_beyond_single_source": null
+    },
+    "score_breakdown": {
+      "user_visibility": null,
+      "access_barrier_change": null,
+      "workflow_change": null,
+      "distribution_change": null,
+      "user_reaction": null,
+      "relevance_to_our_direction": null,
+      "evidence_quality": null,
+      "hype_penalty": null,
+      "total": null,
+      "justifications": {}
+    },
+    "item_tier": "main | brief | dropped",
+    "drop_reason": ""
+  }
+}
