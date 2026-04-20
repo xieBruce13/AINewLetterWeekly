@@ -152,19 +152,17 @@ p { margin: 6px 0; }
 strong { color: var(--sema-text-primary); font-weight: 700; }
 em { color: var(--sema-text-primary); font-style: italic; }
 
-/* ---------- Yellow highlight for the single most important phrase
- * per section. Use SPARINGLY — at most 1-2 per card. It is a spotlight,
- * not a formatting style. Applied via literal <mark>…</mark> in the
- * markdown source. Pairs naturally with <strong> for bold-highlight. */
+/* ---------- <mark> in source: no yellow wash (HTML / print / PDF). */
 mark {
-    background: linear-gradient(180deg, transparent 0%, transparent 18%, #fff2a8 18%, #fff2a8 95%, transparent 95%);
-    color: var(--sema-text-primary);
-    padding: 0 2px;
-    border-radius: 2px;
+    background: none;
+    color: inherit;
+    padding: 0;
+    border-radius: 0;
     font-weight: inherit;
 }
 strong mark, mark strong {
-    background: linear-gradient(180deg, transparent 0%, transparent 12%, #ffea7a 12%, #ffea7a 96%, transparent 96%);
+    background: none;
+    color: inherit;
     font-weight: 700;
 }
 a {
