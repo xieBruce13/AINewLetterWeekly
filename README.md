@@ -105,7 +105,7 @@ playwright install chromium
 python ../../tools/render_pdf.py
 ```
 
-会在同一目录生成 `ai_newsletter_weekly_YYYY-MM-DD.pdf`。也可指定文件：`python ../../tools/render_pdf.py ./ai_newsletter_weekly_2026-04-19.html`。
+会在同一目录生成 `ai_newsletter_weekly_YYYY-MM-DD.pdf`。也可指定文件：`python ../../tools/render_pdf.py ./ai_newsletter_weekly_YYYY-MM-DD.html`。
 
 ### 仍想用浏览器打印时
 
