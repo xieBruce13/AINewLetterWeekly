@@ -1,106 +1,167 @@
 # Awsome AI Newsletter
 
-面向团队的 **AI 行业周报**：不是简单资讯汇总，而是一套固定流程——从选题、核实到成稿、排版——保证每一期都**有据可查、结构统一、方便内部传阅**（网页或 PDF）。
+面向团队的 **AI 行业周报 Agent**：不是简单资讯汇总，而是一套固定流程——从选题、核实到成稿、排版——保证每一期都**有据可查、结构统一、方便内部传阅**（网页或 PDF）。
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 ---
 
-## 这套流程在做什么？
+## 这个 Agent 能干什么？
 
-你可以把它想成编辑部的一条「流水线」，从 **「这周写什么」** 一路走到 **「可分享的成品」**：
+### 能力 1 · 自动播报每周重要的 AI 资讯
 
-1. **定范围**  
-   先锁定本期时间窗和侧重点（模型 / 产品 / 初创等），避免后面跑散。
+按项目内既定的「重要性」定义（见下文「什么算重要」），自动跑完整条流水线，产出一份结构化、可直接传阅的周报（HTML / PDF）。
 
-2. **收集线索**  
-   按优先级扫一圈：官方发布、技术评测与榜单、行业通讯、社区讨论（例如 Reddit）。模型与产品两条线可以并行收集。
+- 默认时间窗口：过去 7 天；默认模块：**模型 + 产品**
+- 由多个专职智能体分工完成：收集 → 过滤 → 核对 → 打分 → 取舍 → 撰稿 → 质检 → 发布
+- 每一步都有 JSON 中间产物，支持事后复盘与规则调参
 
-3. **过筛与整理**  
-   去掉噪声、把零散信息整理成统一格式，方便后面打分和写作。
+### 能力 2 · 按角色/场景支持差异化搜索
 
-4. **核对与补声音**  
-   重要说法尽量能对上原始出处；同时补上真实用户的说法（例如 Reddit），让「社区里的人在说什么」有据可查。
+同一套流水线，按调用方的角色、关注方向、深度动态切片——换一组参数就能得到不同侧重的资讯。
 
-5. **打分与取舍**  
-   按既定标准给每条线索打分，再决定：哪些写长文、哪些短讯、哪些本期不写，并兼顾多样性（避免整期只聊一家公司）。
+调用时可显式指定：
 
-6. **撰稿**  
-   按统一骨架写 `newsletter_draft.md`：主条目里会区分「官方 / 外部验证 / 社区 / 编辑判断」等层次，避免混成一段新闻摘要。
+- `modules`：要跑哪些模块（`models` / `products` / 两者）
+- `focus_topics`：本期重点话题（例如 `coding agent`、`图像生成`、`设计类工具`）
+- `must_include`：必须包含的具体条目
+- `audience`：目标读者（策略 / PM / 投资人 / 创作者工具 / 通用）
+- `top_n_per_module`：每个模块最多保留几条主条目
 
-7. **质检**  
-   对照清单检查结构、引用与风格；不通过就回到上一步改稿，直到达标。
+典型角色切片示例：
 
-8. **发布**  
-   配图就位后，生成可在浏览器阅读的 **HTML**；需要存档或分享时再导出 **PDF**（推荐用仓库里的脚本导出，版式与屏幕一致）。
+| 角色 | 关键参数 | 侧重 |
+|---|---|---|
+| 模型决策 / 选型 | `modules=models`，focus=coding/agent/长上下文 | 旗舰变化、价格速度、选型影响 |
+| 产品 PM / 竞品分析 | `modules=products`，focus=workflow/交互形态 | workflow 变化、交互新范式、竞品动作 |
+| 创作者工具方向 | `modules=products`，focus=AIGC/设计/视频/素材 | 创作链路工具、设计/视频生成 |
+| 投资人 / 战略 | `modules=products`，focus=商业模式/分发变化 | 市场信号、access barrier 变化、初创聚焦 |
+| 技术趋势监控 | 仅保留 Tier 1+2 信源，忽略二手 newsletter | 官方一手 + 技术信号 |
+| 自定义主题 | `focus_topics` + `must_include` | 围绕指定主题抓一周相关条目 |
 
-整条流水线由 **多个专职智能体** 分工完成（在 Claude Code、Cursor 等环境里可按同一套说明调度）。这样做的好处是：每一步只做一件事，**不容易漏步骤**，也方便以后只改「收集规则」或「排版」而不用重写全部指令。
+触发很轻量，在 Claude Code / Cursor 里一句中文即可，例如：  
+> 「按 newsletter SOP 跑本周周报，只看产品模块，重点关注 creator tools 方向」
 
 ---
 
-## 每一步怎么做？好在哪里？
+## 产出的资讯包含哪些内容？
 
-下面按顺序说明：每一步**具体在干什么**，以及**为什么要单独成一步**（价值）。
+周报一共 7 段，按固定顺序呈现，总篇幅目标 **6–8 页 PDF**：
 
-### 1. 定范围
+1. **本周结论** — 1–2 个 callout，说清本期核心判断 + 对我们意味着什么
+2. **模型模块** — 1 句模块总结 + 每条主条目一张卡片
+3. **产品模块** — 1 句模块总结 + 每条主条目一张卡片
+4. **初创聚焦** — 每期至少 1 个非大厂的独立/初创产品
+5. **简讯** — 一张紧凑 2 列表格：名称 + 一句话
+6. **编辑部判断** — 趋势 + 项目动作 + 下周监控
+7. **参考来源** — 按模型/产品分组，最小号灰字，便于溯源
 
-- **怎么做：** 先写清本期日期、覆盖哪几天、写「模型 / 产品」哪些模块、是否必须包含某些话题、读者是谁。若团队有「每日信号」积累，也会在这里并进来。  
-- **好在哪里：** 避免后面收集和写作发散成「什么都想写」；同一套周报里大家先对齐**本期到底回答什么问题**。
+### 模型模块 · 每条主条目结构
 
-### 2. 收集线索
+| 字段 | 含义 |
+|---|---|
+| 总结 | 一句话：谁的什么模型，最值得记住的卖点 |
+| 模型能力 | 2–4 个核心能力变化，带具体数字 |
+| 产品功能 | 在哪些产品里可用，API 是否可用，影响什么工作流 |
+| 新使用场景 | 能力落地后用户新能做什么 |
+| 商业模式 | 定价与策略，具体数字 |
+| 用户反馈 | 好 / 坏各 2–3 条，引真实用户原话（译为中文） |
+| 与我们的关系 | 对我们产品方向的具体启发 |
 
-- **怎么做：** 按固定顺序扫信源：优先看官方与一手发布，再看独立评测、榜单与通讯，最后看社区（如 Reddit、HN）。模型与产品两条线可以并行收集，并顺手记下可用的产品截图链接。  
-- **好在哪里：** **先重证据、后重热闹**，减少「只有二手解读没有来源」；并行收集能加快一期周转。
+外加一个小 2×2 表：**官方声明 ｜ 外部验证 ｜ 社区反馈 ｜ 编辑判断**——四层分明、不混写。
 
-### 3. 过筛与整理
+### 产品模块 · 每条主条目结构
 
-- **怎么做：** 用统一门槛去掉明显不够格或证据不足的条目；剩下的整理成结构一致的信息块（同一套字段），方便后面写进同一模板。  
-- **好在哪里：** 避免把谣言、软广或纯公关稿当主条；**格式统一**后，后面写稿和打分不会一人一个样。
+| 字段 | 含义 |
+|---|---|
+| 总结 | 一句话：谁的什么产品，最值得记住的卖点 |
+| 核心定位 | 解决什么问题，给谁用 |
+| 产品重点 | 2–4 个核心功能 / 变化点 |
+| 用户场景 | 用户在什么场景下会用它 |
+| 商业模式 | 定价与策略 |
+| 用户反馈 | 好 / 坏，引真实用户原话（译为中文） |
+| 与我们的关系 | 对我们产品方向的具体启发 |
 
-### 4. 核对与补声音
+---
 
-- **怎么做：** 对「官方声明」类内容尽量核对到原始页面或文档；同时去社区里找真实用户的讨论，摘几条**可引用**的原话（翻译进正文），反映褒贬与实际使用体验。  
-- **好在哪里：** 把「厂商怎么说」和「用户实际感受」分开，**降低被单一声道带偏**的风险；读者能看到舆论场，而不只是通稿。
+## 什么算「重要」？（过滤与打分）
 
-### 5. 打分与取舍
+重要性门槛和权重都写在 `skill/rubric.json` 里，每一条都留存判断理由，可复盘。
 
-- **怎么做：** 用同一套量表给候选条目打分（例如信息密度、证据强弱、与读者相关性）；再决定进主条、进简讯还是本期不写，并兼顾**不要整期只聊一家或一类话题**。  
-- **好在哪里：** 取舍**可复盘、可解释**（为什么这条上、那条没上）；编辑意图透明，而不是凭感觉。
+**模型模块**  
+硬门槛：必须是模型事件（新模型/版本升级/能力跳跃/价格变化/API 能力/开源权重） + 至少一个官方或技术信号一手源 + 至少一条可核对 claim。  
+打分维度：能力真变化 · 对选型的影响 · 证据质量 · 生态反响 · 持久度 · 炒作减分。  
+分档：**main ≥ 7 ｜ brief 5–6 ｜ drop < 5**。
 
-### 6. 撰稿
+**产品模块**  
+硬门槛：用户今天就能感知到（不是 closed alpha） + 至少两个独立来源。  
+打分维度：用户可见度 · 准入变化 · 工作流变化 · 分发变化 · 用户反应 · 与我们方向相关性 · 证据质量 · 炒作减分。  
+分档：**main ≥ 10 ｜ brief 7–9 ｜ drop < 7**。
 
-- **怎么做：** 按固定骨架写 Markdown 成稿：主条目里分层呈现「官方 / 外部验证 / 社区 / 编辑判断」等，避免混成一段新闻摘要；简讯用表格集中呈现短信号。  
-- **好在哪里：** 每期**版式一致**，读者知道去哪里找「事实」、去哪里找「我们怎么看」；方便内部转发和存档。
+**两条结构性规则**
+- **多样性**：Top N 主条目同公司最多 N−1 条，超出则降级
+- **初创必带**：每期至少 1 个非大厂（非 OpenAI / Anthropic / Google / Meta / Microsoft / Adobe / Apple）的独立或初创产品
 
-### 7. 质检
+---
 
-- **怎么做：** 对照清单检查：结构是否齐全、引用与分层是否合规、有没有漏步骤；不达标则退回改稿，直到通过。  
-- **好在哪里：** 多一道**固定标准的检查**，减少「赶工导致漏块、漏引用」；质量更稳定。
+## 信源（分 Tier 扫描）
 
-### 8. 发布
+**模型模块**
+- Tier 1（一手）：OpenAI、Anthropic、Google Gemini、Meta AI、Mistral、xAI 官方博客与 Release Notes（次要：GLM、MiniMax、Kimi、Midjourney、Seedream、Flux 等）
+- Tier 2（技术信号）：Hugging Face、GitHub Trending、Hacker News、arXiv
+- 外部验证：Arena / LMSYS、Artificial Analysis、LiveBench
+- Tier 3（二手补漏）：Import AI、TLDR AI、The Rundown AI
 
-- **怎么做：** 配图下载到当期目录后，用脚本把 Markdown 渲染成 **HTML**；需要 PDF 时用仓库里的导出脚本，使版式与屏幕一致。  
-- **好在哪里：** 得到**可直接打开阅读的成品**，便于发群、归档或打印；HTML 与 PDF 流程分开，避免每次手工调格式。
+**产品模块**
+- Tier 1（一手）
+  - 官方 changelog：ChatGPT、Claude、Gemini Apps、Perplexity、xAI Dev
+  - **重点竞品官方社媒账号**：@OpenAI、@AnthropicAI、@GoogleDeepMind、@GeminiApp、@MetaAI、@MistralAI、@xai、@perplexity_ai、@midjourney、@runwayml、@pika_labs、@LumaLabsAI、@suno_ai_、@elevenlabsio、@heygen_official、@figma、@canva、@Adobe、@framer、@gamma_app、@notion、@cursor_ai、@replit、@v0、@lovable_dev、@bolt_new、@devin_ai、@windsurf_ai、@githubcopilot…
+  - **行业 KOL 推特**：@sama、@gdb、@miramurati、@DarioAmodei、@demishassabis、@sundarpichai、@elonmusk、@AravSrinivas、@mustafasuleyman、@alexandr_wang、@karpathy、@ylecun、@emollick、@OfficialLoganK、@swyx、@simonw、@goodside、@pmarca、@levie、@zoink（Dylan Field）、@bilawalsidhu、@nickfloats…（中文圈：@dotey、@op7418、@oran_ge、@jikeshijian）
+- Tier 2（发现与分发）：Product Hunt、Futurepedia、There's An AI For That、Toolify、Google Trends、TikTok Creative Center、YouTube Charts、X Trends
+- Tier 3（newsletter / 媒体）：The Rundown AI、Ben's Bites、Superhuman AI、TLDR AI、AI Breakfast、The Verge AI、WIRED AI、TechCrunch AI、THE DECODER 等
+- 社区：Reddit（r/artificial、r/singularity、r/LocalLLaMA、r/ChatGPT、r/ClaudeAI、r/MachineLearning 等）、Hacker News、YC Startup Directory、Hugging Face、Indie Hackers
+
+---
+
+## 流水线（每步干什么）
+
+整条流水线由多个专职 agent 分工完成：
+
+| 步骤 | Agent | 产出 |
+|---|---|---|
+| 0 | orchestrator | 锁定本期范围（run_header） |
+| 1 | collector | 按 Tier 扫信源，顺手存真实产品图片 URL（raw records） |
+| 2 | filter | 跑 gate check，丢掉不合规条目 |
+| 3 | normalizer | 扩成完整 schema |
+| 4 | verifier | 核对官方原始出处 + Reddit 真实用户原话 2–4 条 |
+| 5 | scorer | 每维度打分 + 写理由 |
+| 6 | triage-editor | 三档取舍 + 多样性 + 初创必带 |
+| 7 | writer | 按 `output_template.md` 成稿，用户原话全部译为中文 |
+| 8 | qa-reviewer | 对照清单检查，不过就回退 |
+| 9 | publisher | 下图 + 生成 HTML（必要时导出 PDF） |
+
+每一步只做一件事，方便以后只改「收集规则」或「排版」而不用重写全部指令。详细规则以 **`skill/SKILL.md`** 为准。
 
 ---
 
 ## 你怎么用？
 
-1. **装一下本地渲染依赖**（把 Markdown 变成 HTML）：  
+1. **装本地渲染依赖**（Markdown → HTML）：  
    `pip install -r requirements.txt`
 
-2. **在智能体里说一句**，例如：「按 newsletter SOP 跑本周周报」或使用项目里配置的 **newsletter 编排**能力。
+2. **在智能体里说一句**，例如：  
+   > 「按 newsletter SOP 跑本周周报」  
+   > 「只看模型模块，保留 top 3，强调选型影响」  
+   > 「看这周的产品新闻，重点关注 workflow 变化和创作方向相关性」
 
 3. **到 `newsletter_runs/某期日期/` 里取稿**：  
-   主文件是 `newsletter_draft.md`，同目录下还有当期素材与生成好的网页文件。
-
-需要 **PDF** 时，进入该期目录后执行 `tools/render_pdf.py`（详见下文「导出 PDF」）；详细步骤与规则以 **`skill/SKILL.md`** 为准。
+   主文件 `newsletter_draft.md`，同目录下有素材图与生成好的网页文件。
 
 ---
 
 ## 导出网页与 PDF
 
-在 **某一期的文件夹**（如 `newsletter_runs/2026-04-19/`）里：
+在**某一期的文件夹**（如 `newsletter_runs/2026-04-19/`）里：
 
 ```bash
 python ../../tools/convert_to_pdf.py
@@ -123,7 +184,11 @@ python ../../tools/render_pdf.py
 | 位置 | 作用（一句话） |
 |------|----------------|
 | `skill/SKILL.md` | 整条流程的说明书（想深入从这里读） |
+| `skill/rubric.json` | 门槛定义 + 打分维度 |
+| `skill/record_schemas.json` | 每条记录的字段结构 |
+| `skill/output_template.md` | 周报成品模板 |
 | `skill/DESIGN.md` | 版面与配色约定 |
+| `.claude/agents/` | 10 个专职智能体的 prompt |
 | `newsletter_runs/` | 按日期归档的每一期草稿、图片与网页 |
 | `tools/` | 把 Markdown 渲染成 HTML、导出 PDF 的脚本 |
 
