@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowUp, Bot, Loader2, User2, Wrench } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import ReactMarkdown from "react-markdown";
 
 interface PinnedItem {
   id: number;
@@ -187,10 +188,16 @@ function Bubble({ message }: { message: any }) {
             : "bg-white text-claude-body shadow-hairline dark:bg-white/[0.04] dark:text-white/90"
         )}
       >
-        {toolInvocations.map((t, i) => (
-          <ToolBadge key={i} invocation={t} />
-        ))}
-        {text && <p className="whitespace-pre-wrap">{text}</p>}
+        <ToolSummary invocations={toolInvocations} />
+        {text && (
+          isUser ? (
+            <p className="whitespace-pre-wrap">{text}</p>
+          ) : (
+            <div className="prose prose-sm max-w-none dark:prose-invert prose-p:my-1 prose-headings:my-2 prose-ul:my-1 prose-ol:my-1 prose-li:my-0.5 prose-strong:text-claude-ink dark:prose-strong:text-white prose-code:rounded prose-code:bg-claude-surface-soft prose-code:px-1 prose-code:py-0.5 prose-code:text-[12px] dark:prose-code:bg-white/10 prose-table:text-[13px] prose-th:py-1.5 prose-td:py-1.5">
+              <ReactMarkdown>{text}</ReactMarkdown>
+            </div>
+          )
+        )}
       </div>
       {isUser && (
         <div className="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-claude-ink text-white">
@@ -201,19 +208,53 @@ function Bubble({ message }: { message: any }) {
   );
 }
 
-function ToolBadge({ invocation }: { invocation: any }) {
-  const name = invocation.toolName ?? "tool";
-  const labels: Record<string, string> = {
-    search_news: "搜索新闻库",
-    get_item: "加载新闻详情",
-    save_item: "保存到你的列表",
-    dismiss_item: "从你的 feed 隐藏",
-    remember: "记下了一件关于你的事",
-  };
+const TOOL_LABELS: Record<string, string> = {
+  search_news: "搜索新闻库",
+  get_item: "加载详情",
+  save_item: "已收藏",
+  dismiss_item: "已隐藏",
+  remember: "记下了",
+};
+
+function ToolSummary({ invocations }: { invocations: any[] }) {
+  const [open, setOpen] = useState(false);
+  if (invocations.length === 0) return null;
+
+  // Deduplicate by toolName and count.
+  const counts: Record<string, number> = {};
+  for (const t of invocations) {
+    const name = t.toolName ?? "tool";
+    counts[name] = (counts[name] ?? 0) + 1;
+  }
+  const summary = Object.entries(counts)
+    .map(([name, n]) => `${TOOL_LABELS[name] ?? name}${n > 1 ? ` ×${n}` : ""}`)
+    .join(" · ");
+
   return (
-    <div className="inline-flex items-center gap-1.5 rounded-pill bg-claude-surface-soft px-2.5 py-0.5 text-[12px] text-claude-muted dark:bg-white/10">
-      <Wrench className="h-3 w-3" />
-      <span>{labels[name] ?? name}</span>
+    <div className="mb-1">
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        className="inline-flex items-center gap-1.5 rounded-pill bg-claude-surface-soft px-2.5 py-0.5 text-[11px] text-claude-muted transition-colors hover:text-claude-body dark:bg-white/10"
+      >
+        <Wrench className="h-3 w-3" />
+        <span>{summary}</span>
+        <span className="opacity-50">{open ? "▲" : "▼"}</span>
+      </button>
+      {open && (
+        <div className="mt-1.5 space-y-1 rounded-md bg-claude-surface-soft p-2 text-[11px] text-claude-muted dark:bg-white/5">
+          {invocations.map((t, i) => (
+            <div key={i} className="flex items-center gap-1.5">
+              <span className="font-medium">{TOOL_LABELS[t.toolName] ?? t.toolName}</span>
+              {t.args && (
+                <span className="truncate opacity-60">
+                  {JSON.stringify(t.args).slice(0, 80)}
+                </span>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
