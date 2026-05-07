@@ -9,7 +9,7 @@ import { z } from "zod";
 // Memory-fact extractor model. Migrated to OpenAI 2026-05-05 alongside the
 // chat agent and rerank — gpt-5-mini keeps the same per-turn cost as
 // embeddings (effectively zero on top of the chat call itself).
-const EXTRACTION_MODEL = "gpt-5-mini";
+const EXTRACTION_MODEL = "gpt-4o-mini";
 
 /**
  * Top-K semantic retrieval of memory facts for a user, against a query.

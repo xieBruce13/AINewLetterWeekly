@@ -10,7 +10,7 @@ import { z } from "zod";
 // Smart-rerank model. After the 2026-05-05 single-key migration this is
 // served via OpenAI; gpt-5-mini handles 30 candidates → 12 ranked items
 // with reasonable Chinese-output quality at a fraction of Sonnet's cost.
-const RERANK_MODEL = "gpt-5-mini";
+const RERANK_MODEL = "gpt-4o-mini";
 const TOP_N = 12; // size of the final feed
 /** How many issues back the cross-issue rerank pulls from. 4 weeks of
  *  history × ~7 items/issue ≈ 28 candidates, which is enough headroom for

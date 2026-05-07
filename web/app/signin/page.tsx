@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { auth, signIn } from "@/lib/auth";
+import { auth, signIn } from "@/lib/auth"; // signIn used by demo form (dev-only)
 import { SignInForm } from "./form";
 
 export const metadata = { title: "登录 — AI 周报" };
@@ -14,7 +14,6 @@ export default async function SignInPage({ searchParams }: SignInPageProps) {
   if (session?.user?.id) redirect("/");
 
   const { error, from } = await searchParams;
-  const hasResend = !!process.env.AUTH_RESEND_KEY;
   const demoEnabled =
     process.env.NODE_ENV !== "production" &&
     process.env.DEMO_AUTH !== "false";
@@ -66,71 +65,39 @@ export default async function SignInPage({ searchParams }: SignInPageProps) {
             </Link>
           </p>
 
-          {(hasResend || demoEnabled) && (
+          {demoEnabled && (
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-[12px] text-claude-muted">
                 <span className="h-px flex-1 bg-claude-hairline dark:bg-white/10" />
                 <span>或者</span>
                 <span className="h-px flex-1 bg-claude-hairline dark:bg-white/10" />
               </div>
-
-              {hasResend && (
-                <form
-                  action={async (formData) => {
-                    "use server";
-                    await signIn("resend", {
-                      email: formData.get("email") as string,
-                      redirectTo: "/",
-                    });
-                  }}
-                  className="space-y-2"
-                >
-                  <p className="text-[12px] text-claude-muted">
-                    忘了密码 / 不想输密码？发一个一次性登录链接到邮箱：
-                  </p>
-                  <div className="flex gap-2">
-                    <input
-                      name="email"
-                      type="email"
-                      required
-                      placeholder="you@company.com"
-                      className="input-claude flex-1"
-                    />
-                    <button type="submit" className="btn-secondary press">
-                      发链接
-                    </button>
-                  </div>
-                </form>
-              )}
-
-              {demoEnabled && (
-                <form
-                  action={async (formData) => {
-                    "use server";
-                    await signIn("demo", {
-                      email: formData.get("email") as string,
-                      redirectTo: "/",
-                    });
-                  }}
-                  className="space-y-2 rounded-lg bg-claude-surface-soft p-3 dark:bg-white/[0.04]"
-                >
-                  <p className="text-[11px] font-semibold uppercase tracking-uc text-claude-coral">
-                    本地演示登录（仅 dev）
-                  </p>
-                  <div className="flex gap-2">
-                    <input
-                      name="email"
-                      type="email"
-                      required
-                      defaultValue="alex@example.com"
-                      className="input-claude flex-1"
-                    />
-                    <button type="submit" className="btn-secondary press">
-                      进入
-                    </button>
-                  </div>
-                </form>
-              )}
+              <form
+                action={async (formData) => {
+                  "use server";
+                  await signIn("demo", {
+                    email: formData.get("email") as string,
+                    redirectTo: "/",
+                  });
+                }}
+                className="space-y-2 rounded-lg bg-claude-surface-soft p-3 dark:bg-white/[0.04]"
+              >
+                <p className="text-[11px] font-semibold uppercase tracking-uc text-claude-coral">
+                  本地演示登录（仅 dev）
+                </p>
+                <div className="flex gap-2">
+                  <input
+                    name="email"
+                    type="email"
+                    required
+                    defaultValue="alex@example.com"
+                    className="input-claude flex-1"
+                  />
+                  <button type="submit" className="btn-secondary press">
+                    进入
+                  </button>
+                </div>
+              </form>
             </div>
           )}
         </div>

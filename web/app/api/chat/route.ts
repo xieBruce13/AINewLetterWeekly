@@ -12,10 +12,7 @@ import { randomUUID } from "node:crypto";
 
 export const maxDuration = 60;
 
-// Single-key migration (2026-05-05): all generation goes through OpenAI now,
-// embeddings already did. gpt-5-mini is ~10× cheaper than Claude Sonnet 4.5
-// at comparable Chinese-output quality for short-form chat.
-const CHAT_MODEL = "gpt-5-mini";
+const CHAT_MODEL = "gpt-4o-mini";
 
 interface ChatRequestBody {
   messages: Array<{

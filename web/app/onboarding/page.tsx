@@ -3,6 +3,7 @@ import Link from "next/link";
 import { auth } from "@/lib/auth";
 import { getProfile } from "@/lib/db/queries";
 import { saveProfile, skipProfile } from "./actions";
+import { ChipsField } from "./chips-field";
 
 export const metadata = { title: "聊聊你 — AI 周报" };
 
@@ -126,7 +127,7 @@ export default async function OnboardingPage() {
         <ChipsField
           id="focus_topics"
           label="想多看的话题"
-          help="可以从下方 chip 里选，也可以自己输入（用逗号分隔）。"
+          help="点 chip 快速选，也可以直接在输入框里用逗号分隔。"
           defaultValue={profile?.focusTopics?.join(", ") ?? ""}
           suggestions={TOPIC_SUGGESTIONS}
         />
@@ -206,42 +207,3 @@ function Field({
   );
 }
 
-function ChipsField({
-  id,
-  label,
-  help,
-  defaultValue,
-  suggestions,
-}: {
-  id: string;
-  label: string;
-  help?: string;
-  defaultValue: string;
-  suggestions: string[];
-}) {
-  return (
-    <div className="space-y-2">
-      <label
-        htmlFor={id}
-        className="block text-[13px] font-medium text-claude-ink dark:text-white"
-      >
-        {label}
-      </label>
-      <input
-        id={id}
-        name={id}
-        defaultValue={defaultValue}
-        placeholder="coding, agent, design"
-        className="input-claude"
-      />
-      <div className="flex flex-wrap gap-1.5">
-        {suggestions.map((tag) => (
-          <span key={tag} className="chip">
-            {tag}
-          </span>
-        ))}
-      </div>
-      {help && <p className="text-[12px] text-claude-muted">{help}</p>}
-    </div>
-  );
-}
