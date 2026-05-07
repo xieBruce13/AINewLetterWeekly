@@ -81,9 +81,12 @@ export default async function ItemDetailPage({
     : [];
   const keyPointsZh = keyPointsZhArr.length > 0 ? null : str(rec.key_points_zh);
   const relevanceZh = str(rec.relevance_zh);
+  const judgmentZh = str(rec.judgment_zh);
+  const whatItIsZh = str(rec.what_it_is_zh || rec.what_it_is);
   const sourceUrl: string | undefined =
     str(rec.source_url) ||
     (Array.isArray(rec.raw_urls) ? str(rec.raw_urls[0]) : undefined);
+  const sourceName: string | undefined = str(rec.source_name);
   const scenariosZh = str(rec.scenarios_zh);
   const businessModelZh = str(rec.business_model_zh);
   const feedbackZh = str(rec.feedback_zh);
@@ -202,16 +205,14 @@ export default async function ItemDetailPage({
               </p>
             </section>
 
-        {/* 这是什么? — always-on plain-language explainer. Especially load-bearing
-            for niche startups (Caraway, Suno, Modal…) where the reader may
-            never have heard of the product. */}
-        {rec.what_it_is && (
+        {/* 这是什么? */}
+        {whatItIsZh && (
           <section className="mt-8 border-l-4 border-claude-coral pl-5">
             <p className="text-[12px] font-semibold uppercase tracking-uc text-claude-coral">
               {item.name} 是什么
             </p>
             <p className="prose-cjk mt-2 text-[16px] text-claude-body-strong dark:text-white/90">
-              {rec.what_it_is}
+              {whatItIsZh}
             </p>
           </section>
         )}
@@ -276,14 +277,25 @@ export default async function ItemDetailPage({
           </Section>
         )}
 
-        {/* 谁会用、怎么用 — prefer Chinese scenarios_zh */}
+        {/* 谁会用、怎么用 */}
         {(scenariosZh || scenarios.length > 0) && (
           <Section title="谁会用、怎么用">
             {scenariosZh ? (
-              <BulletText text={scenariosZh} />
+              <p className="prose-cjk text-[16px] leading-[1.65] text-claude-body dark:text-white/85">
+                {scenariosZh}
+              </p>
             ) : (
               <Bulleted items={scenarios} markdown />
             )}
+          </Section>
+        )}
+
+        {/* 编辑判断 — from judgment_zh */}
+        {judgmentZh && (
+          <Section title="编辑判断">
+            <div className="rounded-lg bg-claude-dark p-5 text-claude-on-dark">
+              <p className="prose-cjk text-[15px] leading-[1.65]">{judgmentZh}</p>
+            </div>
           </Section>
         )}
 
@@ -437,19 +449,26 @@ export default async function ItemDetailPage({
             )}
 
             {/* 参考来源 */}
-            {Array.isArray(rec.raw_urls) && rec.raw_urls.length > 0 && (
+            {(sourceUrl || (Array.isArray(rec.raw_urls) && rec.raw_urls.length > 0)) && (
               <SideCard label="参考来源">
                 <ul className="space-y-2">
-                  {rec.raw_urls.map((url: string) => (
+                  {(sourceUrl ? [sourceUrl] : rec.raw_urls as string[]).map((url: string) => (
                     <li key={url}>
                       <a
                         href={url}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-start gap-1.5 text-[12px] text-claude-coral hover:underline"
+                        className="group inline-flex items-start gap-2 rounded-md border border-claude-hairline bg-claude-surface-soft px-3 py-2.5 text-[13px] transition-colors hover:border-claude-coral/40 hover:bg-white dark:border-white/10 dark:bg-white/[0.03]"
                       >
-                        <ExternalLink className="mt-0.5 h-3 w-3 shrink-0" />
-                        <span className="break-all">{url}</span>
+                        <ExternalLink className="mt-0.5 h-3.5 w-3.5 shrink-0 text-claude-coral" />
+                        <span>
+                          {sourceName && (
+                            <span className="block font-medium text-claude-ink dark:text-white group-hover:text-claude-coral">
+                              {sourceName}
+                            </span>
+                          )}
+                          <span className="break-all text-[11px] text-claude-muted">{url}</span>
+                        </span>
                       </a>
                     </li>
                   ))}

@@ -96,12 +96,12 @@ def main():
     compact_str = json.dumps(compact, ensure_ascii=False)
 
     SYSTEM = textwrap.dedent(f"""
-    You are an AI newsletter editor producing a weekly digest for: {audience}.
+    You are a senior AI newsletter editor writing for: {audience}.
     FOCUS on these topics: {focus}
     EXCLUDE these topics: {exclude}
 
     From a list of scraped AI news articles, select the {args.n} most relevant and
-    newsworthy items for the AUDIENCE above. Strongly prefer items about:
+    newsworthy items. Strongly prefer items about:
     - AI creative tools (image gen, video gen, music gen, design tools)
     - AI product launches and UX improvements
     - Multimodal AI (vision, audio, video)
@@ -110,27 +110,49 @@ def main():
 
     SKIP items about: {exclude}
 
-    For each selected item produce:
-    - headline_zh: Chinese headline (max 40 chars), specific: company + concrete change + key number
-    - summary_zh: 2-3 sentence Chinese summary explaining what changed and WHY it matters to {audience}
-    - key_points_zh: JSON array of 3-5 Chinese bullet strings with concrete facts
-    - relevance_zh: 1 sentence in Chinese explaining direct relevance to: {audience}
-    - tags: array of 3-6 English slug tags (e.g. agent, design, coding, workflow, UX, image-gen)
-    - module: "model" (new model / capability) or "product" (new tool / product launch)
-    - company: company name in English
-    - name: product/feature name in English
+    For EACH selected item, produce a COMPLETE, RICH article record with ALL fields below.
+    Every field must be fully written in Chinese (except company/name/tags/module/source_name).
+    Do NOT leave any field empty or null.
 
-    Return JSON: {{"items": [{{idx, name, company, module, tags, headline_zh, summary_zh, key_points_zh, relevance_zh}}]}}
-    Pick diverse companies. Prefer official blog posts over Reddit/HN discussion links.
+    Required fields per item:
+    - idx: the original index from the articles list
+    - name: product/feature name (English)
+    - company: company name (English)
+    - module: "model" or "product"
+    - tags: array of 3-6 English slug tags
+    - source_name: human-readable source name (e.g. "Cursor Changelog", "TechCrunch")
+
+    ALL Chinese fields (must be fully written, no empty strings):
+    - headline_zh: 25-40 chars. Specific: company + concrete change + key number if any.
+      Example: "Cursor发布代理上下文分析，支持实时监控Token消耗"
+    - what_it_is_zh: 2-3 sentences. What is this product/feature/model in plain language.
+      Who makes it, what it does, what problem it solves.
+    - summary_zh: 3-4 sentences. Full summary of what changed, what's new, key details.
+      Include specific numbers, dates, pricing if available.
+    - key_points_zh: JSON array of 5-7 Chinese bullet strings. Each bullet = 1 concrete fact.
+      Include: capabilities, numbers, pricing, availability, technical details.
+    - scenarios_zh: 2-3 sentences. How can {audience} use this in their daily work?
+      Give concrete, actionable examples tied to AI product/creative tool workflows.
+    - relevance_zh: 1-2 sentences. Why does THIS specific news matter to {audience}?
+      Reference their role (产品经理) and context (AI创作者工具) directly.
+    - judgment_zh: 1-2 sentences. Editorial opinion: is this a big deal? Why or why not?
+
+    Return JSON: {{"items": [{{idx, name, company, module, tags, source_name,
+      headline_zh, what_it_is_zh, summary_zh, key_points_zh,
+      scenarios_zh, relevance_zh, judgment_zh}}]}}
+
+    Quality bar: every field must be substantive. A reader should be able to fully
+    understand the news and its implications from your output alone, without reading
+    the original source.
     """).strip()
 
     USER = f"""Audience: {audience}
-Pick the best {args.n} items relevant to this audience. Date today: {args.date}.
+Select and fully write up the best {args.n} items. Date today: {args.date}.
 
 ARTICLES:
 {compact_str}
 
-Return JSON with key "items". Each item must have: idx, name, company, module, tags, headline_zh, summary_zh, key_points_zh, relevance_zh."""
+Return JSON with key "items". Every Chinese field must be complete and substantive — no empty strings."""
 
     print("Calling GPT-4o-mini to select and translate...", flush=True)
     result_text = call_llm(SYSTEM, USER)
@@ -165,12 +187,16 @@ Return JSON with key "items". Each item must have: idx, name, company, module, t
             "source_tier": orig.get("tier", "press"),
             "total_score": 50,
             "record": {
-                "summary_zh": sel.get("summary_zh", ""),
-                "key_points_zh": sel.get("key_points_zh", []),
                 "headline_zh": headline_zh,
+                "summary_zh": sel.get("summary_zh", ""),
+                "what_it_is_zh": sel.get("what_it_is_zh", ""),
+                "key_points_zh": sel.get("key_points_zh", []),
+                "scenarios_zh": sel.get("scenarios_zh", ""),
                 "relevance_zh": sel.get("relevance_zh", ""),
+                "judgment_zh": sel.get("judgment_zh", ""),
                 "raw_urls": [url] if url else [],
                 "source_url": url,
+                "source_name": sel.get("source_name") or orig.get("source", ""),
                 "original_title": orig.get("title", ""),
                 "source_tier": orig.get("tier", "press"),
                 "published_date": pub_date,
