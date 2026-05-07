@@ -108,7 +108,17 @@ export default async function HomePage({
         focusModule={focusModule}
       />
       <div className="container-page pb-24 pt-10">
-        {summary && !focusModule && <WeekSummary summary={summary} />}
+        {summary && !focusModule && (
+          <WeekSummary
+            summary={summary}
+            userProfile={profile ? {
+              role: profile.role ?? undefined,
+              focusTopics: profile.focusTopics ?? [],
+              currentProjects: profile.currentProjects ?? undefined,
+            } : undefined}
+            feed={visibleAll.slice(0, 20)}
+          />
+        )}
         {display.length === 0 ? (
           <p className="rounded-lg bg-white p-12 text-center text-claude-muted shadow-hairline">
             本周没有匹配你偏好的内容。可以去
@@ -250,10 +260,41 @@ function SectionHeader({
  * `text` supports a single `**bold**:` lead-in to give each takeaway a
  * 2-4 word headline before the explanation.
  */
+interface UserProfileHint {
+  role?: string;
+  focusTopics: string[];
+  currentProjects?: string;
+}
+
+function bulletRelevance(
+  bulletText: string,
+  feedItems: Array<{ slug: string; tags: string[]; headline: string }>,
+  bulletSlugs: string[],
+  profile?: UserProfileHint
+): string | null {
+  if (!profile) return null;
+  // Find matching feed items for this bullet's slugs
+  const matched = feedItems.filter((f) => bulletSlugs.includes(f.slug));
+  const allTags = new Set(matched.flatMap((f) => f.tags));
+  const focusHits = (profile.focusTopics ?? []).filter((t) => allTags.has(t));
+
+  if (focusHits.length > 0) {
+    return `与你关注的 ${focusHits.slice(0, 2).join("、")} 直接相关`;
+  }
+  if (profile.role && (bulletText.includes("产品") || bulletText.includes("PM") || bulletText.includes("设计"))) {
+    return `${profile.role}视角值得关注`;
+  }
+  return null;
+}
+
 function WeekSummary({
   summary,
+  userProfile,
+  feed = [],
 }: {
   summary: { theme: string; bullets: { text: string; slugs?: string[] }[] };
+  userProfile?: UserProfileHint;
+  feed?: Array<{ slug: string; tags: string[]; headline: string }>;
 }) {
   const bullets = summary.bullets ?? [];
   if (bullets.length === 0) return null;
@@ -262,16 +303,24 @@ function WeekSummary({
       aria-label="本周要点"
       className="mb-14 rounded-xl border border-claude-hairline bg-white p-7 sm:p-9 dark:border-white/10 dark:bg-white/[0.03]"
     >
-      <p className="text-[12px] font-semibold uppercase tracking-uc text-claude-coral">
-        本周要点 · 30 秒看完
-      </p>
+      <div className="flex items-start justify-between gap-4">
+        <p className="text-[12px] font-semibold uppercase tracking-uc text-claude-coral">
+          本周要点 · 30 秒看完
+        </p>
+        {userProfile?.role && (
+          <span className="shrink-0 rounded-full bg-claude-coral/10 px-2.5 py-0.5 text-[11px] font-medium text-claude-coral">
+            为 {userProfile.role} 筛选
+          </span>
+        )}
+      </div>
       <p className="prose-cjk mt-3 font-display text-[22px] leading-[1.35] tracking-display text-claude-ink dark:text-white sm:text-[26px]">
         {summary.theme}
       </p>
       <ul className="mt-6 space-y-2.5">
-        {bullets.map((b, i) => (
-          <SummaryBullet key={i} index={i} bullet={b} />
-        ))}
+        {bullets.map((b, i) => {
+          const relevance = bulletRelevance(b.text, feed, b.slugs ?? [], userProfile);
+          return <SummaryBullet key={i} index={i} bullet={b} relevance={relevance} />;
+        })}
       </ul>
     </section>
   );
@@ -280,9 +329,11 @@ function WeekSummary({
 function SummaryBullet({
   index,
   bullet,
+  relevance,
 }: {
   index: number;
   bullet: { text: string; slugs?: string[] };
+  relevance?: string | null;
 }) {
   const slugs = bullet.slugs ?? [];
   const primary = slugs[0];
@@ -315,6 +366,11 @@ function SummaryBullet({
           {index + 1}
         </span>
         <div className="min-w-0 flex-1">
+          {relevance && (
+            <span className="mb-1 inline-block rounded-full bg-claude-coral/10 px-2 py-0.5 text-[10px] font-semibold text-claude-coral">
+              {relevance}
+            </span>
+          )}
           {primary ? (
             <Link
               href={`/items/${primary}`}

@@ -173,6 +173,22 @@ function Bubble({ message }: { message: any }) {
   const text = typeof message.content === "string" ? message.content : "";
   const toolInvocations = (message.toolInvocations ?? []) as Array<any>;
 
+  // Collect unique article results from search_news / get_item tool calls.
+  const articleCards: Array<{ id: number; slug: string; name: string; company: string; headline: string; module: string }> = [];
+  const seen = new Set<number>();
+  for (const t of toolInvocations) {
+    if (t.state !== "result") continue;
+    if (t.toolName === "search_news" && Array.isArray(t.result?.results)) {
+      for (const r of t.result.results) {
+        if (r.id && !seen.has(r.id)) { seen.add(r.id); articleCards.push(r); }
+      }
+    }
+    if (t.toolName === "get_item" && t.result?.id && !seen.has(t.result.id)) {
+      seen.add(t.result.id);
+      articleCards.push(t.result);
+    }
+  }
+
   return (
     <div className={cn("flex gap-3", isUser && "justify-end")}>
       {!isUser && (
@@ -180,23 +196,34 @@ function Bubble({ message }: { message: any }) {
           <Bot className="h-4 w-4" />
         </div>
       )}
-      <div
-        className={cn(
-          "max-w-[85%] space-y-2 rounded-lg px-4 py-3 text-[15px] leading-[1.6]",
-          isUser
-            ? "bg-claude-coral text-white"
-            : "bg-white text-claude-body shadow-hairline dark:bg-white/[0.04] dark:text-white/90"
-        )}
-      >
-        <ToolSummary invocations={toolInvocations} />
-        {text && (
-          isUser ? (
-            <p className="whitespace-pre-wrap">{text}</p>
-          ) : (
-            <div className="prose prose-sm max-w-none dark:prose-invert prose-p:my-1 prose-headings:my-2 prose-ul:my-1 prose-ol:my-1 prose-li:my-0.5 prose-strong:text-claude-ink dark:prose-strong:text-white prose-code:rounded prose-code:bg-claude-surface-soft prose-code:px-1 prose-code:py-0.5 prose-code:text-[12px] dark:prose-code:bg-white/10 prose-table:text-[13px] prose-th:py-1.5 prose-td:py-1.5">
-              <ReactMarkdown>{text}</ReactMarkdown>
-            </div>
-          )
+      <div className={cn("max-w-[85%] space-y-2", isUser ? "order-first" : "")}>
+        <div
+          className={cn(
+            "space-y-2 rounded-lg px-4 py-3 text-[15px] leading-[1.6]",
+            isUser
+              ? "bg-claude-coral text-white"
+              : "bg-white text-claude-body shadow-hairline dark:bg-white/[0.04] dark:text-white/90"
+          )}
+        >
+          <ToolSummary invocations={toolInvocations} />
+          {text && (
+            isUser ? (
+              <p className="whitespace-pre-wrap">{text}</p>
+            ) : (
+              <div className="prose prose-sm max-w-none dark:prose-invert prose-p:my-1 prose-headings:my-2 prose-ul:my-1 prose-ol:my-1 prose-li:my-0.5 prose-strong:text-claude-ink dark:prose-strong:text-white prose-code:rounded prose-code:bg-claude-surface-soft prose-code:px-1 prose-code:py-0.5 prose-code:text-[12px] dark:prose-code:bg-white/10 prose-table:text-[13px] prose-th:py-1.5 prose-td:py-1.5">
+                <ReactMarkdown>{text}</ReactMarkdown>
+              </div>
+            )
+          )}
+        </div>
+
+        {/* Article cards — shown below the assistant bubble for each result */}
+        {!isUser && articleCards.length > 0 && (
+          <div className="space-y-1.5 pt-1">
+            {articleCards.map((a) => (
+              <ArticleCard key={a.id} item={a} />
+            ))}
+          </div>
         )}
       </div>
       {isUser && (
@@ -205,6 +232,28 @@ function Bubble({ message }: { message: any }) {
         </div>
       )}
     </div>
+  );
+}
+
+function ArticleCard({ item }: { item: { id: number; slug: string; name: string; company: string; headline: string; module: string } }) {
+  return (
+    <Link
+      href={`/items/${item.slug}`}
+      className="group flex items-start gap-3 rounded-lg border border-claude-hairline bg-white px-3.5 py-3 shadow-hairline transition-colors hover:border-claude-coral/40 hover:bg-claude-surface-soft dark:border-white/10 dark:bg-white/[0.04] dark:hover:border-claude-coral/30"
+    >
+      <div className="flex-1 min-w-0">
+        <div className="flex items-center gap-2 mb-0.5">
+          <span className="text-[10px] font-semibold uppercase tracking-uc text-claude-coral">
+            {item.module === "model" ? "模型" : "产品"}
+          </span>
+          <span className="text-[11px] text-claude-muted">{item.company}</span>
+        </div>
+        <p className="text-[13px] font-medium leading-[1.45] text-claude-ink dark:text-white line-clamp-2 group-hover:text-claude-coral transition-colors">
+          {item.headline || item.name}
+        </p>
+      </div>
+      <ArrowUp className="mt-0.5 h-3.5 w-3.5 shrink-0 rotate-45 text-claude-muted-soft transition-colors group-hover:text-claude-coral" />
+    </Link>
   );
 }
 
