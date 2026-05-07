@@ -95,7 +95,10 @@ if (process.env.AUTH_RESEND_KEY) {
   providers.push(
     Resend({
       apiKey: process.env.AUTH_RESEND_KEY,
-      from: process.env.AUTH_EMAIL_FROM ?? "noreply@example.com",
+      // onboarding@resend.dev is Resend's shared test sender — no domain
+      // verification required. Replace with your own verified domain for
+      // production (e.g. "AI 周报 <noreply@yourdomain.com>").
+      from: process.env.AUTH_EMAIL_FROM ?? "onboarding@resend.dev",
     })
   );
 }

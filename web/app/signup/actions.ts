@@ -1,43 +1,32 @@
 "use server";
 
-import { redirect } from "next/navigation";
-import { signIn, signUpWithPassword } from "@/lib/auth";
+import { signUpWithPassword } from "@/lib/auth";
 
 export type SignUpFormState =
   | { ok: false; error: string; field?: "email" | "password" | "displayName" }
+  | { ok: true; email: string; password: string }
   | undefined;
 
 /**
- * Create the user, then auto-sign-in via the `password` Credentials provider
- * and bounce to /onboarding. Returning a state object lets the form surface
- * field-level errors (email already taken, weak password, etc.) without
- * throwing a runtime error in the action.
- *
- * On success this function NEVER returns — `redirect()` throws a
- * NEXT_REDIRECT internally.
+ * Create the user and return a success state so the client component can
+ * immediately call signIn() from next-auth/react. This decoupling avoids a
+ * known quirk in next-auth v5 beta where calling server-side signIn() inside
+ * a useActionState server action doesn't always propagate the redirect to the
+ * browser correctly.
  */
 export async function createAccountAction(
   _prev: SignUpFormState,
   formData: FormData
 ): Promise<SignUpFormState> {
+  const password = formData.get("password") as string;
   const result = await signUpWithPassword({
     email: formData.get("email"),
-    password: formData.get("password"),
+    password,
     displayName: formData.get("displayName"),
   });
   if (!result.ok) {
     return result;
   }
-
-  // Sign in immediately. We pass `redirectTo: "/onboarding"` so a brand new
-  // user always lands on the profile-collection step before seeing the feed.
-  await signIn("password", {
-    email: result.email,
-    password: formData.get("password") as string,
-    redirectTo: "/onboarding",
-  });
-
-  // Belt-and-suspenders: signIn redirects internally; this is here in case
-  // some adapter / runtime swallows the redirect.
-  redirect("/onboarding");
+  // Return credentials so the client can sign in without a second password prompt.
+  return { ok: true, email: result.email, password };
 }

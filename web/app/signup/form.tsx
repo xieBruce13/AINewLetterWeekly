@@ -1,19 +1,40 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
 import { Loader2 } from "lucide-react";
 import { useFormStatus } from "react-dom";
+import { signIn } from "next-auth/react";
 import { createAccountAction, type SignUpFormState } from "./actions";
 
 const initial: SignUpFormState = undefined;
 
 /**
- * Sign-up form. We use `useActionState` for the redirect-or-error pattern:
- * server action returns an error object on failure, throws a redirect on
- * success. Field-level errors highlight the specific input.
+ * Sign-up form. The server action creates the user; on success we call
+ * signIn() from next-auth/react here on the client so the redirect is handled
+ * correctly regardless of the next-auth version's server-action support.
  */
 export function SignUpForm() {
   const [state, action] = useActionState(createAccountAction, initial);
+
+  useEffect(() => {
+    if (state?.ok) {
+      signIn("password", {
+        email: state.email,
+        password: state.password,
+        callbackUrl: "/onboarding",
+      });
+    }
+  }, [state]);
+
+  // While waiting for the signIn redirect, keep showing a spinner.
+  if (state?.ok) {
+    return (
+      <div className="flex flex-col items-center gap-3 py-8 text-claude-muted">
+        <Loader2 className="h-6 w-6 animate-spin text-claude-coral" />
+        <p className="text-[13px]">账号创建成功，正在登录…</p>
+      </div>
+    );
+  }
 
   return (
     <form action={action} className="space-y-4">
