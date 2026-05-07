@@ -436,7 +436,16 @@ ON CONFLICT (slug) DO UPDATE SET
   tags                = EXCLUDED.tags,
   image_urls          = EXCLUDED.image_urls,
   primary_image       = EXCLUDED.primary_image,
-  record              = EXCLUDED.record,
+  record              = EXCLUDED.record || (
+                          SELECT COALESCE(jsonb_object_agg(key, value), '{}'::jsonb)
+                          FROM jsonb_each(news_items.record)
+                          WHERE key LIKE '%_zh'
+                        ),
+  headline            = CASE
+                          WHEN news_items.record->>'summary_zh' IS NOT NULL
+                          THEN news_items.headline
+                          ELSE EXCLUDED.headline
+                        END,
   embedding           = COALESCE(EXCLUDED.embedding, news_items.embedding),
   updated_at          = now();
 """
