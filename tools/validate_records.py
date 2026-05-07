@@ -251,7 +251,7 @@ def _read_records(run_dir: Path) -> list[dict[str, Any]]:
                 return data
             if isinstance(data, dict):
                 out = []
-                for k in ("model_records", "product_records", "records"):
+                for k in ("model_records", "product_records", "records", "passed", "items"):
                     v = data.get(k)
                     if isinstance(v, list):
                         out.extend(v)
