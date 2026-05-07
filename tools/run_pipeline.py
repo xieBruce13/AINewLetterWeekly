@@ -88,12 +88,8 @@ SKILL_DIR = REPO_ROOT / "skill"
 # Default model for steps 1-6 and 8. gpt-5-mini gives us roughly Sonnet-4.5
 # quality for structured-JSON tasks (filter / score / triage / verify) at
 # ~$0.25 / $2 per 1M input/output tokens — about 10× cheaper than Sonnet.
-DEFAULT_MODEL = "gpt-5-mini"
-
-# Writer + QA get the larger model. gpt-5 is the editorial workhorse for
-# the long-form Chinese newsletter draft and the QA pass that grades it.
-# Roughly 7× cheaper than the previous Opus 4.7 default.
-WRITER_MODEL = "gpt-5"
+DEFAULT_MODEL = "gpt-4o-mini"
+WRITER_MODEL = "gpt-4o"
 
 
 def _require_key(name: str) -> str:
@@ -164,12 +160,7 @@ def call_llm(
             {"role": "user", "content": user},
         ],
     }
-    # gpt-5 family rejects non-default temperature with a 400; older
-    # families (gpt-4o-mini etc.) accept arbitrary values. Pass the
-    # param only when the target model still supports it so we don't
-    # have to maintain a per-model allowlist.
-    if not model.startswith("gpt-5"):
-        request_kwargs["temperature"] = temperature
+    request_kwargs["temperature"] = temperature
 
     resp = client.chat.completions.create(**request_kwargs)
     text = resp.choices[0].message.content or ""
