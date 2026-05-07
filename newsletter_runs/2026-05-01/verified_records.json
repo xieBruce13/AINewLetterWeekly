@@ -1,0 +1,535 @@
+[
+  {
+    "module": "model",
+    "name": "Claude Sonnet 4.5",
+    "version": "4.5",
+    "company": "Anthropic",
+    "source_tier": "official",
+    "verification_status": "verified",
+    "confidence": "high",
+    "official_claims": [
+      "SWE-bench Verified 77.2%（较 Sonnet 4 的 72.5% 提升）",
+      "TAU-bench 零售场景 88.1%",
+      "200K context 维持不变"
+    ],
+    "external_validation_summary": "Artificial Analysis 在 $5/M tokens 价位的编码 agent 排名第一；Cursor 与 Cline 同日上线模型选项。",
+    "real_change_notes": "工具调用可靠性出现明显跳跃 —— 首个能让 30 步以上的 coding agent 不丢上下文跑完的 Claude 版本。",
+    "selection_impact_notes": "成为所有自建 coding agent 团队的默认选择；价格与 Sonnet 4 相同，但 agent 分数逼近 Opus 4。",
+    "price_speed_cost_notes": "$3 / $15 per M tokens（输入/输出）。与 Sonnet 4 同价。",
+    "app_api_workflow_notes": "已上线 Claude.ai、Cursor、GitHub Copilot 与 Anthropic API。",
+    "new_use_cases": [
+      "20+ 步骤后不再漂移的长链路 coding agent",
+      "带验证回路的多文件重构",
+      "原生支持的多 agent 编排（每个 sub-agent 都能稳定收尾）"
+    ],
+    "business_model": "API 按量付费；Pro / Team 订阅获得更高速率限制。",
+    "ecosystem_echo": "Cursor 与 Cline 同日上线模型选项；Replit 48 小时内接入；HuggingFace 周末出现 8 个相关模板项目。",
+    "durability_notes": "在 Opus 4.5 发布前预计独占 agent 档 4–6 周。",
+    "user_market_feedback": {
+      "good": [
+        "工具调用在 20 步后终于稳定",
+        "TypeScript 重构准确率明显提升",
+        "把上下文窗口用满时也很少丢任务目标"
+      ],
+      "bad": [
+        "代码库里有重复文件名时偶尔会改错文件",
+        "长 session 输出格式会漂移",
+        "对极长 markdown 文档的引用准确率仍不如 Opus"
+      ]
+    },
+    "one_line_judgment": "首个能让 30+ 步 coding agent 在无人值守下跑完的 Claude 模型。",
+    "relevance_to_us": "与我们的 coding / agent skill 层无缝接续；可作为 orchestrator 中 Sonnet 4 调用的直接替换。",
+    "score_breakdown": {
+      "real_capability_change": 3,
+      "selection_impact": 2,
+      "evidence_quality": 2,
+      "ecosystem_echo": 2,
+      "durability": 1,
+      "hype_penalty": 0,
+      "total": 10
+    },
+    "image_urls": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Anthropic_logo.svg/640px-Anthropic_logo.svg.png"
+    ],
+    "raw_urls": [
+      "https://www.anthropic.com/news/claude-sonnet-4-5",
+      "https://artificialanalysis.ai/models/claude-sonnet-4-5"
+    ],
+    "item_tier": "main"
+  },
+  {
+    "module": "model",
+    "name": "Gemini 2.5 Flash Thinking",
+    "version": "2.5",
+    "company": "Google",
+    "source_tier": "official",
+    "verification_status": "verified",
+    "confidence": "high",
+    "official_claims": [
+      "$0.075/M input tokens 的扩展思考模式",
+      "MMLU-Pro 84.1%",
+      "1M token 上下文"
+    ],
+    "external_validation_summary": "Artificial Analysis 上 5 秒延迟以下最便宜的推理模型。",
+    "real_change_notes": "把 o1 风格的推理拉到不到一美分的价格段 —— 批处理任务的成本/质量边界整体下移约 10×。",
+    "selection_impact_notes": "成本敏感的批量推理（夜间评测、文档解析流水线）的默认选择。",
+    "price_speed_cost_notes": "$0.075 / $0.30 per M tokens；中位延迟约 3 秒。",
+    "app_api_workflow_notes": "Vertex AI + AI Studio 全量开放。",
+    "new_use_cases": [
+      "带显式 reasoning trace 的批量文档分类",
+      "10+ 候选答案的廉价多次共识",
+      "针对低预算项目的离线 RAG 重排"
+    ],
+    "business_model": "Google API 标准按量付费。",
+    "ecosystem_echo": "LangChain 与 LlamaIndex 几个小时内更新了路由预设。",
+    "durability_notes": "DeepSeek R2 一旦发布就会被卷过去，预计相关性 ~3 个月。",
+    "user_market_feedback": {
+      "good": [
+        "这个价格带能拿到这种推理质量前所未见",
+        "1M 上下文用来跑代码 review 是真的可用"
+      ],
+      "bad": [
+        "Thinking trace 偶尔会泄露 system prompt 的格式",
+        "免费档的速率限制非常激进"
+      ]
+    },
+    "one_line_judgment": "便宜推理成为标配 —— 原本 $50/run 的 batch job 现在 $5。",
+    "relevance_to_us": "可替换我们夜间打分 rerank 的 LLM 调用；预计月账单节省约 80%。",
+    "score_breakdown": {
+      "real_capability_change": 2,
+      "selection_impact": 2,
+      "evidence_quality": 2,
+      "ecosystem_echo": 1,
+      "durability": 0,
+      "hype_penalty": 0,
+      "total": 7
+    },
+    "image_urls": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Google_Gemini_logo.svg/640px-Google_Gemini_logo.svg.png"
+    ],
+    "raw_urls": [
+      "https://blog.google/products/gemini/"
+    ],
+    "item_tier": "main"
+  },
+  {
+    "module": "product",
+    "name": "Cursor Composer 2",
+    "company": "Cursor",
+    "source_tier": "official-changelog",
+    "verification_status": "verified",
+    "confidence": "high",
+    "core_positioning": "多文件 agent 化编辑，自带「计划→预览→应用」的可信回路。",
+    "problem_it_solves": "终结了「agent 修一波 → 开发者审 → agent 再修」的反复来回。",
+    "user_visibility": "Cursor Pro 用户全面开放。",
+    "access_barrier_change": "免费档每月赠送 50 次 Composer 2 调用（之前仅 Pro）。",
+    "workflow_change": "Plan-first agentic editing —— agent 先输出包含文件清单的结构化计划，开发者一键审批后再写。",
+    "distribution_change": "无需新装；同一个 Cursor 客户端。",
+    "interaction_pattern": "提出需求 → 看计划 → 看 diff → 一键应用 → 验证回路",
+    "user_scenarios": [
+      "跨文件重命名与重构",
+      "一次完成跨 5+ 文件的新功能",
+      "把模块从一个库迁移到另一个库"
+    ],
+    "business_model": "包含在现有 Cursor Pro（$20/月）订阅中。",
+    "market_feedback": {
+      "good": [
+        "Plan preview 是缺失的那块 UX —— agent 的修改终于可读",
+        "Composer 2 + Sonnet 4.5 的组合一把过的重构原本要 4 次重试",
+        "diff preview 让代码 review 可以批量化"
+      ],
+      "bad": [
+        "Plan 生成给回路加了 5–10 秒",
+        "超大文件的 diff 渲染会卡",
+        "复杂架构问题它仍然抓不住主线"
+      ]
+    },
+    "market_signal_strength": "HN 头条 12 小时；r/cursor 据 mod 帖称 DAU 一周翻倍。",
+    "one_line_judgment": "Cursor 用 plan-first 回路解决了「agent 改的代码不敢用」这个老问题。",
+    "relevance_to_us": "直接竞品模式 —— 我们的 skill orchestrator 必须采纳 plan-preview-apply 这套 UX，否则会显得原始。",
+    "score_breakdown": {
+      "user_visibility": 2,
+      "access_barrier_change": 1,
+      "workflow_change": 3,
+      "distribution_change": 1,
+      "user_reaction": 2,
+      "relevance_to_our_direction": 3,
+      "evidence_quality": 2,
+      "hype_penalty": 0,
+      "total": 14
+    },
+    "image_urls": [
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&auto=format&fit=crop&q=80"
+    ],
+    "raw_urls": [
+      "https://www.cursor.com/changelog",
+      "https://news.ycombinator.com/"
+    ],
+    "item_tier": "main"
+  },
+  {
+    "module": "product",
+    "name": "Figma Make",
+    "company": "Figma",
+    "source_tier": "official-changelog",
+    "verification_status": "verified",
+    "confidence": "medium",
+    "core_positioning": "Prompt-to-prototype：在 Figma 文件里直接生成可点击的 React 原型。",
+    "problem_it_solves": "弥合了「静态 mockup」和「可点击原型」之间的 design review 鸿沟。",
+    "user_visibility": "Figma Professional+ 公测开放。",
+    "access_barrier_change": "Free Starter 暂不支持。",
+    "workflow_change": "在早期探索阶段干掉了「设计师交接给 prototyper」这一步。",
+    "distribution_change": "在 Figma 设计环境内 —— 不用学新 app。",
+    "interaction_pattern": "侧边栏 prompt → 实时 React 预览 → 可编辑的 component tree",
+    "user_scenarios": [
+      "在 spec 写完之前用一个可演示的 demo 卖新功能",
+      "不依赖工程做用户研究的早期 flow",
+      "营销页面快速 A/B 多版本"
+    ],
+    "business_model": "公测期 Professional+ 套餐免费；独立定价待定。",
+    "market_feedback": {
+      "good": [
+        "生成的 React 出乎意料地接近我们的组件库",
+        "设计师终于可以测试交互而不打扰工程"
+      ],
+      "bad": [
+        "边界 case 的交互会静默失败",
+        "生成的 CSS 冗长，难清理"
+      ]
+    },
+    "market_signal_strength": "设计师 Twitter 一片热议；当日 Product Hunt #2。",
+    "one_line_judgment": "Figma 用原生功能吃掉了「AI prototyping startup」这一波。",
+    "relevance_to_us": "邻近相关 —— 印证「AI-native creative tool」正在成为缺省产品形态；我们的 skill 层要做好与 Figma 级竞品共存的准备。",
+    "score_breakdown": {
+      "user_visibility": 1,
+      "access_barrier_change": 1,
+      "workflow_change": 2,
+      "distribution_change": 2,
+      "user_reaction": 2,
+      "relevance_to_our_direction": 3,
+      "evidence_quality": 1,
+      "hype_penalty": -1,
+      "total": 11
+    },
+    "image_urls": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/512px-Figma-logo.svg.png",
+      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200&auto=format&fit=crop&q=80"
+    ],
+    "raw_urls": [
+      "https://www.figma.com/blog/"
+    ],
+    "item_tier": "main"
+  },
+  {
+    "module": "product",
+    "name": "Caraway",
+    "company": "Caraway Labs",
+    "source_tier": "discovery-platform",
+    "verification_status": "partially-verified",
+    "confidence": "medium",
+    "core_positioning": "极小独立工具：抓取一个作者的博客提炼出「写作风格指纹」，让你按其语气起草新文（带署名）。",
+    "problem_it_solves": "大多数 AI 写作工具只能产出泛 LLM 调子；Caraway 锁定到一个具体真人的风格。",
+    "user_visibility": "公测期免费可用。",
+    "access_barrier_change": "测试单个 URL 不需要登录。",
+    "workflow_change": "用持久化的 style profile 替代「每次把样例塞进 prompt」的循环。",
+    "distribution_change": "纯 Web app，单人团队。",
+    "interaction_pattern": "贴 3+ 个 URL → 点 extract → draft mode 自动套用风格",
+    "user_scenarios": [
+      "用创始人原有声音替他写博客",
+      "以品牌编辑的口吻起草 newsletter"
+    ],
+    "business_model": "公测免费；个人档计划定价 $9/mo。",
+    "market_feedback": {
+      "good": [
+        "风格迁移比我手写的任何 prompt 都更接近原作者",
+        "fingerprint 可视化设计很妙"
+      ],
+      "bad": [
+        "目前仅英文",
+        "技术写作的质量明显下降"
+      ]
+    },
+    "market_signal_strength": "PH 上线约 600 upvote；Show HN 头版 6 小时。",
+    "one_line_judgment": "独立产品在小赛道上证明了「持久化的 style profile」是 one-shot prompt 之上的下一层。",
+    "relevance_to_us": "印证我们押注的 skill / profile 抽象 —— 同样的模式，不同领域。",
+    "score_breakdown": {
+      "user_visibility": 2,
+      "access_barrier_change": 2,
+      "workflow_change": 2,
+      "distribution_change": 0,
+      "user_reaction": 1,
+      "relevance_to_our_direction": 3,
+      "evidence_quality": 1,
+      "hype_penalty": 0,
+      "total": 11
+    },
+    "image_urls": [
+      "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=1200&auto=format&fit=crop&q=80"
+    ],
+    "raw_urls": [
+      "https://news.ycombinator.com/"
+    ],
+    "item_tier": "main"
+  },
+  {
+    "module": "product",
+    "name": "ChatGPT Pulse",
+    "company": "OpenAI",
+    "source_tier": "official-changelog",
+    "verification_status": "verified",
+    "confidence": "high",
+    "core_positioning": "ChatGPT 内的每日个性化简报 —— 基于你的对话历史与已连接 app 在夜间生成。",
+    "problem_it_solves": "把 ChatGPT 从「想到了才打开」变成「每天来看一眼」的产品。",
+    "user_visibility": "Pro 用户全球可用。",
+    "access_barrier_change": "目前仅 Pro。",
+    "workflow_change": "Push 而非 pull —— assistant 主动浮出与你相关的内容。",
+    "distribution_change": "在现有 ChatGPT 移动 / Web 客户端内。",
+    "interaction_pattern": "打开 app → 看到一摞卡片 → 点开或划掉",
+    "user_scenarios": [
+      "早上对追踪话题做晨间 catch-up",
+      "提醒跟进之前讨论过的任务"
+    ],
+    "business_model": "包含在 ChatGPT Pro（$200/月）中。",
+    "market_feedback": {
+      "good": [
+        "作为「今天我应该关心什么」的入口很实用",
+        "卡片格式比聊天回复更易扫读"
+      ],
+      "bad": [
+        "会冒出来你已经过去的旧话题",
+        "Pro 的门槛对这种功能感觉太高"
+      ]
+    },
+    "market_signal_strength": "X 上 trending 约 24 小时；大量「未来感」式评论。",
+    "one_line_judgment": "OpenAI 实验同样的卡片式个性化 feed —— 与新闻产品收敛在同一个范式。",
+    "relevance_to_us": "对我们「个性化 feed」方向的直接架构验证；他们的 card UI 是有用的参考。",
+    "score_breakdown": {
+      "user_visibility": 1,
+      "access_barrier_change": 0,
+      "workflow_change": 2,
+      "distribution_change": 2,
+      "user_reaction": 2,
+      "relevance_to_our_direction": 3,
+      "evidence_quality": 2,
+      "hype_penalty": -1,
+      "total": 11
+    },
+    "image_urls": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/640px-ChatGPT_logo.svg.png"
+    ],
+    "raw_urls": [
+      "https://openai.com/blog/"
+    ],
+    "item_tier": "main"
+  },
+  {
+    "module": "product",
+    "name": "Suno v5",
+    "company": "Suno",
+    "source_tier": "official-changelog",
+    "verification_status": "verified",
+    "confidence": "medium",
+    "core_positioning": "完整歌曲结构 + 人声 + stem 导出的生成式音乐。",
+    "problem_it_solves": "首个能产出可在 DAW 中真正复用的 stems 的 Suno 版本。",
+    "user_visibility": "公开。",
+    "access_barrier_change": "Stem 导出锁在 Pro+（$24/月）。",
+    "workflow_change": "把 Suno 从「猎奇玩具」变成「真能进生产链」。",
+    "distribution_change": "同 Web app + iOS。",
+    "interaction_pattern": "Prompt → 4 个候选 → 选一个 → 导 stem",
+    "user_scenarios": [
+      "独立游戏开发者给关卡配乐",
+      "播客主用同风格生成片头"
+    ],
+    "business_model": "免费档受限；Pro $10/月，Premier $24/月（带 stem）。",
+    "market_feedback": {
+      "good": [
+        "v5 的人声接近以假乱真 —— 第一次会愿意把它放进真实发行",
+        "stems 干净到可以直接 remix"
+      ],
+      "bad": [
+        "训练数据的版权争议尚未平息",
+        "在生产团队里很难强制执行「不用 AI」规则"
+      ]
+    },
+    "market_signal_strength": "r/WeAreTheMusicMakers 头版；情绪两极。",
+    "one_line_judgment": "生成式音乐进入生产可用区间 —— 版权战正式打响。",
+    "relevance_to_us": "间接相关 —— 如果我们的创作工具目录扩展到视觉之外，可作为参考。",
+    "score_breakdown": {
+      "user_visibility": 2,
+      "access_barrier_change": 1,
+      "workflow_change": 2,
+      "distribution_change": 0,
+      "user_reaction": 1,
+      "relevance_to_our_direction": 1,
+      "evidence_quality": 1,
+      "hype_penalty": -1,
+      "total": 7
+    },
+    "image_urls": [
+      "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=1200&auto=format&fit=crop&q=80"
+    ],
+    "raw_urls": [
+      "https://suno.com/blog/"
+    ],
+    "item_tier": "brief"
+  },
+  {
+    "module": "operation",
+    "name": "Vercel AI SDK 5",
+    "company": "Vercel",
+    "source_tier": "official",
+    "verification_status": "verified",
+    "confidence": "high",
+    "core_positioning": "AI 应用前端 / 全栈的事实标准 SDK；v5 把 streaming、tools、multi-step agents 收敛进同一组 API。",
+    "problem_it_solves": "把 LLM 应用的工程基础设施（流式、工具、multimodal、缓存、计费）从「自己拼」变成「一行 import」。",
+    "user_visibility": "GA，所有现有 Vercel / Next.js 项目即装即用。",
+    "access_barrier_change": "降低；新版彻底删掉了 4.x 中三套不同的 chat/text/object API。",
+    "workflow_change": "用 generateObject / streamText / tool 三个原语统一了从 prompt 到 production 的链路 —— 工具调用、JSON 输出、streaming UI 都同一形状。",
+    "distribution_change": "Provider 中性 —— 同一份代码可在 Anthropic / OpenAI / Google / 自托管模型之间无缝切换。",
+    "interaction_pattern": "useChat hook + streamText route handler + zod schema 工具定义",
+    "user_scenarios": [
+      "新建带 streaming chat 的产品（< 1 小时）",
+      "在 production 中切换 provider 不改业务代码",
+      "结构化输出与工具调用编排（multi-step agents）"
+    ],
+    "business_model": "开源免费；Vercel 通过托管 + 网关 / 缓存 / 观测增收。",
+    "market_feedback": {
+      "good": [
+        "v5 的 generateObject 把 zod schema → 强类型输出做成默认行为",
+        "Tool 定义比 LangChain 简洁一个数量级",
+        "RSC 集成意味着 streaming UI 第一次有官方解"
+      ],
+      "bad": [
+        "v4 → v5 的迁移工作量不小，类型断裂明显",
+        "没有完整的 retrieval 抽象 —— 仍需自己拼 vector DB"
+      ]
+    },
+    "market_signal_strength": "GitHub stars 一周 +5K；HN 头条 24 小时；多个独立 dev shop 同周宣布迁移。",
+    "one_line_judgment": "AI 应用层 SDK 战争已经结束 —— Vercel 拿走 React/Next 这一块。",
+    "relevance_to_us": "直接 —— 我们当前的 chat agent + streaming + tool calling 全部基于 Vercel AI SDK。v5 的稳态 API 是我们能依赖的基础。",
+    "score_breakdown": {
+      "user_visibility": 2,
+      "access_barrier_change": 2,
+      "workflow_change": 3,
+      "distribution_change": 2,
+      "user_reaction": 2,
+      "relevance_to_our_direction": 3,
+      "evidence_quality": 2,
+      "hype_penalty": 0,
+      "total": 16
+    },
+    "image_urls": [
+      "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&auto=format&fit=crop&q=80"
+    ],
+    "raw_urls": [
+      "https://sdk.vercel.ai/",
+      "https://vercel.com/blog"
+    ],
+    "item_tier": "main"
+  },
+  {
+    "module": "operation",
+    "name": "LangSmith Evaluations 2.0",
+    "company": "LangChain",
+    "source_tier": "official",
+    "verification_status": "verified",
+    "confidence": "high",
+    "core_positioning": "把 LLM eval 从「写脚本」做成 dashboard 化的产品 —— 内置回归测试、A/B、跨 provider 对比。",
+    "problem_it_solves": "LLM 团队的 eval 长期是 ad-hoc 脚本 + 手工 spreadsheet —— 这次给出了带版本、带 CI、带 dashboard 的工程化方案。",
+    "user_visibility": "Free 档每月 10K traces，付费档 $39/seat 起。",
+    "access_barrier_change": "降低；不再需要把 eval 数据塞进自己的 wandb / DIY notebook。",
+    "workflow_change": "PR 触发的 LLM 回归测试 —— 模型 / prompt 改动会跑 dataset 并显示 win/lose 矩阵。",
+    "distribution_change": "原生 GitHub Action 与 LangGraph / LlamaIndex / 任何 OpenTelemetry 客户端集成。",
+    "interaction_pattern": "上传 dataset → 配 evaluator（heuristic / LLM-as-judge / human）→ 跑 → dashboard 看结果",
+    "user_scenarios": [
+      "PR 上自动跑 prompt 回归",
+      "A/B 两个模型的实际任务表现",
+      "针对生产 trace 反向构建 eval set"
+    ],
+    "business_model": "Hosted SaaS：每月 10K 免费 trace，$39/seat 起。Self-hosted 走 enterprise 合同。",
+    "market_feedback": {
+      "good": [
+        "LLM-as-judge 的预设 evaluator 终于不用自己造轮子",
+        "和 LangGraph 的 trace 串起来让 debug 时间从小时级降到分钟级"
+      ],
+      "bad": [
+        "Self-hosted 安装复杂，对小团队是负担",
+        "免费档 trace 配额对生产用量明显不够"
+      ]
+    },
+    "market_signal_strength": "Discord 与 Slack 社区集中讨论；r/LangChain 持续高互动。",
+    "one_line_judgment": "LLM eval 终于工程化 —— 这是「prompt 当代码看」时代的 CI 工具。",
+    "relevance_to_us": "高度相关 —— 我们个性化 rerank 与 chat agent 都需要回归 eval 才能放心改 prompt。LangSmith 是当前最务实的选项。",
+    "score_breakdown": {
+      "user_visibility": 1,
+      "access_barrier_change": 2,
+      "workflow_change": 3,
+      "distribution_change": 1,
+      "user_reaction": 2,
+      "relevance_to_our_direction": 3,
+      "evidence_quality": 2,
+      "hype_penalty": 0,
+      "total": 14
+    },
+    "image_urls": [
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&auto=format&fit=crop&q=80"
+    ],
+    "raw_urls": [
+      "https://docs.smith.langchain.com/"
+    ],
+    "item_tier": "main"
+  },
+  {
+    "module": "operation",
+    "name": "Modal H100 spot 价格腰斩",
+    "company": "Modal",
+    "source_tier": "official",
+    "verification_status": "verified",
+    "confidence": "medium",
+    "core_positioning": "Serverless GPU 平台对 H100 spot 价格做出本年度最大调整，公布按秒计费的 $1.42/hr。",
+    "problem_it_solves": "中小团队「跑模型 = 烧钱」的成本曲线 —— 把推理 / 训练的 GPU 单价压低到 demo 友好的水平。",
+    "user_visibility": "对所有 Modal 账户立即生效；无需迁移。",
+    "access_barrier_change": "显著降低 —— H100 spot 价从约 $3.20/hr 降到 $1.42/hr，相当于 -55%。",
+    "workflow_change": "把「线上跑一次开源模型」从有意识决策变成默认行为；fine-tune 实验的边际成本也明显下降。",
+    "distribution_change": "API + Python SDK 不变；新增 us-west / eu-west spot pool。",
+    "interaction_pattern": "modal deploy → 自动调度到最便宜的 spot pool → 按秒计费",
+    "user_scenarios": [
+      "对开源模型做小批 fine-tune",
+      "部署 Llama 3 / Qwen 给 internal tooling 用",
+      "夜间批量 embedding job"
+    ],
+    "business_model": "按秒计费；新价位在 H100 / A100 / L40 上同步生效。",
+    "market_feedback": {
+      "good": [
+        "对独立开发者来说，第一次能在不被账单吓死的情况下跑大模型",
+        "spot 中断恢复的体验比 RunPod / Lambda 顺滑"
+      ],
+      "bad": [
+        "spot 容量在 us-east 高峰期仍会用完",
+        "持续训练（>4 小时）任务被中断的概率仍然不低"
+      ]
+    },
+    "market_signal_strength": "HN 当日头版；多个 indie hacker 公开计算迁移成本。",
+    "one_line_judgment": "Serverless GPU 的价格战正式打响 —— 推理成本不再是 indie 的天花板。",
+    "relevance_to_us": "中等相关 —— 如果我们的内容流水线引入开源 reranker / embedder，Modal 是当前最优部署点。",
+    "score_breakdown": {
+      "user_visibility": 2,
+      "access_barrier_change": 2,
+      "workflow_change": 1,
+      "distribution_change": 1,
+      "user_reaction": 1,
+      "relevance_to_our_direction": 1,
+      "evidence_quality": 2,
+      "hype_penalty": 0,
+      "total": 10
+    },
+    "image_urls": [
+      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&auto=format&fit=crop&q=80"
+    ],
+    "raw_urls": [
+      "https://modal.com/blog"
+    ],
+    "item_tier": "main"
+  }
+]

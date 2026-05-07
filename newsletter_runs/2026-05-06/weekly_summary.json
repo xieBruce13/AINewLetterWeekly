@@ -1,0 +1,22 @@
+{
+  "issue_date": "2026-05-06",
+  "theme": "智能体平台化——IDE 变身舰队指挥室，模型竞争从跑分转向实战",
+  "bullets": [
+    {
+      "text": "**Cursor 3.x Team Marketplace**：5月1-4日连发 Team Marketplace + 企业模型管控，AI IDE 正式成为可分发技能包的团队级代理舰队平台，$2B ARR 验证市场方向。",
+      "slugs": ["2026-05-06-anysphere-cursor-cursor-3x-agents-window-fleet-management-team-marketplace"]
+    },
+    {
+      "text": "**Claude Opus 4.7 基准 vs. 实战裂缝**：SWE-Bench 87.6% 历史最高，但 70% r/ClaudeAI 用户报告生产回退、token 消耗翻倍——本周最大模型选型陷阱。",
+      "slugs": ["2026-05-06-anthropic-claude-opus-4-7"]
+    },
+    {
+      "text": "**Mistral Medium 3.5 开源自托管**：128B 模型 4 块 GPU 可跑，SWE-Bench 77.6%，首次在消费级硬件规模实现前沿竞争力，自托管私有化部署路径打通。",
+      "slugs": ["2026-05-06-mistral-ai-mistral-medium-3-5"]
+    },
+    {
+      "text": "**图像 AI 商业信号**：Appfigures 数据显示图像类 AI 发布带动下载量是文本类的 6.5 倍，创意工具依然是 AI 落地变现最强赛道——Midjourney V8.1 视频定价 25x 低于 Runway。",
+      "slugs": ["2026-05-06-midjourney-midjourney-v8-1-alpha-image-video-expansion"]
+    }
+  ]
+}

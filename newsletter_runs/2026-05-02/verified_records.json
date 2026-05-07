@@ -1,0 +1,477 @@
+[
+  {
+    "module": "model",
+    "item_tier": "main",
+    "name": "GPT-5.5",
+    "version": "5.5",
+    "company": "OpenAI",
+    "published_date": "2026-04-23",
+    "source_tier": "official",
+    "verification_status": "verified",
+    "confidence": "high",
+    "one_line_judgment": "OpenAI 把「专业工作」当成主战场 —— GPT-5.5 用 1M context + Skills + 内置 computer use 把 ChatGPT 推向 superapp。",
+    "what_it_is": "GPT-5.5 是 OpenAI 在 GPT-5.4（3 月发布）基础上的频繁迭代版本 —— 主打「专业工作」（编码、研究、文档密集型分析）。在 ChatGPT 和 Codex 里提供 GPT-5.5（标准）与 GPT-5.5 Pro（更强推理）两档；通过 API 在 Responses 与 Chat Completions 都可用，带 1M token 上下文窗口、image input、structured outputs、function calling、prompt caching、Skills、MCP、内置 web search 与 computer use。API 定价 $5/M input、$30/M output，Batch / Flex 半价、Priority 2.5x。已在 ChatGPT Plus/Pro/Business/Enterprise 上线，API 「very soon」。",
+    "core_positioning": "面向「professional work」而非通用 chat 的 GPT —— 把 1M context、Skills、内置 computer use、web search 全部默认带上，给的是工作场景的工具集而不是单纯模型。",
+    "real_change_notes": "在 GPT-5.4 之上的 incremental 但重要一步 —— 编码、信息综合、文档密集型分析整体上一档。NVIDIA 企业 AI VP 公开评价「比 GPT-5.4 和 Claude Opus 4.7 都明显更强」。GeneBench（多阶段科学数据分析）相对 5.4 出现明显增益。OpenAI 自己把 GPT-5.5 的网络安全能力评为 Preparedness Framework 下的「High」等级（未达 Critical）。",
+    "official_claims": [
+      "1M token 上下文窗口（在 ChatGPT 和 API 都可用）",
+      "API 价格 $5/M in、$30/M out；Batch/Flex 半价、Priority 2.5x",
+      "Codex 里 GPT-5.5 在 Plus/Pro/Business/Enterprise/Edu/Go 都可用",
+      "Fast 模式：1.5× token 速度，2.5× 价格",
+      "GPT-5.5 Pro：仅 Pro/Business/Enterprise，更强推理",
+      "在 ChatGPT 和 Codex 已经 rolling out；API 'very soon'"
+    ],
+    "external_validation_summary": "TechCrunch、CNBC、Wall Street Journal 等主流媒体当天独立报道；NVIDIA、HashiCorp 等被 OpenAI 列为早期用户公开背书；OpenAI 文档同步发布详细 changelog 与 system card。",
+    "market_signal_strength": "X 上 trending 24 小时；Cursor 当天宣布 GPT-5.5 在 Cursor 内可用；Lovable / Codex CLI 同周接入。",
+    "landing_notes": "对所有把 ChatGPT 当生产工具的专业用户立即生效；对纯 API 开发者要等几天 GA；对 GPT-4o / 3.5 还没升级的小工程团队是一次明显的「应该 review 模型选型」的契机。Claude Opus 4.7 仍然在多步 agent 任务上有优势 —— 不是一边倒的赢。",
+    "user_scenarios": [
+      "**资深工程师**：在 Cursor / Codex 里把 GPT-5.5 当默认模型 —— 复杂代码库的多文件改动一次过的概率明显升高，把节省的 retry 时间用在真正需要架构判断的地方。",
+      "**信息工作者 / 律师 / 分析师**：1M context 让你把整份合同 / 整本手册 / 整个研究文献夹一次性塞进 prompt，不用再做 chunking + RAG 的 Rube Goldberg 流水线。",
+      "**做科研的研究员 / 数据科学家**：在 ChatGPT Pro 里跑 GPT-5.5 Pro，针对多步实验设计 / 论文综合分析 / 复杂 SQL 推理这类「需要反复迭代」的任务，准确率上一档。"
+    ],
+    "business_model": "API 按 token 计费（标准 $5/$30 per M）；ChatGPT Plus/Pro/Business/Enterprise 包含；Codex 多档订阅都包含；Pro 独占 GPT-5.5 Pro。",
+    "ecosystem_echo": "Cursor / Codex CLI / Lovable / Vercel AI SDK 同周接入；GitHub Copilot 跟进路由。",
+    "user_market_feedback": {
+      "good": [
+        "1M context 真的把「需要 chunking 的 RAG 流水线」这件事简化了",
+        "Skills + MCP + computer use 默认开启，不用自己拼基础设施",
+        "在 Codex 里多步推理稳定性比 5.4 明显更好"
+      ],
+      "bad": [
+        "API 还没正式开放（仅 'very soon'），生产团队要再等几天",
+        "Pro 版本的「2.5x 价格 1.5x 速度」让一些用户觉得 ROI 不明显",
+        "网络安全能力被分到 'High' 等级，企业部署会触发额外合规审查"
+      ]
+    },
+    "quotes": [
+      {
+        "author": "Justin Boitano (NVIDIA 企业 AI VP)",
+        "source": "openai.com 2026-04-23 公告",
+        "text": "在我们的复杂代码库里，GPT-5.5 比 GPT-5.4 和 Claude Opus 4.7 都明显更强。这不只是更快的代码 —— 这是一种全新的工作方式，让人在根本不同的速度下运转。"
+      },
+      {
+        "author": "Greg Brockman (OpenAI 总裁)",
+        "source": "TechCrunch 2026-04-23",
+        "text": "GPT-5.5 是迈向更 agentic、更 intuitive 计算的重要一步，也是迈向我们想做的 superapp 的下一步。"
+      }
+    ],
+    "relevance_to_us": "需要把 chat agent 与 personalization 重排里的 GPT 调用统一升级评估；同时考虑 1M context 是否会让我们把整个 user 历史 + saved items 一次性塞进 chat prompt 而不是当前的检索式注入。",
+    "skill_implications": "1M context 让 'skill = 大量领域 prompt + few-shot' 这种粗粒度形态成本可接受；但对推理质量 / 价格的折中仍然要量化。",
+    "score_breakdown": {
+      "real_capability_change": 2,
+      "selection_impact": 3,
+      "evidence_quality": 3,
+      "ecosystem_echo": 3,
+      "durability": 1,
+      "hype_penalty": -1,
+      "total": 11
+    },
+    "raw_urls": [
+      "https://openai.com/index/introducing-gpt-5-5/",
+      "https://techcrunch.com/2026/04/23/openai-chatgpt-gpt-5-5-ai-model-superapp/",
+      "https://www.cnbc.com/2026/04/23/openai-announces-latest-artificial-intelligence-model.html"
+    ]
+  },
+  {
+    "module": "product",
+    "item_tier": "main",
+    "name": "Cursor SDK",
+    "company": "Cursor",
+    "published_date": "2026-04-29",
+    "source_tier": "official",
+    "verification_status": "verified",
+    "confidence": "high",
+    "one_line_judgment": "Cursor 把它的 agent 作为基础设施开放出来 —— coding agent 进入「programmable」阶段。",
+    "what_it_is": "Cursor SDK（npm 包 `@cursor/sdk`，TypeScript）是 Cursor 把它桌面 app / CLI / web app 共用的 agent runtime 开放为一个库 —— 让任何人能在自己的脚本、CI、产品里调用同一套 Cursor agent，不需要打开 Cursor 编辑器。每个 agent 可以本地跑、跑在 Cursor 的 sandboxed 云端 VM（自带仓库 clone）、或自己的 self-hosted worker。支持所有 Cursor 支持的模型（默认 Composer 2，也可选 Claude Opus 4.7、GPT-5.5），按 token 计费。今天（4 月 29 日）开始 public beta。",
+    "core_positioning": "「coding agent 作为 programmable infrastructure」—— 把过去「只能在编辑器里用」的 agent 解锁成可被脚本、CI/CD、客户产品嵌入的 npm 包。",
+    "problem_it_solves": "indie 开发者过去想在自己的 product 里嵌入「Cursor 级」的 coding agent 必须要么自己拼 sandbox + harness（巨复杂），要么求 Cursor 开 API。SDK 把整个 harness（codebase indexing、semantic search、MCP、skills、hooks、subagent orchestration）打包成 npm install 一行。",
+    "user_visibility": "Public beta，对所有 Cursor 用户开放；按 token 消耗计费，不需要额外订阅。",
+    "access_barrier_change": "显著降低 —— 之前需要联系 Cursor BD 才能聊 cloud agent 集成；现在 npm install 就行。",
+    "workflow_change": "从「打开 Cursor 让 agent 跑」变成「在 CI、Slack bot、SaaS 后端调用 agent」—— 一类全新的 agent-first 应用形态。",
+    "distribution_change": "纯 SDK 分发；同时有 Cursor Marketplace 插件帮人在编辑器里 scaffold。",
+    "interaction_pattern": "TypeScript: `import { Agent } from '@cursor/sdk'; await agent.send(...)` 然后 stream 回结果。",
+    "new_product_form": "「programmable coding agent」—— 与 OpenAI Codex CLI、Anthropic Claude Code 形成三足鼎立，但 Cursor 的差异是带完整 harness（不只是模型 + tool API）。",
+    "product_highlights": [
+      "Cloud sessions 自带 dedicated VM、强 sandbox、仓库已 cloned —— laptop sleep / 网断都不会终止任务",
+      "Self-hosted workers 让代码与 tool 执行留在企业网络内（合规友好）",
+      "原生集成 .cursor/skills 与 .cursor/hooks.json —— 你写过的 skill 同样能在 SDK agent 里跑",
+      "Subagent delegation：agent 可以把子任务派给专门的 subagent",
+      "GitHub cookbook 提供 4 个 starter project：minimal quickstart、web prototyping、kanban-driven PR opener、CLI agent"
+    ],
+    "landing_notes": "对在 Cursor 生态内的开发者是「自然延伸」—— skills / rules 直接复用。对不在 Cursor 生态内的，要在 Cursor SDK / OpenAI Codex CLI（开源）/ Anthropic Claude Code 之间做选型，主要看你愿意接受多深的 lock-in。短期最大用法是「自动化 CI/CD」「summarize code changes」「PR reviewer bot」「embed agent into customer-facing product」（早期用户已经在做后三种）。",
+    "user_scenarios": [
+      "**做 SaaS 产品的开发者**：把一个 Cursor agent 嵌入 customer-facing app（比如「让用户在我们的产品里直接说『改一下这段代码』，agent 在云端跑」），用户不用离开你的产品。",
+      "**有 CI 自动化的工程团队**：每次 PR merge 触发一个 agent 跑「自动 changelog 生成 + release notes 起草 + 相关测试更新」，全部在 GitHub Actions 里。",
+      "**indie hacker / 副业开发者**：写一个 「kanban 卡片拖到 In Progress 自动让 agent 开 PR」的小工具（cookbook 里就有这个 starter），15 分钟搭起来。"
+    ],
+    "business_model": "Token 消耗计费；Cursor Pro / Business / Enterprise 订阅独立计算；self-hosted worker 不额外付费。",
+    "market_signal_strength": "Cursor 官方 announcement、MarkTechPost / TheNewStack / Analytics Drift / StartupHub 同周深度报道；HN 头条 14 小时；@cursor/sdk npm 周下载量直冲 top tier。",
+    "user_market_feedback": {
+      "good": [
+        "Cookbook 的 4 个 starter project 让上手时间从「读半天文档」变成「15 分钟跑通」",
+        "Cloud session 在 laptop sleep 时能继续跑，是真的工程基础设施级别的可靠",
+        "Self-hosted worker 让企业版本第一次「能给法务过」"
+      ],
+      "bad": [
+        "lock-in 风险 —— 转 Codex CLI 或 Claude Code 要重写",
+        "Public beta 文档还在变，生产用要做好 API 改动准备",
+        "Token 计费叠加在订阅之上让小团队的成本结构变复杂"
+      ]
+    },
+    "quotes": [
+      {
+        "author": "Daniel Singer (StartupHub.ai)",
+        "source": "startuphub.ai 2026-04-28",
+        "text": "Cursor 把过去「只能在编辑器里跑」的 agent 解开成可在你自己 tools / pipeline / product 里跑的 SDK —— 这是从 feature 到 infrastructure 的转变。"
+      },
+      {
+        "author": "Devtoolpicks 评论",
+        "source": "devtoolpicks.com 2026-04-30",
+        "text": "Cursor 的 advantage 是 harness。当你通过 SDK 创建 agent 时，它不只拿到了模型 —— 它拿到了 codebase indexing、semantic search、MCP、skills、hooks、subagent orchestration。Codex CLI 和 Claude Code 都没有同等基础设施。"
+      }
+    ],
+    "relevance_to_us": "Cursor 提供的「带 harness 的 SDK」是我们做 chat agent / skill 系统的强烈对标 —— 我们应该评估自己的 chat agent skills 是否能 export 成类似可被外部调用的形式。",
+    "skill_implications": "强烈印证 'skill = 可携带、可复用的领域 prompt + tool 集合' 这件事正在成为缺省抽象 —— 不只我们这么想，整个生态在收敛。",
+    "score_breakdown": {
+      "user_visibility": 2,
+      "access_barrier_change": 3,
+      "workflow_change": 3,
+      "distribution_change": 3,
+      "user_reaction": 2,
+      "relevance_to_our_direction": 3,
+      "evidence_quality": 3,
+      "hype_penalty": -1,
+      "total": 18
+    },
+    "raw_urls": [
+      "https://www.marktechpost.com/2026/04/29/cursor-introduces-a-typescript-sdk-for-building-programmatic-coding-agents-with-sandboxed-cloud-vms-subagents-hooks-and-token-based-pricing/",
+      "https://www.startuphub.ai/ai-news/technology/2026/cursor-sdk-lets-developers-build-agents",
+      "https://kingy.ai/ai/cursor-sdk-review-cursors-coding-agent-becomes-programmable-infrastructure/"
+    ]
+  },
+  {
+    "module": "product",
+    "item_tier": "main",
+    "name": "Gemini Enterprise Agent Platform",
+    "company": "Google Cloud",
+    "published_date": "2026-04-22",
+    "source_tier": "official",
+    "verification_status": "verified",
+    "confidence": "high",
+    "one_line_judgment": "Vertex AI 改名重生 —— Google 把所有 agent 工具收敛成一个企业平台。",
+    "what_it_is": "Gemini Enterprise Agent Platform 是 Google Cloud 把 Vertex AI 重新打包后的产品 —— 一个面向企业的「build / scale / govern / optimize agents」端到端平台。把以前散落在 Vertex AI、Agent Builder、Agent Engine、Memory Bank 等各处的功能统一进同一个平台。新增四大块：增强 ADK（用 graph-based framework 编排 sub-agents）、Agent Runtime（agent 间持久化 + agent-to-agent orchestration）、Agent Identity / Gateway / Model Armor（治理）、Agent Simulation + Observability（优化）。同步推 Gemini Enterprise app —— 一个让企业员工发现、创建、共享 agent 的环境。",
+    "core_positioning": "Vertex AI 的「agentic 时代」改名 —— 从「模型平台」升级成「agent fleet 治理平台」，对标 AWS Bedrock Agents 与 Microsoft Foundry。",
+    "problem_it_solves": "企业部署多个 agent 后没有统一的 identity、gateway、auditing、policy 控制 —— Google 把这些做成 platform 默认，避免每个团队自己拼治理层。",
+    "user_visibility": "对所有 Google Cloud 客户开放，旧 Vertex AI 用户自动迁移；旧名称（Agent Engine → Agent Runtime, Memory Bank → Agent Platform Memory Bank 等）逐步过渡。",
+    "access_barrier_change": "对已经在 Google Cloud 的企业是 net-降低；对新客户与之前没有云足迹的小团队仍然是企业级门槛。",
+    "workflow_change": "把「prompt → 模型 → 自己拼 sandbox/auth/observability」的链路压缩成「declare an agent in ADK → deploy in Agent Runtime」一个动作；agent 治理（identity / gateway / armor）默认接入。",
+    "distribution_change": "Google Cloud Marketplace + 内置 Gemini Enterprise app（企业员工可视化入口）。",
+    "interaction_pattern": "ADK（Agent Development Kit）的 graph-based framework 定义 agent 网络 → Agent Runtime 部署 → Gemini Enterprise app 给员工调用。",
+    "new_product_form": "「Agent Platform as a Product」—— Google 第一次明确不卖模型而是卖整个 agent 生命周期工具集。",
+    "product_highlights": [
+      "ADK 升级为 graph-based framework，原生支持 MCP",
+      "Memory Bank + Memory Profiles：agent 跨 session 的长期记忆，自动管理用户偏好与历史",
+      "Agent Identity：每个 agent 一个 cryptographic ID，traceability 与 auditing 默认",
+      "Agent Gateway：agent 间通信的「air traffic control」",
+      "Model Armor：抗 prompt injection / tool poisoning / 数据泄漏",
+      "Agent Simulation：上线前压力测试，对比真实场景"
+    ],
+    "landing_notes": "对已经在 Google Cloud 的中大型企业是直接价值；对小团队 / indie 仍然太重。AWS 与 Microsoft 一定会跟进等价产品；Salesforce / ServiceNow 会被这件事改变 —— 它们的「agent platform」叙事现在被 Google 抢占了。",
+    "user_scenarios": [
+      "**企业平台工程团队**：把过去散在 Vertex / Agent Builder / Memory Bank / Vector DB 的多套配置收拢成一个 Agent Platform 项目，运维负担直接减半。",
+      "**有合规要求的金融 / 医疗团队**：Agent Identity + Model Armor + Audit 默认开启，省去自己拼一套合规工具链。",
+      "**做 agent-as-a-service 的 B 端公司**：用 Gemini Enterprise app 作为 customer-facing 入口，把自己的 agent 直接部署给客户员工。"
+    ],
+    "business_model": "Google Cloud 计费（compute + 模型 token）；Agent Platform 本身的「治理层」目前不单独定价（含在 GCP 里）。",
+    "market_signal_strength": "Google Cloud 官方 blog 主推；Hacker News 与 r/MachineLearning 当日讨论；Salesforce / ServiceNow 投资者社区出现「Google enters agent fleet 业务」的关注帖。",
+    "user_market_feedback": {
+      "good": [
+        "ADK 的 graph framework 让多 agent 编排第一次「不像玩具」",
+        "Identity + Gateway + Armor 三件套让企业部署的合规审查直接简化",
+        "改名让产品叙事终于清晰 —— Vertex AI 之前太杂"
+      ],
+      "bad": [
+        "改名带来的迁移与文档过期问题（Agent Engine 文档要重新读一遍）",
+        "对 indie / 小团队仍然是 overkill",
+        "lock-in 进 Google Cloud 的程度比之前更深"
+      ]
+    },
+    "quotes": [
+      {
+        "author": "Google Cloud blog",
+        "source": "cloud.google.com 2026-04-22",
+        "text": "Agent Platform is the new standard for enterprise agent development, built to help you move from experimentation to production-scale impact, starting today."
+      }
+    ],
+    "relevance_to_us": "把「agent 治理」做成 platform 这件事，是我们做 chat agent / skill 系统时迟早要面对的问题 —— Google 的设计可以参考（identity / gateway / observability 三件套）。",
+    "skill_implications": "印证 skill / agent 的 lifecycle（dev / runtime / govern / optimize）四阶段框架是行业共识，不是我们独创。",
+    "score_breakdown": {
+      "user_visibility": 2,
+      "access_barrier_change": 1,
+      "workflow_change": 3,
+      "distribution_change": 2,
+      "user_reaction": 1,
+      "relevance_to_our_direction": 2,
+      "evidence_quality": 3,
+      "hype_penalty": -1,
+      "total": 13
+    },
+    "raw_urls": [
+      "https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-agent-platform",
+      "https://cloud.google.com/blog/products/ai-machine-learning/the-new-gemini-enterprise-one-platform-for-agent-development"
+    ]
+  },
+  {
+    "module": "product",
+    "item_tier": "main",
+    "name": "Logic（spec-driven agents）",
+    "company": "Logic, Inc.",
+    "published_date": "2026-04-27",
+    "source_tier": "press-release",
+    "verification_status": "partially-verified",
+    "confidence": "medium",
+    "one_line_judgment": "「写一段自然语言 spec → 平台帮你跑 agent」—— 又一家把 agent 抽象成 spec 的初创押下注。",
+    "what_it_is": "Logic 是一家西雅图初创公司（前 Twitter 工程师 Steve Krenzel + Jess Garms 创办，Founders' Co-op / Audacious / Ali Partovi 的 Neo 投资），主打「spec-driven 平台 for fully managed AI agents」。具体：你用自然语言写一段「我希望这个 agent 做什么」的 spec，Logic 帮你 spin up 基础设施、处理 input / file、跨业务系统执行。免费档可用；付费 $49/mo 起。",
+    "core_positioning": "面向「不想自己拼 LLM 基础设施」的工程团队 —— 把 agent 的部署/运维全外包，团队只写「想做什么」的 spec。和 Cursor SDK / Claude Code 不同：Logic 不要求你写代码或选模型，纯 declarative。",
+    "problem_it_solves": "中小团队想在生产里跑 agent 但不想自己搭 LLM infra —— 不想管 retry、observability、tool calling、state、模型切换。",
+    "user_visibility": "立即可用；免费档让人能直接试。",
+    "access_barrier_change": "降低 —— 相比 LangGraph / Cursor SDK 都需要写代码，Logic 是 spec-only。",
+    "workflow_change": "「描述行为」替代「写 agent 代码」—— 一个 spec 落地到一个跑起来的 agent。",
+    "distribution_change": "纯 SaaS，无需安装。",
+    "interaction_pattern": "Web app 写 spec → Logic 解释为 agent → 接 source / sink → 跑。",
+    "product_highlights": [
+      "Spec 用自然语言写 —— 不用学 DSL 或 SDK",
+      "免费档让小团队 / 个人能完整试一遍",
+      "$49/mo 起的付费档对 indie SaaS 友好",
+      "Founders 是 Twitter / Square 老兵，工程能力可信"
+    ],
+    "landing_notes": "对「想做 agent 但工程预算紧」的小团队是直接价值；对已经有自己 LLM infra 的成熟团队不必要。和 Lindy、Stack AI、Relevance AI 是同一赛道，差异主要在 founder 背景与定价。",
+    "user_scenarios": [
+      "**indie SaaS 创业者**：想在产品里加一个「自动客服 agent」但不想自己拼 LLM infra —— Logic 写一段 spec，几小时上线。",
+      "**做 ops 自动化的小团队**：把「监控告警 → 在 PagerDuty 创 incident → 在 Linear 开 ticket」这类跨系统流程描述成一段 spec。",
+      "**做 partner integration 的 BD**：每加一个新合作方需要一套定制 agent，spec-driven 让 BD 也能自己改而不用每次找工程。"
+    ],
+    "business_model": "Freemium：免费档 + $49/mo 起的付费档；企业版另议。",
+    "market_signal_strength": "PRNewswire + Founders' Co-op 投资圈背书；尚未上 HN / Product Hunt 头版（典型 PR-driven 启动）。",
+    "user_market_feedback": {
+      "good": [
+        "Founder 背景可信（Twitter 早期 + Square）",
+        "免费档没有 sign-in wall，30 秒能写第一条 spec",
+        "对 'agent infra 不想自己拼' 这个痛点定位精准"
+      ],
+      "bad": [
+        "目前 only English；中日文 spec 解析未知",
+        "PR 之外缺 organic discovery；HN / PH 反响淡",
+        "spec 抽象层一旦不够灵活就要回退到写代码 —— 适用范围未知"
+      ]
+    },
+    "quotes": [
+      {
+        "author": "Logic press release",
+        "source": "prnewswire.com 2026-04-27",
+        "text": "Teams describe what they want an agent to do in a natural-language spec, and Logic handles the rest: spinning up infrastructure, processing inputs and files, and taking action across business systems."
+      }
+    ],
+    "relevance_to_us": "「spec-driven 而不是 code-driven」是我们应该跟踪的 UX 方向 —— 我们 chat agent 的 onboarding 是否能让用户用一段「想要什么」的 spec 而不是 form 填写？",
+    "skill_implications": "spec → agent 这个抽象，正是我们 skill 系统应该考虑的「让非工程用户也能创建 skill」的方向。",
+    "score_breakdown": {
+      "user_visibility": 1,
+      "access_barrier_change": 2,
+      "workflow_change": 2,
+      "distribution_change": 1,
+      "user_reaction": 1,
+      "relevance_to_our_direction": 2,
+      "evidence_quality": 1,
+      "hype_penalty": 0,
+      "total": 10
+    },
+    "raw_urls": [
+      "https://www.prnewswire.com/news-releases/logic-launches-spec-driven-platform-for-fully-managed-ai-agents-302754664.html"
+    ]
+  },
+  {
+    "module": "product",
+    "item_tier": "brief",
+    "name": "Harness Cursor Plugin",
+    "company": "Harness",
+    "published_date": "2026-04-30",
+    "source_tier": "press-release",
+    "verification_status": "verified",
+    "confidence": "high",
+    "one_line_judgment": "Cursor Marketplace 第一个真正企业级的 CI/CD 插件 —— DevOps 进入 IDE。",
+    "what_it_is": "Harness Cursor Plugin 是 Harness（AI 软件交付平台公司）发布的 Cursor 原生集成 —— 装在 Cursor 里之后，开发者能用自然语言在 chat 里直接执行 CI/CD pipeline、部署、治理工作流，不用离开编辑器。技术上由 Harness 托管的 MCP server + Software Delivery Knowledge Graph 驱动；权限按既有 Harness RBAC 走（OAuth 鉴权，无需 API key）；从 Cursor Marketplace 直接安装。",
+    "core_positioning": "把企业级 CI/CD（部署、回滚、policy 检查）从 dashboard 拖进 Cursor chat —— 「DevOps in your editor」。",
+    "problem_it_solves": "工程师每天要在 Cursor / browser / Slack / dashboard 间反复切换；Harness 把跨边界的 deploy / rollback / approval 收回到 Cursor 内的 chat 里完成。",
+    "user_visibility": "对所有同时是 Harness 和 Cursor 客户的团队免费可用。",
+    "access_barrier_change": "降低 —— 不需要新 API key，Harness 既有 RBAC 即可。",
+    "workflow_change": "Deploy / approve / rollback 从「打开 Harness UI」变成「在 Cursor chat 里说一句」。",
+    "distribution_change": "Cursor Marketplace 上线 —— Cursor 的 plugin 生态第一次有企业级玩家入驻。",
+    "product_highlights": [
+      "MCP server-backed —— 干净的 protocol 接入",
+      "OAuth 鉴权 + server-side token 管理 —— 不需要用户管 API key",
+      "复用既有 Harness RBAC，权限治理零新增",
+      "在 Cursor Marketplace 直接安装"
+    ],
+    "user_scenarios": [
+      "**SRE / 平台工程师**：在 Cursor 里跟 agent 说「把这个分支部到 staging 跑一遍 smoke test」—— 不用切窗口。",
+      "**做 release 的工程经理**：approve / reject deployments 直接在 Cursor chat 里完成。"
+    ],
+    "business_model": "对既有 Harness + Cursor 客户免费；Harness 通过既有 SaaS 订阅变现。",
+    "user_market_feedback": {
+      "good": [
+        "RBAC 复用让企业 IT 不需要批新权限",
+        "MCP-backed 设计意味着以后换其他编辑器也能复用"
+      ],
+      "bad": [
+        "只对 Harness 既有客户有意义",
+        "Cursor MCP 协议演进可能要适配"
+      ]
+    },
+    "quotes": [
+      {
+        "author": "Harness PR",
+        "source": "prnewswire.com 2026-04-30",
+        "text": "Developers can securely execute CI/CD pipelines, deployments, and governance workflows through natural language in the Cursor chat, all without leaving their development environment."
+      }
+    ],
+    "relevance_to_us": "Cursor Marketplace 的企业插件生态正在起步 —— 我们应该评估自己的 chat agent 是否能 export 一个 Cursor plugin（让用户在 Cursor 里直接「向我们的 agent 提问」）。",
+    "score_breakdown": {
+      "user_visibility": 1,
+      "access_barrier_change": 1,
+      "workflow_change": 1,
+      "distribution_change": 2,
+      "user_reaction": 1,
+      "relevance_to_our_direction": 1,
+      "evidence_quality": 2,
+      "hype_penalty": 0,
+      "total": 9
+    },
+    "raw_urls": [
+      "https://www.prnewswire.com/news-releases/harness-launches-cursor-plugin-to-bring-the-full-power-of-software-delivery-into-the-developer-workflow-302759045.html"
+    ]
+  },
+  {
+    "module": "operation",
+    "item_tier": "main",
+    "name": "Paper Compute（agent 可观测）",
+    "company": "Paper Compute",
+    "published_date": "2026-04-27",
+    "source_tier": "tier-1-tech-press",
+    "verification_status": "verified",
+    "confidence": "high",
+    "one_line_judgment": "GitHub 老兵创业 —— agent 可观测的「不需要改代码」版本登场。",
+    "what_it_is": "Paper Compute 是 GitHub / 开源圈老兵 Brian Douglas 新创的公司，目标是「修复 agent infrastructure」。核心产品是 zero-instrumentation 的 agent 可观测层 —— 不用改你的 application code，通过 proxy service 拦截并记录 agent 的 traffic（prompts、tool calls、responses），同时提供 API server（查 sessions / messages / metadata）和 terminal UI（一步步 trace agent 行为）。开源基础（具体 license 待确认）。",
+    "core_positioning": "面向「agent 已经在 production 跑、但根本不知道它在干什么」的团队 —— 用 proxy 拦截而不是 SDK 注入，避免改 application code。",
+    "problem_it_solves": "现有 LLM observability（Helicone / LangSmith / PromptLayer）大多需要 SDK 注入或 BYO endpoint；Paper Compute 的 zero-instrumentation 路径更适合「我已经有跑了一年的 agent，不想动它」的团队。",
+    "user_visibility": "公开发布，文档与产品介绍可立即看。",
+    "access_barrier_change": "降低 —— zero-instrumentation 让接入时间从「半天集成」降到「分钟级配 proxy」。",
+    "workflow_change": "Observability 从「侵入式 SDK」变成「proxy 截流」。",
+    "product_highlights": [
+      "Zero-instrumentation：proxy 拦截 traffic，不改 application code",
+      "API server 让你查 sessions / messages / metadata",
+      "Terminal UI 一步步 trace agent 行为",
+      "开源基础设施 —— 不锁定 vendor",
+      "Founder 是 GitHub 老兵 Brian Douglas（Open Source 圈影响力大）"
+    ],
+    "landing_notes": "对已经在生产跑 agent 但缺 observability 的中小团队是直接价值；对还没上生产的团队意义有限。直接竞品是 Helicone / LangSmith / PromptLayer，差异点是 zero-instrumentation。",
+    "user_scenarios": [
+      "**已经上生产的 agent 团队**：用 proxy 配置 5 分钟接入，开始看到 agent 在生产里到底干了什么 —— 不需要改任何 application code。",
+      "**做开源 agent 框架的开发者**：把 Paper Compute 的 OSS proxy 作为推荐 observability 默认。"
+    ],
+    "business_model": "OSS + 商业 hosted（具体定价待确认）。",
+    "market_signal_strength": "The New Stack 报道（tier-1 dev 媒体）；HN 当日讨论；GitHub 圈老兵背书。",
+    "user_market_feedback": {
+      "good": [
+        "Zero-instrumentation 是 LLM observability 长期被忽视的接入难题",
+        "Open source 让企业愿意 trust",
+        "Founder 在 OSS 圈的影响力让早期采纳很顺"
+      ],
+      "bad": [
+        "Proxy 模式有性能 overhead（vs SDK 注入）",
+        "Multi-cloud / 多 region 部署 proxy 仍要工程投入"
+      ]
+    },
+    "quotes": [
+      {
+        "author": "The New Stack 报道",
+        "source": "thenewstack.io 2026-04-27",
+        "text": "Open source veteran Brian Douglas has launched Paper Compute, a startup aimed at fixing the problem of AI agent infrastructure ... a zero-instrumentation observability layer that captures and records agent activity without requiring changes to application code."
+      }
+    ],
+    "relevance_to_us": "我们的 chat agent 应该评估接入 Paper Compute 来看 production traffic（每条消息、每次 tool call、每次 LLM 调用）—— 当前我们没有任何 observability。",
+    "skill_implications": "Skill 设计应该把 observability 作为一等公民 —— 用户每次 invoke skill 都应该有可追溯的 trace。",
+    "score_breakdown": {
+      "real_capability_change": 1,
+      "selection_impact": 2,
+      "evidence_quality": 2,
+      "ecosystem_echo": 2,
+      "durability": 1,
+      "hype_penalty": 0,
+      "total": 8
+    },
+    "raw_urls": [
+      "https://thenewstack.io/paper-compute-agent-infrastructure/"
+    ]
+  },
+  {
+    "module": "operation",
+    "item_tier": "main",
+    "name": "NeoCognition（$40M 种子）",
+    "company": "NeoCognition",
+    "published_date": "2026-04-27",
+    "source_tier": "tier-2-tech-press",
+    "verification_status": "verified",
+    "confidence": "medium",
+    "one_line_judgment": "学术派从隐身出来 —— 想做「能像人一样自学专业」的 agent，押注 generalist + 自学习。",
+    "what_it_is": "NeoCognition 是一家研究主导型 AI 初创，俄亥俄州立大学教授 Yu Su 创办（去年从该校 spin out 实验室）。$40M 种子轮，Cambium Capital + Walden Catalyst Ventures 共同领投，Vista Equity Partners、Intel CEO Lip-Bu Tan、Databricks 联合创始人 Ion Stoica 等参投。约 15 人，多数 PhD。技术押注：不做单一垂直定制 agent，而是做「能自学习、能快速掌握任何领域专业知识与关系」的 generalist agents。Su 的核心论点是「现有 agent（含 Claude Code、Perplexity）成功率约 50%，对企业 autonomous 工作不够可靠」。",
+    "core_positioning": "「self-learning generalist agent」—— 反对「为每个垂直定制一套 agent」的主流做法，押人类式的 specialization。",
+    "problem_it_solves": "企业 agent 的可靠性问题 —— 现在的 agent 在 well-defined task 上能跑但任意调度时成功率不到 50%。",
+    "user_visibility": "刚出隐身；产品尚未公开发布。",
+    "product_highlights": [
+      "$40M 种子 —— 偏重 deep tech 的可观规模",
+      "团队 ~15 人，多数博士",
+      "Founder 是学术派（前 OSU 教授），抗拒过早商业化",
+      "Vista Equity 直接参投 —— 与其 portfolio（大量 SaaS）天然分销路径"
+    ],
+    "landing_notes": "对 enterprise AI buyer 是 watchlist 信号 —— 学术派对「现在 agent 可靠性不够」的判断和企业自己跑 PoC 的体感一致。短期内没有产品给一般开发者用；中期（12-18 月）值得跟踪。",
+    "user_scenarios": [
+      "**enterprise AI buyer**：作为「明年可能要 evaluate」的 vendor 加入 watchlist；当前不需要做任何动作。",
+      "**做 agent 框架的工程团队**：跟踪 Su 的 paper 与 talk —— 「self-learning generalist」的技术细节会在论文里逐步公开。"
+    ],
+    "business_model": "对企业销售；通过 Vista 的 SaaS portfolio 直接接触市场。",
+    "market_signal_strength": "TheAIInsider / TechCrunch 等 tier-2 媒体当日报道；Databricks 联合创始人参投 = 圈内信号强；HN 讨论但热度中等。",
+    "user_market_feedback": {
+      "good": [
+        "Founder 学术背景对 deep tech 的可信度高",
+        "$40M seed + Intel CEO + Databricks 联创参投是强信号",
+        "押注 generalist + self-learning 是与主流 vertical agent 不同的赌注 —— 多元化对生态好"
+      ],
+      "bad": [
+        "尚无公开产品 —— 只有 thesis",
+        "「成功率 50%」这个数据点缺乏 benchmark 出处",
+        "「self-learning generalist」是行业承诺多年但鲜有兑现的方向"
+      ]
+    },
+    "quotes": [
+      {
+        "author": "Yu Su（NeoCognition CEO）",
+        "source": "theaiinsider.tech 2026-04-27",
+        "text": "Current AI agents — including those from Claude Code and Perplexity — complete tasks successfully only around half the time, making them too unreliable for autonomous enterprise work."
+      }
+    ],
+    "relevance_to_us": "学术派对「agent 可靠性」的关注与我们个性化 + 长期记忆的方向一致；他们 12-18 月后如果有产品，可能直接挑战我们 chat agent 的 fact extraction / memory layer。",
+    "skill_implications": "「让 agent 自学领域专业」是 skill 系统终极目标 —— NeoCognition 是一个值得跟踪的对照组。",
+    "score_breakdown": {
+      "real_capability_change": 0,
+      "selection_impact": 1,
+      "evidence_quality": 2,
+      "ecosystem_echo": 1,
+      "durability": 2,
+      "hype_penalty": -1,
+      "total": 5
+    },
+    "raw_urls": [
+      "https://theaiinsider.tech/2026/04/27/neocognition-raises-40m-to-build-self-learning-ai-agents-that-specialise-like-humans/"
+    ]
+  }
+]

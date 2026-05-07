@@ -1,0 +1,30 @@
+[
+  {
+    "name": "GPT-5.5",
+    "item_tier": "main"
+  },
+  {
+    "name": "Cursor SDK",
+    "item_tier": "main"
+  },
+  {
+    "name": "Gemini Enterprise Agent Platform",
+    "item_tier": "main"
+  },
+  {
+    "name": "Logic（spec-driven agents）",
+    "item_tier": "main"
+  },
+  {
+    "name": "Harness Cursor Plugin",
+    "item_tier": "brief"
+  },
+  {
+    "name": "Paper Compute（agent 可观测）",
+    "item_tier": "main"
+  },
+  {
+    "name": "NeoCognition（$40M 种子）",
+    "item_tier": "main"
+  }
+]

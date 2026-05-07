@@ -1,0 +1,148 @@
+{
+  "main": [
+    {
+      "record_id": "claude-4-extended",
+      "module": "model",
+      "name": "Claude 4 Extended",
+      "version": "4.1",
+      "company": "Anthropic",
+      "score": 8,
+      "item_tier": "main",
+      "final_rank": 1,
+      "startup_spotlight": false,
+      "triage_reasons": [
+        "Score 8 exceeds model main threshold (≥7)",
+        "Editorial gate 1 PASS: Real capability change (200K context expansion)",
+        "Editorial gate 2 PASS: Affects model selection for long-document workflows",
+        "Diversity check: Anthropic entry 1/3 in models; company diversity satisfied"
+      ]
+    },
+    {
+      "record_id": "gemini-2-pro",
+      "module": "model",
+      "name": "Gemini 2 Pro",
+      "version": "2.0",
+      "company": "Google",
+      "score": 8,
+      "item_tier": "main",
+      "final_rank": 2,
+      "startup_spotlight": false,
+      "triage_reasons": [
+        "Score 8 exceeds model main threshold (≥7)",
+        "Editorial gate 1 PASS: Real capability change (native video input is new modality)",
+        "Editorial gate 2 PASS: Affects model selection for multimodal workflows",
+        "Diversity check: Google entry 2/3 in models; company diversity satisfied"
+      ]
+    },
+    {
+      "record_id": "llama-32-open",
+      "module": "model",
+      "name": "Llama 3.2 Open",
+      "version": "3.2",
+      "company": "Meta",
+      "score": 11,
+      "item_tier": "main",
+      "final_rank": 3,
+      "startup_spotlight": false,
+      "triage_reasons": [
+        "Score 11 exceeds model main threshold (≥7)",
+        "Editorial gate 1 PASS: Real capability change (instruction-following improvement confirmed by community)",
+        "Editorial gate 2 PASS: Affects model selection for cost-conscious teams and edge deployment",
+        "Highest ecosystem echo this week; strong editorial merit",
+        "Diversity check: Meta entry 3/3 in models; company diversity satisfied"
+      ]
+    },
+    {
+      "record_id": "cursor-pro",
+      "module": "product",
+      "name": "Cursor Pro",
+      "company": "Cursor Labs",
+      "score": 13,
+      "item_tier": "main",
+      "final_rank": 1,
+      "startup_spotlight": true,
+      "triage_reasons": [
+        "Score 13 exceeds product main threshold (≥10)",
+        "Editorial gate 1 PASS: Real workflow change (enables async collaborative coding without context switching)",
+        "Editorial gate 2 PASS: Affects product selection for distributed teams",
+        "Startup inclusion rule: Cursor Labs is indie/startup; featured as startup_spotlight"
+      ]
+    },
+    {
+      "record_id": "midjourney-web-studio",
+      "module": "product",
+      "name": "Midjourney Web Studio",
+      "company": "Midjourney",
+      "score": 15,
+      "item_tier": "main",
+      "final_rank": 2,
+      "startup_spotlight": false,
+      "triage_reasons": [
+        "Score 15 exceeds product main threshold (≥10)",
+        "Editorial gate 1 PASS: Real workflow change (removes Discord friction; enables single-app workflows)",
+        "Editorial gate 2 PASS: Affects product selection for creative workflows",
+        "Highest product score this week; strong market signals (1000+ upvotes, Twitter trending)"
+      ]
+    },
+    {
+      "record_id": "claude-code-sync",
+      "module": "product",
+      "name": "Claude Code Sync",
+      "company": "Anthropic",
+      "score": 13,
+      "item_tier": "main",
+      "final_rank": 3,
+      "startup_spotlight": false,
+      "triage_reasons": [
+        "Score 13 exceeds product main threshold (≥10)",
+        "Editorial gate 1 PASS: Real workflow change (enables IDE-native AI assistance without context fragmentation)",
+        "Editorial gate 2 PASS: Affects product selection for coding workflows",
+        "Diversity check: Anthropic + Cursor Labs + Midjourney; company diversity satisfied"
+      ]
+    }
+  ],
+  "brief": [
+    {
+      "record_id": "pixelgenius",
+      "module": "product",
+      "name": "PixelGenius",
+      "company": "PixelGenius",
+      "score": 9,
+      "item_tier": "brief",
+      "final_rank": 1,
+      "startup_spotlight": true,
+      "triage_reasons": [
+        "Score 9 falls in product brief threshold (7-9)",
+        "Startup inclusion rule: PixelGenius is startup; meets requirement for startup entry in brief tier",
+        "Market signal present (PH #2, 300+ upvotes); real user interest",
+        "Solves concrete pain for photographers; local-first pattern is interesting",
+        "Flag: GPU requirement and Flux license compliance unclear; brief tier appropriate pending clarification"
+      ]
+    }
+  ],
+  "dropped": [
+    {
+      "record_id": "gpt4-turbo-v2",
+      "module": "model",
+      "name": "GPT-4 Turbo v2",
+      "version": "4-turbo-v2",
+      "company": "OpenAI",
+      "score": 2,
+      "item_tier": "dropped",
+      "drop_reason": "Score 2 falls below model main threshold (≥7) and brief threshold (5-6); incremental function-calling improvement lacks independent verification and ecosystem echo; no community testing yet; rollout too early to assess impact"
+    }
+  ],
+  "summary": {
+    "modules_active": [
+      "models",
+      "products"
+    ],
+    "time_window": "2026-04-28 to 2026-05-05",
+    "total_collected": 8,
+    "total_passed_gates": 8,
+    "total_main": 6,
+    "total_brief": 1,
+    "total_dropped": 1,
+    "editorial_notes": "Strong week for creative workflows. Midjourney's web-first shift and Claude's extended context both directly address design/synthesis pain points. Llama open-weight release shows strong ecosystem adoption. Startup inclusion satisfied with Cursor Pro (main) and PixelGenius (brief). GPT-4 Turbo v2 dropped due to lack of verification and ecosystem signals; revisit if community testing emerges."
+  }
+}

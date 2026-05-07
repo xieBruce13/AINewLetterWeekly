@@ -1,0 +1,526 @@
+[
+  {
+    "name": "GPT-5.5",
+    "company": "OpenAI",
+    "updated_at": "2026-04-23",
+    "source_tier": "official",
+    "source_primary": [
+      "https://openai.com/index/introducing-gpt-5-5/",
+      "https://openai.com/index/gpt-5-5-system-card/"
+    ],
+    "source_validation": [
+      "https://benchlm.ai/models/gpt-5-5",
+      "https://interestingengineering.com/ai-robotics/opanai-gpt-5-5-agentic-coding-gains"
+    ],
+    "source_secondary": [
+      "https://www.cnbc.com/2026/04/23/openai-announces-latest-artificial-intelligence-model.html"
+    ],
+    "raw_urls": [
+      "https://openai.com/index/introducing-gpt-5-5/",
+      "https://openai.com/index/gpt-5-5-system-card/",
+      "https://benchlm.ai/models/gpt-5-5"
+    ],
+    "update_type": "new model",
+    "official_claims": [
+      "Matches GPT-5.4 speed while delivering higher intelligence",
+      "82.7% on Terminal-Bench 2.0 (vs Claude Opus 4.7's 69.4%)",
+      "SWE-Bench Pro: 58.6%, OSWorld-Verified: 78.7%",
+      "60% fewer hallucinations vs GPT-5.4",
+      "Uses significantly fewer tokens to complete tasks (higher efficiency)",
+      "State-of-the-art on agentic coding, computer use, and scientific research"
+    ],
+    "external_validation_summary": "BenchLM ranks GPT-5.5 #3 overall (91/100) among 115 models with Arena Elo 1475. Leads on Terminal-Bench 2.0 by 13+ points over nearest competitor. Strong independent confirmation from multiple benchmark trackers.",
+    "verification_status": "verified",
+    "confidence": "high",
+    "real_change_notes": "Significant agentic coding leap; beats Claude Opus 4.7 on terminal/computer-use tasks. More token-efficient than predecessors. Available in ChatGPT and Codex; API deployment announced.",
+    "selection_impact_notes": "Likely to become default for agentic coding pipelines where terminal-use and multi-step tasks dominate. Relevant replacement consideration vs Claude Opus 4.7 for coding workflows.",
+    "price_speed_cost_notes": "Pricing not yet disclosed for API; released to Plus/Pro/Business/Enterprise ChatGPT. Token efficiency improvement means lower effective cost per task.",
+    "app_api_workflow_notes": "Available in ChatGPT and Codex at launch; API availability announced as coming soon. Tight integration with OpenAI Codex for agentic coding.",
+    "new_use_cases": [
+      "Long-horizon agentic coding (20-hour senior dev tasks)",
+      "Computer use / desktop automation",
+      "Scientific research automation",
+      "Complex multi-step data analysis and document generation"
+    ],
+    "business_model": "Subscription (ChatGPT Plus/Pro/Business/Enterprise) + upcoming API pay-per-token",
+    "ecosystem_echo": "Positioned as the top agentic coding model, directly competing with Claude Opus 4.7 for developer workflows. Significant industry attention.",
+    "durability_notes": "Major frontier release; likely to hold top position for 2-3 months before next update cycle.",
+    "risk_caveat": "API pricing not yet confirmed. System card notes red-teaming concerns for cybersecurity/biology misuse. Slightly outside Apr 29 – May 6 window (released Apr 23) but GPT-5.5 Instant (May 5) is within window.",
+    "user_market_feedback": {
+      "good": [
+        "Benchmark community confirms Terminal-Bench lead",
+        "Developers praising agentic task completion quality",
+        "Token efficiency praised (fewer tokens per task)"
+      ],
+      "bad": [
+        "API not yet available at launch (ChatGPT-only initially)",
+        "Pricing unknown for API"
+      ]
+    },
+    "one_line_judgment": "OpenAI's strongest agentic coding model yet, leading Terminal-Bench 2.0 at 82.7% and delivering higher intelligence at GPT-5.4 speeds.",
+    "relevance_to_us": "High — directly relevant for AI-native creative tool workflows requiring agentic coding, computer use, and multi-step task execution. Strong candidate for skill/agent infrastructure backbone.",
+    "image_urls": []
+  },
+  {
+    "name": "GPT-5.5 Instant",
+    "company": "OpenAI",
+    "updated_at": "2026-05-05",
+    "source_tier": "official",
+    "source_primary": [
+      "https://openai.com/index/gpt-5-5-instant/",
+      "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+    ],
+    "source_validation": [
+      "https://techcrunch.com/2026/05/05/openai-releases-gpt-5-5-instant-a-new-default-model-for-chatgpt/",
+      "https://venturebeat.com/orchestration/gpt-5-5-instant-shows-you-what-it-remembered-just-not-all-of-it"
+    ],
+    "source_secondary": [],
+    "raw_urls": [
+      "https://openai.com/index/gpt-5-5-instant/",
+      "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "https://techcrunch.com/2026/05/05/openai-releases-gpt-5-5-instant-a-new-default-model-for-chatgpt/"
+    ],
+    "update_type": "upgrade",
+    "official_claims": [
+      "52.5% fewer hallucinated claims than GPT-5.3 Instant on high-stakes topics (medicine, law)",
+      "AIME 2025 math: 81.2 (vs 65.4 for GPT-5.3 Instant)",
+      "MMMU-Pro: 76 (vs 69.2 for GPT-5.3 Instant)",
+      "Enhanced image analysis and STEM question answering",
+      "Better personalization using past chats, memories, files, and Gmail",
+      "New Memory Sources feature shows what context shaped each response"
+    ],
+    "external_validation_summary": "TechCrunch and VentureBeat confirmed launch on May 5. Benchmark improvements independently noted. Memory Sources transparency feature widely covered.",
+    "verification_status": "verified",
+    "confidence": "high",
+    "real_change_notes": "New default ChatGPT model as of May 5. Meaningful hallucination reduction. Memory Sources adds auditability. Within the April 29 – May 6 collection window.",
+    "selection_impact_notes": "Replaces GPT-5.3 Instant as default for 200M+ ChatGPT users. Personalization improvements and memory sources are meaningful UX differentiator.",
+    "price_speed_cost_notes": "Same pricing tier as predecessor. GPT-5.3 Instant available to paid users for 3 more months before retirement.",
+    "app_api_workflow_notes": "Available via API as 'chat-latest'. Memory Sources UI in ChatGPT web/mobile (mobile rollout pending).",
+    "new_use_cases": [
+      "High-stakes Q&A with reduced hallucination (legal, medical)",
+      "Personalized contextual assistance using multi-source memory",
+      "STEM and image analysis tasks"
+    ],
+    "business_model": "Free tier (default model) + Plus/Pro subscription + API pay-per-token",
+    "ecosystem_echo": "Signals OpenAI's push toward persistent memory and personalization as core ChatGPT differentiator. Etsy app integration launched same day shows ecosystem momentum.",
+    "durability_notes": "Default model replacement; impact is systemic across all ChatGPT users.",
+    "risk_caveat": "Memory Sources described as 'not full auditability yet' — partial transparency only.",
+    "user_market_feedback": {
+      "good": [
+        "Hallucination reduction on sensitive topics well-received",
+        "Memory transparency (Sources) seen as useful trust feature"
+      ],
+      "bad": [
+        "Memory Sources doesn't show all factors that shaped an answer"
+      ]
+    },
+    "one_line_judgment": "ChatGPT's new default model with 52.5% fewer hallucinations and a new memory sources transparency layer — within collection window (May 5).",
+    "relevance_to_us": "Medium-high — default model upgrade affects all ChatGPT integrations; memory + personalization patterns relevant for creative tool design.",
+    "image_urls": []
+  },
+  {
+    "name": "Claude Opus 4.7",
+    "company": "Anthropic",
+    "updated_at": "2026-04-16",
+    "source_tier": "official",
+    "source_primary": [
+      "https://www.anthropic.com/news/claude-opus-4-7",
+      "https://platform.claude.com/docs/en/about-claude/models/whats-new-claude-4-7"
+    ],
+    "source_validation": [
+      "https://artificialanalysis.ai/articles/opus-4-7-everything-you-need-to-know",
+      "https://llm-stats.com/blog/research/claude-opus-4-7-launch",
+      "https://venturebeat.com/technology/anthropic-releases-claude-opus-4-7-narrowly-retaking-lead-for-most-powerful-generally-available-llm"
+    ],
+    "source_secondary": [
+      "https://docs.anthropic.com/en/release-notes/overview"
+    ],
+    "raw_urls": [
+      "https://www.anthropic.com/news/claude-opus-4-7",
+      "https://platform.claude.com/docs/en/about-claude/models/whats-new-claude-4-7",
+      "https://artificialanalysis.ai/articles/opus-4-7-everything-you-need-to-know"
+    ],
+    "update_type": "new model",
+    "official_claims": [
+      "SWE-bench Verified: 87.6% (up from 80.8% for Opus 4.6)",
+      "GPQA Diamond: 94.2%",
+      "GDPval-AA: 1,753 Elo — leads GPT-5.4 and Gemini 3.1 Pro on knowledge work",
+      "High-resolution vision: images up to 2,576px (3.3x more than Opus 4.6), 98.5% visual-acuity",
+      "New xhigh effort level for deeper reasoning",
+      "Task budgets (beta) for token-bounded agentic loops",
+      "Self-verification: writes and runs tests before reporting results",
+      "35% fewer output tokens than Opus 4.6 while scoring 4 points higher on AI Index"
+    ],
+    "external_validation_summary": "Artificial Analysis confirms 35% fewer output tokens with higher quality. VentureBeat validates 'narrowly retaking lead for most powerful GA model'. Multiple independent benchmark trackers confirm SWE-bench 87.6%.",
+    "verification_status": "verified",
+    "confidence": "high",
+    "real_change_notes": "Major capability jump on SWE-bench (+6.8pp), vision (3.3x resolution), and self-verification. Also adds Managed Agents Memory (Apr 23 — within window) and Rate Limits API (Apr 24 — within window).",
+    "selection_impact_notes": "Best GA model for software engineering and knowledge work as of collection date. Vision improvements directly relevant for creative/design AI tools requiring image understanding.",
+    "price_speed_cost_notes": "Unchanged at $5/$25 per million input/output tokens. 35% fewer output tokens = ~26% cost reduction in practice vs Opus 4.6.",
+    "app_api_workflow_notes": "Available via Anthropic API, Amazon Bedrock, Google Cloud Vertex AI, Microsoft Foundry. New xhigh effort level and task budgets add workflow control. Managed Agents Memory (beta) launched Apr 23.",
+    "new_use_cases": [
+      "High-resolution image analysis for creative tools (mockups, screenshots, design review)",
+      "Long agentic coding loops with self-verification",
+      "Multi-session work with file-system memory",
+      "Token-bounded agentic task completion with budgets"
+    ],
+    "business_model": "API pay-per-token ($5/$25 per M tokens) + Claude.ai subscription tiers",
+    "ecosystem_echo": "Leading frontier model on SWE-bench and knowledge work. Adobe Firefly AI Assistant connector integrates Claude (Apr 28). Strong enterprise adoption via Bedrock/Vertex.",
+    "durability_notes": "Top-of-class for 1-2 months; GPT-5.5 leads on terminal/computer-use tasks but Opus 4.7 leads on SWE-bench and knowledge work. Both will likely hold dual top positions.",
+    "risk_caveat": "Released Apr 16 — 13 days before collection window start. Included as it remains the leading GA model and Claude platform updates (Managed Agents Memory Apr 23, Rate Limits API Apr 24) fall within window.",
+    "user_market_feedback": {
+      "good": [
+        "Self-verification feature widely praised for reducing coding errors",
+        "Vision resolution upgrade significant for design/image tasks",
+        "xhigh effort level gives finer control for expensive reasoning tasks"
+      ],
+      "bad": [
+        "API breaking changes from Opus 4.6 require migration",
+        "Still behind GPT-5.5 on terminal-bench and computer use"
+      ]
+    },
+    "one_line_judgment": "Anthropic's flagship retakes #1 SWE-bench at 87.6% with self-verification, 3.3x vision resolution, and 35% token efficiency gain.",
+    "relevance_to_us": "Very high — top model for coding, vision tasks (creative tool images), and agentic loops. Self-verification and task budgets are directly applicable to skill/workflow systems.",
+    "image_urls": []
+  },
+  {
+    "name": "Grok 4.3 + Voice APIs",
+    "company": "xAI",
+    "updated_at": "2026-05-01",
+    "source_tier": "official",
+    "source_primary": [
+      "https://x.ai/news/grok-voice-think-fast-1",
+      "https://docs.x.ai/docs/release-notes"
+    ],
+    "source_validation": [
+      "https://venturebeat.com/technology/xai-launches-grok-4-3-at-an-aggressively-low-price-and-a-new-fast-powerful-voice-cloning-suite",
+      "https://techsifted.com/posts/grok-4-3-review-april-2026/"
+    ],
+    "source_secondary": [
+      "https://chatlyai.app/news/xai-grok-4-3-beta-video",
+      "https://aitooltier.com/tools/grok-voice"
+    ],
+    "raw_urls": [
+      "https://x.ai/news/grok-voice-think-fast-1",
+      "https://docs.x.ai/docs/release-notes",
+      "https://venturebeat.com/technology/xai-launches-grok-4-3-at-an-aggressively-low-price-and-a-new-fast-powerful-voice-cloning-suite"
+    ],
+    "update_type": "new model",
+    "official_claims": [
+      "Grok 4.3: built-in persistent reasoning, 1M token context, multimodal (text+image+video)",
+      "Aggressive pricing: $1.25/$2.50 per million input/output tokens (vs Grok 4.2's $2/$6)",
+      "Native document generation (PDFs, spreadsheets, PowerPoint)",
+      "Voice APIs: STT 5.0% entity error rate (vs ElevenLabs 12%, Deepgram 13.5%)",
+      "TTS: 5 voices, 20+ languages, expressive speech tags ([laugh], [sigh], [whisper])",
+      "Custom Voice cloning from short recordings (launched Apr 30)",
+      "Grok Voice Think Fast 1.0: enterprise voice agent for customer support (Apr 23)"
+    ],
+    "external_validation_summary": "VentureBeat and TechSifted confirm pricing and feature details. Voice API error rates cited from xAI's own benchmarks vs competitors — independent validation pending.",
+    "verification_status": "partially-verified",
+    "confidence": "medium",
+    "real_change_notes": "50%+ price cut vs Grok 4.2. Voice APIs and custom voice cloning are new product surface. Full Grok 4.3 rollout expected mid-to-late May 2026.",
+    "selection_impact_notes": "Lowest priced 1M-context frontier model. Voice APIs (STT+TTS) open new interaction patterns for voice-enabled creative tools. Custom voice cloning is directly relevant for creative/media applications.",
+    "price_speed_cost_notes": "$1.25/$2.50 per M tokens — significantly cheaper than GPT-5.5 (TBD) and Claude Opus 4.7 ($5/$25). STT: $0.10/hr batch, $0.20/hr streaming. TTS: $4.20 per 1M characters.",
+    "app_api_workflow_notes": "Available via xAI API and OpenRouter. Beta for SuperGrok Heavy ($300/mo) subscribers; wider rollout May 2026. Voice APIs are standalone REST endpoints.",
+    "new_use_cases": [
+      "Voice-enabled creative tool interfaces",
+      "Custom voice cloning for content creation",
+      "Low-cost 1M-context document analysis",
+      "Native presentation/slide generation",
+      "Enterprise voice agents for support/sales"
+    ],
+    "business_model": "API pay-per-token + SuperGrok subscription ($300/mo for heavy) + Grok on X platform",
+    "ecosystem_echo": "Aggressive pricing pressures industry; integration with X platform and Tesla/Starlink infrastructure signals unique distribution. Custom Voices launched Apr 30 (within collection window).",
+    "durability_notes": "Price leadership is durable advantage if maintained. Full rollout within collection window's tail.",
+    "risk_caveat": "Voice API error benchmarks self-reported. Beta-only for highest capabilities (full rollout pending). Some features (video understanding) not yet widely available.",
+    "user_market_feedback": {
+      "good": [
+        "Aggressive pricing widely praised by developers",
+        "Voice quality (custom cloning) noted as impressive in early reviews"
+      ],
+      "bad": [
+        "Still in SuperGrok Heavy beta ($300/mo) for full Grok 4.3",
+        "Independent voice API benchmark validation lacking"
+      ]
+    },
+    "one_line_judgment": "xAI cuts Grok 4.3 price by 50%+ while launching a voice cloning suite — the cheapest 1M-context frontier model with the industry's first integrated STT+TTS+cloning stack.",
+    "relevance_to_us": "High — price leadership and voice cloning APIs are directly relevant for creative tool builders. Custom voices enable new product forms in audio/media creation.",
+    "image_urls": []
+  },
+  {
+    "name": "Mistral Medium 3.5",
+    "company": "Mistral AI",
+    "updated_at": "2026-05-02",
+    "source_tier": "official",
+    "source_primary": [
+      "https://mistral.ai/news/vibe-remote-agents-mistral-medium-3-5"
+    ],
+    "source_validation": [
+      "https://www.infoq.com/news/2026/05/mistral-agents-lechat/",
+      "https://winbuzzer.com/2026/05/02/mistral-medium-3-5-unified-flagship-chat-reasoning-code-xcxwbn/"
+    ],
+    "source_secondary": [
+      "https://datanorth.ai/news/mistral-medium-3-5-release",
+      "https://www.i-scoop.eu/mistral-medium-3-5/"
+    ],
+    "raw_urls": [
+      "https://mistral.ai/news/vibe-remote-agents-mistral-medium-3-5",
+      "https://www.infoq.com/news/2026/05/mistral-agents-lechat/",
+      "https://winbuzzer.com/2026/05/02/mistral-medium-3-5-unified-flagship-chat-reasoning-code-xcxwbn/"
+    ],
+    "update_type": "new model",
+    "official_claims": [
+      "128B parameter dense model (not MoE), 256K context window",
+      "SWE-Bench Verified: 77.6%",
+      "τ³-Telecom agentic benchmark: 91.4%",
+      "Self-hostable on 4 GPUs",
+      "Configurable reasoning effort per request",
+      "Open weights under modified MIT license",
+      "Default model in Vibe CLI and Le Chat"
+    ],
+    "external_validation_summary": "InfoQ and multiple outlets confirm release and benchmark figures. Open weights on Hugging Face verifiable. SWE-Bench 77.6% is competitive but below Claude Opus 4.7 (87.6%) and GPT-5.5.",
+    "verification_status": "verified",
+    "confidence": "high",
+    "real_change_notes": "First single-model combining instruction-following, reasoning, coding, and vision (vs separate specialized models). Open weights at frontier-competitive quality. Within collection window (May 2).",
+    "selection_impact_notes": "Self-hostable frontier-competitive model changes economics for teams that want control over their inference. Vibe remote agents show practical agentic coding use case.",
+    "price_speed_cost_notes": "$1.50/$7.50 per million input/output tokens via Mistral API. Can self-host on 4 GPUs — potentially $0 marginal cost for teams with GPU infrastructure.",
+    "app_api_workflow_notes": "Available via Mistral API, Hugging Face, NVIDIA Build. Powers Vibe CLI remote agents and Le Chat Work Mode. Integrates with GitHub, Linear, Jira, Sentry, Slack, Teams.",
+    "new_use_cases": [
+      "Self-hosted agentic coding pipelines",
+      "Remote cloud coding agents (Vibe)",
+      "Multi-tool work orchestration (Le Chat Work Mode)",
+      "Vision tasks with reasoning at self-hostable scale"
+    ],
+    "business_model": "API pay-per-token ($1.50/$7.50) + open weights (self-host) + Le Chat subscription",
+    "ecosystem_echo": "Open weights strategy differentiates from GPT-5.5/Claude. Fills frontier-competitive open-weight gap left by DeepSeek V4's large hardware requirements.",
+    "durability_notes": "Open-weight release creates lasting ecosystem effect; downstream fine-tuning and hosting will extend relevance.",
+    "risk_caveat": "Modified MIT license (not fully permissive — check commercial terms). SWE-Bench 77.6% is good but not frontier-leading.",
+    "user_market_feedback": {
+      "good": [
+        "4-GPU self-hosting requirement is accessible for small teams",
+        "Unified model (no need to route between specialist models) praised"
+      ],
+      "bad": [
+        "SWE-Bench below Claude Opus 4.7 and GPT-5.5",
+        "Modified MIT license terms need review for commercial use"
+      ]
+    },
+    "one_line_judgment": "Mistral's 128B open-weight model unifies reasoning, coding, and vision on 4 GPUs — the most accessible self-hostable frontier model, shipping with cloud coding agents on May 2.",
+    "relevance_to_us": "High — self-hostable at 4 GPUs opens private deployment option for creative tool pipelines. Vibe remote agents pattern is directly applicable to skill/workflow infra.",
+    "image_urls": []
+  },
+  {
+    "name": "DeepSeek V4",
+    "company": "DeepSeek",
+    "updated_at": "2026-04-24",
+    "source_tier": "secondary",
+    "source_primary": [
+      "https://huggingface.co/blog/deepseekv4",
+      "https://deepseekai.guide/news/deepseek-v4-release-date/"
+    ],
+    "source_validation": [
+      "https://felloai.com/deepseek-v4/",
+      "https://developer.nvidia.com/blog/build-with-deepseek-v4-using-nvidia-blackwell-and-gpu-accelerated-endpoints/"
+    ],
+    "source_secondary": [
+      "https://apidog.com/blog/what-is-deepseek-v4/"
+    ],
+    "raw_urls": [
+      "https://huggingface.co/blog/deepseekv4",
+      "https://deepseekai.guide/news/deepseek-v4-release-date/",
+      "https://felloai.com/deepseek-v4/"
+    ],
+    "update_type": "new model",
+    "official_claims": [
+      "DeepSeek-V4-Pro: 1.6T total params, 49B active/token, 1M context, 384K output",
+      "DeepSeek-V4-Flash: 284B total params, 13B active/token, 1M context",
+      "Hybrid attention (CSA+HCA): 27% of V3.2 FLOPs for Pro, 10% for Flash",
+      "KV cache: ~2% the size of grouped query attention systems",
+      "MIT license open-source release"
+    ],
+    "external_validation_summary": "HuggingFace blog and NVIDIA confirm technical details. Open weights on Hugging Face verifiable. Efficiency claims (FLOP reduction, KV cache) are architectural — verifiable by inference practitioners.",
+    "verification_status": "verified",
+    "confidence": "high",
+    "real_change_notes": "Massive efficiency breakthrough: 1M-context MoE at a fraction of predecessor FLOPs. Opens 1M-context inference to teams without H100 clusters. Released Apr 24 — borderline outside window.",
+    "selection_impact_notes": "If FLOP/KV efficiency holds, DeepSeek V4 Pro could enable 1M-context inference on smaller GPU clusters. Flash variant is accessible for medium-scale teams.",
+    "price_speed_cost_notes": "API via api.deepseek.com (pricing not confirmed in sources). Open weights allow self-hosting with dramatically reduced hardware vs V3/V3.2.",
+    "app_api_workflow_notes": "Available on DeepSeek API, Hugging Face, chat.deepseek.com. V3/V3.2 API retire July 24, 2026.",
+    "new_use_cases": [
+      "1M-context document analysis on smaller GPU fleets",
+      "Long-context creative project management (entire codebases, scripts, storyboards)",
+      "Cost-efficient agentic inference at scale"
+    ],
+    "business_model": "API pay-per-token + open weights (MIT license, self-host)",
+    "ecosystem_echo": "China-origin open-source model maintains competitive pressure on US labs. NVIDIA partnership validates inference efficiency claims.",
+    "durability_notes": "MIT license + massive efficiency gain = durable ecosystem impact. Open-weight release will be fine-tuned and hosted by many downstream providers.",
+    "risk_caveat": "Released Apr 24 — just outside collection window. Flagged as 'Preview' — pricing and routing may still shift. Very large model (865GB on-disk for Pro) limits accessibility.",
+    "user_market_feedback": {
+      "good": [
+        "Efficiency breakthrough widely celebrated in open-source community",
+        "1M context at 2% KV cache size of standard GQA is extraordinary"
+      ],
+      "bad": [
+        "865GB on-disk for Pro requires massive storage",
+        "Preview status means production use is uncertain"
+      ]
+    },
+    "one_line_judgment": "DeepSeek V4 brings 1M-context MoE inference at 27% of predecessor FLOPs under MIT license — the open-weight efficiency benchmark for 2026.",
+    "relevance_to_us": "Medium-high — 1M context + efficiency matters for long-form creative workflows. Open-weight and MIT license relevant for privacy-sensitive creative tool deployments.",
+    "image_urls": []
+  },
+  {
+    "name": "MiniMax M2.7",
+    "company": "MiniMax",
+    "updated_at": "2026-04-11",
+    "source_tier": "official",
+    "source_primary": [
+      "https://minimax.io/models/text/m27",
+      "https://www.minimax.io/news/minimax-m27-en"
+    ],
+    "source_validation": [
+      "https://developer.nvidia.com/blog/minimax-m2-7-advances-scalable-agentic-workflows-on-nvidia-platforms-for-complex-ai-applications/",
+      "https://docs.api.nvidia.com/nim/reference/minimaxai-minimax-m2.7"
+    ],
+    "source_secondary": [
+      "https://github.com/MiniMax-AI/MiniMax-M2.7"
+    ],
+    "raw_urls": [
+      "https://minimax.io/models/text/m27",
+      "https://www.minimax.io/news/minimax-m27-en",
+      "https://developer.nvidia.com/blog/minimax-m2-7-advances-scalable-agentic-workflows-on-nvidia-platforms-for-complex-ai-applications/"
+    ],
+    "update_type": "new model",
+    "official_claims": [
+      "230B total params, 10B active/token (sparse MoE), 204,800 context",
+      "SWE-Pro: 56.22% (near GPT-5.3-Codex performance)",
+      "VIBE-Pro: 55.6%, Terminal Bench 2: 57.0%",
+      "GDPval-AA: 1,495 Elo (highest among open-source for office work)",
+      "97% skill adherence while working with 40+ complex skills (>2,000 tokens each)",
+      "Self-evolution: model participated in its own post-training",
+      "Agent Teams for multi-agent collaboration"
+    ],
+    "external_validation_summary": "NVIDIA NIM availability and blog post validates technical specs. Open-source on Hugging Face verifiable. r/LocalLLaMA noted M2.7 as significant with 470 points/151 comments in April.",
+    "verification_status": "verified",
+    "confidence": "medium",
+    "real_change_notes": "Released Apr 11 — outside collection window. Notable for self-evolution claims and highest GDPval-AA (office work) among open-source models. Relevant for creative tool teams doing complex multi-tool orchestration.",
+    "selection_impact_notes": "97% skill adherence at 40+ skills is directly relevant for skill system design. Self-evolution post-training is a novel architectural claim worth watching.",
+    "price_speed_cost_notes": "Available via NVIDIA NIM and Hugging Face — pricing per hosting provider. Relatively accessible MoE with 10B active params.",
+    "app_api_workflow_notes": "NVIDIA NIM microservice, Hugging Face. Supports Agent Teams and dynamic tool search for agentic workflows.",
+    "new_use_cases": [
+      "High-skill-count agentic orchestration (40+ skills)",
+      "Office document creation and editing at scale",
+      "Self-improving agent systems (post-training via self-evolution)"
+    ],
+    "business_model": "API via NVIDIA NIM + open weights on Hugging Face",
+    "ecosystem_echo": "Strong r/LocalLLaMA community reception. NVIDIA partnership signals mainstream adoption. Self-evolution claim is a first in open-source.",
+    "durability_notes": "Self-evolution and skill adherence claims set a benchmark others will aim to beat; watch for follow-up M2.8 or successor.",
+    "risk_caveat": "Released Apr 11 — 18 days outside window. Self-evolution claims are novel and need longer-term validation. Office work ELO benchmark is Minimax's own measure.",
+    "user_market_feedback": {
+      "good": [
+        "r/LocalLLaMA: '470 points, 151 comments' reception — very positive",
+        "Office task performance praised for Excel/PowerPoint/Word fidelity"
+      ],
+      "bad": [
+        "Self-evolution claims not yet independently verified",
+        "GDPval-AA benchmark is proprietary to MiniMax"
+      ]
+    },
+    "one_line_judgment": "MiniMax M2.7 is the first open-source model to self-evolve during training and leads open-source office work benchmarks — strong signal for skill system architecture.",
+    "relevance_to_us": "Medium — skill adherence research and self-evolution pattern directly informing our skill system design. Less urgent given Apr 11 release date.",
+    "image_urls": []
+  },
+  {
+    "name": "NVIDIA Nemotron 3 Nano Omni",
+    "company": "NVIDIA",
+    "updated_at": "2026-04-28",
+    "source_tier": "secondary",
+    "source_primary": [
+      "https://huggingface.co/blog/nvidia/nemotron-3-nano-omni-multimodal-intelligence"
+    ],
+    "source_validation": [],
+    "source_secondary": [
+      "https://github.com/huggingface/transformers/releases/tag/v5.8.0"
+    ],
+    "raw_urls": [
+      "https://huggingface.co/blog/nvidia/nemotron-3-nano-omni-multimodal-intelligence"
+    ],
+    "update_type": "new model",
+    "official_claims": [
+      "Omni-modal: text, images, documents, audio, video understanding in one model",
+      "Top rankings on multiple multimodal leaderboards",
+      "Designed for document analysis, image reasoning, ASR, audio-video understanding, and computer use",
+      "Long-context multimodal intelligence for agents",
+      "Released April 28 (borderline in window)"
+    ],
+    "external_validation_summary": "HuggingFace blog (official NVIDIA post) confirms capabilities. Transformers library v5.8.0 added native support. Leaderboard positions not independently verified in sources.",
+    "verification_status": "partially-verified",
+    "confidence": "medium",
+    "real_change_notes": "Omni-modal agent model from NVIDIA — positions as infrastructure-level model for document+audio+video agentic pipelines. Released Apr 28 — 1 day before window.",
+    "selection_impact_notes": "Omni-modal document+audio+video in one model reduces pipeline complexity for creative tools handling mixed media inputs.",
+    "price_speed_cost_notes": "Available via NVIDIA NIM and Hugging Face. Pricing per NIM endpoint (typically compute-based).",
+    "app_api_workflow_notes": "NVIDIA NIM microservice + Hugging Face Transformers native support.",
+    "new_use_cases": [
+      "Multi-modal creative asset analysis (documents, audio, video in one pass)",
+      "Agent computer use with document and audio understanding",
+      "Omni-modal RAG pipelines for creative archives"
+    ],
+    "business_model": "NVIDIA NIM enterprise compute + open weights",
+    "ecosystem_echo": "NVIDIA's push into foundation model space signals GPU vendor vertical integration.",
+    "durability_notes": "NVIDIA's distribution and NIM infrastructure ensures wide deployment.",
+    "risk_caveat": "Benchmark positions described but not fully cited in available sources. One day outside collection window.",
+    "user_market_feedback": {
+      "good": [],
+      "bad": []
+    },
+    "one_line_judgment": "NVIDIA's omni-modal agent model handles documents, audio, and video in one inference call — reduces pipeline complexity for creative multi-media AI applications.",
+    "relevance_to_us": "Medium — omni-modal pipeline pattern relevant for creative tools ingesting mixed media. Less frontier-critical than GPT-5.5/Claude Opus 4.7.",
+    "image_urls": []
+  },
+  {
+    "name": "Gemini API Multimodal File Search (Gemini Embedding 2)",
+    "company": "Google",
+    "updated_at": "2026-05-05",
+    "source_tier": "official",
+    "source_primary": [
+      "https://blog.google/innovation-and-ai/technology/developers-tools/expanded-gemini-api-file-search-multimodal-rag/"
+    ],
+    "source_validation": [],
+    "source_secondary": [
+      "http://gemini.google/us/release-notes/"
+    ],
+    "raw_urls": [
+      "https://blog.google/innovation-and-ai/technology/developers-tools/expanded-gemini-api-file-search-multimodal-rag/"
+    ],
+    "update_type": "API",
+    "official_claims": [
+      "File Search now multimodal: text+image RAG in one API",
+      "Powered by Gemini Embedding 2 model",
+      "Custom metadata filtering for unstructured data organization",
+      "Page-level citations for improved transparency and grounding",
+      "Released May 5, 2026 — within window"
+    ],
+    "external_validation_summary": "Official Google blog post confirms. Gemini Embedding 2 powering the feature is the key technical signal — embedding model upgrade enables multimodal retrieval.",
+    "verification_status": "verified",
+    "confidence": "high",
+    "real_change_notes": "Within collection window (May 5). Enables multimodal RAG without separate embedding pipelines. Reduces developer complexity for multi-format document search.",
+    "selection_impact_notes": "Relevant for creative tool builders using Gemini API for document+image RAG (design assets, visual references, mixed-media archives).",
+    "price_speed_cost_notes": "Gemini API pricing applies. Embedding 2 pricing not separately listed.",
+    "app_api_workflow_notes": "REST API via Gemini API. Custom metadata filtering enables structured retrieval from unstructured visual+text content.",
+    "new_use_cases": [
+      "Multimodal creative asset retrieval (search images and text together)",
+      "Visual design archive search",
+      "Mixed-format document RAG for product catalogs, design systems"
+    ],
+    "business_model": "Gemini API pay-per-use via Google Cloud",
+    "ecosystem_echo": "Signals Google's push to make Gemini the default embedding+RAG stack for enterprise developers.",
+    "durability_notes": "API capability additions are sticky — once developers build on multimodal File Search, switching cost is high.",
+    "risk_caveat": "Limited third-party validation available; Google-sourced only. Not a model release per se — API/embedding model upgrade.",
+    "user_market_feedback": {
+      "good": [],
+      "bad": []
+    },
+    "one_line_judgment": "Google's Gemini API adds multimodal file search (text+image RAG) on May 5, powered by Gemini Embedding 2 — directly useful for creative asset retrieval pipelines.",
+    "relevance_to_us": "Medium-high — multimodal RAG API directly useful for creative tools that need to search visual + text content together.",
+    "image_urls": []
+  }
+]

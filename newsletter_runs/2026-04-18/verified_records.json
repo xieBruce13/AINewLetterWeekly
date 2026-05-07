@@ -1,0 +1,124 @@
+[
+  {
+    "module": "model",
+    "item_tier": "main",
+    "name": "Claude Opus 4.7",
+    "version": "4.7",
+    "company": "Anthropic",
+    "published_date": "2026-04-16",
+    "source_tier": "official",
+    "verification_status": "verified",
+    "confidence": "high",
+    "one_line_judgment": "Anthropic 短暂夺回最强 LLM 王位 —— Rakuten-SWE-Bench 比 4.6 多解 3× 任务。",
+    "what_it_is": "Claude Opus 4.7 是 Anthropic 旗舰，与 4.6 同价 ($5/$25 per M)，新增 xhigh effort 等级、更高分辨率图像、`/review` 命令、ultra-review 模式。Bedrock / Vertex / Foundry 同步上线。",
+    "official_claims": [
+      "Pricing 不变：$5 in / $25 out per M",
+      "新 xhigh effort 等级（high 与 max 之间）",
+      "images 最高 2,076px 长边 (3× 之前)",
+      "Tokenizer 升级 — 同输入多 0-35% tokens"
+    ],
+    "user_scenarios": [
+      "**Claude Code 重度用户**：Default effort 升 xhigh 让长 session 任务的成功率有质变",
+      "**Code review SaaS**：CodeRabbit 报告 recall +10%，自动 PR review 第一次「敢用」"
+    ],
+    "user_market_feedback": {
+      "good": [
+        "Claude Code 默认升 xhigh 后长 session 成功率有质变",
+        "/review 模式让 PR 自动 review 敢上"
+      ],
+      "bad": [
+        "新 tokenizer 多 0-35% tokens 月账单要重算",
+        "GPT-5.5 一周后追平窗口很短"
+      ]
+    },
+    "score_breakdown": {
+      "total": 11
+    },
+    "raw_urls": [
+      "https://www.anthropic.com/news/claude-opus-4-7",
+      "https://venturebeat.com/technology/anthropic-releases-claude-opus-4-7-narrowly-retaking-lead-for-most-powerful-generally-available-llm"
+    ]
+  },
+  {
+    "module": "product",
+    "item_tier": "main",
+    "name": "Lovable 3",
+    "company": "Lovable",
+    "published_date": "2026-04-17",
+    "source_tier": "official",
+    "verification_status": "partially-verified",
+    "confidence": "medium",
+    "one_line_judgment": "Lovable 3 把「全栈 web app generator」的成品化程度推到了「demo 也能跑业务」级别。",
+    "what_it_is": "Lovable 3 是欧洲生成式全栈 web app 工具的 3 代版本，主打从一段自然语言 prompt 生成生产级 Next.js + Supabase 应用，含 auth / payment / DB schema。本周新增 multi-agent 协作（前端 / 后端 / DB 各一个 sub-agent），生成质量与一致性显著提升。",
+    "user_scenarios": [
+      "**indie hacker / 小团队 PM**：写一段 spec 直接生成可上线的 SaaS prototype",
+      "**做内部工具的工程师**：把内部脚本一次性升级成带 auth 的 web 工具"
+    ],
+    "user_market_feedback": {
+      "good": [
+        "multi-agent 协作生成的应用第一次「能直接给客户用」",
+        "Stripe / Supabase 集成默认带"
+      ],
+      "bad": [
+        "复杂业务逻辑仍需手改",
+        "vendor lock-in 程度较深"
+      ]
+    },
+    "score_breakdown": {
+      "total": 11
+    },
+    "raw_urls": [
+      "https://lovable.dev/blog"
+    ]
+  },
+  {
+    "module": "product",
+    "item_tier": "main",
+    "name": "Adobe Firefly Skills",
+    "company": "Adobe",
+    "published_date": "2026-04-16",
+    "source_tier": "official",
+    "verification_status": "verified",
+    "confidence": "high",
+    "one_line_judgment": "Adobe 用 Skills 把 Firefly 的可定制能力一次扩展到设计师私有 style assets —— 创意工具的 LoRA 民主化版本。",
+    "what_it_is": "Firefly Skills 让设计师上传自己的素材（character / style / product images）训练私有 skill，生成时用 skill 来约束输出。Creative Cloud Pro 全家桶包含。",
+    "user_scenarios": [
+      "**品牌设计师**：把品牌字体 + 颜色 + 标识素材作为 skill，所有 Firefly 生成都自动遵循品牌规范",
+      "**插画师**：用自己以前作品训练个人风格 skill，Firefly 生成都带自己手感"
+    ],
+    "user_market_feedback": {
+      "good": [
+        "私有 skill 的训练 UI 比 Midjourney --sref 直观",
+        "Creative Cloud 整合让企业部署简单"
+      ],
+      "bad": [
+        "训练时间仍较长",
+        "skill 数量限制 Pro plan 5 个，专业设计师不够"
+      ]
+    },
+    "score_breakdown": {
+      "total": 12
+    },
+    "raw_urls": [
+      "https://www.adobe.com/products/firefly.html"
+    ]
+  },
+  {
+    "module": "operation",
+    "item_tier": "brief",
+    "name": "Notion Q&A 2.0",
+    "company": "Notion",
+    "published_date": "2026-04-15",
+    "source_tier": "official",
+    "verification_status": "verified",
+    "confidence": "medium",
+    "one_line_judgment": "Notion Q&A 2.0 把企业知识库的 RAG 体验拉到「真能用」—— 答案带 source 链接 + 多文档综合。",
+    "what_it_is": "Notion Q&A 2.0 是 Notion 内置的企业知识库问答升级，2.0 加入跨多文档的综合回答 + 出处引用 + 与 Slack / Jira / Linear 数据源的联合检索。",
+    "score_breakdown": {
+      "total": 7
+    },
+    "raw_urls": [
+      "https://www.notion.so/product/ai"
+    ]
+  }
+]

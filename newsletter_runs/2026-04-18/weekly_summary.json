@@ -1,0 +1,23 @@
+{
+  "theme": "本周一句话：Anthropic Opus 4.7 短暂夺王座，创意工具的 LoRA 时代到来。",
+  "bullets": [
+    {
+      "text": "**Opus 4.7 夺回最强 LLM**：Rakuten-SWE-Bench 比 4.6 多解 3× 任务，xhigh effort 等级新增。",
+      "slugs": [
+        "2026-04-18-anthropic-claude-opus-4-7-4-7"
+      ]
+    },
+    {
+      "text": "**Adobe Firefly Skills 民主化创意 LoRA**：设计师上传素材训练私有 skill，约束生成。",
+      "slugs": [
+        "2026-04-18-adobe-adobe-firefly-skills"
+      ]
+    },
+    {
+      "text": "**Lovable 3 全栈 generator 成品化**：生成的 SaaS prototype「能直接给客户用」。",
+      "slugs": [
+        "2026-04-18-lovable-lovable-3"
+      ]
+    }
+  ]
+}

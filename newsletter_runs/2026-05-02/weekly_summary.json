@@ -1,0 +1,37 @@
+{
+  "theme": "本周一句话：前沿模型互相追平，agent 真正进入「programmable infrastructure」阶段。",
+  "bullets": [
+    {
+      "text": "**OpenAI 反超 Anthropic**：4/23 OpenAI 发布 GPT-5.5，主打「专业工作」+ 1M context + 内置 computer use，明确反超一周前 Anthropic 的 Claude Opus 4.7。两家差距重新压到一周以内 —— 选型决定从「谁最强」转为「谁更适合我的 workflow」。",
+      "slugs": [
+        "2026-05-02-openai-gpt-5-5-5-5"
+      ]
+    },
+    {
+      "text": "**Coding agent 进入 programmable 阶段**：Cursor 4/29 发布 SDK，把过去只能在编辑器里跑的 agent 变成 npm 可调用的 infrastructure，与 OpenAI Codex CLI、Anthropic Claude Code 形成三足鼎立 —— 但 Cursor 的差异是带完整 harness（codebase indexing / MCP / skills / hooks），不只是模型 + tool API。",
+      "slugs": [
+        "2026-05-02-cursor-cursor-sdk"
+      ]
+    },
+    {
+      "text": "**Google 用「Gemini Enterprise」改名重生**：4/22 把 Vertex AI 整体 rebrand 成 Gemini Enterprise Agent Platform，新增 Agent Identity / Gateway / Model Armor 三件治理套件，正式进入 agent fleet 治理赛道，与 AWS Bedrock Agents、Microsoft Foundry 正面竞争。",
+      "slugs": [
+        "2026-05-02-google-cloud-gemini-enterprise-agent-platform"
+      ]
+    },
+    {
+      "text": "**Agent infra 创业潮继续**：4/27 同一天三家 agent 基础设施公司发布 —— Paper Compute（GitHub 老兵 Brian Douglas 的 zero-instrumentation 可观测层）、Logic（spec-driven 全托管 agent 平台）、NeoCognition（$40M 种子，押 self-learning generalist agent）。共同信号：agent 可靠性 + 可观测 + 易部署是当前最热的中间层。",
+      "slugs": [
+        "2026-05-02-paper-compute-paper-compute-agent",
+        "2026-05-02-logic-inc-logic-spec-driven-agents",
+        "2026-05-02-neocognition-neocognition-40m"
+      ]
+    },
+    {
+      "text": "**企业插件进入 IDE marketplace**：Harness 4/30 发布 Cursor 原生插件，把企业 CI/CD（deploy / rollback / approval）通过 MCP server 接进 Cursor chat —— 复用既有 RBAC，标志 IDE marketplace 第一次有正经企业玩家。",
+      "slugs": [
+        "2026-05-02-harness-harness-cursor-plugin"
+      ]
+    }
+  ]
+}

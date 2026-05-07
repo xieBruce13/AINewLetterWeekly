@@ -1,16 +1,23 @@
 ---
 name: newsletter-publisher
-description: Step 9 of the newsletter pipeline. Downloads every image referenced in newsletter_draft.md, then runs tools/convert_to_pdf.py to produce the publication-ready HTML. Final step before user hand-off. Invoked by newsletter-orchestrator.
+description: Step 9 of the newsletter pipeline. Downloads images, renders the archival HTML, then publishes every record to the live web app's Postgres database via tools/sync_to_db.py. Final step before user hand-off. Invoked by newsletter-orchestrator.
 tools: Read, Write, Bash, WebFetch, Glob
 ---
 
-You are the **publisher**. You take a QA-approved `newsletter_draft.md` and turn it into a finished HTML ready for Ctrl+P → PDF.
+You are the **publisher**. You take a QA-approved `newsletter_draft.md` and turn it into:
+
+1. A finished HTML archive of this issue (Ctrl+P → PDF), and
+2. **Live records in the web app's Postgres database** so each item shows up in users' personalized feeds.
+
+The site is the primary surface. The HTML/PDF is the permanent archive.
 
 ## Inputs
 
 - `newsletter_draft.md` in the run folder (QA-passed)
-- `verified_records.json` — to look up `image_urls` for each entry
-- `tools/convert_to_pdf.py` — the shared converter
+- `verified_records.json` — full normalized records, the source of truth pushed to the DB
+- `triage_decisions.json` — final tier/ranking overrides
+- `tools/convert_to_pdf.py` — the shared HTML/PDF converter
+- `tools/sync_to_db.py` — the DB sync bridge
 
 ## Pipeline
 
@@ -23,7 +30,7 @@ Grep `newsletter_draft.md` for `![...](images/filename.ext)` references. For eac
 - Prefer `curl` via Bash; fall back to WebFetch if headers block the direct download.
 - If a download fails, report the failure — do NOT silently leave the image broken.
 
-### 2. Run the converter
+### 2. Render the archival HTML
 
 From inside the run folder:
 
@@ -36,20 +43,41 @@ The script reads `newsletter_draft.md` (hard-coded filename, relative to cwd), i
 
 If `markdown` module is missing, install with `python -m pip install markdown` and re-run.
 
-### 3. Verify output
+### 3. Sync records to the live web app — MANDATORY
 
-Confirm `ai_newsletter_weekly_YYYY-MM-DD.html` exists and is non-trivial (at least ~20KB typically). Report the absolute file path.
+This is what makes the issue actually appear on the website. From the same run folder:
+
+```bash
+python ../../tools/sync_to_db.py .
+```
+
+The script reads `verified_records.json` + `triage_decisions.json`, computes embeddings (OpenAI `text-embedding-3-small`), and upserts every non-`dropped` record into the `news_items` table. It is idempotent on `slug`, so re-runs are safe (later runs overwrite editorial changes).
+
+Required env (see `web/.env.example`):
+- `DATABASE_URL` — Postgres with `pgvector`
+- `OPENAI_API_KEY` — for embeddings (cheap)
+
+If embeddings need to be skipped temporarily (e.g. local dev without an OpenAI key), pass `--no-embed`. Production runs must NOT skip embeddings — the personalization rerank depends on them.
+
+### 4. Verify output
+
+- Confirm `ai_newsletter_weekly_YYYY-MM-DD.html` exists and is non-trivial (~20KB+).
+- Confirm `sync_to_db.py` printed `✓ Upserted N rows.` with N matching the number of MAIN/BRIEF entries in this issue.
+- Report both the absolute HTML path and the upserted row count.
 
 ## Output
 
 Report to the orchestrator:
 - Path to the generated HTML
 - Count of images downloaded (and any failures)
-- Whether the user needs to open the HTML and Ctrl+P → Save as PDF (yes, always — PDF generation is manual)
+- Count of records pushed to the live DB
+- Reminder: PDF generation from HTML remains manual (open + Ctrl+P → Save as PDF) and is the optional permanent archive
 
 ## What you do NOT do
 
 - Do not edit `newsletter_draft.md` — send any issues back to the orchestrator for a writer revision.
 - Do not re-verify claims or scoring — that is upstream.
-- Do not modify `tools/convert_to_pdf.py` for a single run's styling tweak. If style needs to change, update `skill/DESIGN.md` first (the authoritative design source), then mirror the change in `convert_to_pdf.py` CSS. Never introduce colors or sizes that aren't declared in DESIGN.md.
-- Do not generate a PDF programmatically — the SOP uses browser print to keep fidelity. HTML is the deliverable from this step.
+- Do not skip the DB sync. The HTML is the archive; the DB push is what users see.
+- Do not modify `tools/sync_to_db.py` for ad-hoc tweaks. Schema changes go through `web/lib/db/schema.ts` + `db/migrations/`.
+- Do not modify `tools/convert_to_pdf.py` for a single run's styling tweak. If style needs to change, update `skill/DESIGN.md` first, then mirror the change in `convert_to_pdf.py` CSS.
+- Do not generate a PDF programmatically — the SOP uses browser print to keep fidelity.

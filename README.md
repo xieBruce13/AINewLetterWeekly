@@ -1,6 +1,12 @@
 # Awsome AI Newsletter
 
-面向团队的 **AI 行业周报 Agent**：不是简单资讯汇总，而是一套固定流程——从选题、核实到成稿、排版——保证每一期都**有据可查、结构统一、方便内部传阅**（网页或 PDF）。
+面向团队的 **AI 行业周报 Agent + 个性化阅读站**。两个面：
+
+1. **上游：多 Agent 编辑流水线**（`.claude/agents/` + `skill/`）—— 从选题、核实到成稿、排版的固定 SOP，**有据可查、结构统一**。
+2. **下游：个性化网站 + 聊天 Agent**（`web/`）—— 同一份内容，按读者的角色/在做的项目/关注方向重排+改写，每个人看到的头条都不一样；每条新闻可点击展开、可与 Agent 对话，Agent 会跨会话记住你说过的偏好。
+
+> 想跑流水线产出本周内容：见下文。
+> 想搭起个性化网站：见 [`web/README.md`](web/README.md)。
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
@@ -190,7 +196,11 @@ python ../../tools/render_pdf.py
 | `skill/DESIGN.md` | 版面与配色约定 |
 | `.claude/agents/` | 10 个专职智能体的 prompt |
 | `newsletter_runs/` | 按日期归档的每一期草稿、图片与网页 |
-| `tools/` | 把 Markdown 渲染成 HTML、导出 PDF 的脚本 |
+| `tools/convert_to_pdf.py` | 把 Markdown 渲染成存档 HTML / PDF |
+| `tools/sync_to_db.py` | 把每期 JSON 推送到 Postgres，供网站消费 |
+| `tools/seed_demo_data.py` | 写一份示例数据，方便本地调试网站 |
+| `db/migrations/` | Postgres 初始化 SQL（含 pgvector） |
+| `web/` | Next.js 15 网站 + 聊天 Agent（详见 `web/README.md`） |
 
 更技术向的目录说明、文件名与改法，见 **`skill/RUNBOOK.md`**。
 

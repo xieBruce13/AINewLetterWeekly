@@ -1,0 +1,126 @@
+[
+  {
+    "module": "model",
+    "item_tier": "main",
+    "name": "GPT-5.5",
+    "version": "5.5",
+    "company": "OpenAI",
+    "published_date": "2026-04-23",
+    "source_tier": "official",
+    "verification_status": "verified",
+    "confidence": "high",
+    "one_line_judgment": "OpenAI 反超 Claude Opus 4.7 —— GPT-5.5 把「专业工作」+ 1M context + 内置 computer use 一起打包。",
+    "what_it_is": "GPT-5.5 是 OpenAI 在 4/23 发布的频繁迭代版本，1M context、Skills、内置 computer use、web search 默认带，API 定价 $5/$30 per M。",
+    "official_claims": [
+      "1M token 上下文",
+      "API 价格 $5/$30 per M",
+      "Codex 内 GPT-5.5 在 Plus/Pro/Business/Enterprise/Edu/Go 都可用",
+      "Fast 模式：1.5× 速度，2.5× 价格"
+    ],
+    "user_scenarios": [
+      "**资深工程师**：Cursor / Codex 默认换 GPT-5.5，复杂多文件改动一次过率明显升",
+      "**律师 / 分析师**：1M context 让整份合同 / 整本手册一次塞 prompt，没必要 RAG"
+    ],
+    "user_market_feedback": {
+      "good": [
+        "1M context 真的简化 RAG",
+        "Skills + MCP + computer use 默认开启",
+        "Codex 多步推理稳定性升"
+      ],
+      "bad": [
+        "API 还没正式开放",
+        "Pro 版本 ROI 不明显",
+        "网络安全能力 'High' 等级触发企业合规审查"
+      ]
+    },
+    "score_breakdown": {
+      "total": 11
+    },
+    "raw_urls": [
+      "https://openai.com/index/introducing-gpt-5-5/",
+      "https://techcrunch.com/2026/04/23/openai-chatgpt-gpt-5-5-ai-model-superapp/"
+    ]
+  },
+  {
+    "module": "product",
+    "item_tier": "main",
+    "name": "Gemini Enterprise Agent Platform",
+    "company": "Google Cloud",
+    "published_date": "2026-04-22",
+    "source_tier": "official",
+    "verification_status": "verified",
+    "confidence": "high",
+    "one_line_judgment": "Vertex AI 改名重生 —— Google 把 agent fleet 治理工具一次打包。",
+    "what_it_is": "Gemini Enterprise Agent Platform 是 Vertex AI 的 rebrand + 升级，新增 Agent Identity / Gateway / Model Armor / Agent Simulation / Memory Bank 等。",
+    "user_scenarios": [
+      "**企业平台工程团队**：Vertex / Agent Builder / Memory Bank 等多套配置收拢成一个项目",
+      "**金融 / 医疗合规团队**：Identity + Armor + Audit 默认开启，省掉自己拼合规链"
+    ],
+    "user_market_feedback": {
+      "good": [
+        "ADK graph framework 让多 agent 编排不像玩具",
+        "改名让产品叙事终于清晰"
+      ],
+      "bad": [
+        "改名带来文档过期",
+        "lock-in 程度变深"
+      ]
+    },
+    "score_breakdown": {
+      "total": 13
+    },
+    "raw_urls": [
+      "https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-agent-platform"
+    ]
+  },
+  {
+    "module": "product",
+    "item_tier": "brief",
+    "name": "Perplexity Comet 1.0",
+    "company": "Perplexity",
+    "published_date": "2026-04-21",
+    "source_tier": "official",
+    "verification_status": "partially-verified",
+    "confidence": "medium",
+    "one_line_judgment": "Perplexity Comet 1.0 GA —— agentic browser 的第一个「能日常用」版本。",
+    "what_it_is": "Comet 是 Perplexity 自研的 AI 浏览器，1.0 GA 版本主打 sidebar agent + 跨标签页任务自动化（'帮我把所有发票从 Gmail 下载到这个文件夹'）。",
+    "score_breakdown": {
+      "total": 8
+    },
+    "raw_urls": [
+      "https://www.perplexity.ai/comet"
+    ]
+  },
+  {
+    "module": "operation",
+    "item_tier": "main",
+    "name": "Stripe Agent Toolkit GA",
+    "company": "Stripe",
+    "published_date": "2026-04-24",
+    "source_tier": "official",
+    "verification_status": "verified",
+    "confidence": "high",
+    "one_line_judgment": "Stripe 让 agent 拿 virtual card 付钱 —— 「agent commerce」第一次有正经基础设施。",
+    "what_it_is": "Stripe Agent Toolkit GA 让 LLM agent 通过 SDK 直接管理订阅、发卡、付款。配合一次性 virtual card，agent 能在受控预算内完成跨网站采购。",
+    "user_scenarios": [
+      "**做 procurement agent 的 SaaS**：让 agent 帮企业自动续订软件、对账单",
+      "**Indie 创业者**：让自己的 chat agent 替用户付款（带预算控制）"
+    ],
+    "user_market_feedback": {
+      "good": [
+        "SDK 设计干净，认证流程清晰",
+        "virtual card 让预算硬约束变得可能"
+      ],
+      "bad": [
+        "仅 Stripe 支付商户可用",
+        "fraud 检测对 agent 流量仍在 tune"
+      ]
+    },
+    "score_breakdown": {
+      "total": 9
+    },
+    "raw_urls": [
+      "https://docs.stripe.com/agents"
+    ]
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Claude Sonnet 4.5",
+    "item_tier": "main"
+  },
+  {
+    "name": "Gemini 2.5 Flash Thinking",
+    "item_tier": "main"
+  },
+  {
+    "name": "Cursor Composer 2",
+    "item_tier": "main"
+  },
+  {
+    "name": "Figma Make",
+    "item_tier": "main"
+  },
+  {
+    "name": "Caraway",
+    "item_tier": "main"
+  },
+  {
+    "name": "ChatGPT Pulse",
+    "item_tier": "main"
+  },
+  {
+    "name": "Suno v5",
+    "item_tier": "brief"
+  },
+  {
+    "name": "Vercel AI SDK 5",
+    "item_tier": "main"
+  },
+  {
+    "name": "LangSmith Evaluations 2.0",
+    "item_tier": "main"
+  },
+  {
+    "name": "Modal H100 spot 价格腰斩",
+    "item_tier": "main"
+  }
+]

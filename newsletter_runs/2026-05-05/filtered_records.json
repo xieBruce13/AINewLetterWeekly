@@ -1,0 +1,204 @@
+{
+  "passed": [
+    {
+      "module": "model",
+      "name": "Claude 4 Extended",
+      "version": "4.1",
+      "company": "Anthropic",
+      "updated_at": "2026-05-03",
+      "source_tier": "official",
+      "source_primary": [
+        "https://www.anthropic.com/news/claude-4-extended-context"
+      ],
+      "source_validation": [
+        "https://www.huggingface.co/models?sort=trending",
+        "https://artificialanalysis.ai/models"
+      ],
+      "raw_urls": [
+        "https://www.anthropic.com/news/claude-4-extended-context",
+        "https://www.anthropic.com/docs/about-claude/models/latest"
+      ],
+      "summary": "Claude 4.1 released with expanded context window (200K tokens) and improved reasoning",
+      "image_urls": [
+        "https://www.anthropic.com/_next/image?url=%2Fimages%2Fclaude-interface.png",
+        "https://www.anthropic.com/_next/image?url=%2Fimages%2Fcontext-comparison.png"
+      ],
+      "gate_results": {
+        "is_model_event": true,
+        "has_tier1_or_tier2_source": true,
+        "minimum_evidence_met": true
+      },
+      "verdict": "pass"
+    },
+    {
+      "module": "model",
+      "name": "Gemini 2 Pro",
+      "version": "2.0",
+      "company": "Google",
+      "updated_at": "2026-04-29",
+      "source_tier": "official",
+      "source_primary": [
+        "https://deepmind.google/gemini-2-pro-announcement/"
+      ],
+      "raw_urls": [
+        "https://deepmind.google/gemini-2-pro-announcement/",
+        "https://ai.google.dev/gemini-2-release-notes"
+      ],
+      "summary": "Gemini 2 Pro released with improved multimodal capabilities and video understanding",
+      "image_urls": [
+        "https://ai.google.dev/_next/static/images/gemini-video-analysis.png"
+      ],
+      "gate_results": {
+        "is_model_event": true,
+        "has_tier1_or_tier2_source": true,
+        "minimum_evidence_met": true
+      },
+      "verdict": "pass"
+    },
+    {
+      "module": "model",
+      "name": "Llama 3.2 Open",
+      "version": "3.2",
+      "company": "Meta",
+      "updated_at": "2026-05-01",
+      "source_tier": "official",
+      "source_primary": [
+        "https://www.llama.meta.com/llama-3-2-release/"
+      ],
+      "raw_urls": [
+        "https://www.llama.meta.com/llama-3-2-release/",
+        "https://huggingface.co/meta-llama/Llama-3.2-70b"
+      ],
+      "summary": "Llama 3.2 70B and 8B open-weight models released with improved instruction following",
+      "image_urls": [
+        "https://www.llama.meta.com/_next/image?url=%2Fimages%2Fllama-32-benchmark.png"
+      ],
+      "gate_results": {
+        "is_model_event": true,
+        "has_tier1_or_tier2_source": true,
+        "minimum_evidence_met": true
+      },
+      "verdict": "pass"
+    },
+    {
+      "module": "model",
+      "name": "GPT-4 Turbo v2",
+      "version": "4-turbo-v2",
+      "company": "OpenAI",
+      "updated_at": "2026-04-30",
+      "source_tier": "official",
+      "source_primary": [
+        "https://openai.com/blog/gpt-4-turbo-v2-release"
+      ],
+      "raw_urls": [
+        "https://openai.com/blog/gpt-4-turbo-v2-release"
+      ],
+      "summary": "GPT-4 Turbo v2 with function calling improvements and extended context",
+      "image_urls": [
+        "https://openai.com/_next/image?url=%2Fblog%2Fgpt4-turbo-v2-comparison.png"
+      ],
+      "gate_results": {
+        "is_model_event": true,
+        "has_tier1_or_tier2_source": true,
+        "minimum_evidence_met": true
+      },
+      "verdict": "pass"
+    },
+    {
+      "module": "product",
+      "name": "Cursor Pro",
+      "company": "Cursor Labs",
+      "updated_at": "2026-05-02",
+      "source_tier": "discovery-platform",
+      "source_primary": [
+        "https://www.producthunt.com/posts/cursor-pro-ai-coder",
+        "https://cursor.com/release-notes"
+      ],
+      "source_secondary": [
+        "https://www.reddit.com/r/vscode/comments/cursor-pro"
+      ],
+      "summary": "Cursor Pro IDE adds real-time collaboration and autonomous code search",
+      "image_urls": [
+        "https://ph-files.imgix.net/cursor-pro-collab-interface.png",
+        "https://cursor.com/_next/image?url=%2Fimages%2Fcursor-pro-interface.png"
+      ],
+      "gate_results": {
+        "user_can_perceive_today": true,
+        "evidence_beyond_single_source": true
+      },
+      "verdict": "pass"
+    },
+    {
+      "module": "product",
+      "name": "Midjourney Web Studio",
+      "company": "Midjourney",
+      "updated_at": "2026-04-28",
+      "source_tier": "official-changelog",
+      "source_primary": [
+        "https://www.midjourney.com/changelog",
+        "https://www.midjourney.com/web-studio-launch"
+      ],
+      "source_secondary": [
+        "https://www.producthunt.com/posts/midjourney-web-studio",
+        "https://twitter.com/midjourney/status/web-studio-launch"
+      ],
+      "summary": "Midjourney Web Studio launched: full image generation and editing in browser, no Discord required",
+      "image_urls": [
+        "https://www.midjourney.com/_next/image?url=%2Fimages%2Fweb-studio-interface.png",
+        "https://www.midjourney.com/_next/image?url=%2Fimages%2Fweb-studio-editing-tools.png"
+      ],
+      "gate_results": {
+        "user_can_perceive_today": true,
+        "evidence_beyond_single_source": true
+      },
+      "verdict": "pass"
+    },
+    {
+      "module": "product",
+      "name": "Claude Code Sync",
+      "company": "Anthropic",
+      "updated_at": "2026-05-04",
+      "source_tier": "official-changelog",
+      "source_primary": [
+        "https://www.anthropic.com/product/claude-code-sync"
+      ],
+      "source_secondary": [
+        "https://news.ycombinator.com/item?id=claude-code-sync"
+      ],
+      "summary": "Claude Code Sync: bi-directional code sync between Claude Projects and local IDE",
+      "image_urls": [
+        "https://www.anthropic.com/_next/image?url=%2Fimages%2Fcode-sync-workflow.png"
+      ],
+      "gate_results": {
+        "user_can_perceive_today": true,
+        "evidence_beyond_single_source": true
+      },
+      "verdict": "pass"
+    },
+    {
+      "module": "product",
+      "name": "AI Photo Enhancer (PixelGenius)",
+      "company": "PixelGenius",
+      "updated_at": "2026-05-01",
+      "source_tier": "discovery-platform",
+      "source_primary": [
+        "https://www.producthunt.com/posts/pixelgenius-ai-photo-enhancer",
+        "https://pixelgenius.app"
+      ],
+      "source_secondary": [
+        "https://www.reddit.com/r/photography/comments/pixelgenius"
+      ],
+      "summary": "One-click batch photo enhancement (upscaling, color, denoise) powered by Flux, local processing",
+      "image_urls": [
+        "https://ph-files.imgix.net/pixelgenius-before-after.jpg"
+      ],
+      "gate_results": {
+        "user_can_perceive_today": true,
+        "evidence_beyond_single_source": true
+      },
+      "verdict": "pass"
+    }
+  ],
+  "watchlist": [],
+  "dropped": []
+}

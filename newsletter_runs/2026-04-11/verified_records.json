@@ -1,0 +1,126 @@
+[
+  {
+    "module": "model",
+    "item_tier": "main",
+    "name": "Claude Sonnet 4.6",
+    "version": "4.6",
+    "company": "Anthropic",
+    "published_date": "2026-04-09",
+    "source_tier": "official",
+    "verification_status": "verified",
+    "confidence": "high",
+    "one_line_judgment": "Sonnet 4.6 把「快」和「extended thinking」一次给齐 —— 大多数日常任务的默认选项被改写。",
+    "what_it_is": "Claude Sonnet 4.6 是 Anthropic 在 4 月初发布的 Sonnet 系列升级，主打 extended thinking + 1M token 上下文（标准定价无 beta header）。Agentic search 性能提升的同时 token 消耗下降 —— 同一笔预算能跑更长的 agent 链。",
+    "official_claims": [
+      "1M context 升级为 GA（无 beta header）",
+      "Extended thinking 在 Pro/Team/Enterprise 全部 plan 默认开启",
+      "Agentic search 比 4.5 节省 token 同时性能上一档"
+    ],
+    "user_scenarios": [
+      "**做长文档总结的研究员**：1M context GA 让你不用再做 chunking",
+      "**RAG 系统工程师**：Extended thinking + 1M context 让中等复杂度的 retrieve→reason 链在单次 LLM 调用里完成"
+    ],
+    "user_market_feedback": {
+      "good": [
+        "定价不变但能力上一档",
+        "1M context GA 简化了 prod 部署"
+      ],
+      "bad": [
+        "与 4.5 的差异在简单任务上不明显",
+        "extended thinking 开启后单 token 时延上升"
+      ]
+    },
+    "score_breakdown": {
+      "total": 9
+    },
+    "raw_urls": [
+      "https://www.anthropic.com/news/claude-sonnet-4-5"
+    ]
+  },
+  {
+    "module": "product",
+    "item_tier": "main",
+    "name": "Cursor Composer 2",
+    "company": "Cursor",
+    "published_date": "2026-03-27",
+    "source_tier": "official",
+    "verification_status": "verified",
+    "confidence": "high",
+    "one_line_judgment": "Cursor 第一个 in-house 编码模型 GA —— $0.50/M in、$2.50/M out 把 frontier coding 价位重新定义。",
+    "what_it_is": "Composer 2 是 Cursor 自研 / Anysphere 训练的编码专用 LLM，3 月底 GA。在 Cursor 内默认即可用，定价比 Claude Opus / GPT 便宜约 10x，速度更快（snapshot 显示 ~2x TPS）。",
+    "official_claims": [
+      "$0.50/M input, $2.50/M output",
+      "frontier-level 编码评测",
+      "Anysphere 自研 — 不再完全依赖 OpenAI/Anthropic"
+    ],
+    "user_scenarios": [
+      "**Cursor 重度用户**：把日常重复性 PR 的默认模型从 Claude/GPT 切到 Composer 2，月账单直接砍一截"
+    ],
+    "user_market_feedback": {
+      "good": [
+        "价格 / 速度 trade-off 在 Cursor 生态内最优"
+      ],
+      "bad": [
+        "跨 IDE 不可用",
+        "极复杂多文件改动仍要 fallback Opus/GPT"
+      ]
+    },
+    "score_breakdown": {
+      "total": 12
+    },
+    "raw_urls": [
+      "https://cursor.com/en/blog/composer-2"
+    ]
+  },
+  {
+    "module": "operation",
+    "item_tier": "main",
+    "name": "Vercel AI SDK 5",
+    "company": "Vercel",
+    "published_date": "2026-04-04",
+    "source_tier": "tier-1-tech-press",
+    "verification_status": "verified",
+    "confidence": "high",
+    "one_line_judgment": "Vercel AI SDK 5 把 streaming / tool-calling / structured output 三件套压进一个 API —— 写 agent 的样板代码减半。",
+    "what_it_is": "Vercel AI SDK 5 是 streaming UI / agent 编排的 TypeScript 库，5.0 主打：统一 generateObject/generateText/streamText API、原生 multi-step agent loop、内置 tool use 与 MCP 客户端。",
+    "official_claims": [
+      "generateObject/streamObject 跨 OpenAI / Anthropic / Google 模型一致",
+      "useChat 钩子原生支持 tool use 流式 UI",
+      "MCP client 集成"
+    ],
+    "user_market_feedback": {
+      "good": [
+        "API 一致性让多模型路由可用",
+        "streaming UI 默认带 tool use"
+      ],
+      "bad": [
+        "v4 → v5 迁移要重写 useChat",
+        "tool 定义 API 仍在变"
+      ]
+    },
+    "score_breakdown": {
+      "total": 8
+    },
+    "raw_urls": [
+      "https://sdk.vercel.ai/docs"
+    ]
+  },
+  {
+    "module": "model",
+    "item_tier": "brief",
+    "name": "Mistral Codestral 25.04",
+    "company": "Mistral AI",
+    "published_date": "2026-04-08",
+    "source_tier": "official",
+    "verification_status": "verified",
+    "confidence": "medium",
+    "one_line_judgment": "Mistral 持续每月迭代 Codestral —— 开源权重的编码模型仍是 self-host 路径的 default。",
+    "what_it_is": "Codestral 25.04 是 Mistral 4 月版本，开源权重 + Apache 2 商用许可，适合企业 self-host 编码 agent 场景。",
+    "score_breakdown": {
+      "total": 6
+    },
+    "raw_urls": [
+      "https://mistral.ai/news/"
+    ]
+  }
+]

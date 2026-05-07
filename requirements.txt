@@ -1,2 +1,10 @@
 # Newsletter HTML renderer (tools/convert_to_pdf.py)
 markdown>=3.4
+
+# DB sync bridge (tools/sync_to_db.py — pushes a finished run to Postgres)
+psycopg[binary]>=3.2
+requests>=2.31
+
+# Pipeline runner (tools/run_pipeline.py): OpenAI Chat Completions for every
+# step's LLM call AND OpenAI embeddings for the publisher (single key).
+openai>=1.40

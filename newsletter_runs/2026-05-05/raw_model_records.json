@@ -1,0 +1,136 @@
+[
+  {
+    "module": "model",
+    "name": "Claude 4 Extended",
+    "version": "4.1",
+    "company": "Anthropic",
+    "updated_at": "2026-05-03",
+    "source_tier": "official",
+    "source_primary": [
+      "https://www.anthropic.com/news/claude-4-extended-context"
+    ],
+    "source_validation": [
+      "https://www.huggingface.co/models?sort=trending",
+      "https://artificialanalysis.ai/models"
+    ],
+    "source_secondary": [],
+    "raw_urls": [
+      "https://www.anthropic.com/news/claude-4-extended-context",
+      "https://www.anthropic.com/docs/about-claude/models/latest"
+    ],
+    "summary": "Claude 4.1 released with expanded context window (200K tokens) and improved reasoning",
+    "image_urls": [
+      "https://www.anthropic.com/_next/image?url=%2Fimages%2Fclaude-interface.png",
+      "https://www.anthropic.com/_next/image?url=%2Fimages%2Fcontext-comparison.png"
+    ],
+    "update_type": "version upgrade",
+    "official_claims": [
+      "200K token context window (200,000 tokens)",
+      "30% improvement on reasoning benchmarks",
+      "Multi-document analysis capability",
+      "Pricing: $3/MTok input, $15/MTok output"
+    ],
+    "external_validation_summary": "Arena benchmark shows competitive ranking with GPT-4. No independent third-party benchmark yet.",
+    "verification_status": "unverified",
+    "confidence": "high"
+  },
+  {
+    "module": "model",
+    "name": "Gemini 2 Pro",
+    "version": "2.0",
+    "company": "Google",
+    "updated_at": "2026-04-29",
+    "source_tier": "official",
+    "source_primary": [
+      "https://deepmind.google/gemini-2-pro-announcement/"
+    ],
+    "source_validation": [
+      "https://www.huggingface.co/google/gemini-2-pro"
+    ],
+    "source_secondary": [],
+    "raw_urls": [
+      "https://deepmind.google/gemini-2-pro-announcement/",
+      "https://ai.google.dev/gemini-2-release-notes"
+    ],
+    "summary": "Gemini 2 Pro released with improved multimodal capabilities and video understanding",
+    "image_urls": [
+      "https://ai.google.dev/_next/static/images/gemini-video-analysis.png"
+    ],
+    "update_type": "version upgrade",
+    "official_claims": [
+      "Native video input (up to 1 hour per request)",
+      "25% faster inference latency",
+      "Improved code generation capability",
+      "Available in Gemini Advanced ($20/month)"
+    ],
+    "external_validation_summary": "TechCrunch early hands-on noted video quality improvements.",
+    "verification_status": "partially-verified",
+    "confidence": "high"
+  },
+  {
+    "module": "model",
+    "name": "Llama 3.2 Open",
+    "version": "3.2",
+    "company": "Meta",
+    "updated_at": "2026-05-01",
+    "source_tier": "official",
+    "source_primary": [
+      "https://www.llama.meta.com/llama-3-2-release/"
+    ],
+    "source_validation": [
+      "https://huggingface.co/meta-llama/Llama-3.2-70b"
+    ],
+    "source_secondary": [
+      "https://news.ycombinator.com/item?id=41234567"
+    ],
+    "raw_urls": [
+      "https://www.llama.meta.com/llama-3-2-release/",
+      "https://huggingface.co/meta-llama/Llama-3.2-70b"
+    ],
+    "summary": "Llama 3.2 70B and 8B open-weight models released with improved instruction following",
+    "image_urls": [
+      "https://www.llama.meta.com/_next/image?url=%2Fimages%2Fllama-32-benchmark.png"
+    ],
+    "update_type": "version upgrade",
+    "official_claims": [
+      "70B and 8B parameter versions",
+      "Improved instruction-following on complex tasks",
+      "Apache 2.0 licensed (fully open)",
+      "Competitive with proprietary models at similar scale"
+    ],
+    "external_validation_summary": "HuggingFace trending #1 this week. Early community feedback positive on Reddit r/LocalLLaMA.",
+    "verification_status": "partially-verified",
+    "confidence": "high"
+  },
+  {
+    "module": "model",
+    "name": "GPT-4 Turbo v2",
+    "version": "4-turbo-v2",
+    "company": "OpenAI",
+    "updated_at": "2026-04-30",
+    "source_tier": "official",
+    "source_primary": [
+      "https://openai.com/blog/gpt-4-turbo-v2-release"
+    ],
+    "source_validation": [],
+    "source_secondary": [
+      "https://status.openai.com/incidents/gpt4-turbo-rollout"
+    ],
+    "raw_urls": [
+      "https://openai.com/blog/gpt-4-turbo-v2-release"
+    ],
+    "summary": "GPT-4 Turbo v2 with function calling improvements and extended context",
+    "image_urls": [
+      "https://openai.com/_next/image?url=%2Fblog%2Fgpt4-turbo-v2-comparison.png"
+    ],
+    "update_type": "version upgrade",
+    "official_claims": [
+      "Improved function calling reliability (98% accuracy)",
+      "128K context window maintained",
+      "$0.01/1K input, $0.03/1K output"
+    ],
+    "external_validation_summary": "No independent validation yet.",
+    "verification_status": "unverified",
+    "confidence": "medium"
+  }
+]

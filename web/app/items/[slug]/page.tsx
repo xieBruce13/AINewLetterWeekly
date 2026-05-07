@@ -1,0 +1,604 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { auth } from "@/lib/auth";
+import { getItemBySlug, getUserItemState } from "@/lib/db/queries";
+import { ItemActions } from "@/components/item-actions";
+import { WhyShown } from "@/components/why-shown";
+import { ArrowLeft, MessageSquare, ExternalLink } from "lucide-react";
+import { storyDate } from "@/lib/utils";
+import { moduleLabel } from "@/lib/modules";
+
+export const dynamic = "force-dynamic";
+
+/**
+ * Long-read for one news item. Section order mirrors the printed newsletter
+ * (`newsletter_runs/2026-04-19/newsletter_draft.md`):
+ *
+ *   1. Eyebrow + serif headline + meta (story date, not issue date)
+ *   2. TLDR pill callout
+ *   3. 核心定位 / 核心能力变化
+ *   4. 谁会用、怎么用 (role-tagged scenarios)
+ *   5. 商业模式与定价
+ *   6. 落点 (landing notes — who is and isn't affected)
+ *   7. 用户反馈 (好 / 坏 split)
+ *   8. 真实引用 (block quotes with attribution)
+ *   9. 信息分层 (官方声明 ｜ 外部验证 ｜ 社区反馈 ｜ 编辑判断)
+ *  10. 编辑评分 + 参考来源
+ *
+ * Intentionally NOT rendered: `与我们的关系` and `我们要做的事`. These were
+ * useful for an internal editorial team but felt navel-gazing to the
+ * reader — dropped per editorial direction.
+ */
+export default async function ItemDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const item = await getItemBySlug(slug);
+  if (!item) notFound();
+
+  const session = await auth();
+  const state = session?.user?.id
+    ? await getUserItemState(session.user.id, item.id)
+    : null;
+
+  const rec = (item.record ?? {}) as Record<string, any>;
+
+  const tldr =
+    rec.one_line_judgment ||
+    rec.tldr ||
+    rec.summary ||
+    item.headline ||
+    item.name;
+  const personalizedTitle =
+    state?.personalizedBlurb ?? item.headline ?? item.name;
+
+  const officialClaims = arr(rec.official_claims);
+  const externalValidation = str(
+    rec.external_validation_summary || rec.external_validation
+  );
+  const communityReaction = str(
+    rec.market_signal_strength ||
+    rec.community_reaction ||
+    rec.ecosystem_echo
+  );
+  const editorialJudgment = str(
+    rec.one_line_judgment || rec.editor_judgment || rec.summary
+  );
+
+
+  const productHighlights = arr(rec.product_highlights);
+  const keyFindings = arr(
+    rec.real_change_notes
+      ? [rec.real_change_notes]
+      : rec.key_findings || []
+  );
+
+  const scenarios = arr(
+    rec.user_scenarios || rec.new_use_cases || rec.scenarios
+  );
+  const feedback = rec.user_market_feedback || rec.market_feedback;
+  const quotes = Array.isArray(rec.quotes) ? rec.quotes : [];
+
+  return (
+    <article className="bg-claude-canvas dark:bg-claude-dark">
+      <div className="container-reading py-10 sm:py-16">
+        <Link
+          href="/"
+          className="mb-8 inline-flex items-center gap-1 text-[13px] text-claude-coral hover:underline"
+        >
+          <ArrowLeft className="h-3.5 w-3.5" />
+          返回新闻首页
+        </Link>
+
+        {/* Header */}
+        <header className="border-b border-claude-hairline pb-10 dark:border-white/10">
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[12px] font-medium uppercase tracking-uc text-claude-coral">
+            <span>{moduleLabel(item.module)}</span>
+            <Sep />
+            <span className="normal-case tracking-normal text-claude-muted">
+              {item.company}
+            </span>
+            <Sep />
+            <span className="normal-case tracking-normal text-claude-muted">
+              {storyDate(item.publishedAt, item.issueDate)}
+            </span>
+            {item.itemTier === "brief" && (
+              <span className="ml-2 chip text-[10px] normal-case tracking-normal">
+                简讯
+              </span>
+            )}
+          </div>
+          <h1 className="mt-5 font-display text-[36px] leading-[1.15] tracking-display text-claude-ink dark:text-white sm:text-[48px]">
+            {personalizedTitle}
+          </h1>
+
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <Link href={`/chat?item=${item.id}`} className="btn-coral press">
+              <MessageSquare className="h-4 w-4" />
+              和 Agent 讨论这条
+            </Link>
+            {session?.user?.id && (
+              <ItemActions
+                itemId={item.id}
+                state={
+                  state
+                    ? {
+                        saved: state.saved,
+                        dismissed: state.dismissed,
+                        reaction: state.reaction,
+                      }
+                    : undefined
+                }
+              />
+            )}
+          </div>
+
+          {state?.personalizedReason && (
+            <div className="mt-6">
+              <WhyShown reason={state.personalizedReason} />
+            </div>
+          )}
+        </header>
+
+        {/* TLDR */}
+        <section className="mt-10 rounded-lg bg-claude-surface-soft p-6 dark:bg-white/[0.04]">
+          <p className="text-[12px] font-semibold uppercase tracking-uc text-claude-coral">
+            TL;DR
+          </p>
+          <p className="mt-3 font-display text-[22px] leading-[1.35] tracking-display text-claude-ink dark:text-white sm:text-[26px]">
+            {tldr}
+          </p>
+        </section>
+
+        {/* 这是什么? — always-on plain-language explainer. Especially load-bearing
+            for niche startups (Caraway, Suno, Modal…) where the reader may
+            never have heard of the product. */}
+        {rec.what_it_is && (
+          <section className="mt-8 border-l-4 border-claude-coral pl-5">
+            <p className="text-[12px] font-semibold uppercase tracking-uc text-claude-coral">
+              {item.name} 是什么
+            </p>
+            <p className="prose-cjk mt-2 text-[16px] text-claude-body-strong dark:text-white/90">
+              {rec.what_it_is}
+            </p>
+          </section>
+        )}
+
+        {/* 核心定位 / 核心能力变化 */}
+        {(rec.core_positioning ||
+          rec.problem_it_solves ||
+          rec.real_change_notes ||
+          officialClaims.length > 0 ||
+          productHighlights.length > 0 ||
+          rec.workflow_change ||
+          rec.access_barrier_change) && (
+          <Section title={item.module === "model" ? "核心能力变化" : "核心定位"}>
+            {rec.core_positioning && (
+              <p className="text-[17px] leading-[1.65] text-claude-body-strong dark:text-white/90">
+                {rec.core_positioning}
+              </p>
+            )}
+            {rec.problem_it_solves && (
+              <KV label="解决的问题" value={rec.problem_it_solves} />
+            )}
+            {item.module !== "model" && rec.workflow_change && (
+              <KV label="工作流改变" value={rec.workflow_change} />
+            )}
+            {item.module !== "model" && rec.access_barrier_change && (
+              <KV label="门槛变化" value={rec.access_barrier_change} />
+            )}
+
+            {(officialClaims.length > 0 || productHighlights.length > 0) && (
+              <>
+                <Subhead>
+                  {item.module === "model" ? "关键发现" : "产品重点"}
+                </Subhead>
+                <Bulleted
+                  items={
+                    item.module === "model" ? officialClaims : productHighlights
+                  }
+                />
+              </>
+            )}
+
+            {item.module === "model" && rec.real_change_notes && (
+              <p className="mt-5 text-[16px] leading-[1.65] text-claude-body dark:text-white/85">
+                {rec.real_change_notes}
+              </p>
+            )}
+          </Section>
+        )}
+
+        {/* 谁会用、怎么用 */}
+        {scenarios.length > 0 && (
+          <Section title="谁会用、怎么用">
+            <Bulleted items={scenarios} markdown />
+          </Section>
+        )}
+
+        {/* 商业模式与定价 */}
+        {(rec.business_model ||
+          rec.price_speed_cost_notes ||
+          rec.app_api_workflow_notes) && (
+          <Section title="商业模式与定价">
+            {rec.business_model && (
+              <p className="text-[17px] leading-[1.65] text-claude-body-strong dark:text-white/90">
+                {rec.business_model}
+              </p>
+            )}
+            {rec.price_speed_cost_notes && (
+              <KV label="价格 / 速度" value={rec.price_speed_cost_notes} />
+            )}
+            {rec.app_api_workflow_notes && (
+              <KV label="上线渠道" value={rec.app_api_workflow_notes} />
+            )}
+          </Section>
+        )}
+
+        {/* 落点 */}
+        {rec.landing_notes && (
+          <Section title="落点 — 谁受影响、谁不受影响">
+            <p className="text-[16px] leading-[1.65] text-claude-body dark:text-white/85">
+              {rec.landing_notes}
+            </p>
+          </Section>
+        )}
+
+        {/* 用户反馈 */}
+        {feedback && <FeedbackBlock feedback={feedback} />}
+
+        {/* 真实引用 */}
+        {quotes.length > 0 && (
+          <Section title="真实引用">
+            <ul className="space-y-5">
+              {quotes.map((q: any, i: number) => (
+                <li
+                  key={i}
+                  className="rounded-lg border-l-4 border-claude-coral bg-claude-surface-soft p-5 dark:bg-white/[0.04]"
+                >
+                  <p className="text-[16px] leading-[1.65] text-claude-body-strong dark:text-white/95">
+                    「{q.text}」
+                  </p>
+                  <p className="mt-2 text-[13px] text-claude-muted">
+                    — {q.author}
+                    {q.source && (
+                      <>
+                        ，<span className="italic">{q.source}</span>
+                      </>
+                    )}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </Section>
+        )}
+
+        {/* 信息分层 — 2x2 */}
+        {(officialClaims.length > 0 ||
+          externalValidation ||
+          communityReaction ||
+          editorialJudgment) && (
+          <Section title="信息分层">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <Quadrant label="官方声明">
+                {officialClaims.length > 0 ? (
+                  <Bulleted items={officialClaims} small />
+                ) : (
+                  <Empty>暂无独立的官方声明记录。</Empty>
+                )}
+              </Quadrant>
+              <Quadrant label="外部验证">
+                {externalValidation ?? (
+                  <Empty>本周尚未有第三方独立验证。</Empty>
+                )}
+              </Quadrant>
+              <Quadrant label="社区反馈">
+                {communityReaction ?? <Empty>社区讨论暂时安静。</Empty>}
+              </Quadrant>
+              <Quadrant label="编辑判断" emphasis>
+                {editorialJudgment ?? <Empty>编辑部尚未给出独立判断。</Empty>}
+              </Quadrant>
+            </div>
+          </Section>
+        )}
+
+        {/* 编辑评分 */}
+        {rec.score_breakdown && (
+          <Section title="编辑评分">
+            <ScoreBreakdown breakdown={rec.score_breakdown} module={item.module} />
+          </Section>
+        )}
+
+        {/* 参考来源 */}
+        {Array.isArray(rec.raw_urls) && rec.raw_urls.length > 0 && (
+          <Section title="参考来源">
+            <ul className="space-y-2">
+              {rec.raw_urls.map((url: string) => (
+                <li key={url}>
+                  <a
+                    href={url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 text-[14px] text-claude-coral hover:underline"
+                  >
+                    <ExternalLink className="h-3.5 w-3.5" />
+                    <span className="break-all">{url}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </Section>
+        )}
+      </div>
+    </article>
+  );
+}
+
+/* ---------- helpers ---------- */
+
+/** Coerce any JSON value to a displayable string, or undefined if empty. */
+function str(v: unknown): string | undefined {
+  if (typeof v === "string") return v.trim() || undefined;
+  if (typeof v === "number" || typeof v === "boolean") return String(v);
+  if (Array.isArray(v)) return v.filter(Boolean).join(", ") || undefined;
+  return undefined;
+}
+
+function arr(v: unknown): string[] {
+  if (Array.isArray(v)) return v.filter(Boolean).map(String);
+  if (typeof v === "string" && v.trim()) return [v];
+  return [];
+}
+
+function Sep() {
+  return (
+    <span className="text-claude-muted-soft" aria-hidden>
+      ·
+    </span>
+  );
+}
+
+function Section({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <section className="mt-12">
+      <h2 className="mb-5 font-display text-[26px] tracking-display text-claude-ink dark:text-white">
+        {title}
+      </h2>
+      <div className="text-[16px] leading-[1.65] text-claude-body dark:text-white/85">
+        {children}
+      </div>
+    </section>
+  );
+}
+
+function Subhead({ children }: { children: React.ReactNode }) {
+  return (
+    <h3 className="mt-6 mb-2 font-display text-[18px] text-claude-ink dark:text-white">
+      {children}
+    </h3>
+  );
+}
+
+function KV({ label, value }: { label: string; value: string }) {
+  return (
+    <p className="mt-3">
+      <span className="text-claude-ink dark:text-white">{label}：</span>
+      <span className="text-claude-body dark:text-white/85">{value}</span>
+    </p>
+  );
+}
+
+/**
+ * Renders bulleted list items. When `markdown=true`, recognises a leading
+ * `**Label**:` and renders the label in bold (used for role-tagged scenarios
+ * like `**软件工程师**：…`).
+ */
+function Bulleted({
+  items,
+  small = false,
+  markdown = false,
+}: {
+  items: string[];
+  small?: boolean;
+  markdown?: boolean;
+}) {
+  return (
+    <ul
+      className={
+        small
+          ? "mt-2 space-y-2 text-[14px] text-claude-body dark:text-white/85"
+          : "mt-3 space-y-3 text-[16px] text-claude-body dark:text-white/85"
+      }
+    >
+      {items.map((c, i) => {
+        let label: string | null = null;
+        let body = c;
+        if (markdown) {
+          const m = c.match(/^\*\*([^*]+)\*\*[：:]\s*(.*)$/s);
+          if (m) {
+            label = m[1];
+            body = m[2];
+          }
+        }
+        return (
+          <li key={i} className="flex gap-3">
+            <span className="mt-[0.55em] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-claude-coral" />
+            <span className="flex-1 leading-[1.65]">
+              {label && (
+                <strong className="font-semibold text-claude-ink dark:text-white">
+                  {label}：
+                </strong>
+              )}
+              {body}
+            </span>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
+function Quadrant({
+  label,
+  emphasis = false,
+  children,
+}: {
+  label: string;
+  emphasis?: boolean;
+  children: React.ReactNode;
+}) {
+  return (
+    <div
+      className={
+        emphasis
+          ? "rounded-lg bg-claude-dark p-5 text-claude-on-dark"
+          : "rounded-lg bg-white p-5 shadow-hairline dark:bg-white/[0.04]"
+      }
+    >
+      <p className="text-[12px] font-semibold uppercase tracking-uc text-claude-coral">
+        {label}
+      </p>
+      <div
+        className={
+          emphasis
+            ? "mt-2 text-[15px] leading-[1.55] text-claude-on-dark"
+            : "mt-2 text-[15px] leading-[1.55] text-claude-body dark:text-white/85"
+        }
+      >
+        {children}
+      </div>
+    </div>
+  );
+}
+
+function Empty({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="text-claude-muted-soft dark:text-white/40">
+      {children}
+    </span>
+  );
+}
+
+function FeedbackBlock({
+  feedback,
+}: {
+  feedback: { good?: string[]; bad?: string[] };
+}) {
+  const good = arr(feedback.good);
+  const bad = arr(feedback.bad);
+  if (good.length === 0 && bad.length === 0) return null;
+  return (
+    <Section title="用户反馈">
+      <div className="grid gap-4 sm:grid-cols-2">
+        {good.length > 0 && (
+          <div className="rounded-lg bg-white p-5 shadow-hairline dark:bg-white/[0.04]">
+            <p className="text-[12px] font-semibold uppercase tracking-uc text-claude-teal">
+              好评
+            </p>
+            <ul className="mt-3 space-y-2 text-[15px]">
+              {good.map((q, i) => (
+                <li
+                  key={i}
+                  className="leading-[1.55] text-claude-body dark:text-white/85"
+                >
+                  「{q}」
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {bad.length > 0 && (
+          <div className="rounded-lg bg-white p-5 shadow-hairline dark:bg-white/[0.04]">
+            <p className="text-[12px] font-semibold uppercase tracking-uc text-claude-coral">
+              批评
+            </p>
+            <ul className="mt-3 space-y-2 text-[15px]">
+              {bad.map((q, i) => (
+                <li
+                  key={i}
+                  className="leading-[1.55] text-claude-body dark:text-white/85"
+                >
+                  「{q}」
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    </Section>
+  );
+}
+
+const SCORE_LABELS_MODEL: Record<string, string> = {
+  real_capability_change: "真实能力变化",
+  selection_impact: "选型影响",
+  evidence_quality: "证据质量",
+  ecosystem_echo: "生态联动",
+  durability: "可持续性",
+  hype_penalty: "炒作扣分",
+  total: "总分",
+};
+const SCORE_LABELS_PRODUCT: Record<string, string> = {
+  user_visibility: "用户可见度",
+  access_barrier_change: "门槛变化",
+  workflow_change: "工作流改变",
+  distribution_change: "分发改变",
+  user_reaction: "用户反应",
+  relevance_to_our_direction: "与我们方向相关性",
+  evidence_quality: "证据质量",
+  hype_penalty: "炒作扣分",
+  total: "总分",
+};
+
+function ScoreBreakdown({
+  breakdown,
+  module: m,
+}: {
+  breakdown: Record<string, number>;
+  module: string;
+}) {
+  const labels = m === "model" ? SCORE_LABELS_MODEL : SCORE_LABELS_PRODUCT;
+  const entries = Object.entries(breakdown).filter(
+    ([k, v]) => k !== "total" && typeof v === "number"
+  );
+  const total = breakdown.total;
+  return (
+    <div className="overflow-hidden rounded-lg shadow-hairline">
+      <table className="w-full text-[14px]">
+        <tbody>
+          {entries.map(([k, v]) => (
+            <tr
+              key={k}
+              className="border-b border-claude-hairline last:border-0 dark:border-white/10"
+            >
+              <td className="px-4 py-2.5 text-claude-body dark:text-white/85">
+                {labels[k] ?? k}
+              </td>
+              <td className="px-4 py-2.5 text-right font-medium tabular-nums text-claude-ink dark:text-white">
+                {v > 0 ? `+${v}` : v}
+              </td>
+            </tr>
+          ))}
+          {typeof total === "number" && (
+            <tr className="bg-claude-surface-soft dark:bg-white/[0.06]">
+              <td className="px-4 py-3 font-semibold text-claude-ink dark:text-white">
+                {labels.total}
+              </td>
+              <td className="px-4 py-3 text-right font-semibold tabular-nums text-claude-coral">
+                {total}
+              </td>
+            </tr>
+          )}
+        </tbody>
+      </table>
+    </div>
+  );
+}

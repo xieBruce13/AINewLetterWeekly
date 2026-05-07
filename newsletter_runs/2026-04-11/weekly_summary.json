@@ -1,0 +1,23 @@
+{
+  "theme": "本周一句话：Anthropic Sonnet 4.6 把日常默认拉满，Cursor 用 Composer 2 重写编码价位。",
+  "bullets": [
+    {
+      "text": "**Sonnet 4.6 GA 改写日常默认**：1M context 不再要 beta header，extended thinking 全 plan 默认开启。",
+      "slugs": [
+        "2026-04-11-anthropic-claude-sonnet-4-6-4-6"
+      ]
+    },
+    {
+      "text": "**Cursor Composer 2 重写价位**：$0.50/$2.50 per M 把 frontier coding 价格砍 10×。",
+      "slugs": [
+        "2026-04-11-cursor-cursor-composer-2"
+      ]
+    },
+    {
+      "text": "**Vercel AI SDK 5 收敛 agent 开发**：generateObject + tool use + MCP 一个 API。",
+      "slugs": [
+        "2026-04-11-vercel-vercel-ai-sdk-5"
+      ]
+    }
+  ]
+}

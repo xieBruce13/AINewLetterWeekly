@@ -1,0 +1,199 @@
+[
+  {
+    "module": "product",
+    "name": "Cursor Pro",
+    "company": "Cursor Labs",
+    "updated_at": "2026-05-02",
+    "source_tier": "discovery-platform",
+    "source_primary": [
+      "https://www.producthunt.com/posts/cursor-pro-ai-coder",
+      "https://cursor.com/release-notes"
+    ],
+    "source_secondary": [
+      "https://www.reddit.com/r/vscode/comments/cursor-pro"
+    ],
+    "raw_urls": [
+      "https://www.producthunt.com/posts/cursor-pro-ai-coder",
+      "https://cursor.com/release-notes"
+    ],
+    "summary": "Cursor Pro IDE adds real-time collaboration and autonomous code search",
+    "image_urls": [
+      "https://ph-files.imgix.net/cursor-pro-collab-interface.png",
+      "https://cursor.com/_next/image?url=%2Fimages%2Fcursor-pro-interface.png"
+    ],
+    "launch_signal": "Product Hunt launch, Product #1 trending",
+    "core_positioning": "AI-first code editor with real-time collaboration for distributed teams",
+    "problem_it_solves": "Pair programming and code review friction in distributed development",
+    "user_visibility": "Immediate: users can activate in settings",
+    "access_barrier_change": "Free tier unlocked for up to 2 collaborators",
+    "workflow_change": "Enables async collaborative coding without context switching to chat tools",
+    "distribution_change": "Direct IDE integration (no separate tool)",
+    "new_product_form": "Native IDE feature (not browser tab or desktop app)",
+    "interaction_pattern": "Presence indicators + shared cursor + code suggestions",
+    "user_scenarios": [
+      "Pair programming across time zones",
+      "Code review with inline suggestions",
+      "Mentorship without screen sharing"
+    ],
+    "business_model": "Free for 2 collaborators; $30/month for unlimited",
+    "market_feedback": {
+      "good": [
+        "Feels natural, no onboarding friction",
+        "Reduced Slack context-switching"
+      ],
+      "bad": [
+        "Some latency on large diffs",
+        "Git conflict handling unclear"
+      ]
+    },
+    "verification_status": "verified",
+    "confidence": "high"
+  },
+  {
+    "module": "product",
+    "name": "Midjourney Web Studio",
+    "company": "Midjourney",
+    "updated_at": "2026-04-28",
+    "source_tier": "official-changelog",
+    "source_primary": [
+      "https://www.midjourney.com/changelog",
+      "https://www.midjourney.com/web-studio-launch"
+    ],
+    "source_secondary": [
+      "https://www.producthunt.com/posts/midjourney-web-studio",
+      "https://twitter.com/midjourney/status/web-studio-launch"
+    ],
+    "raw_urls": [
+      "https://www.midjourney.com/web-studio-launch",
+      "https://www.midjourney.com/changelog"
+    ],
+    "summary": "Midjourney Web Studio launched: full image generation and editing in browser, no Discord required",
+    "image_urls": [
+      "https://www.midjourney.com/_next/image?url=%2Fimages%2Fweb-studio-interface.png",
+      "https://www.midjourney.com/_next/image?url=%2Fimages%2Fweb-studio-editing-tools.png"
+    ],
+    "launch_signal": "Official changelog + ProductHunt",
+    "core_positioning": "First-class web interface for image generation (Discord no longer required)",
+    "problem_it_solves": "Discord is not a design tool; requires context switching",
+    "user_visibility": "Available to all paid subscribers (launch day)",
+    "access_barrier_change": "Removes Discord dependency barrier; web-native access",
+    "workflow_change": "Enables single-app workflows for creators (prompt → iterate → export)",
+    "distribution_change": "Web-first instead of Discord-first; mobile-accessible",
+    "new_product_form": "Native web application with real-time canvas editing",
+    "interaction_pattern": "Drag-drop prompts, in-browser upscaling, inpainting, style transfer",
+    "user_scenarios": [
+      "Rapid iteration on design concepts",
+      "Mobile-based image generation (iPad-friendly)",
+      "Client handoff without Discord accounts"
+    ],
+    "business_model": "Maintains subscription pricing ($10–$120/month) on web",
+    "market_feedback": {
+      "good": [
+        "Finally feels like a real design tool",
+        "Mobile support is game-changer"
+      ],
+      "bad": [
+        "Some users prefer Discord simplicity",
+        "Load times on large projects"
+      ]
+    },
+    "verification_status": "verified",
+    "confidence": "high"
+  },
+  {
+    "module": "product",
+    "name": "Claude Code Sync",
+    "company": "Anthropic",
+    "updated_at": "2026-05-04",
+    "source_tier": "official-changelog",
+    "source_primary": [
+      "https://www.anthropic.com/product/claude-code-sync"
+    ],
+    "source_secondary": [
+      "https://news.ycombinator.com/item?id=claude-code-sync"
+    ],
+    "raw_urls": [
+      "https://www.anthropic.com/product/claude-code-sync"
+    ],
+    "summary": "Claude Code Sync: bi-directional code sync between Claude Projects and local IDE (VSCode, JetBrains)",
+    "image_urls": [
+      "https://www.anthropic.com/_next/image?url=%2Fimages%2Fcode-sync-workflow.png"
+    ],
+    "launch_signal": "Official product announcement",
+    "core_positioning": "Seamless bridge between AI assistant and local dev environment",
+    "problem_it_solves": "Manual copy-paste between Claude and IDE is friction",
+    "user_visibility": "Available now for Claude Teams subscribers",
+    "access_barrier_change": "Teams-only feature (requires subscription escalation)",
+    "workflow_change": "Enables AI-assisted coding without leaving IDE; reduces context fragmentation",
+    "distribution_change": "IDE plugin ecosystem (VSCode Marketplace + JetBrains)",
+    "new_product_form": "Bidirectional sync protocol + IDE plugins",
+    "interaction_pattern": "Toggle sync, IDE reflects Claude project state, changes push back",
+    "user_scenarios": [
+      "AI-assisted refactoring with live feedback",
+      "Pair programming (human-AI) within IDE",
+      "Testing Claude suggestions without leaving IDE"
+    ],
+    "business_model": "Claude Teams feature ($30/month included)",
+    "market_feedback": {
+      "good": [
+        "Workflow feels natural",
+        "Git integration works seamlessly"
+      ],
+      "bad": [
+        "Beta has occasional sync lag",
+        "Limited to Claude (no other models)"
+      ]
+    },
+    "verification_status": "verified",
+    "confidence": "high"
+  },
+  {
+    "module": "product",
+    "name": "AI Photo Enhancer (Startup)",
+    "company": "PixelGenius",
+    "updated_at": "2026-05-01",
+    "source_tier": "discovery-platform",
+    "source_primary": [
+      "https://www.producthunt.com/posts/pixelgenius-ai-photo-enhancer",
+      "https://pixelgenius.app"
+    ],
+    "source_secondary": [
+      "https://www.reddit.com/r/photography/comments/pixelgenius"
+    ],
+    "raw_urls": [
+      "https://www.producthunt.com/posts/pixelgenius-ai-photo-enhancer",
+      "https://pixelgenius.app"
+    ],
+    "summary": "PixelGenius: one-click batch photo enhancement (upscaling, color, denoise) powered by open-source Flux model",
+    "image_urls": [
+      "https://ph-files.imgix.net/pixelgenius-before-after.jpg"
+    ],
+    "launch_signal": "ProductHunt launch (#2 trending today)",
+    "core_positioning": "Desktop-first photo batch processing, no cloud uploads required (local Flux)",
+    "problem_it_solves": "Batch photo enhancement usually requires cloud upload + subscription",
+    "user_visibility": "Desktop app (macOS, Windows) available immediately",
+    "access_barrier_change": "One-time purchase ($49) vs monthly subscriptions",
+    "workflow_change": "Bulk enhance photos offline, integrates with photo libraries",
+    "distribution_change": "Desktop app + eventual mobile (planned Q3)",
+    "new_product_form": "Electron app with local model inference",
+    "interaction_pattern": "Drag folder → set enhancement level → export",
+    "user_scenarios": [
+      "Batch enhance photo library before archival",
+      "Real estate agent bulk process listings",
+      "Content creator prep stock photography"
+    ],
+    "business_model": "$49 one-time purchase (perpetual license) + optional cloud backup ($99/year)",
+    "market_feedback": {
+      "good": [
+        "Fast (local inference)",
+        "Privacy-friendly (no uploads)"
+      ],
+      "bad": [
+        "Desktop-only initially",
+        "Requires GPU (slower on CPU)"
+      ]
+    },
+    "verification_status": "partially-verified",
+    "confidence": "medium"
+  }
+]

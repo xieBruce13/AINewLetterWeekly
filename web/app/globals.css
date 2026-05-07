@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Claude design system runtime tokens (web/DESIGN.md).
+ * - Light mode = cream canvas + warm coral accent.
+ * - Dark mode  = near-black warm surface + softer coral.
+ */
+
+@layer base {
+  :root {
+    --background: 47 32% 97%;            /* #faf9f5 cream canvas */
+    --foreground: 60 4% 8%;              /* #141413 ink */
+
+    --card: 0 0% 100%;
+    --card-foreground: 60 4% 8%;
+
+    --popover: 47 32% 97%;
+    --popover-foreground: 60 4% 8%;
+
+    --primary: 17 51% 58%;               /* #cc785c coral */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 39 38% 91%;             /* #efe9de surface-card */
+    --secondary-foreground: 60 4% 8%;
+
+    --muted: 39 38% 91%;                 /* same as surface-card */
+    --muted-foreground: 47 4% 41%;       /* #6c6a64 */
+
+    --accent: 17 51% 58%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 50% 53%;            /* #c64545 */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 33 30% 87%;                /* #e6dfd8 hairline */
+    --input: 33 30% 87%;
+    --ring: 17 51% 58%;                  /* coral focus ring */
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 45 6% 9%;              /* #181715 dark */
+    --foreground: 47 32% 97%;            /* on-dark */
+    --card: 40 6% 13%;                   /* #252320 dark-elevated */
+    --card-foreground: 47 32% 97%;
+    --popover: 40 6% 13%;
+    --popover-foreground: 47 32% 97%;
+    --primary: 17 60% 64%;
+    --primary-foreground: 45 6% 9%;
+    --secondary: 38 4% 17%;
+    --secondary-foreground: 47 32% 97%;
+    --muted: 38 4% 17%;
+    --muted-foreground: 39 4% 60%;
+    --accent: 17 60% 64%;
+    --accent-foreground: 45 6% 9%;
+    --destructive: 0 60% 54%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 38 5% 22%;
+    --input: 38 5% 22%;
+    --ring: 17 60% 64%;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    /* Body type: Inter for Latin, PingFang/Hiragino on Apple, Noto Sans SC
+     * as the universal CJK fallback. CJK readability benefits from a
+     * looser line-height (~1.75) than Latin-only copy needs. */
+    font-family:
+      "InterVariable",
+      Inter,
+      "StyreneB",
+      system-ui,
+      -apple-system,
+      "PingFang SC",
+      "Hiragino Sans GB",
+      "Noto Sans SC",
+      "Microsoft YaHei",
+      sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: #3d3d3a;            /* claude.body — softer than ink for paragraphs */
+    /* Snap CJK punctuation tight; keep Latin metrics intact. */
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .dark body {
+    color: #faf9f5;
+  }
+
+  h1, h2, h3, h4 {
+    /* Display headlines: Newsreader for Latin, Noto Serif SC for CJK.
+     * Weight 500 for CJK serifs because 400 looks anemic on screen. */
+    font-family:
+      "Newsreader",
+      "Copernicus",
+      "Tiempos Headline",
+      ui-serif,
+      Georgia,
+      "Noto Serif SC",
+      "Source Han Serif SC",
+      "Songti SC",
+      serif;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    color: #141413;
+  }
+
+  .dark h1, .dark h2, .dark h3, .dark h4 {
+    color: #faf9f5;
+  }
+
+  /* Long-form prose paragraphs in detail pages: bump to a relaxed
+   * line-height that's specifically comfortable for mixed CJK + Latin text.
+   * Components opt in by adding `.prose-cjk`. */
+  .prose-cjk {
+    line-height: 1.85;
+    letter-spacing: 0.01em;
+  }
+}
+
+@layer components {
+  /* Containers */
+  .container-tight {
+    @apply mx-auto w-full max-w-[960px] px-5 sm:px-8;
+  }
+  .container-reading {
+    @apply mx-auto w-full max-w-[720px] px-5 sm:px-6;
+  }
+  .container-page {
+    @apply mx-auto w-full max-w-[1200px] px-5 sm:px-8;
+  }
+
+  /* Coral primary button (height 40, radius md, tight padding). */
+  .btn-coral {
+    @apply inline-flex h-10 items-center justify-center gap-1.5 rounded-md bg-claude-coral px-5 text-[14px] font-medium text-white transition-colors hover:bg-claude-coral-active disabled:bg-claude-coral-disabled disabled:text-claude-muted;
+  }
+  .btn-coral-sm {
+    @apply inline-flex h-8 items-center justify-center gap-1 rounded-md bg-claude-coral px-3 text-[13px] font-medium text-white transition-colors hover:bg-claude-coral-active disabled:bg-claude-coral-disabled disabled:text-claude-muted;
+  }
+
+  /* Cream-on-cream secondary button. */
+  .btn-secondary {
+    @apply inline-flex h-10 items-center justify-center gap-1.5 rounded-md bg-claude-canvas px-5 text-[14px] font-medium text-claude-ink shadow-hairline transition-colors hover:bg-claude-surface-soft;
+  }
+
+  /* Plain text button (used as ghost). */
+  .btn-ghost {
+    @apply inline-flex h-9 items-center justify-center gap-1 rounded-md px-3 text-[13px] font-medium text-claude-body transition-colors hover:bg-claude-surface-card hover:text-claude-ink;
+  }
+
+  /* Hairline-only card (no shadow). */
+  .card-soft {
+    @apply rounded-lg bg-card text-card-foreground shadow-hairline;
+  }
+
+  /* Pill chips. */
+  .chip {
+    @apply inline-flex items-center rounded-pill bg-claude-surface-card px-2.5 py-0.5 text-[12px] font-medium text-claude-body;
+  }
+  .chip-coral {
+    @apply inline-flex items-center rounded-pill bg-claude-coral/10 px-2.5 py-0.5 text-[12px] font-semibold uppercase tracking-[1.5px] text-claude-coral;
+  }
+  .chip-ink {
+    @apply inline-flex items-center rounded-pill bg-claude-dark px-2.5 py-0.5 text-[12px] font-medium text-claude-on-dark;
+  }
+
+  /* Apple-style press scale that we still want for tactile feel. */
+  .press {
+    @apply transition-transform duration-100 ease-out active:scale-[0.97];
+  }
+
+  /* Subtle text-input. */
+  .input-claude {
+    @apply h-10 w-full rounded-md border border-claude-hairline bg-white px-3.5 text-[14px] text-claude-ink outline-none transition-shadow placeholder:text-claude-muted-soft focus:border-claude-coral focus:shadow-focus dark:border-white/10 dark:bg-white/5 dark:text-white;
+  }
+}
+
+@layer utilities {
+  .tracking-display { letter-spacing: -0.02em; }
+  .tracking-uc { letter-spacing: 0.12em; }
+}
+
+/* Hide scrollbar in horizontally scrolling chip rows when present. */
+::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(108, 106, 100, 0.25);
+  border-radius: 9999px;
+}

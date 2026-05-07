@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 周报 — 2026年4月28日至5月5日</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #f5f5f5;
+            color: #111111;
+            line-height: 1.6;
+            letter-spacing: 0.12px;
+            font-size: 10.5pt;
+        }
+        
+        .page {
+            max-width: 850px;
+            margin: 0 auto;
+            background: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 48px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        @media print {
+            .page { max-width: 100%; margin: 0; box-shadow: none; page-break-after: always; }
+            body { background: white; }
+        }
+        
+        h1 {
+            font-size: 17pt;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #111111;
+        }
+        
+        .header-meta {
+            font-size: 10.5pt;
+            color: #4e4e4e;
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+        
+        .callout {
+            background: rgba(245,242,239,0.65);
+            border-left: 4px solid #111111;
+            padding: 16px;
+            margin: 20px 0;
+            font-size: 10.5pt;
+            line-height: 1.6;
+        }
+        
+        .callout strong {
+            font-weight: 700;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        h2 {
+            font-size: 12.5pt;
+            font-weight: 700;
+            margin-top: 32px;
+            margin-bottom: 16px;
+            padding-left: 4px;
+            border-left: 4px solid #111111;
+            color: #111111;
+        }
+        
+        h3 {
+            font-size: 11pt;
+            font-weight: 700;
+            margin-top: 24px;
+            margin-bottom: 12px;
+            color: #111111;
+        }
+        
+        .card {
+            background: #ffffff;
+            border: 1px solid #e5e5e5;
+            border-radius: 4px;
+            padding: 16px;
+            margin-bottom: 20px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 16px;
+            font-size: 10.5pt;
+        }
+        
+        table thead {
+            background: #ebe8e4;
+        }
+        
+        table th, table td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #e5e5e5;
+        }
+        
+        table th {
+            font-weight: 700;
+            color: #111111;
+        }
+        
+        .image-container {
+            margin: 16px 0;
+            text-align: center;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+        
+        .image-caption {
+            font-size: 9.5pt;
+            color: #777169;
+            font-style: italic;
+        }
+        
+        blockquote {
+            border-left: 3px solid #2563eb;
+            padding-left: 12px;
+            margin: 12px 0;
+            color: #4e4e4e;
+            font-size: 10pt;
+            font-style: italic;
+        }
+        
+        .brief-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .brief-table td {
+            padding: 8px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        
+        .brief-table tr:nth-child(odd) {
+            background: #f0f0ee;
+        }
+        
+        .trends {
+            margin-top: 24px;
+        }
+        
+        .trends ul, .actions ul {
+            margin-left: 24px;
+            margin-top: 8px;
+        }
+        
+        .trends li, .actions li {
+            margin-bottom: 8px;
+        }
+        
+        .actions {
+            margin-top: 20px;
+        }
+        
+        .watchlist {
+            margin-top: 20px;
+        }
+        
+        .toc {
+            background: #f0f0ee;
+            padding: 16px;
+            margin: 20px 0;
+            border-radius: 4px;
+            font-size: 10pt;
+        }
+        
+        .footer {
+            margin-top: 40px;
+            padding-top: 16px;
+            border-top: 1px solid #e5e5e5;
+            font-size: 8.5pt;
+            color: #777169;
+        }
+        
+        strong { font-weight: 700; }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <h1>AI 周报</h1>
+        <div class="header-meta">
+            <strong>2026 年 4 月 28 日 — 5 月 5 日</strong><br>
+            本期主题：创意工具的可用性革命 — 从 Discord 到 IDE，上下文长度的飞跃
+        </div>
+        
+        <div class="callout">
+            <strong>核心判断：</strong> 本周三大模型都在解决实际摩擦点。Claude 4.1 的 200K 上下文让长文档分析成为现实，Gemini 2 补全了原生视频输入，Llama 3.2 开源发行在社区引发共鸣。但更有意义的是产品层面的突破：Midjourney 最终推出了一个真正的网页设计工具（而不是 Discord 机器人），Cursor 和 Anthropic 分别解决了协作和 IDE 集成的核心痛点。这是工具成熟化的一周。
+        </div>
+        
+        <h2>模型模块</h2>
+        
+        <h3>M1 | Claude 4.1 (Extended Context)</h3>
+        <div class="card">
+            <table>
+                <tr><td style="background: #ebe8e4; font-weight: 700;">模块</td><td style="background: #ebe8e4; font-weight: 700;">具体详情</td></tr>
+                <tr><td style="font-weight: 700;">总结</td><td><strong>上下文翻倍到 20 万 token，推理能力提升 30%</strong>；支持单次请求分析 40+ 研究论文</td></tr>
+                <tr><td style="font-weight: 700;">模型能力</td><td>● 上下文窗口 <strong>200,000 token</strong>（前代 100K，现在翻倍）<br>● 推理基准改进 <strong>30%</strong>（数学/逻辑子集验证）<br>● 多文档分析能力增强<br>● API 定价 <strong>$3/百万token输入，$15/百万token输出</strong></td></tr>
+                <tr><td style="font-weight: 700;">新使用场景</td><td>● 财务/法务文件一站式分析<br>● 完整代码库在单一对话中上下文<br>● 长篇创意写作的连贯性维持</td></tr>
+                <tr><td style="font-weight: 700;">与我们的关系</td><td>长文档合成工作流的新可能；对创意工具产品方向的中等影响</td></tr>
+            </table>
+        </div>
+        
+        <blockquote>"终于能把整个代码库 + commit 历史放进上下文。构建重构工具的时间减少了 30%，大项目这才是游戏规则改变者。" — u/DevToolsLead, r/ClaudeAI</blockquote>
+        
+        <blockquote>"在 180K token repo 上测试新上下文窗口，在 170K 处遇到奇怪的退化——响应开始为不存在的函数产生幻觉。Anthropic 的上下文限制可能过于乐观。" — u/EngineerSceptic, r/ClaudeAI</blockquote>
+        
+        <h3>M2 | Gemini 2 Pro</h3>
+        <div class="card">
+            <table>
+                <tr><td style="background: #ebe8e4; font-weight: 700;">模块</td><td style="background: #ebe8e4; font-weight: 700;">具体详情</td></tr>
+                <tr><td style="font-weight: 700;">总结</td><td><strong>原生视频输入能力首次推出</strong>；支持长达 <strong>1 小时视频</strong>；推理延迟提升 25%</td></tr>
+                <tr><td style="font-weight: 700;">模型能力</td><td>● 原生视频输入（单次请求最长 <strong>1 小时</strong>）<br>● 推理延迟改进 <strong>25%</strong>（官方声明，独立验证中）<br>● 代码生成能力增强</td></tr>
+                <tr><td style="font-weight: 700;">新使用场景</td><td>● YouTube 视频内容分析与场景提取<br>● 会议录像上下文理解<br>● 技术视频调试（屏幕录像、错误日志分析）</td></tr>
+                <tr><td style="font-weight: 700;">与我们的关系</td><td>视频工作流在创意工具中新兴；对未来产品扩展有直接关联</td></tr>
+            </table>
+        </div>
+        
+        <blockquote>"视频理解真实可用。上传了 30 分钟 YouTube 视频，问摄影技巧，得到了有用的逐场景解析。其他模型在这里会产生幻觉。" — u/VideoCreator_, r/ChatGPT</blockquote>
+        
+        <blockquote>"视频分析在简单内容上有效，但在密集技术截屏上完全失效。让它从屏幕录像中调试 Python 错误——它幻觉出了整个回溯栈。" — u/DevOps_SkepticalDev, r/artificial</blockquote>
+        
+        <h3>M3 | Llama 3.2 Open (Meta)</h3>
+        <div class="card">
+            <table>
+                <tr><td style="background: #ebe8e4; font-weight: 700;">模块</td><td style="background: #ebe8e4; font-weight: 700;">具体详情</td></tr>
+                <tr><td style="font-weight: 700;">总结</td><td><strong>Meta 发布开源 Llama 3.2</strong>（70B 和 8B 版本）；指令遵循改进得到社区验证；<strong>HF 趋势排名第 1</strong></td></tr>
+                <tr><td style="font-weight: 700;">模型能力</td><td>● 指令遵循改进（社区在 r/LocalLLaMA 已验证）<br>● 70B 和 8B 双版本发布<br>● Apache 2.0 完全开源（允许商业衍生）<br>● 与专有模型在类似规模上竞争力强</td></tr>
+                <tr><td style="font-weight: 700;">新使用场景</td><td>● 自定义微调（Apache 2.0 许可允许商业衍生）<br>● 边缘部署（隐私敏感工作流的设备端 AI）<br>● 自托管 AI 产品（创业公司通过定制 Llama 变体构建护城河）</td></tr>
+                <tr><td style="font-weight: 700;">与我们的关系</td><td>对边缘产品策略和微调工作流的直接关联</td></tr>
+            </table>
+        </div>
+        
+        <blockquote>"Llama 3.2 70B 是我真正想在生产中使用的首个开源模型。为客户支持微调，在意图分类上达到 92% 准确度。这对专有模型 1/10 的成本有竞争力。" — u/StartupEngineer, r/LocalLLaMA</blockquote>
+        
+        <blockquote>"终于一个不会那么多幻觉的开源模型。复杂指令真的有效。这是开源生态的真正转折点。" — u/OpenSourceAdvocate, r/singularity</blockquote>
+        
+        <h2>产品模块</h2>
+        
+        <h3>P1 | Cursor Pro</h3>
+        <div class="card">
+            <table>
+                <tr><td style="background: #ebe8e4; font-weight: 700;">模块</td><td style="background: #ebe8e4; font-weight: 700;">具体详情</td></tr>
+                <tr><td style="font-weight: 700;">总结</td><td><strong>Cursor IDE 推出实时协作</strong> — 免费版支持 2 人团队；解决异地配对编程的上下文切换痛点</td></tr>
+                <tr><td style="font-weight: 700;">产品重点</td><td>● 免费层级：<strong>2 人协作者无限制</strong>（以前仅企业版）<br>● 实时光标同步与在线代码建议<br>● 异步代码审查与内联批注<br>● IDE 原生集成（无需分离工具）</td></tr>
+                <tr><td style="font-weight: 700;">用户场景</td><td>● 跨时区配对编程<br>● 不用屏幕共享的代码审查<br>● 不需日程协调的导师制</td></tr>
+                <tr><td style="font-weight: 700;">商业模式</td><td>免费层：2 人协作者；$30/月：无限协作 + 优先支持</td></tr>
+                <tr><td style="font-weight: 700;">与我们的关系</td><td>对分布式团队工作流和协作创意的直接关联</td></tr>
+            </table>
+        </div>
+        
+        <blockquote>"这真的有用。和 6 时区之外的队友进行配对编程。没有 Slack 疲劳。感觉像是 GitHub Copilot 学会了配对编程。" — u/DistributedEngineer, r/vscode</blockquote>
+        
+        <blockquote>"大文件上的延迟很凶。在我们 10MB 单体上试过。同步延迟最多 5 秒。不能用于实际协作。" — u/ScaleSkeptic, r/vscode</blockquote>
+        
+        <h3>P2 | Midjourney Web Studio</h3>
+        <div class="card">
+            <table>
+                <tr><td style="background: #ebe8e4; font-weight: 700;">模块</td><td style="background: #ebe8e4; font-weight: 700;">具体详情</td></tr>
+                <tr><td style="font-weight: 700;">总结</td><td><strong>Midjourney 推出真正的网页设计工具</strong> — 不再需要 Discord；创意工作流从聊天工具迁移到专业设计应用</td></tr>
+                <tr><td style="font-weight: 700;">产品重点</td><td>● Web 应用原生 SPA（无需下载）<br>● 拖放提示与实时画布编辑<br>● 浏览器内放大、内绘、风格迁移<br>● 设计工具级 UX（提示框、图库管理）</td></tr>
+                <tr><td style="font-weight: 700;">用户场景</td><td>● 设计概念快速迭代（10 个变体 &lt; 2 分钟 vs Discord 线程）<br>● 基于 iPad 的移动图像生成<br>● 不需要 Discord 账户的客户交付</td></tr>
+                <tr><td style="font-weight: 700;">商业模式</td><td>维持订阅价格（$10–$120/月）；层级结构不变</td></tr>
+                <tr><td style="font-weight: 700;">与我们的关系</td><td>对创意工作流和工具设计模式的直接关联</td></tr>
+            </table>
+        </div>
+        
+        <blockquote>"终于，Midjourney 是真正的设计工具。Web 界面比 Discord 好太多。迭代速度难以置信——字面上把我的设计时间减少了一半。" — u/DesignSystemPro, r/DigitalArt</blockquote>
+        
+        <blockquote>"第一次在 iPad 上用。移动网页界面真实有效。现在能在会议中做快速图像生成工作流。改变游戏规则。" — u/CreativeDirector_, r/DigitalArt</blockquote>
+        
+        <h3>P3 | Claude Code Sync</h3>
+        <div class="card">
+            <table>
+                <tr><td style="background: #ebe8e4; font-weight: 700;">模块</td><td style="background: #ebe8e4; font-weight: 700;">具体详情</td></tr>
+                <tr><td style="font-weight: 700;">总结</td><td><strong>Anthropic 发布 Claude Projects ↔ IDE 双向同步</strong> — 消除 Claude 与本地开发环境之间的复制粘贴摩擦</td></tr>
+                <tr><td style="font-weight: 700;">产品重点</td><td>● VSCode 和 JetBrains IDE 插件（自动集成）<br>● 双向同步协议（git 感知，遵守 .gitignore）<br>● Beta：支持 Claude Teams 订阅者<br>● 消除 Claude ↔ IDE 上下文碎片化</td></tr>
+                <tr><td style="font-weight: 700;">用户场景</td><td>● AI 辅助的重构与实时反馈<br>● IDE 上下文内的人类-AI 配对编程<br>● 无需离开 IDE 测试 Claude 建议</td></tr>
+                <tr><td style="font-weight: 700;">商业模式</td><td>Claude Teams 功能（$30/月包含）；促进从 Pro 到 Teams 层的升级</td></tr>
+                <tr><td style="font-weight: 700;">与我们的关系</td><td>对编码工作流和 AI 原生开发模式的直接关联</td></tr>
+            </table>
+        </div>
+        
+        <blockquote>"这是配对编程的未来。AI 与代码保持在上下文中，建议变更，你迭代。没有复制粘贴税。那是生产力。" — u/SoftwareEngineer_, r/programming</blockquote>
+        
+        <blockquote>"Beta 很粗糙。同步延迟真实。还有：仅限 Teams 意味着我们团队的一半不能用。应该和 Pro 层一起发布。" — u/DevTeamLead, r/ClaudeAI</blockquote>
+        
+        <h2>简讯</h2>
+        <table class="brief-table">
+            <tr><td><strong>PixelGenius</strong></td><td>一键批量增强照片（放大、去噪、调色），本地运行 Flux 模型，无云上传；一次购买 $49；ProductHunt 第 2 位，摄影师欢迎，但 GPU 需求未充分沟通</td></tr>
+        </table>
+        
+        <h2>编辑部判断</h2>
+        
+        <div class="trends">
+            <h3>趋势</h3>
+            <ul>
+                <li><strong>工具成熟化的 UX 转折</strong> — Midjourney 从 Discord 迁移到网页、Claude Projects 从网页到 IDE 集成。AI 工具正脱离聊天/网页，融入工程师的原生工作环境。</li>
+                <li><strong>开源模型达到生产可用性</strong> — Llama 3.2 的社区采用信号（HF 趋势第 1、24 小时内 20+ 微调项目）表明开源基础模型现已足以驱动创业和边缘部署工作流。</li>
+                <li><strong>长上下文不再是稀缺品</strong> — Claude 4.1（200K）、Gemini 2（1 小时视频）都在扩展上下文维度；这标志着多文档分析与视频理解从 nice-to-have 转为预期特性。</li>
+            </ul>
+        </div>
+        
+        <div class="actions">
+            <h3>项目动作</h3>
+            <ul>
+                <li><strong>立即评估 Cursor Pro</strong> — 分布式团队协作是产品方向的核心；用实际团队测试 2-3 周。</li>
+                <li><strong>监控 Midjourney Web Studio 的采用</strong> — 追踪设计师从 Discord 迁移到网页的速度。</li>
+                <li><strong>Llama 3.2 微调实验</strong> — 对客户支持或内容审核工作流运行小规模微调实验。</li>
+            </ul>
+        </div>
+        
+        <div class="watchlist">
+            <h3>下周监控</h3>
+            <ul>
+                <li>OpenAI 关于 GPT-4 Turbo v2 函数调用的社区反馈（目前暂无测试）</li>
+                <li>Anthropic 对 Claude Code Sync Beta 的产品更新（大文件支持、多模型支持）</li>
+                <li>Gemini 2 视频理解质量在复杂内容上的真实验证</li>
+                <li>Llama 微调项目在 HF 社区的商业应用案例</li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            <p><strong>本周报由 AI 系统自动生成。</strong></p>
+            <p>发布日期：2026 年 5 月 5 日 | 报告周期：2026 年 4 月 28 日 — 5 月 5 日</p>
+            <p>参考来源：官方公告、HuggingFace、ProductHunt、Reddit、Hacker News、TechCrunch、Artificial Analysis</p>
+        </div>
+    </div>
+</body>
+</html>

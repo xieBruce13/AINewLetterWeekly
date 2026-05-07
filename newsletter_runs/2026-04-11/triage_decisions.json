@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Claude Sonnet 4.6",
+    "item_tier": "main"
+  },
+  {
+    "name": "Cursor Composer 2",
+    "item_tier": "main"
+  },
+  {
+    "name": "Vercel AI SDK 5",
+    "item_tier": "main"
+  },
+  {
+    "name": "Mistral Codestral 25.04",
+    "item_tier": "brief"
+  }
+]

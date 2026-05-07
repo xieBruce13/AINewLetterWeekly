@@ -1,0 +1,384 @@
+{
+  "meta": {
+    "run_date": "2026-05-06",
+    "triage_by": "newsletter-triage",
+    "based_on": "scored_records.json",
+    "rubric_ref": "skill/rubric.json",
+    "model_thresholds": { "main": "score ≥ 7", "brief": "score 5–6", "drop": "score < 5" },
+    "product_thresholds": { "main": "score ≥ 10", "brief": "score 7–9", "drop": "score < 7" }
+  },
+
+  "models": {
+    "main": [
+      {
+        "record_id": "model_mistral_medium_3_5",
+        "name": "Mistral Medium 3.5",
+        "company": "Mistral AI",
+        "score": 8,
+        "item_tier": "main",
+        "final_rank": 1,
+        "startup_spotlight": false,
+        "in_time_window": true,
+        "triage_reasons": [
+          "THRESHOLD: score 8 ≥ 7 → main",
+          "DIVERSITY: 3 distinct companies in model main (Mistral AI, Anthropic, OpenAI) — passes",
+          "EDITORIAL GATE 1 PASS: First open-weight model unifying instruction-following, reasoning, coding, and vision in one self-hostable package; 4-GPU self-hosting at frontier-competitive quality is a verified, real capability advance (SWE-bench 77.6% confirmed by InfoQ and HuggingFace)",
+          "EDITORIAL GATE 2 PASS: Clearly changes model selection for teams with on-prem/compliance requirements — 4-GPU at Mac Studio scale makes frontier-competitive open-weight inference accessible for the first time at this quality level; eliminates need to route between separate specialist models",
+          "RANKING: Ranked 1st among score-8 models by in_time_window (May 2 launch, within collection window)"
+        ]
+      },
+      {
+        "record_id": "model_claude_opus_4_7",
+        "name": "Claude Opus 4.7",
+        "company": "Anthropic",
+        "score": 8,
+        "item_tier": "main",
+        "final_rank": 2,
+        "startup_spotlight": false,
+        "in_time_window": false,
+        "triage_reasons": [
+          "THRESHOLD: score 8 ≥ 7 → main",
+          "DIVERSITY: 3 distinct companies in model main — passes",
+          "EDITORIAL GATE 1 PASS: SWE-bench Verified 87.6% (+6.8pp vs 4.6), GPQA Diamond 94.2%, 3.3x vision resolution, self-verification, and task budgets — multi-axis capability leap independently verified by Vellum.ai, LLM-stats, and Artificial Analysis",
+          "EDITORIAL GATE 2 PASS: Clear top-of-class for software engineering and knowledge work; directly affects model selection for coding/design tool pipelines; production regression reports (70-75% negative r/ClaudeAI sentiment, 2x token burn) are the defining editorial angle — benchmark vs. real-world gap makes this a must-cover story",
+          "RANKING: Ranked 2nd among score-8 models; out-of-window base release (Apr 16) but platform updates within window (Apr 23 Managed Agents Memory, Apr 24 Rate Limits API)"
+        ]
+      },
+      {
+        "record_id": "model_gpt_5_5",
+        "name": "GPT-5.5",
+        "company": "OpenAI",
+        "score": 7,
+        "item_tier": "main",
+        "final_rank": 3,
+        "startup_spotlight": false,
+        "in_time_window": false,
+        "triage_reasons": [
+          "THRESHOLD: score 7 ≥ 7 → main (meets minimum main threshold)",
+          "DIVERSITY: 3 distinct companies in model main — passes",
+          "EDITORIAL GATE 1 PASS: 82.7% Terminal-Bench 2.0 (13+ points above nearest competitor), 58.6% SWE-Bench Pro — genuine agentic coding leap independently confirmed by BenchLM (ranked #3 overall, 91/100 among 115 models)",
+          "EDITORIAL GATE 2 PASS: Directly changes model selection for agentic coding pipelines where terminal-use and multi-step tasks dominate; concrete comparative case vs Claude Opus 4.7 for computer-use workflows",
+          "RANKING: Ranked 3rd; out-of-window (Apr 23 release); editorial flag noted as 'outside_window_borderline'; included as essential companion to the Claude Opus 4.7 benchmark narrative and GPT-5.5 Instant context"
+        ]
+      }
+    ],
+
+    "brief": [
+      {
+        "record_id": "model_grok_4_3_voice",
+        "name": "Grok 4.3 + Voice APIs",
+        "company": "xAI",
+        "score": 6,
+        "item_tier": "brief",
+        "final_rank": 1,
+        "startup_spotlight": false,
+        "in_time_window": true,
+        "triage_reasons": [
+          "THRESHOLD: score 6 → brief (5–6 range)",
+          "EDITORIAL GATES CHECKED (no override): Gate 1 partial — voice cloning stack and 50%+ price cut are real capabilities (verified by The-Decoder and VentureBeat); Gate 2 partial — changes selection specifically for voice-enabled creative tools and cost-sensitive 1M-context workflows; neither gate fully fails, so no demotion to drop",
+          "RANKING: 1st in brief by in_time_window (Custom Voices May 2); distinctive capability profile (voice stack + aggressive pricing) justifies brief over drop",
+          "CAVEAT FOR WRITER: STT error rates (5.0%) are self-reported by xAI with no independent replication — note this constraint; focus on verified pricing and cloning capability"
+        ]
+      },
+      {
+        "record_id": "model_deepseek_v4",
+        "name": "DeepSeek V4",
+        "company": "DeepSeek",
+        "score": 6,
+        "item_tier": "brief",
+        "final_rank": 2,
+        "startup_spotlight": true,
+        "in_time_window": false,
+        "triage_reasons": [
+          "THRESHOLD: score 6 → brief (5–6 range)",
+          "EDITORIAL GATES CHECKED (no override): Gate 1 PASS — 1M-context at 27% of V3.2 FLOPs and 2% KV cache size are architecturally verified efficiency breakthroughs (HuggingFace blog + NVIDIA Blackwell blog dual-confirmed); Gate 2 partial — niche workflow impact (teams needing 1M-context on smaller GPU clusters), not general selection change",
+          "STARTUP SPOTLIGHT: DeepSeek is an independent Chinese AI research lab — NOT on the Big Tech exclusion list (Anthropic, OpenAI, Google, Meta, Microsoft, Adobe, Apple, xAI, Mistral); tagged startup_spotlight to highlight independent lab contributing frontier open-source efficiency innovation",
+          "RANKING: 2nd in brief; out-of-window (Apr 24); editorial flag 'deprioritize if space constrained' noted but brief tier inclusion maintained for startup diversity value"
+        ]
+      },
+      {
+        "record_id": "model_gpt_5_5_instant",
+        "name": "GPT-5.5 Instant",
+        "company": "OpenAI",
+        "score": 5,
+        "item_tier": "brief",
+        "final_rank": 3,
+        "startup_spotlight": false,
+        "in_time_window": true,
+        "triage_reasons": [
+          "THRESHOLD: score 5 → brief (meets minimum brief threshold of 5)",
+          "EDITORIAL GATES CHECKED (no override): Gate 1 PASS — 52.5% fewer hallucinations and Memory Sources UI are real verified UX improvements (official blog + TechCrunch/VentureBeat/The Verge/Tom's Guide coverage); Gate 2 partial — affects ChatGPT consumer selection and default API endpoint, but does not fundamentally change model selection for agentic coding or developer workflows",
+          "RANKING: 3rd in brief; in-window (May 5); however limited score and shallow selection impact keep it at minimum brief threshold"
+        ]
+      }
+    ],
+
+    "dropped": [
+      {
+        "record_id": "model_minimax_m2_7",
+        "name": "MiniMax M2.7",
+        "company": "MiniMax",
+        "score": 3,
+        "item_tier": "dropped",
+        "in_time_window": false,
+        "drop_reason": "Score 3 — well below models brief threshold of 5. Released Apr 11 — 18 days outside collection window; out-of-window penalty reduced ecosystem_echo from 1 to 0. Key headline claims (self-evolution, 97% skill adherence) are novel but entirely unverified by third parties. GDPval-AA benchmark is proprietary to MiniMax with no external validation. Selection impact is niche (40+ skill agentic systems). Editor's note: self-evolution post-training architecture is a watchlist signal worth covering in a future dedicated deep-dive."
+      },
+      {
+        "record_id": "model_gemini_api_multimodal_file_search",
+        "name": "Gemini API Multimodal File Search (Gemini Embedding 2)",
+        "company": "Google",
+        "score": 3,
+        "item_tier": "dropped",
+        "in_time_window": true,
+        "drop_reason": "Score 3 — below models brief threshold of 5. Single primary source (Google's own blog) with zero independent third-party validation at time of scoring (evidence_quality = 0). API capability upgrade rather than a model release. Selection impact is niche (Gemini API users building creative asset retrieval). No user market feedback or community reaction signals. Technically within window (May 5) but insufficient evidence quality for newsletter publication. Revisit if independent developer coverage and adoption signals emerge."
+      },
+      {
+        "record_id": "model_nvidia_nemotron_3_nano_omni",
+        "name": "NVIDIA Nemotron 3 Nano Omni",
+        "company": "NVIDIA",
+        "score": 2,
+        "item_tier": "dropped",
+        "in_time_window": false,
+        "drop_reason": "Score 2 — lowest in the models dataset. Single official source (NVIDIA's own HuggingFace post) with no independent TechCrunch, VentureBeat, or Ars Technica coverage found. 'Top rankings on multiple multimodal leaderboards' claim is described but not linked to any external evaluation platform — scored as vendor hype. Released Apr 28 — 1 day before collection window start; out-of-window penalty applied. Zero user market feedback. Omni-modal pipeline pattern is architecturally interesting but insufficient evidence for publication at any tier."
+      }
+    ]
+  },
+
+  "products": {
+    "main": [
+      {
+        "record_id": "product_cursor_3x",
+        "name": "Cursor 3.x — Agents Window, Fleet Management, Team Marketplace",
+        "company": "Anysphere (Cursor)",
+        "score": 15,
+        "item_tier": "main",
+        "final_rank": 1,
+        "startup_spotlight": true,
+        "in_time_window": true,
+        "triage_reasons": [
+          "THRESHOLD: score 15 ≥ 10 → main (highest-scoring product in the entire dataset)",
+          "DIVERSITY: 6 distinct companies in product main (Anysphere, OpenAI, Mistral AI, Adobe, xAI, Midjourney) — passes",
+          "EDITORIAL GATE 1 PASS: Team Marketplace (May 1) and Enterprise model controls (May 4) are live and deployed; Agents Window parallel execution and $2B ARR market validation confirm this is a real platform shift, not messaging",
+          "EDITORIAL GATE 2 PASS: Fundamentally changes developer tool selection from single supervised agent IDE to fleet management platform; Team Marketplace as a skill/MCP bundle distribution layer directly changes team procurement decisions",
+          "STARTUP SPOTLIGHT: Anysphere (Cursor) is a VC-backed startup — NOT on the Big Tech exclusion list; $2B ARR validates startup-to-category-leader trajectory; strongest startup story in this run"
+        ]
+      },
+      {
+        "record_id": "product_chatgpt_memory_sheets",
+        "name": "ChatGPT Memory Sources + Excel/Sheets Integration",
+        "company": "OpenAI",
+        "score": 13,
+        "item_tier": "main",
+        "final_rank": 2,
+        "startup_spotlight": false,
+        "in_time_window": true,
+        "triage_reasons": [
+          "THRESHOLD: score 13 ≥ 10 → main",
+          "DIVERSITY: 6 distinct companies in product main — passes",
+          "EDITORIAL GATE 1 PASS: Memory Sources UI and Excel/Sheets GA are live as of May 5 for 200M+ ChatGPT users — real visible change deployed today, not messaging; community immediately generating genuine testimonials and concerns",
+          "EDITORIAL GATE 2 PASS: Changes AI assistant selection for teams wanting auditable memory context; first major AI assistant combining memory transparency + native spreadsheet editing — affects both consumer and enterprise tool decisions"
+        ]
+      },
+      {
+        "record_id": "product_mistral_vibe_agents",
+        "name": "Mistral Vibe Remote Agents + Le Chat Work Mode",
+        "company": "Mistral AI",
+        "score": 12,
+        "item_tier": "main",
+        "final_rank": 3,
+        "startup_spotlight": false,
+        "in_time_window": true,
+        "triage_reasons": [
+          "THRESHOLD: score 12 ≥ 10 → main",
+          "DIVERSITY: 6 distinct companies in product main — passes",
+          "EDITORIAL GATE 1 PASS: Async cloud coding agents live May 2 (within window); Le Chat Work Mode with parallel tool calls across GitHub, Linear, Jira, Sentry, Slack, Teams is shipped and user-tested",
+          "EDITORIAL GATE 2 PASS: Changes async coding agent workflow selection; open-weight model backing (Mistral Medium 3.5) differentiates from Cursor/Windsurf; self-hosted option changes enterprise procurement calculus",
+          "NOTE: Mistral AI is listed on the startup exclusion list per triage instructions — not eligible for startup_spotlight tag"
+        ]
+      },
+      {
+        "record_id": "product_adobe_firefly_ai_assistant",
+        "name": "Adobe Firefly AI Assistant",
+        "company": "Adobe",
+        "score": 11,
+        "item_tier": "main",
+        "final_rank": 4,
+        "startup_spotlight": false,
+        "in_time_window": false,
+        "triage_reasons": [
+          "THRESHOLD: score 11 ≥ 10 → main",
+          "DIVERSITY: 6 distinct companies in product main — passes",
+          "EDITORIAL GATE 1 PASS: Public beta live Apr 27; real user testimonials confirm multi-app orchestration ('ran through Photoshop Generative Fill across all 6 [photos] without me touching anything — 45 minutes of work eliminated'); Adobe for Creativity connector in Claude live Apr 28",
+          "EDITORIAL GATE 2 PASS: Directly changes creative tool selection for 33M Creative Cloud subscribers; multi-app natural language orchestration across 60+ tools changes how creative production workflows are evaluated and executed",
+          "RANKING: 4th despite out-of-window (Apr 27/28 vs Apr 29 window start); verifier flagged as 'editorially critical' — inclusion justified by category-defining significance for creative AI tools"
+        ]
+      },
+      {
+        "record_id": "product_xai_grok_voice",
+        "name": "xAI Grok Voice Think Fast 1.0 + Custom Voice Cloning",
+        "company": "xAI",
+        "score": 10,
+        "item_tier": "main",
+        "final_rank": 5,
+        "startup_spotlight": false,
+        "in_time_window": true,
+        "triage_reasons": [
+          "THRESHOLD: score 10 ≥ 10 → main (borderline threshold, just qualifies)",
+          "DIVERSITY: 6 distinct companies in product main — passes",
+          "EDITORIAL GATE 1 PASS: Custom Voices launched May 2 (in-window, verified by The-Decoder); TTS at $4.20/1M chars (14-28x below ElevenLabs) is a real cost capability deployed and user-tested by podcast studios and game dev teams",
+          "EDITORIAL GATE 2 PASS: Directly changes voice platform selection for creative tools — eliminates ElevenLabs as a separate vendor for teams comfortable with xAI infrastructure; game dev community reporting concrete substitution",
+          "RANKED ahead of Midjourney on in_time_window tie-break (May 2 Custom Voices launch vs Midjourney Apr 14)"
+        ]
+      },
+      {
+        "record_id": "product_midjourney_v8_1",
+        "name": "Midjourney V8.1 Alpha — Image + Video Expansion",
+        "company": "Midjourney",
+        "score": 10,
+        "item_tier": "main",
+        "final_rank": 6,
+        "startup_spotlight": false,
+        "in_time_window": false,
+        "triage_reasons": [
+          "THRESHOLD: score 10 ≥ 10 → main (borderline threshold, just qualifies)",
+          "DIVERSITY: 6 distinct companies in product main — passes",
+          "EDITORIAL GATE 1 PASS: V8.1 Alpha accessible at alpha.midjourney.com today; 5x faster generation, 2K native resolution, and 21-second video via Animate button are real capabilities with user-confirmed functionality; community testing validates HD generation speed",
+          "EDITORIAL GATE 2 PASS: Video pricing (25x below Runway, ~1 credit/second same as images) is a verified cost signal directly changing creative platform selection; community members confirming Runway subscription cancellations",
+          "RANKING: 6th (last in products main) due to out-of-window penalty (Apr 14, 15 days before window start) and alpha vs. production status (V7 remains default); editorially important creative AI signal per verifier"
+        ]
+      }
+    ],
+
+    "brief": [],
+
+    "dropped": [
+      {
+        "record_id": "product_perplexity_health",
+        "name": "Perplexity Health + Premium Health Sources",
+        "company": "Perplexity AI",
+        "score": 5,
+        "item_tier": "dropped",
+        "in_time_window": true,
+        "drop_reason": "Score 5 — below products drop threshold of 7 (not even brief-eligible at 7–9 range). Health vertical explicitly scored relevance_to_our_direction = 0 (outside core creative/productivity scope). Original Perplexity Health platform launched March 2026, not May 1 as originally stated — verifier-confirmed date correction materially reduces window relevance; only the May 5 VisualDx partnership is in-window. Documented Perplexity citation fabrication history (72% of references fabricated per 2025 study per r/AIDangers) is especially concerning for health applications. Verifier flagged max tier as 'brief' on editorial grounds; however, score independently drops this entry. Editor's note: Perplexity Computer (24/7 background OS-level agent pattern) is a high-relevance separate signal — recommend creating a standalone product record for the next run."
+      }
+    ]
+  },
+
+  "startup_inclusion": {
+    "satisfied": true,
+    "primary_startup_entry": {
+      "entry_name": "Cursor 3.x — Agents Window, Fleet Management, Team Marketplace",
+      "company": "Anysphere (Cursor)",
+      "entry_tier": "main",
+      "module": "product",
+      "final_rank": 1,
+      "startup_spotlight": true
+    },
+    "additional_startup_entries": [
+      {
+        "entry_name": "Midjourney V8.1 Alpha",
+        "company": "Midjourney (indie creative tool company)",
+        "entry_tier": "main",
+        "module": "product",
+        "final_rank": 6
+      },
+      {
+        "entry_name": "DeepSeek V4",
+        "company": "DeepSeek (independent Chinese AI lab)",
+        "entry_tier": "brief",
+        "module": "model",
+        "final_rank": 2,
+        "startup_spotlight": true
+      }
+    ],
+    "note": "Startup inclusion rule is fully satisfied — three non-Big-Tech entries across both modules and tiers. Exclusion list checked: Anthropic, OpenAI, Google, Meta, Microsoft, Adobe, Apple, xAI, Mistral. Cursor/Anysphere and Midjourney are in products main; DeepSeek is in models brief. Cursor 3.x is tagged startup_spotlight as the primary startup success story ($2B ARR, $50B valuation, VC-backed independent). DeepSeek tagged startup_spotlight in brief to highlight independent lab open-source innovation. No startup promotion from watchlist was required."
+  },
+
+  "diversity_check": {
+    "models": {
+      "passed": true,
+      "main_slots": 3,
+      "main_companies": ["Mistral AI", "Anthropic", "OpenAI"],
+      "max_entries_per_company": 1,
+      "rule_limit": "at most N-1 = 2 entries from same company for N=3 slots",
+      "note": "3 main slots, 3 distinct companies — 1 entry each. Diversity rule passes with maximum margin. No demotions required."
+    },
+    "products": {
+      "passed": true,
+      "main_slots": 6,
+      "main_companies": ["Anysphere (Cursor)", "OpenAI", "Mistral AI", "Adobe", "xAI", "Midjourney"],
+      "max_entries_per_company": 1,
+      "rule_limit": "at most N-1 = 5 entries from same company for N=6 slots",
+      "note": "6 main slots, 6 distinct companies — 1 entry each. Diversity rule passes with maximum margin. No demotions required."
+    }
+  },
+
+  "editorial_overrides": [],
+
+  "final_tier_summary": {
+    "models": {
+      "main": [
+        { "rank": 1, "name": "Mistral Medium 3.5", "company": "Mistral AI", "score": 8, "in_window": true },
+        { "rank": 2, "name": "Claude Opus 4.7", "company": "Anthropic", "score": 8, "in_window": false },
+        { "rank": 3, "name": "GPT-5.5", "company": "OpenAI", "score": 7, "in_window": false }
+      ],
+      "brief": [
+        { "rank": 1, "name": "Grok 4.3 + Voice APIs", "company": "xAI", "score": 6, "in_window": true, "startup_spotlight": false },
+        { "rank": 2, "name": "DeepSeek V4", "company": "DeepSeek", "score": 6, "in_window": false, "startup_spotlight": true },
+        { "rank": 3, "name": "GPT-5.5 Instant", "company": "OpenAI", "score": 5, "in_window": true, "startup_spotlight": false }
+      ],
+      "dropped": [
+        { "name": "MiniMax M2.7", "score": 3, "drop_reason": "Score below threshold; out-of-window; key claims unverified" },
+        { "name": "Gemini API Multimodal File Search", "score": 3, "drop_reason": "Score below threshold; single source; no independent validation" },
+        { "name": "NVIDIA Nemotron 3 Nano Omni", "score": 2, "drop_reason": "Score far below threshold; single source; benchmark claims unlinked" }
+      ]
+    },
+    "products": {
+      "main": [
+        { "rank": 1, "name": "Cursor 3.x", "company": "Anysphere", "score": 15, "in_window": true, "startup_spotlight": true },
+        { "rank": 2, "name": "ChatGPT Memory Sources + Excel/Sheets", "company": "OpenAI", "score": 13, "in_window": true },
+        { "rank": 3, "name": "Mistral Vibe Remote Agents + Le Chat Work Mode", "company": "Mistral AI", "score": 12, "in_window": true },
+        { "rank": 4, "name": "Adobe Firefly AI Assistant", "company": "Adobe", "score": 11, "in_window": false },
+        { "rank": 5, "name": "xAI Grok Voice Think Fast 1.0 + Custom Voice Cloning", "company": "xAI", "score": 10, "in_window": true },
+        { "rank": 6, "name": "Midjourney V8.1 Alpha", "company": "Midjourney", "score": 10, "in_window": false }
+      ],
+      "brief": [],
+      "dropped": [
+        { "name": "Perplexity Health + Premium Health Sources", "score": 5, "drop_reason": "Score below threshold; health vertical out-of-scope; citation fabrication risk; launch date correction (March 2026, not May 1)" }
+      ]
+    }
+  },
+
+  "watchlist_notes": [
+    {
+      "name": "Etsy ChatGPT App Integration",
+      "company": "Etsy",
+      "status": "watchlist — single source (TechCrunch)",
+      "note": "Strong signal for ChatGPT-as-platform commerce pattern. If corroborating sources emerge within 48 hours, promote to pass and consider brief inclusion as ChatGPT ecosystem signal."
+    },
+    {
+      "name": "Airbyte Agents — Context Store + MCP",
+      "company": "Airbyte",
+      "status": "watchlist — company-only sources (BusinessWire + company blog)",
+      "note": "Pre-indexed unified data layer for AI agents is highly relevant for our skill/workflow infrastructure design. Context Store pattern (single endpoint instead of 5-6 API chains) is a key design signal. Monitor for TechCrunch/HN/VentureBeat coverage to promote to pass next run."
+    },
+    {
+      "name": "Rowboat AI Work App",
+      "company": "Rowboat (Indie/Startup)",
+      "status": "watchlist — single community source, outside window",
+      "note": "Knowledge graph pattern for persistent AI context is relevant for skill/memory system design. Very early stage; monitor for growth."
+    },
+    {
+      "name": "Submit.DIY — AI Launch Platform for Indie Makers",
+      "company": "Submit.DIY (Indie)",
+      "status": "watchlist — single community source, outside window",
+      "note": "Indie maker tooling. #5 Product Hunt is a signal but niche. Outside window. Low priority for main coverage."
+    },
+    {
+      "name": "Image AI Models Drive App Growth (Market Signal)",
+      "company": "Multiple (Appfigures data)",
+      "status": "watchlist — market analysis, not a product",
+      "note": "HIGH EDITORIAL VALUE. Appfigures data (May 4, TechCrunch): image AI releases drive 6.5x more downloads than text model upgrades. ChatGPT images drove $70M revenue. Gemini Nano Banana drove 22M downloads but only $181K consumer spending. STRONGLY RECOMMEND: surface as a data callout sidebar or editorial note in the newsletter. Directly informs creative tool growth strategy."
+    }
+  ]
+}

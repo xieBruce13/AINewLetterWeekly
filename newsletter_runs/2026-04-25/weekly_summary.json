@@ -1,0 +1,23 @@
+{
+  "theme": "本周一句话：OpenAI 反超 Anthropic，Google rebrand Vertex AI，agent commerce 落地。",
+  "bullets": [
+    {
+      "text": "**GPT-5.5 反超 Claude Opus 4.7**：1M context + Skills + 内置 computer use 默认带。",
+      "slugs": [
+        "2026-04-25-openai-gpt-5-5-5-5"
+      ]
+    },
+    {
+      "text": "**Gemini Enterprise Agent Platform**：Vertex AI 改名 + Agent Identity / Gateway / Model Armor 三件套。",
+      "slugs": [
+        "2026-04-25-google-cloud-gemini-enterprise-agent-platform"
+      ]
+    },
+    {
+      "text": "**Stripe Agent Toolkit GA**：agent 拿 virtual card 付钱，agent commerce 有正经基础设施。",
+      "slugs": [
+        "2026-04-25-stripe-stripe-agent-toolkit-ga"
+      ]
+    }
+  ]
+}

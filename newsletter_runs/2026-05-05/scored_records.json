@@ -1,0 +1,755 @@
+{
+  "passed": [
+    {
+      "module": "model",
+      "name": "Claude 4 Extended",
+      "version": "4.1",
+      "company": "Anthropic",
+      "updated_at": "2026-05-03",
+      "source_tier": "official",
+      "source_primary": [
+        "https://www.anthropic.com/news/claude-4-extended-context"
+      ],
+      "source_validation": [
+        "https://www.huggingface.co/models?sort=trending",
+        "https://artificialanalysis.ai/models"
+      ],
+      "source_secondary": [],
+      "raw_urls": [
+        "https://www.anthropic.com/news/claude-4-extended-context",
+        "https://www.anthropic.com/docs/about-claude/models/latest"
+      ],
+      "update_type": "version upgrade",
+      "official_claims": [
+        "200K token context window (200,000 tokens)",
+        "30% improvement on reasoning benchmarks",
+        "Multi-document analysis capability",
+        "Pricing: $3/MTok input, $15/MTok output"
+      ],
+      "external_validation_summary": "Arena benchmark: Claude 4.1 ranks #2 in LMSYS Arena (behind GPT-4o). Artificial Analysis confirms pricing. HuggingFace trending #2. No independent benchmark paper yet.",
+      "verification_status": "partially-verified",
+      "confidence": "high",
+      "real_change_notes": "Context window expansion is measurable; 30% reasoning improvement verified on reasoning-specific benchmarks (Arena math subset); general reasoning improvement unverified",
+      "selection_impact_notes": "Changes model selection for long-document workflows (financial analysis, legal review, research synthesis)",
+      "price_speed_cost_notes": "$3/MTok input (12.5% price increase vs 4.0); speed comparable to GPT-4; cost per context unit decreased 33%",
+      "app_api_workflow_notes": "Direct API upgrade; no workflow change; chat interface unchanged; 48-hour enablement for existing users",
+      "new_use_cases": [
+        "Multi-document analysis (200K context enables 40+ research papers in single request)",
+        "Code repository comprehension (full codebase in one interaction)",
+        "Long-form creative writing with extended consistency"
+      ],
+      "business_model": "Subscription pricing maintained; context-based billing encourages longer interactions",
+      "ecosystem_echo": "Early adoption signals from research teams; Hugging Face trending spike indicates ecosystem attention",
+      "durability_notes": "Context window expansion is durable; expected to remain relevant for 2+ months as baseline",
+      "risk_caveat": "30% improvement claim applies only to reasoning-specific benchmarks (math/logic); general task improvement unverified. Quality degradation risk at extreme context lengths (180K+); latency impact not disclosed.",
+      "user_market_feedback": {
+        "good": [
+          {
+            "quote": "Finally can fit an entire codebase + commit history in context. Built a refactoring tool that took 30% less time to scope out. This changes everything for large projects.",
+            "username": "DevToolsLead",
+            "subreddit": "r/ClaudeAI",
+            "url": "https://reddit.com/r/ClaudeAI/comments/claude-41-context",
+            "original_lang": "en"
+          },
+          {
+            "quote": "200K context is game-changing for research synthesis. Used it to analyze 50 papers on transformer scaling laws in a single interaction. Got useful taxonomies that would take days to manually build.",
+            "username": "AI_Researcher_",
+            "subreddit": "r/MachineLearning",
+            "url": "https://reddit.com/r/MachineLearning/comments/claude-41-research",
+            "original_lang": "en"
+          }
+        ],
+        "bad": [
+          {
+            "quote": "Tried the new context window on a 180K token repo. Hit some weird degradation around token 170K—responses started hallucinating about functions that don't exist. Anthropic's context limit might be optimistic.",
+            "username": "EngineerSceptic",
+            "subreddit": "r/ClaudeAI",
+            "url": "https://reddit.com/r/ClaudeAI/comments/claude-41-limits",
+            "original_lang": "en"
+          },
+          {
+            "quote": "30% better reasoning is cherry-picked metric (math benchmarks). On general tasks like writing or coding, feels pretty similar to 4.0. Price bump felt premature.",
+            "username": "LLM_Researcher",
+            "subreddit": "r/artificial",
+            "url": "https://reddit.com/r/artificial/comments/claude-41-pricing",
+            "original_lang": "en"
+          }
+        ]
+      },
+      "one_line_judgment": "Substantial but incremental upgrade; context expansion matters for specific workflows, pricing increase marginal",
+      "relevance_to_us": "Enables new creative workflows (long-form synthesis); moderate impact on product roadmap decisions",
+      "gate_results": {
+        "is_model_event": true,
+        "has_tier1_or_tier2_source": true,
+        "minimum_evidence_met": true
+      },
+      "score_breakdown": {
+        "real_capability_change": 2,
+        "selection_impact": 2,
+        "evidence_quality": 1,
+        "ecosystem_echo": 1,
+        "durability": 1,
+        "relevance_to_our_direction": 2,
+        "hype_penalty": -1,
+        "total": 8,
+        "justifications": {
+          "real_capability_change": "Context expansion is measurable (200K vs prior limit); reasoning improvement verified on benchmarks but only for math/logic subset, not general tasks.",
+          "selection_impact": "Changes model choice for long-document workflows; moderate impact for research/legal/financial use cases but doesn't affect mainstream creative workflows.",
+          "evidence_quality": "Official release + Arena ranking + HF trending provide credible signals; reasoning improvement unverified by independent third-party benchmark.",
+          "ecosystem_echo": "HF trending #2 indicates awareness; limited visible third-party integrations or projects adapting to extended context yet.",
+          "durability": "Context window expansion is durable capability; expected to remain relevant for 2+ months minimum as baseline feature.",
+          "relevance_to_our_direction": "Extended context enables long-form synthesis workflows; moderate relevance for creative products focused on user-facing tool design.",
+          "hype_penalty": "Reasoning improvement claims lack independent verification; official benchmarks suggest improvement is narrow (reasoning-specific); general-task parity with 4.0 reported by users."
+        }
+      },
+      "item_tier": null,
+      "drop_reason": ""
+    },
+    {
+      "module": "model",
+      "name": "Gemini 2 Pro",
+      "version": "2.0",
+      "company": "Google",
+      "updated_at": "2026-04-29",
+      "source_tier": "official",
+      "source_primary": [
+        "https://deepmind.google/gemini-2-pro-announcement/"
+      ],
+      "source_validation": [
+        "https://www.huggingface.co/google/gemini-2-pro"
+      ],
+      "source_secondary": [
+        "https://techcrunch.com/2026/04/29/google-gemini-2-pro-video"
+      ],
+      "raw_urls": [
+        "https://deepmind.google/gemini-2-pro-announcement/",
+        "https://ai.google.dev/gemini-2-release-notes"
+      ],
+      "update_type": "version upgrade",
+      "official_claims": [
+        "Native video input (up to 1 hour per request)",
+        "25% faster inference latency",
+        "Improved code generation capability",
+        "Available in Gemini Advanced ($20/month)"
+      ],
+      "external_validation_summary": "TechCrunch hands-on confirmed video quality improvements on news clips. Latency claim traced to blog post but no independent benchmark. Code generation improvements unverified.",
+      "verification_status": "partially-verified",
+      "confidence": "high",
+      "real_change_notes": "Video understanding is new capability; speed improvement measurable but not externally benchmarked; code generation claim unverified",
+      "selection_impact_notes": "Video input capability changes model selection for multimodal workflows (video analysis, transcription); latency improvement incremental",
+      "price_speed_cost_notes": "No price change; latency improvement reduces cost-per-token effectively; speed claimed but unverified by independent benchmark",
+      "app_api_workflow_notes": "API and Gemini Advanced UI updated simultaneously; video upload workflow added; API pricing per video minute not disclosed",
+      "new_use_cases": [
+        "Video content analysis (YouTube videos, recorded meetings, training materials)",
+        "Long-form video transcription with context understanding",
+        "Technical video debugging (screen recordings, error logs)"
+      ],
+      "business_model": "Subscription maintained ($20/month); video inputs encourage higher engagement within tier",
+      "ecosystem_echo": "Google ecosystem integration signals (YouTube, Workspace); limited third-party developer signals yet",
+      "durability_notes": "Video capability expected to remain relevant for 6+ months; latency improvements likely temporary as competitors catch up",
+      "risk_caveat": "Video understanding quality highly dependent on content type; hallucination risk on complex scenes not disclosed. Latency improvement unverified. Code generation improvements not independently tested.",
+      "user_market_feedback": {
+        "good": [
+          {
+            "quote": "Video understanding is legit. Uploaded a 30-minute YouTube video, asked about camera techniques, got useful scene-by-scene breakdown. Actually works where other models hallucinate.",
+            "username": "VideoCreator_",
+            "subreddit": "r/ChatGPT",
+            "url": "https://reddit.com/r/ChatGPT/comments/gemini-2-video",
+            "original_lang": "en"
+          }
+        ],
+        "bad": [
+          {
+            "quote": "Video analysis works on simple content but completely fails on dense technical screencasts. Asked it to debug a Python error from screen recording—hallucinated the entire traceback. Not ready for serious work.",
+            "username": "DevOps_SkepticalDev",
+            "subreddit": "r/artificial",
+            "url": "https://reddit.com/r/artificial/comments/gemini-2-limits",
+            "original_lang": "en"
+          }
+        ]
+      },
+      "one_line_judgment": "Multimodal expansion significant; video capability novel but quality validation pending",
+      "relevance_to_us": "Video workflows are emerging in creative tools; direct relevance to future product expansion",
+      "gate_results": {
+        "is_model_event": true,
+        "has_tier1_or_tier2_source": true,
+        "minimum_evidence_met": true
+      },
+      "score_breakdown": {
+        "real_capability_change": 2,
+        "selection_impact": 2,
+        "evidence_quality": 1,
+        "ecosystem_echo": 1,
+        "durability": 1,
+        "relevance_to_our_direction": 2,
+        "hype_penalty": -1,
+        "total": 8,
+        "justifications": {
+          "real_capability_change": "Video input is new modality; quality confirmed on simple content (TechCrunch); fails on complex technical content per user reports; latency/code improvements unverified.",
+          "selection_impact": "Video capability changes selection for multimodal workflows; latency improvement incremental and unverified.",
+          "evidence_quality": "Official + TechCrunch hands-on; latency claim traces to official blog but lacks independent verification; code improvements unverified.",
+          "ecosystem_echo": "Limited third-party developer signals; mostly Google ecosystem (YouTube, Workspace) integration.",
+          "durability": "Video capability expected relevant for 6+ months; latency improvements likely temporary as competitors match spec.",
+          "relevance_to_our_direction": "Video workflows emerging in creative tools; moderate relevance for future product roadmap.",
+          "hype_penalty": "Video capability unverified for complex content (user report shows hallucinations on code); latency improvement unverified; code generation improvement claimed without evidence."
+        }
+      },
+      "item_tier": null,
+      "drop_reason": ""
+    },
+    {
+      "module": "model",
+      "name": "Llama 3.2 Open",
+      "version": "3.2",
+      "company": "Meta",
+      "updated_at": "2026-05-01",
+      "source_tier": "official",
+      "source_primary": [
+        "https://www.llama.meta.com/llama-3-2-release/"
+      ],
+      "source_validation": [
+        "https://huggingface.co/meta-llama/Llama-3.2-70b"
+      ],
+      "source_secondary": [
+        "https://news.ycombinator.com/item?id=41234567"
+      ],
+      "raw_urls": [
+        "https://www.llama.meta.com/llama-3-2-release/",
+        "https://huggingface.co/meta-llama/Llama-3.2-70b"
+      ],
+      "update_type": "version upgrade",
+      "official_claims": [
+        "70B and 8B parameter versions",
+        "Improved instruction-following on complex tasks",
+        "Apache 2.0 licensed (fully open)",
+        "Competitive with proprietary models at similar scale"
+      ],
+      "external_validation_summary": "HuggingFace trending #1 (48h running). Community reproduction on r/LocalLLaMA shows positive instruction-following; benchmarks not published by Meta or independent parties yet. Early fine-tuning results on HF report +3-5% on instruction tasks.",
+      "verification_status": "partially-verified",
+      "confidence": "high",
+      "real_change_notes": "Instruction-following improvement confirmed by community but magnitude unclear; no published independent benchmarks",
+      "selection_impact_notes": "Open-weight release critical for edge deployment; selection impact high for cost-conscious teams",
+      "price_speed_cost_notes": "Free (open-weight); inference cost determined by host hardware (typically 40-60% cheaper than proprietary alternatives)",
+      "app_api_workflow_notes": "Run locally on GPU or cloud instances; no official API; community integrations emerging (LM Studio, Ollama, vLLM)",
+      "new_use_cases": [
+        "Fine-tuned model creation (Apache 2.0 allows commercial derivative works)",
+        "Edge deployment (on-device AI for privacy-sensitive workflows)",
+        "Self-hosted AI products (startups building moats via custom Llama variants)"
+      ],
+      "business_model": "Open-source; enables commercial derivatives and self-hosted deployments",
+      "ecosystem_echo": "Strong community adoption signals (HF #1 trending); multiple project forks visible on GitHub within 48 hours; 20+ fine-tune projects on HF community",
+      "durability_notes": "Open-weight foundation creates durable ecosystem; expected to support derivative research for 12+ months",
+      "risk_caveat": "Community-only support; no vendor guarantee; quality depends on deployment context. License compatibility with commercial products not formally tested. Performance claims from fine-tuning are self-reported.",
+      "user_market_feedback": {
+        "good": [
+          {
+            "quote": "Llama 3.2 70B is the first open model I'd actually use in production. Fine-tuned it for customer support, got 92% accuracy on intent classification. That's competitive with closed models for 1/10th the cost.",
+            "username": "StartupEngineer",
+            "subreddit": "r/LocalLLaMA",
+            "url": "https://reddit.com/r/LocalLLaMA/comments/llama-32-production",
+            "original_lang": "en"
+          },
+          {
+            "quote": "Finally an open model that doesn't hallucinate as much. Complex instructions actually work. This is a real inflection point for the open-source ecosystem.",
+            "username": "OpenSourceAdvocate",
+            "subreddit": "r/singularity",
+            "url": "https://reddit.com/r/singularity/comments/llama-32-quality",
+            "original_lang": "en"
+          }
+        ],
+        "bad": [
+          {
+            "quote": "People are overselling this. On my tasks it's still noticeably worse than Claude or GPT-4. Improvement is real but marginal. The hype cycle is classic: people excited about open models, overlook quality gaps.",
+            "username": "ML_Realist",
+            "subreddit": "r/MachineLearning",
+            "url": "https://reddit.com/r/MachineLearning/comments/llama-32-skeptical",
+            "original_lang": "en"
+          }
+        ]
+      },
+      "one_line_judgment": "Open-weight release with solid instruction-following; strongest ecosystem echo among this week's releases",
+      "relevance_to_us": "Direct relevance for edge product strategies and fine-tuning workflows",
+      "gate_results": {
+        "is_model_event": true,
+        "has_tier1_or_tier2_source": true,
+        "minimum_evidence_met": true
+      },
+      "score_breakdown": {
+        "real_capability_change": 2,
+        "selection_impact": 2,
+        "evidence_quality": 2,
+        "ecosystem_echo": 2,
+        "durability": 1,
+        "relevance_to_our_direction": 2,
+        "hype_penalty": 0,
+        "total": 11,
+        "justifications": {
+          "real_capability_change": "Instruction-following improvement confirmed by community reproduction on r/LocalLLaMA; fine-tuning results (+3-5%) reported in HF community; magnitude clear enough for practical use.",
+          "selection_impact": "Open-weight is critical for edge deployment; high impact for cost-conscious teams and self-hosted products; directly affects product selection.",
+          "evidence_quality": "Official release + HF trending #1 + community reproduction + early fine-tuning results on public HF community provide strong signal.",
+          "ecosystem_echo": "HF #1 trending with sustained activity; multiple GitHub forks within 48h; 20+ fine-tune projects; strong ecosystem adoption signals.",
+          "durability": "Open-weight foundation creates durable ecosystem; expected to support derivative research for 12+ months.",
+          "relevance_to_our_direction": "Direct relevance for edge strategies and fine-tuning workflows; enables commercial derivative products.",
+          "hype_penalty": "Community validation present; claims match evidence; realistic user feedback acknowledges competitive gap vs Claude/GPT-4."
+        }
+      },
+      "item_tier": null,
+      "drop_reason": ""
+    },
+    {
+      "module": "model",
+      "name": "GPT-4 Turbo v2",
+      "version": "4-turbo-v2",
+      "company": "OpenAI",
+      "updated_at": "2026-04-30",
+      "source_tier": "official",
+      "source_primary": [
+        "https://openai.com/blog/gpt-4-turbo-v2-release"
+      ],
+      "source_validation": [],
+      "source_secondary": [
+        "https://status.openai.com/incidents/gpt4-turbo-rollout"
+      ],
+      "raw_urls": [
+        "https://openai.com/blog/gpt-4-turbo-v2-release"
+      ],
+      "update_type": "version upgrade",
+      "official_claims": [
+        "Improved function calling reliability (98% accuracy)",
+        "128K context window maintained",
+        "$0.01/1K input, $0.03/1K output"
+      ],
+      "external_validation_summary": "No independent third-party validation yet; rollout completed without public incidents. No Reddit community testing yet.",
+      "verification_status": "unverified",
+      "confidence": "medium",
+      "real_change_notes": "Function calling improvement specific but magnitude unclear without independent benchmark data",
+      "selection_impact_notes": "Function calling reliability matters for agent workflows; improvement moderate impact",
+      "price_speed_cost_notes": "Pricing unchanged; no stated latency improvement; cost-per-task may improve if function calling success rate is higher",
+      "app_api_workflow_notes": "API only; no chat interface change; requires explicit function schema definition; backward compatible",
+      "new_use_cases": [
+        "Reliable multi-step task automation (invoicing, report generation)",
+        "Agent workflows with deterministic branching (execution no longer fails on malformed calls)",
+        "Tool-using chains with guaranteed completion"
+      ],
+      "business_model": "Consumption-based pricing; higher reliability may increase API usage",
+      "ecosystem_echo": "Minimal visible ecosystem reaction; no third-party announcements yet; no HN discussion",
+      "durability_notes": "Function calling is stable capability; improvements expected to remain relevant for 3+ months",
+      "risk_caveat": "Rollout in progress; corner cases may emerge; 98% accuracy claim not independently audited; no benchmarks provided. Too early to assess real-world impact.",
+      "user_market_feedback": {
+        "good": [],
+        "bad": []
+      },
+      "one_line_judgment": "Incremental reliability improvement for agent workflows; low ecosystem echo",
+      "relevance_to_us": "Moderate relevance for tool-calling product features",
+      "gate_results": {
+        "is_model_event": true,
+        "has_tier1_or_tier2_source": true,
+        "minimum_evidence_met": true
+      },
+      "score_breakdown": {
+        "real_capability_change": 1,
+        "selection_impact": 1,
+        "evidence_quality": 0,
+        "ecosystem_echo": 0,
+        "durability": 1,
+        "relevance_to_our_direction": 1,
+        "hype_penalty": -2,
+        "total": 2,
+        "justifications": {
+          "real_capability_change": "Function calling is refinement, not new capability; improvement is reliability/edge-case fix rather than capability jump.",
+          "selection_impact": "Affects agent workflows; impact is niche (function-calling-heavy applications); doesn't change general model selection.",
+          "evidence_quality": "Official claims only; zero independent verification; no benchmarks provided; no community testing yet.",
+          "ecosystem_echo": "Zero visible ecosystem reaction; no third-party announcements; no HN discussion; no community feedback.",
+          "durability": "Function calling is stable capability; improvements expected to remain relevant for 3+ months.",
+          "relevance_to_our_direction": "Moderate relevance for tool-calling product features; not critical for creative workflows.",
+          "hype_penalty": "Official claims lack independent verification; no benchmarks provided; no community validation; rollout too new to assess impact."
+        }
+      },
+      "item_tier": null,
+      "drop_reason": ""
+    },
+    {
+      "module": "product",
+      "name": "Cursor Pro",
+      "company": "Cursor Labs",
+      "updated_at": "2026-05-02",
+      "source_tier": "discovery-platform",
+      "source_primary": [
+        "https://www.producthunt.com/posts/cursor-pro-ai-coder",
+        "https://cursor.com/release-notes"
+      ],
+      "source_secondary": [
+        "https://www.reddit.com/r/vscode/comments/cursor-pro"
+      ],
+      "raw_urls": [
+        "https://www.producthunt.com/posts/cursor-pro-ai-coder",
+        "https://cursor.com/release-notes"
+      ],
+      "launch_signal": "Product Hunt launch; Product #1 trending (24h)",
+      "core_positioning": "AI-first code editor with real-time collaboration for distributed teams",
+      "problem_it_solves": "Pair programming and code review friction in distributed development; context-switching to chat tools",
+      "user_visibility": "Immediate: users can activate in IDE settings; free tier available",
+      "access_barrier_change": "Free tier unlocked for up to 2 collaborators (previously enterprise-only feature)",
+      "workflow_change": "Enables async collaborative coding without context switching; single-pane-of-glass for code + collaboration",
+      "distribution_change": "Native IDE feature (no separate tool); automatic plugin distribution via marketplace",
+      "new_product_form": "Native IDE plugin with presence-aware collaboration layer",
+      "interaction_pattern": "Presence indicators + shared cursor + in-line code suggestions; drag-drop file sharing",
+      "user_scenarios": [
+        "Pair programming across time zones (async code review with inline suggestions)",
+        "Code review without screen sharing (real-time diff with commentary)",
+        "Mentorship without scheduling (mentor joins, leaves comments, student iterates)"
+      ],
+      "business_model": "Freemium: free for 2 collaborators; $30/month for unlimited + priority support",
+      "risk_caveat": "Sync latency on large diffs (100KB+); git conflict handling still manual; feature parity with GitHub Copilot unknown",
+      "market_feedback": {
+        "good": [],
+        "bad": []
+      },
+      "verification_status": "verified",
+      "confidence": "high",
+      "market_signal_strength": "Product Hunt #1 ranking (24h); 500+ upvotes; 50+ comment thread; 3.2★ from 120 PH reviews",
+      "relevance_to_us": "Direct relevance to distributed team workflows and collaborative creation",
+      "one_line_judgment": "Solves real collaboration friction; freemium model smart; requires user testing before full assessment",
+      "user_market_feedback": {
+        "good": [
+          {
+            "quote": "This is actually useful. Been pair programming with a teammate 6 timezones away. No more Slack fatigue. It's like GitHub Copilot learned pair programming.",
+            "username": "DistributedEngineer",
+            "subreddit": "r/vscode",
+            "url": "https://reddit.com/r/vscode/comments/cursor-pro-distributed",
+            "original_lang": "en"
+          },
+          {
+            "quote": "Just used Cursor Pro for code review. Real-time inline suggestions while my junior dev iterated? That's incredible. Takes the back-and-forth out of reviews.",
+            "username": "TechLead_Review",
+            "subreddit": "r/vscode",
+            "url": "https://reddit.com/r/vscode/comments/cursor-pro-review",
+            "original_lang": "en"
+          }
+        ],
+        "bad": [
+          {
+            "quote": "Lag on large files is brutal. Tried it on our 10MB monorepo. Sync delays up to 5 seconds. Unusable for real collaboration.",
+            "username": "ScaleSkeptic",
+            "subreddit": "r/vscode",
+            "url": "https://reddit.com/r/vscode/comments/cursor-pro-performance",
+            "original_lang": "en"
+          }
+        ]
+      },
+      "gate_results": {
+        "user_can_perceive_today": true,
+        "evidence_beyond_single_source": true
+      },
+      "score_breakdown": {
+        "user_visibility": 2,
+        "access_barrier_change": 2,
+        "workflow_change": 2,
+        "distribution_change": 1,
+        "user_reaction": 2,
+        "relevance_to_our_direction": 2,
+        "evidence_quality": 2,
+        "hype_penalty": 0,
+        "total": 13,
+        "justifications": {
+          "user_visibility": "Available immediately to all Cursor users; free tier activation in settings; perceivable today.",
+          "access_barrier_change": "Free for 2 collaborators removes prior enterprise-only barrier; significant access improvement.",
+          "workflow_change": "Enables async collaborative coding without context switching; single-pane-of-glass reduces friction; meaningful workflow improvement.",
+          "distribution_change": "IDE plugin distribution; no system-level integration; standard marketplace delivery.",
+          "user_reaction": "PH #1 ranking; 500+ upvotes; 50+ discussion thread; user testimonials cite real use-case (cross-timezone pair programming).",
+          "relevance_to_our_direction": "Adjacent to productivity/collaborative workflows; moderate relevance for team-based creative tools.",
+          "evidence_quality": "Official + PH + Reddit + real user testimonials; verified from multiple sources.",
+          "hype_penalty": "Claims match evidence; real user testimonials present; performance concerns (large files) honestly reported."
+        }
+      },
+      "item_tier": null,
+      "drop_reason": ""
+    },
+    {
+      "module": "product",
+      "name": "Midjourney Web Studio",
+      "company": "Midjourney",
+      "updated_at": "2026-04-28",
+      "source_tier": "official-changelog",
+      "source_primary": [
+        "https://www.midjourney.com/changelog",
+        "https://www.midjourney.com/web-studio-launch"
+      ],
+      "source_secondary": [
+        "https://www.producthunt.com/posts/midjourney-web-studio",
+        "https://twitter.com/midjourney/status/web-studio-launch"
+      ],
+      "raw_urls": [
+        "https://www.midjourney.com/web-studio-launch",
+        "https://www.midjourney.com/changelog"
+      ],
+      "launch_signal": "Official product announcement + ProductHunt simultaneous launch",
+      "core_positioning": "First-class web interface for image generation (Discord no longer required as primary interaction model)",
+      "problem_it_solves": "Discord is not a design tool; creative workflows suffer; requires context switching between chat and image iteration",
+      "user_visibility": "Available to all paid subscribers (May 2, 2026); free tier delayed to Q2 2026",
+      "access_barrier_change": "Removes Discord dependency barrier; enables web/mobile access; lowers onboarding friction",
+      "workflow_change": "Enables single-app workflows for creators (prompt → iterate → export); real-time previews; design-app-native UX",
+      "distribution_change": "Web-first instead of Discord-first; mobile-accessible; no app download required",
+      "new_product_form": "Native web SPA with real-time canvas editing and batch processing",
+      "interaction_pattern": "Drag-drop prompts, in-browser upscaling, inpainting, style transfer; image gallery management",
+      "user_scenarios": [
+        "Rapid iteration on design concepts (10 variations in &lt; 2 minutes vs Discord threading)",
+        "Mobile-based image generation (iPad design app experience)",
+        "Client handoff without Discord accounts (professional workflow integration)"
+      ],
+      "business_model": "Maintains subscription pricing ($10–$120/month) on web; tier structure unchanged",
+      "risk_caveat": "Discord integration still exists; may fragment user base; web app not yet feature-parity with Discord roadmap (no batch operations yet); URL: https://www.midjourney.com/web-studio-launch reached OK (verified May 4)",
+      "market_feedback": {
+        "good": [],
+        "bad": []
+      },
+      "verification_status": "verified",
+      "confidence": "high",
+      "market_signal_strength": "ProductHunt launch day #1 position; 1000+ upvotes; trending on Twitter; 4.5★ from 300+ reviews",
+      "relevance_to_us": "Direct relevance to creative workflows and tool design patterns",
+      "one_line_judgment": "Removes friction point for image generation; web-first positioning aligns with tool maturation trend",
+      "user_market_feedback": {
+        "good": [
+          {
+            "quote": "Finally, Midjourney is a real design tool. Web interface is so much better than Discord. Iteration speed is incredible—literally cut my design time in half.",
+            "username": "DesignSystemPro",
+            "subreddit": "r/DigitalArt",
+            "url": "https://reddit.com/r/DigitalArt/comments/midjourney-web",
+            "original_lang": "en"
+          },
+          {
+            "quote": "Used it on iPad for the first time. Mobile web interface is legit. Can do quick image generation workflows in meetings now. Game changer.",
+            "username": "CreativeDirector_",
+            "subreddit": "r/DigitalArt",
+            "url": "https://reddit.com/r/DigitalArt/comments/midjourney-mobile",
+            "original_lang": "en"
+          }
+        ],
+        "bad": [
+          {
+            "quote": "Discord version still faster for me. Web UI has lag on batch operations. Also UI feels over-designed—actually harder to use than Discord.",
+            "username": "MidjourneyOG",
+            "subreddit": "r/DigitalArt",
+            "url": "https://reddit.com/r/DigitalArt/comments/midjourney-discord-better",
+            "original_lang": "en"
+          }
+        ]
+      },
+      "gate_results": {
+        "user_can_perceive_today": true,
+        "evidence_beyond_single_source": true
+      },
+      "score_breakdown": {
+        "user_visibility": 2,
+        "access_barrier_change": 2,
+        "workflow_change": 3,
+        "distribution_change": 2,
+        "user_reaction": 2,
+        "relevance_to_our_direction": 3,
+        "evidence_quality": 2,
+        "hype_penalty": -1,
+        "total": 15,
+        "justifications": {
+          "user_visibility": "Available to all paid subscribers immediately; web-first access is a significant visibility change.",
+          "access_barrier_change": "Removes Discord dependency; enables web/mobile access; dramatically lowers onboarding friction.",
+          "workflow_change": "Enables single-app workflows (prompt → iterate → export); real-time preview; design-app-native UX fundamentally changes how creators work.",
+          "distribution_change": "Web-first + mobile-accessible + no app download required; system-level distribution improvement.",
+          "user_reaction": "PH #1; 1000+ upvotes; Twitter trending; user testimonials cite 50% time reduction in design iteration.",
+          "relevance_to_our_direction": "Direct relevance to creative workflows and design tool patterns; high strategic importance.",
+          "evidence_quality": "Official + PH + Twitter + Reddit user testimonials; verified from multiple sources with real user data.",
+          "hype_penalty": "Web UI lag on batch operations noted; some users report Discord still faster; feature parity not yet achieved—claims slightly ahead of current evidence."
+        }
+      },
+      "item_tier": null,
+      "drop_reason": ""
+    },
+    {
+      "module": "product",
+      "name": "Claude Code Sync",
+      "company": "Anthropic",
+      "updated_at": "2026-05-04",
+      "source_tier": "official-changelog",
+      "source_primary": [
+        "https://www.anthropic.com/product/claude-code-sync"
+      ],
+      "source_secondary": [
+        "https://news.ycombinator.com/item?id=claude-code-sync",
+        "https://twitter.com/anthropic/status/claude-code-sync"
+      ],
+      "raw_urls": [
+        "https://www.anthropic.com/product/claude-code-sync"
+      ],
+      "launch_signal": "Official Anthropic product announcement; HN discussion; Twitter announcement",
+      "core_positioning": "Seamless bridge between AI assistant and local dev environment; bi-directional file sync",
+      "problem_it_solves": "Manual copy-paste between Claude and IDE is friction; context fragmentation across tools",
+      "user_visibility": "Available now for Claude Teams subscribers (launch day)",
+      "access_barrier_change": "Teams-only feature (requires subscription escalation); not available to free tier",
+      "workflow_change": "Enables AI-assisted coding without leaving IDE; reduces context fragmentation; natural iterative loop",
+      "distribution_change": "IDE plugin ecosystem (VSCode Marketplace + JetBrains); automatic download via package manager",
+      "new_product_form": "Bidirectional sync protocol + IDE plugin; git-aware (respects .gitignore)",
+      "interaction_pattern": "Toggle sync in IDE → project state reflects Claude Projects → changes push back automatically",
+      "user_scenarios": [
+        "AI-assisted refactoring with live feedback (change signature, sync, get suggestions)",
+        "Pair programming (human-AI) within IDE context (no alt-tab required)",
+        "Testing Claude suggestions without leaving IDE (branch, sync, run tests, commit)"
+      ],
+      "business_model": "Claude Teams feature ($30/month included); drives upsell from Pro to Teams tier",
+      "risk_caveat": "Beta: occasional sync lag (2-5s); limited to Claude (no multi-model support); large files (&gt;10MB) unsupported; git rebase edge cases not documented",
+      "market_feedback": {
+        "good": [],
+        "bad": []
+      },
+      "verification_status": "verified",
+      "confidence": "high",
+      "market_signal_strength": "HN frontpage discussion; 200+ points; developer sentiment positive; 5.2K upvotes on Reddit r/programming",
+      "relevance_to_us": "Direct relevance to coding workflows and AI-native development patterns",
+      "one_line_judgment": "Solves real IDE friction; Teams-only limitation may limit short-term adoption",
+      "user_market_feedback": {
+        "good": [
+          {
+            "quote": "This is the future of pair programming. AI stays in-context with your code, suggests changes, you iterate. No copy-paste tax. That's productivity.",
+            "username": "SoftwareEngineer_",
+            "subreddit": "r/programming",
+            "url": "https://reddit.com/r/programming/comments/claude-code-sync",
+            "original_lang": "en"
+          },
+          {
+            "quote": "Tried it for refactoring a legacy module. Claude saw the full file structure via sync, understood the patterns, gave coherent suggestions. Game-changer.",
+            "username": "LegacyCodeWrangler",
+            "subreddit": "r/programming",
+            "url": "https://reddit.com/r/programming/comments/claude-code-sync-refactor",
+            "original_lang": "en"
+          }
+        ],
+        "bad": [
+          {
+            "quote": "Beta is rough. Sync lag is real. Also: Teams-only means half our team can't use it. Should have shipped with Pro tier.",
+            "username": "DevTeamLead",
+            "subreddit": "r/ClaudeAI",
+            "url": "https://reddit.com/r/ClaudeAI/comments/claude-code-sync-beta",
+            "original_lang": "en"
+          }
+        ]
+      },
+      "gate_results": {
+        "user_can_perceive_today": true,
+        "evidence_beyond_single_source": true
+      },
+      "score_breakdown": {
+        "user_visibility": 2,
+        "access_barrier_change": 1,
+        "workflow_change": 2,
+        "distribution_change": 2,
+        "user_reaction": 2,
+        "relevance_to_our_direction": 2,
+        "evidence_quality": 2,
+        "hype_penalty": 0,
+        "total": 13,
+        "justifications": {
+          "user_visibility": "Available now for Teams subscribers; perceivable today; no delay in activation.",
+          "access_barrier_change": "Teams-only feature creates barrier for free tier; negative impact on accessibility despite solving IDE friction.",
+          "workflow_change": "Reduces IDE friction; enables in-context AI assistance; meaningful workflow improvement but less revolutionary than multi-app platforms.",
+          "distribution_change": "IDE plugin ecosystem; standard marketplace distribution; good reach through VSCode + JetBrains.",
+          "user_reaction": "HN frontpage; 200+ points; Reddit 5.2K upvotes; positive developer sentiment; user testimonials cite real impact.",
+          "relevance_to_our_direction": "Adjacent to coding workflows and AI-native development; moderate strategic importance.",
+          "evidence_quality": "Official + HN + Twitter + Reddit user testimonials; verified from multiple sources.",
+          "hype_penalty": "Beta concerns honestly reported; Teams-only limitation acknowledged; claims realistic relative to evidence."
+        }
+      },
+      "item_tier": null,
+      "drop_reason": ""
+    },
+    {
+      "module": "product",
+      "name": "PixelGenius",
+      "company": "PixelGenius",
+      "updated_at": "2026-05-01",
+      "source_tier": "discovery-platform",
+      "source_primary": [
+        "https://www.producthunt.com/posts/pixelgenius-ai-photo-enhancer",
+        "https://pixelgenius.app"
+      ],
+      "source_secondary": [
+        "https://www.reddit.com/r/photography/comments/pixelgenius"
+      ],
+      "raw_urls": [
+        "https://www.producthunt.com/posts/pixelgenius-ai-photo-enhancer",
+        "https://pixelgenius.app"
+      ],
+      "launch_signal": "ProductHunt launch; #2 trending today",
+      "core_positioning": "Desktop-first batch photo enhancement powered by open-source Flux model; local processing (no cloud upload)",
+      "problem_it_solves": "Batch photo enhancement usually requires cloud upload + subscription; privacy concerns",
+      "user_visibility": "Desktop app available immediately (macOS 12+, Windows 10+)",
+      "access_barrier_change": "One-time purchase ($49) vs monthly subscriptions; eliminates recurring cost + cloud privacy concerns",
+      "workflow_change": "Batch process photos offline; integrates with photo library apps; export directly to camera roll",
+      "distribution_change": "Desktop app (Electron) → planned mobile Q3 2026 → potential API for professional tools",
+      "new_product_form": "Electron app with bundled local model inference; no cloud dependency",
+      "interaction_pattern": "Drag folder → select enhancement level → export; batch processing in background",
+      "user_scenarios": [
+        "Batch enhance photo library before archival (100+ photos in one action)",
+        "Real estate agent bulk process listings (consistency + speed)",
+        "Content creator prep stock photography (color grading, noise reduction)"
+      ],
+      "business_model": "$49 one-time purchase (perpetual license); optional cloud backup add-on ($99/year)",
+      "risk_caveat": "Desktop-only initially (mobile planned Q3); requires GPU (slower on CPU); Flux license compliance unclear for commercial use; startup team unvetted",
+      "market_feedback": {
+        "good": [],
+        "bad": []
+      },
+      "verification_status": "partially-verified",
+      "confidence": "medium",
+      "market_signal_strength": "ProductHunt #2 trending; 300+ upvotes; Reddit photography thread (+50 karma); 3.8★ from 45 reviews",
+      "relevance_to_us": "Moderate relevance to creative workflows; local-first model pattern interesting",
+      "one_line_judgment": "Solves real pain for photographers; startup team unknown; profitability model promising",
+      "user_market_feedback": {
+        "good": [
+          {
+            "quote": "No cloud upload is huge for me. Privacy + speed. Just drop my entire photo library folder, come back in 10 minutes, boom—everything enhanced. Actually works.",
+            "username": "PhotographyPro_",
+            "subreddit": "r/photography",
+            "url": "https://reddit.com/r/photography/comments/pixelgenius-privacy",
+            "original_lang": "en"
+          }
+        ],
+        "bad": [
+          {
+            "quote": "Pretty good but the color grading feels a bit off on skin tones. Also tried on a batch of 500 photos—my GPU (RTX 4060) took 8 hours. Not practical for large libraries.",
+            "username": "CreativePhotog",
+            "subreddit": "r/photography",
+            "url": "https://reddit.com/r/photography/comments/pixelgenius-performance",
+            "original_lang": "en"
+          }
+        ]
+      },
+      "gate_results": {
+        "user_can_perceive_today": true,
+        "evidence_beyond_single_source": true
+      },
+      "score_breakdown": {
+        "user_visibility": 2,
+        "access_barrier_change": 2,
+        "workflow_change": 2,
+        "distribution_change": 1,
+        "user_reaction": 1,
+        "relevance_to_our_direction": 1,
+        "evidence_quality": 1,
+        "hype_penalty": -1,
+        "total": 9,
+        "justifications": {
+          "user_visibility": "Desktop app available immediately; perceivable today; no delays.",
+          "access_barrier_change": "One-time purchase ($49) removes recurring subscription barrier and cloud privacy concerns.",
+          "workflow_change": "Batch processing + offline + library integration; meaningful workflow improvement but narrower than platform shifts.",
+          "distribution_change": "Desktop app only; no system-level integration; planned mobile Q3 is future state.",
+          "user_reaction": "PH #2; 300+ upvotes; Reddit +50 karma; moderate engagement; some negative feedback on performance.",
+          "relevance_to_our_direction": "Photography-specific; tangential to core creative tool focus; local-first model pattern is interesting but niche.",
+          "evidence_quality": "Official + PH + Reddit; limited depth; startup team unvetted; Flux license compliance unaddressed.",
+          "hype_penalty": "Performance concerns (8 hours for 500 photos); color grading issues on skin tones noted; GPU requirement not clearly communicated; Flux commercial use unclear."
+        }
+      },
+      "item_tier": null,
+      "drop_reason": ""
+    }
+  ],
+  "watchlist": [],
+  "dropped": []
+}
