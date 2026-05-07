@@ -45,6 +45,8 @@ def main():
     ap.add_argument("--audience", default="")
     ap.add_argument("--use-profile", action="store_true",
                     help="Load focus/audience from the first user_profile in DB")
+    ap.add_argument("--add-url", nargs="*", default=[],
+                    help="Manually inject known article URLs (e.g. official blog posts without RSS)")
     args = ap.parse_args()
 
     # Optionally load profile from DB
@@ -80,6 +82,29 @@ def main():
     # Filter to items with dates (ignore Reddit/HN spam without dates)
     dated = [i for i in items if i.get("published_at")]
     print(f"Items with published_at: {len(dated)}", flush=True)
+
+    # Manually inject URLs the user knows about but aren't in RSS feeds
+    if args.add_url:
+        print(f"Manually injecting {len(args.add_url)} URL(s)...", flush=True)
+        import urllib.request as _ur, html as _html
+        for url in args.add_url:
+            try:
+                req = _ur.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+                with _ur.urlopen(req, timeout=10) as r:
+                    body = r.read().decode("utf-8", errors="replace")[:8000]
+                # Grab <title>
+                import re as _re
+                title_m = _re.search(r"<title[^>]*>([^<]+)</title>", body, _re.I)
+                title = _html.unescape(title_m.group(1).strip()) if title_m else url
+                dated.insert(0, {
+                    "title": title, "url": url, "summary": body[:600],
+                    "published_at": args.date + "T00:00:00+00:00",
+                    "source": url.split("/")[2], "tier": "official",
+                    "module_hint": "product",
+                })
+                print(f"  + {title[:80]}", flush=True)
+            except Exception as e:
+                print(f"  [WARN] Could not fetch {url}: {e}", flush=True)
 
     # Build compact list for LLM context
     compact = []

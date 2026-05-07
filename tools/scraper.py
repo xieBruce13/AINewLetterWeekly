@@ -25,27 +25,44 @@ from urllib.error import URLError, HTTPError
 # ---------------------------------------------------------------------------
 
 RSS_SOURCES = [
-    # ── Official company blogs ───────────────────────────────────────────
-    {"name": "OpenAI Blog",         "url": "https://openai.com/blog/rss/",                          "tier": "official", "module_hint": "model"},
-    {"name": "Anthropic News",      "url": "https://www.anthropic.com/news/rss.xml",                "tier": "official", "module_hint": "model"},
-    {"name": "Google DeepMind",     "url": "https://deepmind.google/blog/feed/basic/",              "tier": "official", "module_hint": "model"},
-    {"name": "Meta AI Blog",        "url": "https://ai.meta.com/blog/rss/",                         "tier": "official", "module_hint": "model"},
-    {"name": "Mistral AI News",     "url": "https://mistral.ai/news/rss.xml",                       "tier": "official", "module_hint": "model"},
-    {"name": "HuggingFace Blog",    "url": "https://huggingface.co/blog/feed.xml",                  "tier": "official", "module_hint": "model"},
-    {"name": "Cohere Blog",         "url": "https://cohere.com/blog/rss",                           "tier": "official", "module_hint": "model"},
-    {"name": "xAI News",            "url": "https://x.ai/news/rss",                                 "tier": "official", "module_hint": "model"},
-    # ── Product / tooling ────────────────────────────────────────────────
-    {"name": "Cursor Changelog",    "url": "https://cursor.com/changelog/rss.xml",                  "tier": "official", "module_hint": "product"},
-    {"name": "Vercel Blog",         "url": "https://vercel.com/blog/rss.xml",                       "tier": "official", "module_hint": "product"},
-    {"name": "LangChain Blog",      "url": "https://blog.langchain.dev/rss/",                       "tier": "official", "module_hint": "product"},
-    {"name": "Midjourney Updates",  "url": "https://updates.midjourney.com/rss.xml",                "tier": "official", "module_hint": "product"},
+    # ── Official model labs ──────────────────────────────────────────────
+    {"name": "OpenAI Blog",          "url": "https://openai.com/blog/rss/",                                   "tier": "official", "module_hint": "model"},
+    {"name": "Anthropic News",       "url": "https://www.anthropic.com/news/rss.xml",                         "tier": "official", "module_hint": "model"},
+    {"name": "Google DeepMind",      "url": "https://deepmind.google/blog/feed/basic/",                       "tier": "official", "module_hint": "model"},
+    {"name": "Google AI Blog",       "url": "https://blog.google/technology/ai/rss/",                         "tier": "official", "module_hint": "model"},
+    {"name": "Meta AI Blog",         "url": "https://ai.meta.com/blog/rss/",                                  "tier": "official", "module_hint": "model"},
+    {"name": "Mistral AI News",      "url": "https://mistral.ai/news/rss.xml",                                "tier": "official", "module_hint": "model"},
+    {"name": "HuggingFace Blog",     "url": "https://huggingface.co/blog/feed.xml",                           "tier": "official", "module_hint": "model"},
+    {"name": "Cohere Blog",          "url": "https://cohere.com/blog/rss",                                    "tier": "official", "module_hint": "model"},
+    {"name": "xAI News",             "url": "https://x.ai/news/rss",                                          "tier": "official", "module_hint": "model"},
+    {"name": "Stability AI Blog",    "url": "https://stability.ai/news/rss.xml",                              "tier": "official", "module_hint": "model"},
+    # ── AI Creative / Image / Video / Design tools ───────────────────────
+    {"name": "Luma AI Blog",         "url": "https://lumalabs.ai/blog/rss.xml",                               "tier": "official", "module_hint": "product"},
+    {"name": "Runway Blog",          "url": "https://runwayml.com/blog/rss.xml",                              "tier": "official", "module_hint": "product"},
+    {"name": "Runway Research",      "url": "https://research.runwayml.com/feed.xml",                         "tier": "official", "module_hint": "product"},
+    {"name": "Pika Blog",            "url": "https://pika.art/blog/rss.xml",                                  "tier": "official", "module_hint": "product"},
+    {"name": "Midjourney Updates",   "url": "https://updates.midjourney.com/rss.xml",                         "tier": "official", "module_hint": "product"},
+    {"name": "Adobe Blog AI",        "url": "https://blog.adobe.com/en/topics/ai-ml/feed",                    "tier": "official", "module_hint": "product"},
+    {"name": "Figma Blog",           "url": "https://www.figma.com/blog/rss.xml",                             "tier": "official", "module_hint": "product"},
+    {"name": "Canva Newsroom",       "url": "https://www.canva.com/newsroom/rss.xml",                         "tier": "official", "module_hint": "product"},
+    {"name": "ElevenLabs Blog",      "url": "https://elevenlabs.io/blog/rss.xml",                             "tier": "official", "module_hint": "product"},
+    {"name": "Suno Blog",            "url": "https://suno.com/blog/rss.xml",                                  "tier": "official", "module_hint": "product"},
+    {"name": "Udio Blog",            "url": "https://www.udio.com/blog/rss.xml",                              "tier": "official", "module_hint": "product"},
+    {"name": "Krea AI Blog",         "url": "https://www.krea.ai/blog/rss.xml",                               "tier": "official", "module_hint": "product"},
+    # ── Coding / Agent tooling ───────────────────────────────────────────
+    {"name": "Cursor Changelog",     "url": "https://cursor.com/changelog/rss.xml",                           "tier": "official", "module_hint": "product"},
+    {"name": "Vercel Blog",          "url": "https://vercel.com/blog/rss.xml",                                "tier": "official", "module_hint": "product"},
+    {"name": "LangChain Blog",       "url": "https://blog.langchain.dev/rss/",                                "tier": "official", "module_hint": "product"},
+    {"name": "Linear Blog",          "url": "https://linear.app/blog/rss.xml",                                "tier": "official", "module_hint": "product"},
     # ── Tech press ───────────────────────────────────────────────────────
-    {"name": "TechCrunch AI",       "url": "https://techcrunch.com/category/artificial-intelligence/feed/", "tier": "press", "module_hint": None},
-    {"name": "VentureBeat AI",      "url": "https://venturebeat.com/ai/feed/",                      "tier": "press", "module_hint": None},
-    {"name": "The Verge AI",        "url": "https://www.theverge.com/ai-artificial-intelligence/rss/index.xml", "tier": "press", "module_hint": None},
-    {"name": "Ars Technica AI",     "url": "https://feeds.arstechnica.com/arstechnica/technology-lab", "tier": "press", "module_hint": None},
-    {"name": "Wired AI",            "url": "https://www.wired.com/feed/tag/ai/latest/rss",          "tier": "press", "module_hint": None},
-    {"name": "MIT Tech Review AI",  "url": "https://www.technologyreview.com/feed/",                "tier": "press", "module_hint": None},
+    {"name": "TechCrunch AI",        "url": "https://techcrunch.com/category/artificial-intelligence/feed/",  "tier": "press", "module_hint": None},
+    {"name": "VentureBeat AI",       "url": "https://venturebeat.com/ai/feed/",                               "tier": "press", "module_hint": None},
+    {"name": "The Verge AI",         "url": "https://www.theverge.com/ai-artificial-intelligence/rss/index.xml", "tier": "press", "module_hint": None},
+    {"name": "Ars Technica AI",      "url": "https://feeds.arstechnica.com/arstechnica/technology-lab",       "tier": "press", "module_hint": None},
+    {"name": "Wired AI",             "url": "https://www.wired.com/feed/tag/ai/latest/rss",                   "tier": "press", "module_hint": None},
+    {"name": "MIT Tech Review AI",   "url": "https://www.technologyreview.com/feed/",                         "tier": "press", "module_hint": None},
+    {"name": "9to5Mac AI",           "url": "https://9to5mac.com/guides/artificial-intelligence/feed/",       "tier": "press", "module_hint": None},
+    {"name": "The Information AI",   "url": "https://www.theinformation.com/feed",                            "tier": "press", "module_hint": None},
 ]
 
 HN_AI_KEYWORDS = [
@@ -55,7 +72,10 @@ HN_AI_KEYWORDS = [
     "stable diffusion", "cursor", "copilot", "agentic", "agent",
     "embedding", "rag", "vector", "hugging face", "huggingface",
     "inference", "fine-tun", "quantiz", "grok", "xai", "runway",
-    "sora", "veo", "imagen", "firefly",
+    "sora", "veo", "imagen", "firefly", "luma", "pika", "kling",
+    "flux", "comfyui", "image gen", "video gen", "text-to-image",
+    "text-to-video", "elevenlabs", "suno", "udio", "figma", "adobe",
+    "canva", "creative", "design tool", "multimodal",
 ]
 
 # ---------------------------------------------------------------------------
@@ -281,7 +301,13 @@ def collect(days: int = 7) -> list[dict]:
             all_items.append(item)
 
     # ── Reddit ───────────────────────────────────────────────────────────
-    reddit_subs = ["MachineLearning", "LocalLLaMA", "artificial", "singularity", "ChatGPT", "ClaudeAI"]
+    reddit_subs = [
+        "MachineLearning", "LocalLLaMA", "artificial", "singularity",
+        "ChatGPT", "ClaudeAI",
+        # AI creative tool communities
+        "StableDiffusion", "midjourney", "aivideo", "AIArt",
+        "ChatGPTPromptEngineering", "artificial",
+    ]
     for sub in reddit_subs:
         print(f"  ↳ r/{sub}...", file=sys.stderr)
         items = fetch_reddit(sub, cutoff)
