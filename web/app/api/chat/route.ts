@@ -29,33 +29,43 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
 
-  const body = (await req.json()) as ChatRequestBody;
+  let body: ChatRequestBody;
+  try {
+    body = (await req.json()) as ChatRequestBody;
+  } catch {
+    return NextResponse.json({ error: "invalid json" }, { status: 400 });
+  }
+
   const userId = session.user.id;
 
   // Resolve / create the chat session row.
   let sessionId = body.sessionId;
-  if (!sessionId) {
-    sessionId = randomUUID();
-    await db.insert(chatSessions).values({
-      id: sessionId,
-      userId,
-      title: body.messages.find((m) => m.role === "user")?.content.slice(0, 80) ?? null,
-    });
-  } else {
-    // Confirm ownership.
-    const owned = await db
-      .select({ id: chatSessions.id })
-      .from(chatSessions)
-      .where(eq(chatSessions.id, sessionId))
-      .limit(1);
-    if (!owned[0]) {
+  try {
+    if (!sessionId) {
       sessionId = randomUUID();
       await db.insert(chatSessions).values({
         id: sessionId,
         userId,
         title: body.messages.find((m) => m.role === "user")?.content.slice(0, 80) ?? null,
       });
+    } else {
+      const owned = await db
+        .select({ id: chatSessions.id })
+        .from(chatSessions)
+        .where(eq(chatSessions.id, sessionId))
+        .limit(1);
+      if (!owned[0]) {
+        sessionId = randomUUID();
+        await db.insert(chatSessions).values({
+          id: sessionId,
+          userId,
+          title: body.messages.find((m) => m.role === "user")?.content.slice(0, 80) ?? null,
+        });
+      }
     }
+  } catch {
+    // DB issue creating session — continue with a temp ID so chat still works.
+    sessionId = randomUUID();
   }
 
   const lastUserMessage = [...body.messages]
@@ -65,24 +75,33 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "no user message" }, { status: 400 });
   }
 
-  // Persist the latest user turn before streaming.
-  await db.insert(chatMessages).values({
-    sessionId,
-    role: "user",
-    content: { text: lastUserMessage.content },
-    referencedItemIds: body.referencedItemIds ?? [],
-  });
+  // Persist user turn — best-effort, never block the response.
+  db.insert(chatMessages)
+    .values({
+      sessionId,
+      role: "user",
+      content: { text: lastUserMessage.content },
+      referencedItemIds: body.referencedItemIds ?? [],
+    })
+    .catch(() => {});
 
-  const systemPrompt = await buildSystemPrompt({
-    userId,
-    query: lastUserMessage.content,
-    referencedItemIds: body.referencedItemIds ?? [],
-  });
+  // Build the system prompt — degrade gracefully if embeddings fail.
+  let systemPrompt: string;
+  try {
+    systemPrompt = await buildSystemPrompt({
+      userId,
+      query: lastUserMessage.content,
+      referencedItemIds: body.referencedItemIds ?? [],
+    });
+  } catch {
+    systemPrompt =
+      "你是「AI 周报」的个人新闻编辑助手。用中文简洁回答，不要编造产品细节。";
+  }
 
-  const tools = buildAgentTools({ userId, sessionId: sessionId! });
+  const tools = buildAgentTools({ userId, sessionId });
 
   const messages: CoreMessage[] = body.messages.map((m) => ({
-    role: m.role,
+    role: m.role as "user" | "assistant" | "system",
     content: m.content,
   }));
 
@@ -106,28 +125,32 @@ export async function POST(req: Request) {
           .set({ updatedAt: new Date() })
           .where(eq(chatSessions.id, sessionId!));
       } catch {
-        // Persistence is best-effort; never block the response.
+        // Persistence is best-effort.
       }
       // Background fact extraction — fire and forget.
       void (async () => {
-        const knownFacts = (
-          await retrieveRelevantFacts({
+        try {
+          const knownFacts = (
+            await retrieveRelevantFacts({
+              userId,
+              query: lastUserMessage.content,
+              k: 12,
+            })
+          ).map((f) => f.fact);
+          const recent = body.messages.slice(-6).map((m) => ({
+            role: m.role,
+            text: m.content,
+          }));
+          recent.push({ role: "assistant", text });
+          await extractFactsFromTurns({
             userId,
-            query: lastUserMessage.content,
-            k: 12,
-          })
-        ).map((f) => f.fact);
-        const recent = body.messages.slice(-6).map((m) => ({
-          role: m.role,
-          text: m.content,
-        }));
-        recent.push({ role: "assistant", text });
-        await extractFactsFromTurns({
-          userId,
-          sessionId: sessionId!,
-          recentTurns: recent,
-          knownFacts,
-        });
+            sessionId: sessionId!,
+            recentTurns: recent,
+            knownFacts,
+          });
+        } catch {
+          // Non-critical.
+        }
       })();
     },
   });

@@ -16,7 +16,7 @@ export async function buildSystemPrompt(
     userId: input.userId,
     query: input.query,
     k: 8,
-  });
+  }).catch(() => [] as Array<{ fact: string; source: string }>);
 
   const referenced = (
     await Promise.all(
