@@ -75,8 +75,15 @@ export default async function ItemDetailPage({
     rec.summary
   );
 
-  // Chinese key-points text (bullet-formatted string from newsletter draft).
-  const keyPointsZh = str(rec.key_points_zh);
+  // Chinese key-points — can be a pre-formatted string OR an array of bullets.
+  const keyPointsZhArr = Array.isArray(rec.key_points_zh)
+    ? (rec.key_points_zh as string[]).filter(Boolean)
+    : [];
+  const keyPointsZh = keyPointsZhArr.length > 0 ? null : str(rec.key_points_zh);
+  const relevanceZh = str(rec.relevance_zh);
+  const sourceUrl: string | undefined =
+    str(rec.source_url) ||
+    (Array.isArray(rec.raw_urls) ? str(rec.raw_urls[0]) : undefined);
   const scenariosZh = str(rec.scenarios_zh);
   const businessModelZh = str(rec.business_model_zh);
   const feedbackZh = str(rec.feedback_zh);
@@ -135,6 +142,17 @@ export default async function ItemDetailPage({
               <MessageSquare className="h-4 w-4" />
               和 Agent 讨论这条
             </Link>
+            {sourceUrl && (
+              <a
+                href={sourceUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-claude-hairline bg-white px-4 py-2.5 text-[14px] font-medium text-claude-ink transition-colors hover:border-claude-coral/40 hover:text-claude-coral dark:border-white/15 dark:bg-white/[0.04] dark:text-white/90"
+              >
+                <ExternalLink className="h-4 w-4" />
+                阅读原文
+              </a>
+            )}
             {session?.user?.id && (
               <ItemActions
                 itemId={item.id}
@@ -150,6 +168,16 @@ export default async function ItemDetailPage({
               />
             )}
           </div>
+
+          {/* Personalized relevance callout */}
+          {relevanceZh && !state?.personalizedReason && (
+            <div className="mt-6 flex items-start gap-2.5 rounded-lg bg-claude-coral/8 px-4 py-3">
+              <span className="mt-0.5 text-[13px] text-claude-coral">▶</span>
+              <p className="text-[14px] leading-[1.55] text-claude-body-strong dark:text-white/90">
+                {relevanceZh}
+              </p>
+            </div>
+          )}
 
           {state?.personalizedReason && (
             <div className="mt-6">
@@ -189,7 +217,8 @@ export default async function ItemDetailPage({
         )}
 
         {/* 核心定位 / 核心能力变化 — prefer Chinese key_points_zh block */}
-        {(keyPointsZh ||
+        {(keyPointsZhArr.length > 0 ||
+          keyPointsZh ||
           rec.core_positioning ||
           rec.problem_it_solves ||
           rec.real_change_notes ||
@@ -198,7 +227,16 @@ export default async function ItemDetailPage({
           rec.workflow_change ||
           rec.access_barrier_change) && (
           <Section title={item.module === "model" ? "核心能力变化" : "核心定位"}>
-            {keyPointsZh ? (
+            {keyPointsZhArr.length > 0 ? (
+              <ul className="space-y-2 mt-1">
+                {keyPointsZhArr.map((pt, i) => (
+                  <li key={i} className="flex gap-2.5 text-[16px] leading-[1.65] text-claude-body dark:text-white/85">
+                    <span className="mt-[0.55em] h-1.5 w-1.5 shrink-0 rounded-full bg-claude-coral" />
+                    {pt}
+                  </li>
+                ))}
+              </ul>
+            ) : keyPointsZh ? (
               <BulletText text={keyPointsZh} />
             ) : (
               <>

@@ -40,9 +40,32 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--date", default=dt.date.today().isoformat())
     ap.add_argument("--n", type=int, default=12, help="Max items to pick")
-    ap.add_argument("--focus", default="agent,design,workflow,creative-tool,coding,UX,product,AI-tool")
-    ap.add_argument("--audience", default="product-manager-building-AI-tools")
+    ap.add_argument("--focus", default="")
+    ap.add_argument("--exclude", default="biotech,healthcare,climate,defense,finance,enterprise-SaaS")
+    ap.add_argument("--audience", default="")
+    ap.add_argument("--use-profile", action="store_true",
+                    help="Load focus/audience from the first user_profile in DB")
     args = ap.parse_args()
+
+    # Optionally load profile from DB
+    focus = args.focus or "creative-tool,design,multimodal,image-gen,video-gen,agent,workflow,coding,UX"
+    exclude = args.exclude
+    audience = args.audience or "product-manager-building-AI-creative-tools"
+    if args.use_profile:
+        try:
+            conn0 = psycopg2.connect(DB_URL)
+            cur0 = conn0.cursor()
+            cur0.execute("SELECT role, company, focus_topics, current_projects FROM user_profiles LIMIT 1")
+            row = cur0.fetchone()
+            conn0.close()
+            if row:
+                role, company, focus_topics, projects = row
+                if focus_topics:
+                    focus = ",".join(focus_topics)
+                audience = f"{role or 'product-manager'} working on {projects or 'AI tools'}"
+                print(f"Profile loaded: role={role}, focus={focus}, audience={audience[:80]}", flush=True)
+        except Exception as e:
+            print(f"[WARN] Could not load profile: {e}", flush=True)
 
     run_dir = REPO / "newsletter_runs" / args.date
     scraped_path = run_dir / "raw_scraped.json"
@@ -73,29 +96,41 @@ def main():
     compact_str = json.dumps(compact, ensure_ascii=False)
 
     SYSTEM = textwrap.dedent(f"""
-    You are an AI newsletter editor producing a weekly digest for: {args.audience}.
-    Focus topics: {args.focus}
+    You are an AI newsletter editor producing a weekly digest for: {audience}.
+    FOCUS on these topics: {focus}
+    EXCLUDE these topics: {exclude}
 
-    From a list of scraped AI news articles, select the {args.n} most impactful,
-    genuinely newsworthy items from this week. For each one produce:
-    - headline_zh: Chinese headline (max 40 chars), specific: company + change + key number
-    - summary_zh: 2-3 sentence Chinese summary of what changed and why it matters
-    - key_points_zh: JSON array of 3-5 Chinese bullet strings (key facts)
-    - tags: array of 3-6 English slug tags (e.g. agent, design, coding, workflow, UX)
+    From a list of scraped AI news articles, select the {args.n} most relevant and
+    newsworthy items for the AUDIENCE above. Strongly prefer items about:
+    - AI creative tools (image gen, video gen, music gen, design tools)
+    - AI product launches and UX improvements
+    - Multimodal AI (vision, audio, video)
+    - AI coding assistants and workflow tools
+    - Agent frameworks and automation
+
+    SKIP items about: {exclude}
+
+    For each selected item produce:
+    - headline_zh: Chinese headline (max 40 chars), specific: company + concrete change + key number
+    - summary_zh: 2-3 sentence Chinese summary explaining what changed and WHY it matters to {audience}
+    - key_points_zh: JSON array of 3-5 Chinese bullet strings with concrete facts
+    - relevance_zh: 1 sentence in Chinese explaining direct relevance to: {audience}
+    - tags: array of 3-6 English slug tags (e.g. agent, design, coding, workflow, UX, image-gen)
     - module: "model" (new model / capability) or "product" (new tool / product launch)
     - company: company name in English
     - name: product/feature name in English
 
-    Return JSON: {{"items": [{{idx, name, company, module, tags, headline_zh, summary_zh, key_points_zh}}]}}
+    Return JSON: {{"items": [{{idx, name, company, module, tags, headline_zh, summary_zh, key_points_zh, relevance_zh}}]}}
     Pick diverse companies. Prefer official blog posts over Reddit/HN discussion links.
     """).strip()
 
-    USER = f"""Pick the best {args.n} items. Date today: {args.date}.
+    USER = f"""Audience: {audience}
+Pick the best {args.n} items relevant to this audience. Date today: {args.date}.
 
 ARTICLES:
 {compact_str}
 
-Return JSON with key "items". Each item must have: idx, name, company, module, tags, headline_zh, summary_zh, key_points_zh."""
+Return JSON with key "items". Each item must have: idx, name, company, module, tags, headline_zh, summary_zh, key_points_zh, relevance_zh."""
 
     print("Calling GPT-4o-mini to select and translate...", flush=True)
     result_text = call_llm(SYSTEM, USER)
@@ -133,8 +168,10 @@ Return JSON with key "items". Each item must have: idx, name, company, module, t
                 "summary_zh": sel.get("summary_zh", ""),
                 "key_points_zh": sel.get("key_points_zh", []),
                 "headline_zh": headline_zh,
+                "relevance_zh": sel.get("relevance_zh", ""),
                 "raw_urls": [url] if url else [],
                 "source_url": url,
+                "original_title": orig.get("title", ""),
                 "source_tier": orig.get("tier", "press"),
                 "published_date": pub_date,
             },
@@ -171,11 +208,18 @@ Return JSON with key "items". Each item must have: idx, name, company, module, t
 
     conn.commit()
 
-    # Also write a simple weekly summary for the issue
-    theme = f"本周 AI 动态：{len(records)} 条精选新闻，涵盖模型发布与产品更新"
+    # Write a personalized weekly summary
+    product_items = [r for r in records if r["module"] == "product"]
+    model_items   = [r for r in records if r["module"] == "model"]
+    theme = (f"本周 AI 创作者工具动态：{len(product_items)} 款产品更新、"
+             f"{len(model_items)} 项模型进展，为 {audience.split(' ')[0]} 精选")
     bullets = []
-    for r in records[:5]:
-        bullets.append({"text": f"**{r['company']}**: {r['headline']}", "slugs": [r["slug"]]})
+    for r in (records[:6]):
+        rel = r["record"].get("relevance_zh", "")
+        text = f"**{r['company']}**: {r['headline']}"
+        if rel:
+            text += f"——{rel}"
+        bullets.append({"text": text, "slugs": [r["slug"]]})
 
     cur.execute("""
         INSERT INTO issue_summaries (issue_date, theme, bullets, updated_at)
