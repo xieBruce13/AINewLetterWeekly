@@ -99,9 +99,7 @@ export function SignUpForm() {
           className={inputClass(state?.field === "password")}
         />
         {state?.field === "password" && <FieldError msg={state.error} />}
-        <p className="text-[12px] text-claude-muted">
-          至少 8 位。我们用 bcrypt 加盐存储，永远不会在数据库里看到明文。
-        </p>
+        <p className="text-[12px] text-claude-muted">至少 8 位。</p>
       </div>
 
       {/* Generic (non-field) error */}

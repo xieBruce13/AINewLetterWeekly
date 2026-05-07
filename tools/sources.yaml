@@ -1,0 +1,503 @@
+# tools/sources.yaml — AI Newsletter source registry
+#
+# This is the single source of truth for all news collection.
+# Edit this file to add/remove/update sources — no Python changes needed.
+#
+# Field reference:
+#   name        : Display name for the source
+#   url         : RSS/Atom feed URL
+#   tier        : "official" | "press" | "community"
+#                   official = the company's own blog/release notes
+#                   press    = journalism / aggregator coverage
+#                   community= forums, social signals
+#   module      : "model" | "product" | "operation" | null
+#                   null  = auto-classify from content
+#   tags        : list of topic tags for downstream filtering
+#   active      : false to temporarily disable without deleting (default: true)
+#   notes       : optional comment visible to editors
+#
+# Tier weight used by rule_filter.py for importance scoring:
+#   official → +3 points
+#   press    → +1 point
+#   community→ +0 points (signals from votes/comments instead)
+
+# ---------------------------------------------------------------------------
+# RSS / Atom feeds
+# ---------------------------------------------------------------------------
+
+rss_sources:
+
+  # ── Official AI model labs ──────────────────────────────────────────────
+
+  - name: OpenAI Blog
+    url: https://openai.com/blog/rss/
+    tier: official
+    module: model
+    tags: [openai, gpt, chatgpt, llm]
+
+  - name: Anthropic News
+    url: https://www.anthropic.com/news/rss.xml
+    tier: official
+    module: model
+    tags: [anthropic, claude, llm]
+
+  - name: Google DeepMind
+    url: https://deepmind.google/blog/feed/basic/
+    tier: official
+    module: model
+    tags: [google, deepmind, gemini, llm]
+
+  - name: Google AI Blog
+    url: https://blog.google/technology/ai/rss/
+    tier: official
+    module: model
+    tags: [google, ai, gemini]
+
+  - name: Meta AI Blog
+    url: https://ai.meta.com/blog/rss/
+    tier: official
+    module: model
+    tags: [meta, llama, llm]
+
+  - name: Mistral AI News
+    url: https://mistral.ai/news/rss.xml
+    tier: official
+    module: model
+    tags: [mistral, llm, open-weight]
+
+  - name: HuggingFace Blog
+    url: https://huggingface.co/blog/feed.xml
+    tier: official
+    module: model
+    tags: [huggingface, open-weight, training, dataset]
+
+  - name: Cohere Blog
+    url: https://cohere.com/blog/rss
+    tier: official
+    module: model
+    tags: [cohere, llm, enterprise]
+
+  - name: xAI News
+    url: https://x.ai/news/rss
+    tier: official
+    module: model
+    tags: [xai, grok, llm]
+
+  - name: Stability AI Blog
+    url: https://stability.ai/news/rss.xml
+    tier: official
+    module: model
+    tags: [stability, stable-diffusion, image-gen]
+
+  - name: Together AI Blog
+    url: https://www.together.ai/blog/rss.xml
+    tier: official
+    module: model
+    tags: [together, open-weight, inference]
+
+  - name: Groq Blog
+    url: https://groq.com/blog/rss.xml
+    tier: official
+    module: model
+    tags: [groq, inference, hardware]
+
+  - name: Cerebras Blog
+    url: https://www.cerebras.net/blog/rss.xml
+    tier: official
+    module: model
+    tags: [cerebras, hardware, inference]
+
+  - name: Perplexity Blog
+    url: https://blog.perplexity.ai/rss
+    tier: official
+    module: product
+    tags: [perplexity, search, llm]
+
+  - name: Scale AI Blog
+    url: https://scale.com/blog/rss.xml
+    tier: official
+    module: operation
+    tags: [scale, data, rlhf, evaluation]
+
+  - name: AWS Machine Learning Blog
+    url: https://aws.amazon.com/blogs/machine-learning/feed/
+    tier: official
+    module: operation
+    tags: [aws, amazon, cloud, mlops]
+
+  - name: Microsoft AI Blog
+    url: https://blogs.microsoft.com/ai/feed/
+    tier: official
+    module: model
+    tags: [microsoft, azure, copilot, openai]
+
+  - name: NVIDIA AI Blog
+    url: https://blogs.nvidia.com/feed/
+    tier: official
+    module: operation
+    tags: [nvidia, gpu, hardware, training]
+
+  - name: Allen Institute AI
+    url: https://allenai.org/blog/rss.xml
+    tier: official
+    module: model
+    tags: [allenai, research, open-weight]
+
+  - name: Qwen Blog (Alibaba)
+    url: https://qwenlm.github.io/feed.xml
+    tier: official
+    module: model
+    tags: [qwen, alibaba, llm, open-weight, chinese]
+
+  # ── AI Creative / Image / Video / Design tools ───────────────────────────
+
+  - name: Luma AI Blog
+    url: https://lumalabs.ai/blog/rss.xml
+    tier: official
+    module: product
+    tags: [luma, video-gen, 3d]
+
+  - name: Runway Blog
+    url: https://runwayml.com/blog/rss.xml
+    tier: official
+    module: product
+    tags: [runway, video-gen, creative-tool]
+
+  - name: Runway Research
+    url: https://research.runwayml.com/feed.xml
+    tier: official
+    module: product
+    tags: [runway, research, video-gen]
+
+  - name: Pika Blog
+    url: https://pika.art/blog/rss.xml
+    tier: official
+    module: product
+    tags: [pika, video-gen, creative-tool]
+
+  - name: Midjourney Updates
+    url: https://updates.midjourney.com/rss.xml
+    tier: official
+    module: product
+    tags: [midjourney, image-gen, creative-tool]
+
+  - name: Adobe Blog AI
+    url: https://blog.adobe.com/en/topics/ai-ml/feed
+    tier: official
+    module: product
+    tags: [adobe, firefly, creative-tool, design]
+
+  - name: Figma Blog
+    url: https://www.figma.com/blog/rss.xml
+    tier: official
+    module: product
+    tags: [figma, design, creative-tool]
+
+  - name: Canva Newsroom
+    url: https://www.canva.com/newsroom/rss.xml
+    tier: official
+    module: product
+    tags: [canva, design, creative-tool]
+
+  - name: ElevenLabs Blog
+    url: https://elevenlabs.io/blog/rss.xml
+    tier: official
+    module: product
+    tags: [elevenlabs, voice, tts, audio]
+
+  - name: Suno Blog
+    url: https://suno.com/blog/rss.xml
+    tier: official
+    module: product
+    tags: [suno, music-gen, audio, creative-tool]
+
+  - name: Udio Blog
+    url: https://www.udio.com/blog/rss.xml
+    tier: official
+    module: product
+    tags: [udio, music-gen, audio]
+
+  - name: Krea AI Blog
+    url: https://www.krea.ai/blog/rss.xml
+    tier: official
+    module: product
+    tags: [krea, image-gen, creative-tool]
+
+  - name: Kling AI Blog
+    url: https://klingai.com/blog/rss.xml
+    tier: official
+    module: product
+    tags: [kling, video-gen, kuaishou, chinese]
+    notes: May require cookie/auth; fall back gracefully if 403
+
+  # ── Coding / Agent / Developer tooling ──────────────────────────────────
+
+  - name: Cursor Changelog
+    url: https://cursor.com/changelog/rss.xml
+    tier: official
+    module: product
+    tags: [cursor, coding, agent, ide]
+
+  - name: GitHub Blog AI
+    url: https://github.blog/ai-and-ml/feed/
+    tier: official
+    module: product
+    tags: [github, copilot, coding, agent]
+
+  - name: Vercel Blog
+    url: https://vercel.com/blog/rss.xml
+    tier: official
+    module: product
+    tags: [vercel, nextjs, deployment, developer-tools]
+
+  - name: LangChain Blog
+    url: https://blog.langchain.dev/rss/
+    tier: official
+    module: product
+    tags: [langchain, agent, framework, rag]
+
+  - name: LlamaIndex Blog
+    url: https://www.llamaindex.ai/blog/rss.xml
+    tier: official
+    module: product
+    tags: [llamaindex, rag, agent, framework]
+
+  - name: Replit Blog
+    url: https://blog.replit.com/rss
+    tier: official
+    module: product
+    tags: [replit, coding, agent, ide]
+
+  - name: Codeium (Windsurf) Blog
+    url: https://codeium.com/blog/rss.xml
+    tier: official
+    module: product
+    tags: [codeium, windsurf, coding, agent, ide]
+
+  - name: Linear Blog
+    url: https://linear.app/blog/rss.xml
+    tier: official
+    module: product
+    tags: [linear, project-management, developer-tools]
+
+  - name: Notion Blog
+    url: https://www.notion.com/blog/rss.xml
+    tier: official
+    module: product
+    tags: [notion, knowledge, productivity, ai]
+
+  - name: Weights & Biases Blog
+    url: https://wandb.ai/fully-connected/rss.xml
+    tier: official
+    module: operation
+    tags: [wandb, mlops, experiment-tracking, evaluation]
+
+  # ── Tech press ───────────────────────────────────────────────────────────
+
+  - name: TechCrunch AI
+    url: https://techcrunch.com/category/artificial-intelligence/feed/
+    tier: press
+    module: null
+    tags: [news, startup, funding]
+
+  - name: VentureBeat AI
+    url: https://venturebeat.com/ai/feed/
+    tier: press
+    module: null
+    tags: [news, enterprise, research]
+
+  - name: The Verge AI
+    url: https://www.theverge.com/ai-artificial-intelligence/rss/index.xml
+    tier: press
+    module: null
+    tags: [news, consumer, product]
+
+  - name: Ars Technica Technology
+    url: https://feeds.arstechnica.com/arstechnica/technology-lab
+    tier: press
+    module: null
+    tags: [news, deep-dive, research]
+
+  - name: Wired AI
+    url: https://www.wired.com/feed/tag/ai/latest/rss
+    tier: press
+    module: null
+    tags: [news, policy, society]
+
+  - name: MIT Technology Review AI
+    url: https://www.technologyreview.com/feed/
+    tier: press
+    module: null
+    tags: [news, research, policy]
+
+  - name: 9to5Mac AI
+    url: https://9to5mac.com/guides/artificial-intelligence/feed/
+    tier: press
+    module: null
+    tags: [news, apple, consumer]
+
+  - name: The Information AI
+    url: https://www.theinformation.com/feed
+    tier: press
+    module: null
+    tags: [news, enterprise, exclusive]
+
+  - name: CNBC Technology
+    url: https://www.cnbc.com/id/19854910/device/rss/rss.html
+    tier: press
+    module: null
+    tags: [news, business, funding]
+
+  - name: Fortune AI
+    url: https://fortune.com/section/technology/feed/
+    tier: press
+    module: null
+    tags: [news, business, enterprise]
+
+  - name: ZDNet AI
+    url: https://www.zdnet.com/topic/artificial-intelligence/rss.xml
+    tier: press
+    module: null
+    tags: [news, enterprise, product]
+
+  - name: IEEE Spectrum AI
+    url: https://spectrum.ieee.org/feeds/blog/artificial-intelligence.rss
+    tier: press
+    module: null
+    tags: [research, technical, hardware]
+
+# ---------------------------------------------------------------------------
+# Reddit communities
+# ---------------------------------------------------------------------------
+
+reddit_sources:
+
+  # AI research / models
+  - subreddit: MachineLearning
+    module_hint: model
+    tags: [research, papers, technical]
+
+  - subreddit: LocalLLaMA
+    module_hint: model
+    tags: [open-weight, inference, community]
+
+  - subreddit: singularity
+    module_hint: null
+    tags: [news, futurism]
+
+  # General AI news
+  - subreddit: artificial
+    module_hint: null
+    tags: [news, general]
+
+  - subreddit: ChatGPT
+    module_hint: product
+    tags: [openai, consumer]
+
+  - subreddit: ClaudeAI
+    module_hint: product
+    tags: [anthropic, consumer]
+
+  - subreddit: Bing
+    module_hint: product
+    tags: [microsoft, consumer]
+    active: false
+
+  # Creative AI tools
+  - subreddit: StableDiffusion
+    module_hint: product
+    tags: [image-gen, creative-tool, open-weight]
+
+  - subreddit: midjourney
+    module_hint: product
+    tags: [image-gen, creative-tool]
+
+  - subreddit: aivideo
+    module_hint: product
+    tags: [video-gen, creative-tool]
+
+  - subreddit: AIArt
+    module_hint: product
+    tags: [image-gen, creative-tool]
+
+  - subreddit: ChatGPTPromptEngineering
+    module_hint: product
+    tags: [workflow, prompting]
+
+  - subreddit: SoftwareEngineering
+    module_hint: operation
+    tags: [coding, developer-tools]
+    active: false
+
+# ---------------------------------------------------------------------------
+# Hacker News
+# ---------------------------------------------------------------------------
+
+hacker_news:
+  enabled: true
+  max_stories: 500        # top N stories to inspect
+  min_score: 50           # HN score threshold to include
+  keywords:
+    # Core model / lab names
+    - gpt
+    - claude
+    - llm
+    - openai
+    - anthropic
+    - gemini
+    - mistral
+    - deepseek
+    - llama
+    - qwen
+    - grok
+    - xai
+    # Generic AI terms
+    - "ai "
+    - " ai,"
+    - " ai."
+    - artificial intelligence
+    - machine learning
+    - neural
+    - transformer
+    - diffusion
+    # Tools / products
+    - midjourney
+    - stable diffusion
+    - cursor
+    - copilot
+    - agentic
+    - agent
+    - embedding
+    - rag
+    - vector
+    - hugging face
+    - huggingface
+    - inference
+    - fine-tun
+    - quantiz
+    - runway
+    - sora
+    - veo
+    - imagen
+    - firefly
+    - luma
+    - pika
+    - kling
+    - flux
+    - comfyui
+    - image gen
+    - video gen
+    - text-to-image
+    - text-to-video
+    - elevenlabs
+    - suno
+    - udio
+    - figma ai
+    - adobe ai
+    - canva ai
+    - multimodal
+    - reasoning model
+    - context window
+    - benchmark
+    - open-weight
+    - open weight

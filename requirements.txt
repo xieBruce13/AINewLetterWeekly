@@ -5,6 +5,9 @@ markdown>=3.4
 psycopg[binary]>=3.2
 requests>=2.31
 
-# Pipeline runner (tools/run_pipeline.py): OpenAI Chat Completions for every
-# step's LLM call AND OpenAI embeddings for the publisher (single key).
+# Pipeline runner (tools/run_pipeline.py, ai_filter.py): OpenAI Chat
+# Completions for enrichment AND embeddings for the publisher.
 openai>=1.40
+
+# Source registry (tools/scraper.py reads tools/sources.yaml)
+pyyaml>=6.0

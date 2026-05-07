@@ -1,0 +1,395 @@
+[
+  {
+    "name": "AlphaEvolve",
+    "company": "Google DeepMind",
+    "module": "model",
+    "updated_at": "2026-05-06",
+    "headline": "AlphaEvolve, powered by Gemini, is driving impact across business, infrastructure, and science.",
+    "one_line_judgment": "Highlights broad applicability of Gemini-powered coding agents, but lacks concrete new release.",
+    "official_claims": [
+      "AlphaEvolve's Gemini-powered algorithms are impacting multiple fields."
+    ],
+    "external_validation_summary": null,
+    "real_change_notes": null,
+    "core_positioning": null,
+    "user_scenarios": [
+      "Applying coding agents to business process automation",
+      "Using AI agents in scientific research"
+    ],
+    "business_model": null,
+    "price_speed_cost_notes": null,
+    "user_market_feedback": {
+      "good": [
+        "Demonstrates cross-domain AI impact."
+      ],
+      "bad": [
+        "No new technical details or releases."
+      ]
+    },
+    "ecosystem_echo": null,
+    "relevance_to_us": "Shows the expanding reach of agentic AI, but lacks actionable updates for product teams.",
+    "raw_urls": [
+      "https://deepmind.google/blog/alphaevolve-impact/"
+    ],
+    "item_tier": "brief",
+    "tags": [
+      "agent",
+      "coding",
+      "model",
+      "impact"
+    ],
+    "summary_zh": "Google DeepMind 介绍 AlphaEvolve（Gemini 驱动）在商业、基础设施和科研领域的应用影响",
+    "key_points_zh": "Gemini 算法赋能多领域智能体；强调跨行业应用潜力",
+    "scenarios_zh": "AI 工程师可参考智能体在业务自动化和科研中的应用；产品经理关注跨行业落地案例",
+    "business_model_zh": "暂无具体商业模式信息",
+    "feedback_zh": "正面：展示 AI 智能体跨领域影响力；负面：缺乏新技术细节或产品更新",
+    "judgment_zh": "更多为案例宣传，实际技术更新有限",
+    "relevance_zh": "为团队提供智能体跨行业应用的参考，但缺乏可落地的新信息",
+    "official_zh": "AlphaEvolve 的 Gemini 算法正在推动多领域影响",
+    "community_zh": "社区关注实际应用案例，但期待更多技术细节",
+    "issue_date": "2026-05-07"
+  },
+  {
+    "name": "Google AI Mode in Search",
+    "company": "Google",
+    "module": "model",
+    "updated_at": "2026-05-06",
+    "headline": "Google highlights AI Mode, Search Live, and Shopping features for gardening tips in Search.",
+    "one_line_judgment": "Showcases consumer-facing AI features, but no new technical release.",
+    "official_claims": [
+      "Google Search offers AI-powered gardening tips via AI Mode and Shopping."
+    ],
+    "external_validation_summary": null,
+    "real_change_notes": null,
+    "core_positioning": null,
+    "user_scenarios": [
+      "Consumers using AI-powered search for gardening advice",
+      "Shopping for gardening products via AI recommendations"
+    ],
+    "business_model": null,
+    "price_speed_cost_notes": null,
+    "user_market_feedback": {
+      "good": [
+        "Demonstrates practical AI in consumer search."
+      ],
+      "bad": [
+        "No new product or model for developers."
+      ]
+    },
+    "ecosystem_echo": null,
+    "relevance_to_us": "Limited relevance for AI product teams; more of a consumer feature showcase.",
+    "raw_urls": [
+      "https://blog.google/products-and-platforms/products/search/gardening-tips/"
+    ],
+    "item_tier": "brief",
+    "tags": [
+      "model",
+      "consumer",
+      "search"
+    ],
+    "summary_zh": "Google 展示 Search AI Mode、Search Live 与 Shopping 功能在园艺场景下的应用",
+    "key_points_zh": "AI Mode 支持园艺知识问答；结合购物推荐，提升用户体验",
+    "scenarios_zh": "AI 工程师可参考消费级 AI 搜索场景；产品经理关注用户端 AI 体验",
+    "business_model_zh": "基于 Google Search 平台，免费使用",
+    "feedback_zh": "正面：AI 场景落地直观；负面：对开发者无新功能开放",
+    "judgment_zh": "偏消费端展示，对工程团队参考价值有限",
+    "relevance_zh": "主要为消费级应用展示，技术团队可关注用户体验创新",
+    "official_zh": "Google Search 通过 AI Mode 和 Shopping 提供园艺建议",
+    "community_zh": "社区关注 AI 搜索实际应用场景",
+    "issue_date": "2026-05-07"
+  },
+  {
+    "name": "Future Vision Film Competition",
+    "company": "Google",
+    "module": "model",
+    "updated_at": "2026-05-05",
+    "headline": "Google partners with XPRIZE and Range Media Partners on the $3.5 million Future Vision film competition.",
+    "one_line_judgment": "Promotes AI-driven creativity in film, but not a technical product update.",
+    "official_claims": [
+      "Google is a partner in the $3.5 million Future Vision film competition."
+    ],
+    "external_validation_summary": null,
+    "real_change_notes": null,
+    "core_positioning": null,
+    "user_scenarios": [
+      "Filmmakers using AI tools for creative projects",
+      "AI teams exploring media and entertainment applications"
+    ],
+    "business_model": null,
+    "price_speed_cost_notes": "Prize pool: $3.5 million",
+    "user_market_feedback": {
+      "good": [
+        "Encourages AI adoption in creative industries."
+      ],
+      "bad": [
+        "Not a technical release or update."
+      ]
+    },
+    "ecosystem_echo": null,
+    "relevance_to_us": "Relevant for teams interested in AI and media, but not a direct product or model update.",
+    "raw_urls": [
+      "https://blog.google/innovation-and-ai/technology/ai/future-vision-film-competition-xprize/"
+    ],
+    "item_tier": "brief",
+    "tags": [
+      "model",
+      "multimodal",
+      "competition",
+      "media"
+    ],
+    "summary_zh": "Google 联合 XPRIZE 与 Range Media Partners 推出 350 万美元 Future Vision AI 电影竞赛",
+    "key_points_zh": "推动 AI 在影视创意领域应用；高额奖金激励创新；多方合作提升行业影响力",
+    "scenarios_zh": "AI 工程师可关注多模态内容生成；产品经理可探索 AI+媒体新场景",
+    "business_model_zh": "竞赛奖金总额 350 万美元",
+    "feedback_zh": "正面：促进 AI 创意落地；负面：无直接产品或技术更新",
+    "judgment_zh": "适合关注 AI 创意与多模态内容的团队参考",
+    "relevance_zh": "为 AI 团队提供跨界创新与内容生成的机会参考",
+    "official_zh": "Google 参与 350 万美元 Future Vision AI 电影竞赛，推动 AI 创意应用",
+    "community_zh": "社区关注 AI 在影视内容生成领域的创新潜力",
+    "issue_date": "2026-05-07"
+  },
+  {
+    "name": "Google AI April 2026 Updates",
+    "company": "Google",
+    "module": "model",
+    "updated_at": "2026-05-04",
+    "headline": "Google recaps its latest AI updates from April 2026.",
+    "one_line_judgment": "General update post; no specific new product or model details.",
+    "official_claims": [
+      "Summary of Google's latest AI news for April 2026."
+    ],
+    "external_validation_summary": null,
+    "real_change_notes": null,
+    "core_positioning": null,
+    "user_scenarios": [
+      "Staying informed on Google's AI ecosystem"
+    ],
+    "business_model": null,
+    "price_speed_cost_notes": null,
+    "user_market_feedback": {
+      "good": [
+        "Provides overview of recent AI activities."
+      ],
+      "bad": [
+        "No actionable technical information."
+      ]
+    },
+    "ecosystem_echo": null,
+    "relevance_to_us": "Useful for tracking overall trends, but lacks concrete updates for product teams.",
+    "raw_urls": [
+      "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-april-2026/"
+    ],
+    "item_tier": "brief",
+    "tags": [
+      "model",
+      "update",
+      "news"
+    ],
+    "summary_zh": "Google 发布 2026 年 4 月 AI 进展回顾，涵盖最新产品与技术动态",
+    "key_points_zh": "汇总 Google AI 近期动态；便于了解整体趋势",
+    "scenarios_zh": "AI 工程师和产品经理可快速了解 Google AI 生态最新进展",
+    "business_model_zh": "无",
+    "feedback_zh": "正面：信息全面；负面：缺乏具体技术细节",
+    "judgment_zh": "适合宏观了解行业动态，缺乏落地参考",
+    "relevance_zh": "为团队提供 Google AI 生态趋势参考",
+    "official_zh": "总结 Google 2026 年 4 月 AI 相关最新动态",
+    "community_zh": "社区关注整体趋势，但期待更多具体更新",
+    "issue_date": "2026-05-07"
+  },
+  {
+    "name": "Gemini API Webhooks",
+    "company": "Google",
+    "module": "model",
+    "updated_at": "2026-05-04",
+    "headline": "Google introduces event-driven Webhooks in Gemini API to reduce latency for long-running jobs.",
+    "one_line_judgment": "Enables push-based notifications, improving efficiency for asynchronous AI workflows.",
+    "official_claims": [
+      "Webhooks eliminate the need for inefficient polling in Gemini API."
+    ],
+    "external_validation_summary": null,
+    "real_change_notes": "Added event-driven Webhooks to Gemini API.",
+    "core_positioning": "Improves developer experience for handling long-running AI tasks.",
+    "user_scenarios": [
+      "Developers receiving real-time notifications for AI job completion",
+      "Building event-driven AI applications"
+    ],
+    "business_model": null,
+    "price_speed_cost_notes": null,
+    "user_market_feedback": {
+      "good": [
+        "Reduces latency and resource usage.",
+        "Simplifies asynchronous workflow integration."
+      ],
+      "bad": [
+        "Requires developers to update integration logic."
+      ]
+    },
+    "ecosystem_echo": null,
+    "relevance_to_us": "Directly relevant for AI product teams building on Gemini API, enabling more responsive applications.",
+    "raw_urls": [
+      "https://blog.google/innovation-and-ai/technology/developers-tools/event-driven-webhooks/"
+    ],
+    "item_tier": "brief",
+    "tags": [
+      "model",
+      "api",
+      "webhook",
+      "workflow"
+    ],
+    "summary_zh": "Google Gemini API 推出事件驱动 Webhooks，显著降低长任务延迟并提升开发效率",
+    "key_points_zh": "支持推送式通知，替代轮询机制；提升长任务处理效率；简化异步工作流集成",
+    "scenarios_zh": "AI 工程师可用 Webhook 实现实时任务回调；产品经理可提升产品响应速度",
+    "business_model_zh": "基于 Gemini API，按调用计费",
+    "feedback_zh": "正面：极大降低延迟，提高开发体验；负面：需调整现有集成逻辑",
+    "judgment_zh": "Webhooks 是提升异步 AI 应用体验的重要基础设施",
+    "relevance_zh": "为 AI 团队开发高效异步应用提供关键能力",
+    "official_zh": "Gemini API Webhooks 消除了低效轮询，提升异步任务处理效率",
+    "community_zh": "社区积极评价 Webhook 对开发体验的提升",
+    "issue_date": "2026-05-07"
+  },
+  {
+    "name": "vLLM V0 to V1: Correctness Before Corrections in RL",
+    "company": "ServiceNow",
+    "module": "model",
+    "updated_at": "2026-05-06",
+    "headline": "ServiceNow discusses the transition from vLLM V0 to V1, emphasizing correctness in reinforcement learning.",
+    "one_line_judgment": "Highlights research focus on correctness in RL, but lacks concrete release details.",
+    "official_claims": [],
+    "external_validation_summary": null,
+    "real_change_notes": null,
+    "core_positioning": null,
+    "user_scenarios": [
+      "Researchers improving RL model correctness",
+      "Teams evaluating RL model updates"
+    ],
+    "business_model": null,
+    "price_speed_cost_notes": null,
+    "user_market_feedback": {
+      "good": [
+        "Focus on correctness in RL model development."
+      ],
+      "bad": [
+        "无具体产品或模型更新信息"
+      ]
+    },
+    "ecosystem_echo": null,
+    "relevance_to_us": "Relevant for teams interested in RL model development, but lacks actionable updates.",
+    "raw_urls": [
+      "https://huggingface.co/blog/ServiceNow-AI/correctness-before-corrections"
+    ],
+    "item_tier": "brief",
+    "tags": [
+      "model",
+      "rl",
+      "research"
+    ],
+    "summary_zh": "ServiceNow 介绍 vLLM V0 到 V1 的 RL 研究进展，强调模型正确性优先",
+    "key_points_zh": "关注 RL 模型开发中的正确性；强调研究导向",
+    "scenarios_zh": "AI 工程师和研究员可参考 RL 正确性优化思路",
+    "business_model_zh": "无",
+    "feedback_zh": "正面：强调 RL 研究重点；负面：缺乏具体产品或模型更新",
+    "judgment_zh": "适合关注 RL 研究方向的团队参考",
+    "relevance_zh": "为 RL 方向团队提供研究思路参考",
+    "official_zh": "ServiceNow 强调 RL 模型开发中正确性优先",
+    "community_zh": "社区关注 RL 正确性与模型演进",
+    "issue_date": "2026-05-07"
+  },
+  {
+    "name": "Benchmaxxer Repellant on Open ASR Leaderboard",
+    "company": null,
+    "module": "model",
+    "updated_at": "2026-05-06",
+    "headline": "Benchmaxxer Repellant added to the Open ASR Leaderboard to address private data concerns.",
+    "one_line_judgment": "Addresses leaderboard integrity by mitigating private data leakage.",
+    "official_claims": [],
+    "external_validation_summary": null,
+    "real_change_notes": "Benchmaxxer Repellant added to leaderboard evaluation.",
+    "core_positioning": "Improves fairness and transparency in ASR benchmarking.",
+    "user_scenarios": [
+      "Researchers submitting ASR models for public benchmarking",
+      "Teams concerned with data privacy in leaderboard evaluations"
+    ],
+    "business_model": null,
+    "price_speed_cost_notes": null,
+    "user_market_feedback": {
+      "good": [
+        "Improves trust in leaderboard results."
+      ],
+      "bad": [
+        "No direct impact on model performance."
+      ]
+    },
+    "ecosystem_echo": null,
+    "relevance_to_us": "Relevant for teams benchmarking ASR models and concerned with evaluation fairness.",
+    "raw_urls": [
+      "https://huggingface.co/blog/open-asr-leaderboard-private-data"
+    ],
+    "item_tier": "brief",
+    "tags": [
+      "benchmark",
+      "model",
+      "asr",
+      "privacy"
+    ],
+    "summary_zh": "Open ASR Leaderboard 新增 Benchmaxxer Repellant，提升评测数据隐私与榜单公正性",
+    "key_points_zh": "防止私有数据泄漏影响榜单结果；提升 ASR 评测透明度与可信度",
+    "scenarios_zh": "AI 工程师可更放心提交 ASR 模型评测；产品经理关注榜单公正性",
+    "business_model_zh": "无",
+    "feedback_zh": "正面：提升评测公正性；负面：对模型性能无直接影响",
+    "judgment_zh": "榜单机制优化有助于行业健康发展",
+    "relevance_zh": "为关注 ASR 评测和数据隐私的团队提供参考",
+    "official_zh": "Open ASR Leaderboard 引入 Benchmaxxer Repellant，提升数据隐私与榜单公正性",
+    "community_zh": "社区认可榜单机制优化，关注评测透明度",
+    "issue_date": "2026-05-07"
+  },
+  {
+    "name": "Together AI Efficient Inference Research",
+    "company": "Together AI",
+    "module": "model",
+    "updated_at": "2026-05-04",
+    "headline": "Together AI shares foundational research on powering efficient inference at scale for AI-native teams.",
+    "one_line_judgment": "Addresses the challenge of scalable, efficient model inference for production AI.",
+    "official_claims": [
+      "Research focuses on running models efficiently, reliably, and at scale."
+    ],
+    "external_validation_summary": null,
+    "real_change_notes": null,
+    "core_positioning": "Provides insights for teams moving from research to production AI.",
+    "user_scenarios": [
+      "AI teams optimizing inference infrastructure",
+      "Product teams scaling AI models to production"
+    ],
+    "business_model": null,
+    "price_speed_cost_notes": null,
+    "user_market_feedback": {
+      "good": [
+        "Addresses real-world production challenges."
+      ],
+      "bad": [
+        "No specific product or model release."
+      ]
+    },
+    "ecosystem_echo": null,
+    "relevance_to_us": "Relevant for teams focused on efficient, scalable AI inference in production environments.",
+    "raw_urls": [
+      "https://www.together.ai/blog/foundational-research-powering-efficient-inference-at-scale"
+    ],
+    "item_tier": "brief",
+    "tags": [
+      "model",
+      "research",
+      "inference",
+      "scalability"
+    ],
+    "summary_zh": "Together AI 发布高效大规模推理基础研究，助力 AI 团队提升生产级模型部署能力",
+    "key_points_zh": "聚焦高效、可靠、可扩展的模型推理；为 AI 团队提供生产落地经验",
+    "scenarios_zh": "AI 工程师可参考推理优化方案；产品经理关注大规模部署挑战",
+    "business_model_zh": "无",
+    "feedback_zh": "正面：解决实际生产难题；负面：无具体产品发布",
+    "judgment_zh": "为生产级 AI 推理提供有价值的研究参考",
+    "relevance_zh": "适合关注高效推理和大规模部署的团队",
+    "official_zh": "研究聚焦高效、可靠、可扩展的 AI 推理能力",
+    "community_zh": "社区关注生产级 AI 推理的最佳实践",
+    "issue_date": "2026-05-07"
+  }
+]

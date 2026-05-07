@@ -309,11 +309,11 @@ export async function getCheapRerank(opts: {
         i.total_score
         + COALESCE(${
           opts.profileEmbeddingLiteral
-            ? sqlClient`5 * (1 - (i.embedding <=> ${opts.profileEmbeddingLiteral}::vector))`
+            ? sqlClient`8 * (1 - (i.embedding <=> ${opts.profileEmbeddingLiteral}::vector))`
             : sqlClient`0`
         }, 0)
         + ${memoryWeight}::float8 * COALESCE(${memoryLiterals.length ? memSimExpr : sqlClient`0::float8`}, 0)
-        + 3 * cardinality(
+        + 5 * cardinality(
             ARRAY(SELECT unnest(i.tags) INTERSECT SELECT unnest(${opts.focusTopics}::text[]))
           )
         + ${savedTagWeight}::float8 * cardinality(

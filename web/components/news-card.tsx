@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, MessageSquare } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { ItemActions } from "./item-actions";
 import { WhyShown } from "./why-shown";
 import { moduleLabel } from "@/lib/modules";
@@ -23,25 +23,36 @@ interface NewsCardProps {
     published_at?: Date | string | null;
     issueDate?: string;
     issue_date?: string;
+    /** Full normalized record — we read summary_zh / judgment_zh from here. */
+    record?: Record<string, unknown> | null;
   };
   personalizedBlurb: string;
   personalizedReason: string;
   state?: { saved: boolean; dismissed: boolean; reaction: string | null };
 }
 
+/** Pull the first non-empty string from `record` keys, in priority order. */
+function pickStr(rec: Record<string, unknown> | null | undefined, ...keys: string[]): string | null {
+  if (!rec) return null;
+  for (const k of keys) {
+    const v = rec[k];
+    if (typeof v === "string" && v.trim()) return v.trim();
+  }
+  return null;
+}
+
 /**
  * The card. ONE variant — text-only, hairline border on cream, equal height
- * inside any grid. No images, no hero/feature/standard variants. Designed to
- * sit cleanly in a 1/2/3-column grid without ever wrapping awkwardly.
+ * inside any grid. No images, no hero/feature/standard variants.
  *
- * Visual order:
+ * Visual order (post-2026-05-07 redesign):
  *   1. Eyebrow (module · company · 简讯)
- *   2. Personalized headline (serif, hard-clamped to 3 lines)
- *   3. Editor one-liner (sans, clamped to 2 lines)
+ *   2. FACTUAL news headline (summary_zh / headline) — pure news, no "你"
+ *   3. Editor judgment one-liner (judgment_zh / one_line_judgment)
  *   4. Tags (max 3 pills)
- *   5. Hairline divider
- *   6. Action row: "讨论" link + icon actions (saved/like/dislike/hide)
- *   7. Tiny inline "为何推荐 ▾" disclosure (collapsed by default)
+ *   5. Divider
+ *   6. Action row: "阅读 & 聊这条" + icon actions
+ *   7. "为你而推" — short personalized note from the rerank LLM
  */
 export function NewsCard({
   rank: _rank,
@@ -50,6 +61,23 @@ export function NewsCard({
   personalizedReason,
   state,
 }: NewsCardProps) {
+  // Factual headline shown to everyone — never "你/your" framing.
+  const factualHeadline =
+    pickStr(item.record, "summary_zh") ||
+    item.headline ||
+    item.name;
+
+  // One-line editor judgment under the headline.
+  const judgment =
+    pickStr(item.record, "judgment_zh", "one_line_judgment") || null;
+
+  // Personalized angle (small, below the divider). Hidden when it's
+  // identical to the factual headline (anonymous feed reuses headline).
+  const personalNote =
+    personalizedBlurb && personalizedBlurb !== factualHeadline
+      ? personalizedBlurb
+      : null;
+
   return (
     <article
       className={cn(
@@ -86,17 +114,19 @@ export function NewsCard({
         )}
       </div>
 
-      {/* Headline (serif) */}
+      {/* Factual news headline (serif) — written like real news, never "你". */}
       <Link href={`/items/${item.slug}`} className="block">
-        <h2 className="font-display text-[22px] leading-[1.25] tracking-display text-claude-ink line-clamp-3 hover:text-claude-coral dark:text-white dark:hover:text-claude-coral">
-          {personalizedBlurb}
+        <h2 className="font-display text-[22px] leading-[1.3] tracking-display text-claude-ink line-clamp-3 hover:text-claude-coral dark:text-white dark:hover:text-claude-coral">
+          {factualHeadline}
         </h2>
       </Link>
 
-      {/* Editor one-liner */}
-      <p className="mt-3 line-clamp-2 text-[14px] leading-[1.55] text-claude-body dark:text-white/70">
-        {item.headline}
-      </p>
+      {/* Editor one-liner judgment */}
+      {judgment && (
+        <p className="mt-3 line-clamp-2 text-[14px] leading-[1.55] text-claude-body dark:text-white/70">
+          {judgment}
+        </p>
+      )}
 
       {/* Tags */}
       {item.tags.length > 0 && (
@@ -127,24 +157,22 @@ export function NewsCard({
             href={`/items/${item.slug}`}
             className="inline-flex items-center gap-1 whitespace-nowrap text-[13px] font-medium text-claude-coral hover:underline"
           >
-            阅读全文 <ArrowRight className="h-3 w-3" />
+            阅读 &amp; 聊这条 <ArrowRight className="h-3 w-3" />
           </Link>
           {state !== undefined && <ItemActions itemId={item.id} state={state} />}
         </div>
-        <div className="mt-2 flex items-center justify-between gap-2 text-[12px]">
-          <div className="min-w-0 flex-1">
+        {/* Personalized angle (separate from factual headline). */}
+        {personalNote && (
+          <p className="mt-2.5 line-clamp-2 text-[12.5px] leading-[1.5] text-claude-muted">
+            <span className="mr-1 font-medium text-claude-coral">为你而推</span>
+            {personalNote}
+          </p>
+        )}
+        {personalizedReason && (
+          <div className="mt-1.5 text-[12px]">
             <WhyShown reason={personalizedReason} />
           </div>
-          <Link
-            href={`/chat?item=${item.id}`}
-            className="inline-flex shrink-0 items-center gap-1 whitespace-nowrap text-claude-muted hover:text-claude-coral"
-            title="和 Agent 讨论这条"
-          >
-            <MessageSquare className="h-3 w-3" />
-            <span className="hidden sm:inline">和 Agent 讨论</span>
-            <span className="sm:hidden">讨论</span>
-          </Link>
-        </div>
+        )}
       </div>
     </article>
   );

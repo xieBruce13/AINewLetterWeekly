@@ -2,7 +2,6 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
 import { db } from "@/lib/db/client";
-import { ShieldCheck } from "lucide-react";
 import { SecurityForm } from "./form";
 
 export const metadata = { title: "帐号安全 — AI 周报" };
@@ -67,14 +66,7 @@ export default async function SecurityPage({ searchParams }: PageProps) {
           <SecurityForm skipCurrentPassword={skipCurrentPassword} />
         </div>
 
-        <div className="mt-10 flex items-start gap-2 rounded-lg border border-claude-hairline bg-claude-surface-soft px-4 py-3 text-[12px] text-claude-muted dark:border-white/10 dark:bg-white/[0.04]">
-          <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0" />
-          <p>
-            密码用 bcrypt 加盐存储，数据库里看到的只有哈希。我们不会记录明文密码，也不会用密码做其他验证之外的用途。
-          </p>
-        </div>
-
-        <div className="mt-6 text-center text-[13px]">
+        <div className="mt-10 text-center text-[13px]">
           <Link href="/" className="text-claude-muted hover:underline">
             ← 返回首页
           </Link>

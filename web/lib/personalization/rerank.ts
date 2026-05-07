@@ -37,10 +37,10 @@ const RerankSchema = z.object({
         id: z.number(),
         blurb: z
           .string()
-          .min(20)
-          .max(220)
+          .min(10)
+          .max(80)
           .describe(
-            "1-sentence personalized headline, second person ('you'), tied to the user's role/projects."
+            "Short personalized angle (15-40 Chinese chars). Tells THIS reader why this matters to their work — NOT a re-summary of the news. Example: '影响你 RAG 流水线的 chunking 策略' or '你的多模态 demo 可以直接用'. Do NOT restate the news headline."
           ),
         reason: z
           .string()
@@ -74,14 +74,19 @@ function profileSummary(p: {
 }
 
 function compactItemForPrompt(row: CheapRerankRow): string {
+  // Prefer the Chinese factual summary when the pipeline produced one —
+  // gives the rerank LLM a clean factual seed in the right language.
+  const rec = (row.record ?? {}) as Record<string, unknown>;
+  const summaryZh = typeof rec.summary_zh === "string" ? rec.summary_zh : "";
+  const judgmentZh = typeof rec.judgment_zh === "string" ? rec.judgment_zh : "";
   return [
     `id=${row.id}`,
     `module=${row.module}`,
     `name=${row.name}`,
     `company=${row.company}`,
     `tags=${row.tags.join(",")}`,
-    `headline=${row.headline}`,
-    `judgment=${row.one_line_judgment ?? ""}`,
+    `headline=${summaryZh || row.headline}`,
+    `judgment=${judgmentZh || row.one_line_judgment || ""}`,
     `relevance_to_us=${row.relevance_to_us ?? ""}`,
   ].join(" | ");
 }
@@ -266,12 +271,32 @@ async function llmRerank(args: {
     schema: RerankSchema,
     system: [
       "你是 AI 行业周报的个人编辑（中文输出）。",
-      "你的任务：在候选条目里为这位特定读者重排，并为每条保留的新闻写一条个性化标题（blurb）和 2–3 句的推荐理由（reason），全部用中文。",
-      "标题直接称呼读者（用「你」「你的团队」），并尽量贴住其角色、公司或当前项目。",
-      "理由要具体 —— 点出影响到的 workflow、成本、竞品，或读者能据此做的决定。",
-      "明显与读者无关（被 dislikes 覆盖、与其角色相距甚远）的条目要跳过。",
-      `从最重要到最不重要，返回 6 到 ${TOP_N} 条。`,
-      "不要编造候选里没有的事实。不要提分数、tier 或流水线相关的术语。",
+      "在候选条目里为这位读者按相关性重排，并对每条保留的条目写两段。",
+      "",
+      "blurb（最关键，也是最容易写错的）：",
+      "  - 长度：15–40 字。一句短句。",
+      "  - 内容：仅写「这条对这位读者意味着什么」的角度词组 —— 不是新闻摘要、不是新闻标题、不是新闻改写。",
+      "  - 用「你/你的团队」是允许的，但要落到具体技术/产品/流程上。",
+      "  - 一定要短 —— blurb 出现在卡片底部小字处，不是主标题。",
+      "",
+      "  示例（GOOD）：",
+      "    「直接影响你的 RAG chunking 策略」",
+      "    「跟你做的 AI 创作工具同一赛道」",
+      "    「降低你视频生成成本的关键」",
+      "    「你 PM 类产品可以原生接入」",
+      "",
+      "  示例（BAD，不要写成这样）：",
+      "    「你需要要关注 Luma Uni 的推出，增强你的创作工具功能！」  ← 在改写新闻标题",
+      "    「OpenAI 的卡片式个性化 feed 将为你的产品设计提供灵感！」  ← 在复述新闻 + 加感叹号",
+      "    「Amazon 的 GRPO 为你的强化学习提供了更透明的训练管道！」  ← 在复述新闻",
+      "    「LangSmith 的评估工具将帮助你优化个性化和聊天代理的表现！」",
+      "  以上四条都是错的 —— 它们在「润色新闻标题 + 加你/你的」，而不是写一个「角度」。",
+      "  不要用感叹号。",
+      "",
+      "reason：2–3 句中文，落到具体 workflow / 成本 / 竞品 / 读者能据此做的决定。",
+      "",
+      `按相关性从高到低返回 6 到 ${TOP_N} 条。明显不相关（dislikes 覆盖、与角色相距甚远）的跳过。`,
+      "不要编造候选里没有的事实。不要提 tier / 分数 / 流水线相关的术语。",
     ].join("\n"),
     prompt: [
       "## 读者档案",

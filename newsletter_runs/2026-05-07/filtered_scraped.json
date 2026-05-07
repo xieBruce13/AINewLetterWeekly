@@ -1,0 +1,1887 @@
+{
+  "filtered_at": "2026-05-07T23:15:41.065713+00:00",
+  "source_count": 701,
+  "filtered_count": 80,
+  "top_n": 80,
+  "min_importance": 2,
+  "items": [
+    {
+      "title": "Agents that transact: Introducing Amazon Bedrock AgentCore payments, built with Coinbase and Stripe",
+      "url": "https://aws.amazon.com/blogs/machine-learning/agents-that-transact-introducing-amazon-bedrock-agentcore-payments-built-with-coinbase-and-stripe/",
+      "summary": "Today, we're announcing a preview of Amazon Bedrock AgentCore Payments, a new set of features in Amazon Bedrock AgentCore that enables AI agents to instantly access and pay for what they use. AgentCore Payments was developed in partnership with Coinbase and Stripe.",
+      "published_raw": "Thu, 07 May 2026 12:55:17 +0000",
+      "source": "AWS Machine Learning Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "aws",
+        "amazon",
+        "cloud",
+        "mlops"
+      ],
+      "published_at": "2026-05-07T12:55:17+00:00",
+      "module": "operation",
+      "importance_score": 4,
+      "matched_company": "Amazon",
+      "matched_tags": [
+        "agent",
+        "operation"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "How Hapag-Lloyd uses Amazon Bedrock to transform customer feedback into actionable insights",
+      "url": "https://aws.amazon.com/blogs/machine-learning/how-hapag-lloyd-uses-amazon-bedrock-to-transform-customer-feedback-into-actionable-insights/",
+      "summary": "Hapag-Lloyd's Digital Customer Experience and Engineering team, distributed between Hamburg and Gdańsk, drives digital innovation by developing and maintaining customer-facing web and mobile products. In this post, we walk you through our generative AI–powered feedback analysis solution built using Amazon Bedrock, Elasticsearch, and open-source frameworks like LangChain and LangGraph",
+      "published_raw": "Tue, 05 May 2026 16:55:42 +0000",
+      "source": "AWS Machine Learning Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "aws",
+        "amazon",
+        "cloud",
+        "mlops"
+      ],
+      "published_at": "2026-05-05T16:55:42+00:00",
+      "module": "operation",
+      "importance_score": 4,
+      "matched_company": "Amazon",
+      "matched_tags": [
+        "operation"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Streamlining generative AI development with MLflow v3.10 on Amazon SageMaker AI",
+      "url": "https://aws.amazon.com/blogs/machine-learning/streamlining-generative-ai-development-with-mlflow-v3-10-on-amazon-sagemaker-ai/",
+      "summary": "Today, we’re excited to announce that Amazon SageMaker AI MLflow Apps now support MLflow version 3.10, bringing enhanced capabilities for generative AI development and streamlined experiment tracking to your generative AI workflows. Building on the foundations established with Amazon SageMaker AI MLflow Apps, this latest version introduces powerful new features for observability, evaluation, and generative […]",
+      "published_raw": "Tue, 05 May 2026 16:55:18 +0000",
+      "source": "AWS Machine Learning Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "aws",
+        "amazon",
+        "cloud",
+        "mlops"
+      ],
+      "published_at": "2026-05-05T16:55:18+00:00",
+      "module": "operation",
+      "importance_score": 4,
+      "matched_company": "Amazon",
+      "matched_tags": [
+        "funding",
+        "operation",
+        "research",
+        "workflow"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Introducing agent quality optimization in AgentCore, now in preview",
+      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-agent-quality-optimization-in-agentcore-now-in-preview/",
+      "summary": "Generate recommendations from production traces, validate them with batch evaluation and A/B testing, and ship with confidence. AI agents that perform well at launch don’t stay that way. As models evolve, user behavior shifts, and prompts get reused in new contexts they were never designed for. Agent quality quietly degrades. In most teams, the improvement […]",
+      "published_raw": "Mon, 04 May 2026 17:13:42 +0000",
+      "source": "AWS Machine Learning Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "aws",
+        "amazon",
+        "cloud",
+        "mlops"
+      ],
+      "published_at": "2026-05-04T17:13:42+00:00",
+      "module": "operation",
+      "importance_score": 4,
+      "matched_company": null,
+      "matched_tags": [
+        "agent",
+        "coding",
+        "design",
+        "funding",
+        "operation"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Agent-guided workflows to accelerate model customization in Amazon SageMaker AI",
+      "url": "https://aws.amazon.com/blogs/machine-learning/agent-guided-workflows-to-accelerate-model-customization-in-amazon-sagemaker-ai/",
+      "summary": "Amazon SageMaker AI now offers an agentic experience that changes this. Developers describe their use case using natural language, and the AI coding agent streamlines the entire journey, from use case definition and data preparation through technique selection, evaluation, and deployment. In this post, we walk you through the model customization lifecycle using SageMaker AI agent skills.",
+      "published_raw": "Mon, 04 May 2026 17:10:46 +0000",
+      "source": "AWS Machine Learning Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "aws",
+        "amazon",
+        "cloud",
+        "mlops"
+      ],
+      "published_at": "2026-05-04T17:10:46+00:00",
+      "module": "operation",
+      "importance_score": 4,
+      "matched_company": "Amazon",
+      "matched_tags": [
+        "agent",
+        "coding",
+        "funding",
+        "operation",
+        "workflow"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Register now for OpenClaw: After Hours @ GitHub",
+      "url": "https://github.blog/open-source/register-now-for-openclaw-after-hours-github/",
+      "summary": "<p>OpenClaw builders will gather at GitHub HQ during Microsoft Build 2026 for demos and conversations. Join in person, or watch the livestream on Twitch.</p>\n<p>The post <a href=\"https://github.blog/open-source/register-now-for-openclaw-after-hours-github/\">Register now for OpenClaw: After Hours @ GitHub</a> appeared first on <a href=\"https://github.blog\">The GitHub Blog</a>.</p>",
+      "published_raw": "Mon, 04 May 2026 15:00:00 +0000",
+      "source": "GitHub Blog AI",
+      "tier": "official",
+      "module_hint": "product",
+      "source_tags": [
+        "github",
+        "copilot",
+        "coding",
+        "agent"
+      ],
+      "published_at": "2026-05-04T15:00:00+00:00",
+      "module": "product",
+      "importance_score": 4,
+      "matched_company": "Microsoft",
+      "matched_tags": [
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "AlphaEvolve: How our Gemini-powered coding agent is scaling impact across fields",
+      "url": "https://deepmind.google/blog/alphaevolve-impact/",
+      "summary": "Explore how AlphaEvolve's Gemini-powered algorithms are driving impact across business, infrastructure, and science.",
+      "published_raw": "Wed, 06 May 2026 10:43:49 +0000",
+      "source": "Google DeepMind",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "google",
+        "deepmind",
+        "gemini",
+        "llm"
+      ],
+      "published_at": "2026-05-06T10:43:49+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "agent",
+        "coding",
+        "model"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "5 gardening tips you can try right in Search",
+      "url": "https://blog.google/products-and-platforms/products/search/gardening-tips/",
+      "summary": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/01-Google_Gardening_Header.max-600x600.format-webp.webp\">We’ve rounded up the top ways you can use Google’s AI Mode, Search Live and Shopping to help your plants thrive.",
+      "published_raw": "Wed, 06 May 2026 16:00:00 +0000",
+      "source": "Google AI Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "google",
+        "ai",
+        "gemini"
+      ],
+      "published_at": "2026-05-06T16:00:00+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": "Google",
+      "matched_tags": [
+        "model"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Google is partnering with XPRIZE and Range Media Partners on the $3.5 million Future Vision film competition.",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/future-vision-film-competition-xprize/",
+      "summary": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/futurevisionxprize_social.max-600x600.format-webp.webp\">Google is partnering with XPRIZE and Range Media Partners on the $3.5 million Future Vision film competition.",
+      "published_raw": "Tue, 05 May 2026 16:00:00 +0000",
+      "source": "Google AI Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "google",
+        "ai",
+        "gemini"
+      ],
+      "published_at": "2026-05-05T16:00:00+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": "Google",
+      "matched_tags": [
+        "model",
+        "multimodal",
+        "pricing"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "The latest AI news we announced in April 2026",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-april-2026/",
+      "summary": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/April_2026_AI_Recap_still.max-600x600.format-webp.webp\">Here are Google’s latest AI updates from April 2026",
+      "published_raw": "Mon, 04 May 2026 17:00:00 +0000",
+      "source": "Google AI Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "google",
+        "ai",
+        "gemini"
+      ],
+      "published_at": "2026-05-04T17:00:00+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": "Google",
+      "matched_tags": [
+        "model"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Reduce friction and latency for long-running jobs with Webhooks in Gemini API",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/event-driven-webhooks/",
+      "summary": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/WebhooksGeminiAPI-hero.max-600x600.format-webp.webp\">Event-Driven Webhooks are a push-based notification system that eliminates the need for inefficient polling.",
+      "published_raw": "Mon, 04 May 2026 15:30:00 +0000",
+      "source": "Google AI Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "google",
+        "ai",
+        "gemini"
+      ],
+      "published_at": "2026-05-04T15:30:00+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": "Google",
+      "matched_tags": [
+        "model"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "vLLM V0 to V1: Correctness Before Corrections in RL",
+      "url": "https://huggingface.co/blog/ServiceNow-AI/correctness-before-corrections",
+      "summary": "",
+      "published_raw": "Wed, 06 May 2026 19:06:55 GMT",
+      "source": "HuggingFace Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "huggingface",
+        "open-weight",
+        "training",
+        "dataset"
+      ],
+      "published_at": "2026-05-06T19:06:55+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "model"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Adding Benchmaxxer Repellant to the Open ASR Leaderboard",
+      "url": "https://huggingface.co/blog/open-asr-leaderboard-private-data",
+      "summary": "",
+      "published_raw": "Wed, 06 May 2026 00:00:00 GMT",
+      "source": "HuggingFace Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "huggingface",
+        "open-weight",
+        "training",
+        "dataset"
+      ],
+      "published_at": "2026-05-06T00:00:00+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "benchmark",
+        "model"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Foundational research powering efficient inference at scale",
+      "url": "https://www.together.ai/blog/foundational-research-powering-efficient-inference-at-scale",
+      "summary": "As AI moves from research to production, the challenge for AI-native teams shifts from building models to running them — efficiently, reliably, and at scale.",
+      "published_raw": "Mon, 04 May 2026 00:00:00 GMT",
+      "source": "Together AI Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "together",
+        "open-weight",
+        "inference"
+      ],
+      "published_at": "2026-05-04T00:00:00+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "model",
+        "research"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Secure short-term GPU capacity for ML workloads with EC2 Capacity Blocks for ML and SageMaker training plans",
+      "url": "https://aws.amazon.com/blogs/machine-learning/secure-short-term-gpu-capacity-for-ml-workloads-with-ec2-capacity-blocks-for-ml-and-sagemaker-training-plans/",
+      "summary": "In this post, you will learn how to secure reserved GPU capacity for short-term workloads using Amazon Elastic Compute Cloud (Amazon EC2) Capacity Blocks for ML and Amazon SageMaker training plans. These solutions can address GPU availability challenges when you need short-term capacity for load testing, model validation, time-bound workshops, or preparing inference capacity ahead of a release.",
+      "published_raw": "Thu, 07 May 2026 15:59:50 +0000",
+      "source": "AWS Machine Learning Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "aws",
+        "amazon",
+        "cloud",
+        "mlops"
+      ],
+      "published_at": "2026-05-07T15:59:50+00:00",
+      "module": "operation",
+      "importance_score": 3,
+      "matched_company": "Amazon",
+      "matched_tags": [
+        "operation"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Overcoming reward signal challenges: Verifiable rewards-based reinforcement learning with GRPO on SageMaker AI",
+      "url": "https://aws.amazon.com/blogs/machine-learning/overcoming-reward-signal-challenges-verifiable-rewards-based-reinforcement-learning-with-grpo-on-sagemaker-ai/",
+      "summary": "In this post, you will learn how to implement reinforcement learning with verifiable rewards (RLVR) to introduce verification and transparency into reward signals to improve training performance. This approach works best when outputs can be objectively verified for correctness, such as in mathematical reasoning, code generation, or symbolic manipulation tasks. You will also learn how to layer techniques like Group Relative Policy Optimization (GRPO) and few-shot examples to further improve results. You’ll use the GSM8K dataset (Grade School Math 8K: a collection of grade school math problems) ",
+      "published_raw": "Thu, 07 May 2026 15:53:30 +0000",
+      "source": "AWS Machine Learning Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "aws",
+        "amazon",
+        "cloud",
+        "mlops"
+      ],
+      "published_at": "2026-05-07T15:53:30+00:00",
+      "module": "operation",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "coding",
+        "operation",
+        "reasoning"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Cost effective deployment of vision-language models for pet behavior detection on AWS Inferentia2",
+      "url": "https://aws.amazon.com/blogs/machine-learning/cost-effective-deployment-of-vision-language-models-for-pet-behavior-detection-on-aws-inferentia2/",
+      "summary": "Tomofun, the Taiwan-headquartered pet-tech startup behind the Furbo Pet Camera, is redefining how pet owners interact with their pets remotely. To reduce costs and maintain accuracy, Tomofun turned to EC2 Inf2 instances powered by&nbsp;AWS Inferentia2, the Amazon purpose-built AI chips. In this post, we walk through the following sections in detail.",
+      "published_raw": "Wed, 06 May 2026 15:37:08 +0000",
+      "source": "AWS Machine Learning Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "aws",
+        "amazon",
+        "cloud",
+        "mlops"
+      ],
+      "published_at": "2026-05-06T15:37:08+00:00",
+      "module": "operation",
+      "importance_score": 3,
+      "matched_company": "Amazon",
+      "matched_tags": [
+        "multimodal",
+        "operation"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Introducing OS Level Actions in Amazon Bedrock AgentCore Browser",
+      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-os-level-actions-in-amazon-bedrock-agentcore-browser/",
+      "summary": "We’re announcing OS Level Actions for AgentCore Browser. This new capability unblocks these scenarios by exposing direct OS control through the InvokeBrowser API, so agents can interact with content visible on the screen, not only what's accessible through the browser's web layer. By combining full-desktop screenshots with mouse and keyboard control at the OS level, agents can observe native UI, reason about it, and act on it within the same session. This post walks through how OS Level Actions work, what actions are supported, and how to get started.",
+      "published_raw": "Tue, 05 May 2026 16:54:35 +0000",
+      "source": "AWS Machine Learning Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "aws",
+        "amazon",
+        "cloud",
+        "mlops"
+      ],
+      "published_at": "2026-05-05T16:54:35+00:00",
+      "module": "operation",
+      "importance_score": 3,
+      "matched_company": "Amazon",
+      "matched_tags": [
+        "agent",
+        "browser-agent",
+        "operation"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Secure AI agents with Amazon Bedrock AgentCore Identity on Amazon ECS",
+      "url": "https://aws.amazon.com/blogs/machine-learning/secure-ai-agents-with-amazon-bedrock-agentcore-identity-on-amazon-ecs/",
+      "summary": "AI agents in production require secure access to external services. Amazon Bedrock AgentCore Identity, available as a standalone service, secures how your AI agents access external services whether they run on compute platforms like Amazon ECS, Amazon EKS, AWS Lambda, or on-premises. This post implements Authorization Code Grant (3-legged OAuth) on Amazon ECS with secure session binding and scoped tokens.",
+      "published_raw": "Tue, 05 May 2026 15:27:30 +0000",
+      "source": "AWS Machine Learning Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "aws",
+        "amazon",
+        "cloud",
+        "mlops"
+      ],
+      "published_at": "2026-05-05T15:27:30+00:00",
+      "module": "operation",
+      "importance_score": 3,
+      "matched_company": "Amazon",
+      "matched_tags": [
+        "agent",
+        "coding",
+        "operation"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Intelligence-driven message defense and insights using Amazon Bedrock",
+      "url": "https://aws.amazon.com/blogs/machine-learning/intelligence-driven-message-defense-and-insights-using-amazon-bedrock/",
+      "summary": "In this post, you will learn how you can use Amazon Nova Foundation Models in Amazon Bedrock to apply generative AI techniques for both business protection and enhancement. You can identify obvious and disguised attempts at direct contact while gaining valuable insights into customer sentiment and service improvement opportunities.",
+      "published_raw": "Tue, 05 May 2026 15:20:54 +0000",
+      "source": "AWS Machine Learning Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "aws",
+        "amazon",
+        "cloud",
+        "mlops"
+      ],
+      "published_at": "2026-05-05T15:20:54+00:00",
+      "module": "operation",
+      "importance_score": 3,
+      "matched_company": "Amazon",
+      "matched_tags": [
+        "coding",
+        "operation"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Beyond BI: How the Dataset Q&A feature of Amazon Quick powers the next generation of data decisions",
+      "url": "https://aws.amazon.com/blogs/machine-learning/beyond-bi-how-the-dataset-qa-feature-of-amazon-quick-powers-the-next-generation-of-data-decisions/",
+      "summary": "Business leaders across industries rely on operational dashboards as the shared source of truth that their teams execute against daily. But dashboards are built to answer known questions. When teams need to explore further, ad-hoc, multi-dimensional, or unforeseen questions, they hit a bottleneck. They wait hours or days for BI teams to build new views […]",
+      "published_raw": "Mon, 04 May 2026 17:46:32 +0000",
+      "source": "AWS Machine Learning Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "aws",
+        "amazon",
+        "cloud",
+        "mlops"
+      ],
+      "published_at": "2026-05-04T17:46:32+00:00",
+      "module": "operation",
+      "importance_score": 3,
+      "matched_company": "Amazon",
+      "matched_tags": [
+        "operation"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Generate dashboards from natural language prompts in Amazon Quick",
+      "url": "https://aws.amazon.com/blogs/machine-learning/generate-dashboards-from-natural-language-prompts-in-amazon-quick/",
+      "summary": "Building meaningful dashboards demands hours of manual setup, even for experienced BI professionals.&nbsp;Amazon Quick now generates complete multi-sheet dashboards from natural language prompts, taking you from one or more datasets to a production-ready analysis in minutes. Data analysts building recurring operations reports, program managers preparing a leadership review, or engineers exploring a new dataset can […]",
+      "published_raw": "Mon, 04 May 2026 16:51:37 +0000",
+      "source": "AWS Machine Learning Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "aws",
+        "amazon",
+        "cloud",
+        "mlops"
+      ],
+      "published_at": "2026-05-04T16:51:37+00:00",
+      "module": "operation",
+      "importance_score": 3,
+      "matched_company": "Amazon",
+      "matched_tags": [
+        "operation"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "From data lake to AI-ready analytics: Introducing new data source with S3 Tables in Amazon Quick",
+      "url": "https://aws.amazon.com/blogs/machine-learning/from-data-lake-to-ai-ready-analytics-introducing-direct-query-with-s3-tables-in-amazon-quick/",
+      "summary": "Amazon Quick introduces Amazon S3 Tables (Apache Iceberg tables) as a new data source. With this feature, customers can directly query and visualize Apache Iceberg tables stored in an Amazon S3 table bucket without the need for intermediate data layers. In this post, we explored how Amazon Quick’s new Amazon S3 Tables data source enables near real-time analytics while streamlining modern data architectures.",
+      "published_raw": "Mon, 04 May 2026 16:12:37 +0000",
+      "source": "AWS Machine Learning Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "aws",
+        "amazon",
+        "cloud",
+        "mlops"
+      ],
+      "published_at": "2026-05-04T16:12:37+00:00",
+      "module": "operation",
+      "importance_score": 3,
+      "matched_company": "Amazon",
+      "matched_tags": [
+        "operation"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Introducing Dataset Q&A: Expanding natural language querying for structured datasets in Amazon Quick",
+      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-dataset-qa-expanding-natural-language-querying-for-structured-datasets-in-amazon-quick/",
+      "summary": "In this post, you learn how to get started with Dataset Q&amp;A, explore real-world use cases with hands-on examples, and discover advanced capabilities like auto-discovery across all your data assets and multi-dataset querying in a single conversation.",
+      "published_raw": "Mon, 04 May 2026 16:08:12 +0000",
+      "source": "AWS Machine Learning Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "aws",
+        "amazon",
+        "cloud",
+        "mlops"
+      ],
+      "published_at": "2026-05-04T16:08:12+00:00",
+      "module": "operation",
+      "importance_score": 3,
+      "matched_company": "Amazon",
+      "matched_tags": [
+        "operation"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Capacity-aware inference: Automatic instance fallback for SageMaker AI endpoints",
+      "url": "https://aws.amazon.com/blogs/machine-learning/capacity-aware-inference-automatic-instance-fallback-for-sagemaker-ai-endpoints/",
+      "summary": "Today, Amazon SageMaker AI introduces capacity aware instance pool for new and existing inference endpoints. You define a prioritized list of instance types, and SageMaker AI automatically works through your list whenever capacity is constrained at creation, during scale-out, and during scale-in. Your endpoint provisions on available AI Infrastructure without manual intervention. This capability is available for Single Model Endpoints, Inference Component-based endpoints, and Asynchronous Inference&nbsp;endpoints.",
+      "published_raw": "Mon, 04 May 2026 16:05:02 +0000",
+      "source": "AWS Machine Learning Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "aws",
+        "amazon",
+        "cloud",
+        "mlops"
+      ],
+      "published_at": "2026-05-04T16:05:02+00:00",
+      "module": "operation",
+      "importance_score": 3,
+      "matched_company": "Amazon",
+      "matched_tags": [
+        "creative-tool",
+        "multimodal",
+        "operation"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "AWS Transform now automates BI migration to Amazon Quick in days",
+      "url": "https://aws.amazon.com/blogs/machine-learning/aws-transform-now-automates-bi-migration-to-amazon-quick-in-days/",
+      "summary": "In this post, we walk through the full journey, from setting up your migration workspace in AWS Transform to subscribing to partner agents through AWS Marketplace to unlocking Amazon Quick capabilities that change how your organization consumes data.",
+      "published_raw": "Fri, 01 May 2026 18:29:06 +0000",
+      "source": "AWS Machine Learning Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "aws",
+        "amazon",
+        "cloud",
+        "mlops"
+      ],
+      "published_at": "2026-05-01T18:29:06+00:00",
+      "module": "operation",
+      "importance_score": 3,
+      "matched_company": "Amazon",
+      "matched_tags": [
+        "agent",
+        "operation"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Powering the Next American Century: US Energy Secretary Chris Wright and NVIDIA’s Ian Buck on the Genesis Mission",
+      "url": "https://blogs.nvidia.com/blog/energy-secretary-chris-wright-ian-buck/",
+      "summary": "AI will help build the energy it needs. That’s the case U.S. Energy Secretary Chris Wright and NVIDIA Vice President of Hyperscale and High-Performance Computing Ian Buck made Thursday morning at the SCSP AI+ Expo. The 30-minute fireside chat, moderated by SCSP president Ylli Bajraktari, was called “Powering the Next American Century.” Their argument: American [&#8230;]",
+      "published_raw": "Thu, 07 May 2026 19:14:38 +0000",
+      "source": "NVIDIA AI Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "nvidia",
+        "gpu",
+        "hardware",
+        "training"
+      ],
+      "published_at": "2026-05-07T19:14:38+00:00",
+      "module": "operation",
+      "importance_score": 3,
+      "matched_company": "NVIDIA",
+      "matched_tags": [
+        "coding",
+        "operation"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Linked and Loaded: Gaijin Single Sign-On Now Available on GeForce NOW",
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-gaijin-sso/",
+      "summary": "Less typing, more tanking. Faster logins mean more time in the gaming action — and this week provides GeForce NOW members with a smoother path straight into the battlefield. Cloud gaming is all about instant access to titles across devices, and the latest GeForce NOW update removes another layer for members jumping into their Gaijin [&#8230;]",
+      "published_raw": "Thu, 07 May 2026 13:00:27 +0000",
+      "source": "NVIDIA AI Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "nvidia",
+        "gpu",
+        "hardware",
+        "training"
+      ],
+      "published_at": "2026-05-07T13:00:27+00:00",
+      "module": "operation",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "coding",
+        "operation"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "NVIDIA Spectrum-X — the Open, AI-Native Ethernet Fabric — Sets the Standard for Gigascale AI, Now With MRC",
+      "url": "https://blogs.nvidia.com/blog/spectrum-x-ethernet-mrc/",
+      "summary": "The race to build the world’s most powerful AI factories demands networking that keeps pace with the ambitions of AI itself.  NVIDIA Spectrum-X Ethernet scale-out infrastructure stands at the forefront of that race as the most advanced AI networking technology available today, deployed by industry leaders who can’t afford to compromise on performance, resilience or [&#8230;]",
+      "published_raw": "Wed, 06 May 2026 11:30:20 +0000",
+      "source": "NVIDIA AI Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "nvidia",
+        "gpu",
+        "hardware",
+        "training"
+      ],
+      "published_at": "2026-05-06T11:30:20+00:00",
+      "module": "operation",
+      "importance_score": 3,
+      "matched_company": "NVIDIA",
+      "matched_tags": [
+        "operation"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "NVIDIA and ServiceNow Partner on New Autonomous AI Agents for Enterprises",
+      "url": "https://blogs.nvidia.com/blog/servicenow-autonomous-ai-agents-enterprises/",
+      "summary": "Enterprise AI has learned to generate. It has learned to reason. Now companies are asking the next question: How should AI act? Early agent systems have shown what’s possible, moving beyond simple prompts to take on more complex tasks. The next step is bringing those capabilities into enterprise environments — where agents must operate with [&#8230;]",
+      "published_raw": "Tue, 05 May 2026 17:00:40 +0000",
+      "source": "NVIDIA AI Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "nvidia",
+        "gpu",
+        "hardware",
+        "training"
+      ],
+      "published_at": "2026-05-05T17:00:40+00:00",
+      "module": "operation",
+      "importance_score": 3,
+      "matched_company": "NVIDIA",
+      "matched_tags": [
+        "agent",
+        "operation",
+        "pricing"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "PR Review, Build Plan in Parallel, and Split PRs",
+      "url": "https://cursor.com/changelog/05-07-26",
+      "summary": "This release introduces a new PR review experience, faster execution on plans through parallel agents, and new quick-action pills for common workflows.",
+      "published_raw": "Thu, 07 May 2026 00:00:00 GMT",
+      "source": "Cursor Changelog",
+      "tier": "official",
+      "module_hint": "product",
+      "source_tags": [
+        "cursor",
+        "coding",
+        "agent",
+        "ide"
+      ],
+      "published_at": "2026-05-07T00:00:00+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "agent",
+        "product",
+        "workflow"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Context Usage Breakdown",
+      "url": "https://cursor.com/changelog/05-06-26",
+      "summary": "You can now see a breakdown of your agent's context usage .",
+      "published_raw": "Wed, 06 May 2026 00:00:00 GMT",
+      "source": "Cursor Changelog",
+      "tier": "official",
+      "module_hint": "product",
+      "source_tags": [
+        "cursor",
+        "coding",
+        "agent",
+        "ide"
+      ],
+      "published_at": "2026-05-06T00:00:00+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "agent",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Model controls, spend management, and usage analytics",
+      "url": "https://cursor.com/changelog/05-04-26",
+      "summary": "This release introduces updates for Enterprise admins: a new system for model controls, updated spend management, and more detail for usage analytics.",
+      "published_raw": "Mon, 04 May 2026 00:00:00 GMT",
+      "source": "Cursor Changelog",
+      "tier": "official",
+      "module_hint": "product",
+      "source_tags": [
+        "cursor",
+        "coding",
+        "agent",
+        "ide"
+      ],
+      "published_at": "2026-05-04T00:00:00+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "pricing",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Team Marketplace Updates",
+      "url": "https://cursor.com/changelog/05-01-26",
+      "summary": "Admins can now create a team marketplace without connecting a repository first. Add, remove, and configure install behavior for first-party plugins directly in team marketplace settings.",
+      "published_raw": "Fri, 01 May 2026 00:00:00 GMT",
+      "source": "Cursor Changelog",
+      "tier": "official",
+      "module_hint": "product",
+      "source_tags": [
+        "cursor",
+        "coding",
+        "agent",
+        "ide"
+      ],
+      "published_at": "2026-05-01T00:00:00+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Improving token efficiency in GitHub Agentic Workflows",
+      "url": "https://github.blog/ai-and-ml/github-copilot/improving-token-efficiency-in-github-agentic-workflows/",
+      "summary": "<p>Agentic workflows that run on every pull request can quietly accumulate large API bills. Here's how we instrumented our own production workflows, found the inefficiencies, and built agents to fix them.</p>\n<p>The post <a href=\"https://github.blog/ai-and-ml/github-copilot/improving-token-efficiency-in-github-agentic-workflows/\">Improving token efficiency in GitHub Agentic Workflows</a> appeared first on <a href=\"https://github.blog\">The GitHub Blog</a>.</p>",
+      "published_raw": "Thu, 07 May 2026 23:00:00 +0000",
+      "source": "GitHub Blog AI",
+      "tier": "official",
+      "module_hint": "product",
+      "source_tags": [
+        "github",
+        "copilot",
+        "coding",
+        "agent"
+      ],
+      "published_at": "2026-05-07T23:00:00+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "agent",
+        "coding",
+        "product",
+        "workflow"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Agent pull requests are everywhere. Here’s how to review them.",
+      "url": "https://github.blog/ai-and-ml/generative-ai/agent-pull-requests-are-everywhere-heres-how-to-review-them/",
+      "summary": "<p>A practical guide to reviewing agent-generated pull requests: what to look for, where issues hide, and how to catch technical debt before it ships.</p>\n<p>The post <a href=\"https://github.blog/ai-and-ml/generative-ai/agent-pull-requests-are-everywhere-heres-how-to-review-them/\">Agent pull requests are everywhere. Here&#8217;s how to review them.</a> appeared first on <a href=\"https://github.blog\">The GitHub Blog</a>.</p>",
+      "published_raw": "Thu, 07 May 2026 19:00:00 +0000",
+      "source": "GitHub Blog AI",
+      "tier": "official",
+      "module_hint": "product",
+      "source_tags": [
+        "github",
+        "copilot",
+        "coding",
+        "agent"
+      ],
+      "published_at": "2026-05-07T19:00:00+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "agent",
+        "coding",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Validating agentic behavior when “correct” isn’t deterministic",
+      "url": "https://github.blog/ai-and-ml/generative-ai/validating-agentic-behavior-when-correct-isnt-deterministic/",
+      "summary": "<p>How to build the “Trust Layer” for Github Copilot Coding Agents without brittle scripts or black-box judgements by using dominatory analysis.</p>\n<p>The post <a href=\"https://github.blog/ai-and-ml/generative-ai/validating-agentic-behavior-when-correct-isnt-deterministic/\">Validating agentic behavior when “correct” isn’t deterministic</a> appeared first on <a href=\"https://github.blog\">The GitHub Blog</a>.</p>",
+      "published_raw": "Wed, 06 May 2026 21:16:31 +0000",
+      "source": "GitHub Blog AI",
+      "tier": "official",
+      "module_hint": "product",
+      "source_tags": [
+        "github",
+        "copilot",
+        "coding",
+        "agent"
+      ],
+      "published_at": "2026-05-06T21:16:31+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "agent",
+        "coding",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "China’s Moonshot AI raises $2B at $20B valuation as demand for open source AI skyrockets",
+      "url": "https://techcrunch.com/2026/05/07/chinas-moonshot-ai-raises-2b-at-20b-valuation-as-demand-for-open-source-ai-skyrockets/",
+      "summary": "Moonshot's annualized recurring revenue topped $200 million in April, driven by rapid growth in paid subscriptions and API usage.",
+      "published_raw": "Thu, 07 May 2026 13:44:25 +0000",
+      "source": "TechCrunch AI",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "startup",
+        "funding"
+      ],
+      "published_at": "2026-05-07T13:44:25+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "funding",
+        "pricing",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Anti-Drone AI Startup in Talks for $2 Billion Valuation",
+      "url": "https://www.theinformation.com/articles/anti-drone-ai-startup-talks-2-billion-valuation",
+      "summary": "<p>Allen Control Systems, a four-year-old startup building an autonomous weapons station that can shoot down drones, is aiming to raise new funding at a valuation of $2 billion before the investment, according to two people with knowledge of the efforts. The startup is targeting a round size of roughly $200 million, the people said.</p>\n\n<p>The company’s target valuation would be over 14 times its last round, a remarkable increase even compared to the recent financings of other defense-tech startups. The startup has won some government contracts, including a $2 million Defense Department deal ",
+      "published_raw": "2026-05-07T19:32:54Z",
+      "source": "The Information AI",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "enterprise",
+        "exclusive"
+      ],
+      "published_at": "2026-05-07T19:32:54+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "funding",
+        "pricing",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Why Musk is Giving xAI’s Servers to Anthropic; AI Video-App Developer Reka Acquires Video-Generating Startup",
+      "url": "https://www.theinformation.com/articles/musk-giving-xais-servers-anthropic-ai-video-app-developer-reka-acquires-video-generating-startup",
+      "summary": "<p><b>OpenAI</b> and <b>Anthropic’s</b> servers are generally bursting at the seams, while <b>xAI’s</b> mountain of servers aren’t as busy, as we and others recently <a href=\"https://www.theinformation.com/newsletters/ai-agenda/cursor-keeps-distance-xai-despite-tie\">reported</a>. That’s burning a multibillion-dollar hole in the pocket of new xAI owner <b>SpaceX</b>, which is trying to go public soon and is sure to receive tremendous scrutiny over its AI-related losses.</p><p>So after xAI recently struck a deal to offload server capacity to AI coding assistant <b>Cursor</b>, which SpaceX is in ",
+      "published_raw": "2026-05-07T14:00:09Z",
+      "source": "The Information AI",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "enterprise",
+        "exclusive"
+      ],
+      "published_at": "2026-05-07T14:00:09+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": "OpenAI",
+      "matched_tags": [
+        "coding",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "DoorDash’s Revenue Growth Lifted By Deliveroo Purchase",
+      "url": "https://www.theinformation.com/briefings/doordashs-revenue-growth-lifted-deliveroo-purchase",
+      "summary": "<p>DoorDash reported 33% growth in revenue, to $4 billion, a slowdown from the fourth quarter but still several percentage points higher than the growth rate the food-delivery firm had reported for most of last year. The strong growth reflected&nbsp;the acquisition in October of the European ...</p>",
+      "published_raw": "2026-05-06T20:31:53Z",
+      "source": "The Information AI",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "enterprise",
+        "exclusive"
+      ],
+      "published_at": "2026-05-06T20:31:53+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "pricing",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Recap: The IPO Reckoning",
+      "url": "https://www.theinformation.com/articles/recap-ipo-reckoning",
+      "summary": "<p>After years of mostly tumbleweeds, the initial public offering market is about to enter one of its most exciting and potentially volatile eras. SpaceX—with a valuation expected to exceed $1 trillion—is widely anticipated to go public as soon as June, with companies like Anthropic and OpenAI potentially not far behind.</p>\n\n<p>As a historic wave of supply hits the market, the mechanics that underpin public trading are about to be pressure-tested. To understand what comes next, Cory Weinberg, The Information’s deputy bureau chief of finance, sat down with three market insiders who sit at the ",
+      "published_raw": "2026-05-06T20:27:09Z",
+      "source": "The Information AI",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "enterprise",
+        "exclusive"
+      ],
+      "published_at": "2026-05-06T20:27:09+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": "OpenAI",
+      "matched_tags": [
+        "coding",
+        "funding",
+        "pricing",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "A Twitter user tricked Grok to send 200k USD to him and it worked",
+      "url": "https://www.reddit.com/gallery/1t3hw53",
+      "summary": "",
+      "published_raw": "2026-05-04T13:34:31+00:00",
+      "source": "r/singularity",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "futurism"
+      ],
+      "reddit_score": 2201,
+      "reddit_comments": 262,
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "long-context",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Google Chrome silently installs a 4 GB AI model on your device without consent",
+      "url": "https://www.thatprivacyguy.com/blog/chrome-silent-nano-install/",
+      "summary": "HN score: 1711 | comments: 1119",
+      "published_raw": "2026-05-05T07:34:55+00:00",
+      "source": "Hacker News",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "hacker-news"
+      ],
+      "hn_score": 1711,
+      "hn_comments": 1119,
+      "published_at": "2026-05-05T07:34:55+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": "Google",
+      "matched_tags": [
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "VS Code inserting 'Co-Authored-by Copilot' into commits regardless of usage",
+      "url": "https://github.com/microsoft/vscode/pull/310226",
+      "summary": "HN score: 1507 | comments: 850",
+      "published_raw": "2026-05-02T19:57:26+00:00",
+      "source": "Hacker News",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "hacker-news"
+      ],
+      "hn_score": 1507,
+      "hn_comments": 850,
+      "published_at": "2026-05-02T19:57:26+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "coding",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Anthropic partnered with SpaceX to use colossus 1 to increase their rate limits",
+      "url": "https://i.redd.it/9x97c08dnjzg1.jpeg",
+      "summary": "",
+      "published_raw": "2026-05-06T16:28:44+00:00",
+      "source": "r/singularity",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "futurism"
+      ],
+      "reddit_score": 1111,
+      "reddit_comments": 294,
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": "Anthropic",
+      "matched_tags": [
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Vibe coding and agentic engineering are getting closer than I'd like",
+      "url": "https://simonwillison.net/2026/May/6/vibe-coding-and-agentic-engineering/",
+      "summary": "HN score: 744 | comments: 846",
+      "published_raw": "2026-05-06T15:06:37+00:00",
+      "source": "Hacker News",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "hacker-news"
+      ],
+      "hn_score": 744,
+      "hn_comments": 846,
+      "published_at": "2026-05-06T15:06:37+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "agent",
+        "coding",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Accelerating Gemma 4: faster inference with multi-token prediction drafters",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/multi-token-prediction-gemma-4/",
+      "summary": "HN score: 678 | comments: 327",
+      "published_raw": "2026-05-05T16:14:17+00:00",
+      "source": "Hacker News",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "hacker-news"
+      ],
+      "hn_score": 678,
+      "hn_comments": 327,
+      "published_at": "2026-05-05T16:14:17+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "DeepClaude – Claude Code agent loop with DeepSeek V4 Pro",
+      "url": "https://github.com/aattaran/deepclaude",
+      "summary": "HN score: 673 | comments: 280",
+      "published_raw": "2026-05-03T22:13:20+00:00",
+      "source": "Hacker News",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "hacker-news"
+      ],
+      "hn_score": 673,
+      "hn_comments": 280,
+      "published_at": "2026-05-03T22:13:20+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": "DeepSeek",
+      "matched_tags": [
+        "agent",
+        "coding",
+        "product",
+        "startup"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "SQLite Is a Library of Congress Recommended Storage Format",
+      "url": "https://sqlite.org/locrsf.html",
+      "summary": "HN score: 595 | comments: 178",
+      "published_raw": "2026-05-06T21:58:43+00:00",
+      "source": "Hacker News",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "hacker-news"
+      ],
+      "hn_score": 595,
+      "hn_comments": 178,
+      "published_at": "2026-05-06T21:58:43+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "How OpenAI delivers low-latency voice AI at scale",
+      "url": "https://openai.com/index/delivering-low-latency-voice-ai-at-scale/",
+      "summary": "HN score: 506 | comments: 146",
+      "published_raw": "2026-05-04T19:42:47+00:00",
+      "source": "Hacker News",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "hacker-news"
+      ],
+      "hn_score": 506,
+      "hn_comments": 146,
+      "published_at": "2026-05-04T19:42:47+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": "OpenAI",
+      "matched_tags": [
+        "product",
+        "voice"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "OpenAI’s o1 correctly diagnosed 67% of ER patients vs. 50-55% by triage doctors",
+      "url": "https://www.theguardian.com/technology/2026/apr/30/ai-outperforms-doctors-in-harvard-trial-of-emergency-triage-diagnoses",
+      "summary": "HN score: 503 | comments: 473",
+      "published_raw": "2026-05-03T00:30:50+00:00",
+      "source": "Hacker News",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "hacker-news"
+      ],
+      "hn_score": 503,
+      "hn_comments": 473,
+      "published_at": "2026-05-03T00:30:50+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": "OpenAI",
+      "matched_tags": [
+        "model"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Qwen3.6 27B uncensored heretic v2 Native MTP Preserved is Out Now With KLD 0.0021, 6/100 Refusals and the Full 15 MTPs Preserved and Retained, Available in Safetensors, GGUFs and NVFP4s formats.",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1t5yajb/qwen36_27b_uncensored_heretic_v2_native_mtp/",
+      "summary": "llmfan46/Qwen3.6-27B-uncensored-heretic-v2-Native-MTP-Preserved: [https://huggingface.co/llmfan46/Qwen3.6-27B-uncensored-heretic-v2-Native-MTP-Preserved](https://huggingface.co/llmfan46/Qwen3.6-27B-uncensored-heretic-v2-Native-MTP-Preserved)\n\nllmfan46/Qwen3.6-27B-uncensored-heretic-v2-Native-MTP-Preserved-GGUF: [https://huggingface.co/llmfan46/Qwen3.6-27B-uncensored-heretic-v2-Native-MTP-Preserved",
+      "published_raw": "2026-05-07T02:59:31+00:00",
+      "source": "r/LocalLLaMA",
+      "tier": "community",
+      "module_hint": "model",
+      "source_tags": [
+        "open-weight",
+        "inference",
+        "community"
+      ],
+      "reddit_score": 324,
+      "reddit_comments": 99,
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": "HuggingFace",
+      "matched_tags": [
+        "model",
+        "open-weight",
+        "startup"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Startup Battlefield 200 applications close May 27: A shot at VC access, global visibility, TechCrunch coverage, and $100K",
+      "url": "https://techcrunch.com/2026/05/07/startup-battlefield-200-applications-close-may-27-a-shot-at-vc-access-global-visibility-techcrunch-coverage-and-100k/",
+      "summary": "Startup Battlefield 200 applications are open, but only for three more weeks. Apply by May 27 for your shot at VC access, global visibility, TechCrunch coverage, $100,000 equity-free, and more opportunities for major scaling impact.",
+      "published_raw": "Thu, 07 May 2026 15:00:00 +0000",
+      "source": "TechCrunch AI",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "startup",
+        "funding"
+      ],
+      "published_at": "2026-05-07T15:00:00+00:00",
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "pricing",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "GameStop offers $56 billion for eBay, struggles to explain how it'll pay for it",
+      "url": "https://arstechnica.com/tech-policy/2026/05/gamestop-offers-56-billion-for-ebay-struggles-to-explain-how-itll-pay-for-it/",
+      "summary": "Amid falling revenue and store closures, GameStop wants to buy the much larger eBay.",
+      "published_raw": "Mon, 04 May 2026 17:57:46 +0000",
+      "source": "Ars Technica Technology",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "deep-dive",
+        "research"
+      ],
+      "published_at": "2026-05-04T17:57:46+00:00",
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "pricing",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Coinbase Revenue Fell 31% as Crypto Market Slumps",
+      "url": "https://www.theinformation.com/briefings/coinbase-revenue-fell-31-crypto-market-slumps",
+      "summary": "<p>Coinbase, the biggest U.S. crypto exchange, reported first-quarter revenue of $1.4 billion, down 31% from a year ago amid a crypto market downturn. Shares fell 5% in after-hour trading.</p> <p>The company’s net loss in the quarter was $394 million, down from a net profit of $65.6 million a year ago but ...</p>",
+      "published_raw": "2026-05-07T21:10:52Z",
+      "source": "The Information AI",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "enterprise",
+        "exclusive"
+      ],
+      "published_at": "2026-05-07T21:10:52+00:00",
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "pricing",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "CoreWeave Reports $100 Billion Backlog",
+      "url": "https://www.theinformation.com/briefings/coreweave-reports-100-billion-backlog",
+      "summary": "<p>CoreWeave’s revenue roughly doubled in the first quarter to $2 billion, while its operating loss jumped to $144 million. But the cloud provider said its revenue backlog has reached nearly $100 billion, up from $67 billion at the end of last year.</p> <p>The metric, which represents demand that has not ...</p>",
+      "published_raw": "2026-05-07T20:44:34Z",
+      "source": "The Information AI",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "enterprise",
+        "exclusive"
+      ],
+      "published_at": "2026-05-07T20:44:34+00:00",
+      "module": "operation",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "coding",
+        "operation",
+        "pricing"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Broadcom Shares Dip After Report On $18 Billion Financing Snag In OpenAI Chip Deal",
+      "url": "https://www.theinformation.com/briefings/broadcom-shares-slide-report-reveals-uncertainty-18-billion-financing-openai-chip",
+      "summary": "<p>Broadcom’s stock dropped 2% following a report in The Information about an $18 billion financing snag in the chipmaker’s custom AI processor deal with OpenAI. Shares have partly recovered since then.</p> <p>Broadcom has stipulated it will only finance the initial phase of production if Microsoft agrees ...</p>",
+      "published_raw": "2026-05-07T20:17:07Z",
+      "source": "The Information AI",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "enterprise",
+        "exclusive"
+      ],
+      "published_at": "2026-05-07T20:17:07+00:00",
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": "OpenAI",
+      "matched_tags": [
+        "pricing",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Datadog Shares Jump 30% After CEO Says AI is Boosting Sales",
+      "url": "https://www.theinformation.com/briefings/datadog-shares-jump-30-ceo-says-ai-boosting-sales",
+      "summary": "<p>Datadog reported revenue grew 32% to more than $1 billion in its March quarter—up 7% from last year—and raised its full-year projection to 26% growth, from the 20% it issued a few months ago.&nbsp;Shares of Datadog rose around 30% after its earnings report, suggesting investors’ fears about AI’s ...</p>",
+      "published_raw": "2026-05-07T18:14:34Z",
+      "source": "The Information AI",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "enterprise",
+        "exclusive"
+      ],
+      "published_at": "2026-05-07T18:14:34+00:00",
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "pricing",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Microsoft Cuts Copilot Bloat",
+      "url": "https://www.theinformation.com/articles/microsoft-cuts-copilot-bloat",
+      "summary": "<p>After Microsoft bought the rights to use OpenAI’s technology for free, Microsoft developed a case of Copilot fever, launching Copilot-branded AI features in dozens of products, from Office and Bing to PowerBI and Dynamics.&nbsp;</p><p>Microsoft appears to be dialing it back a bit, seemingly in response to complaints from customers that the Copilots are unnecessary or annoying. This week, for instance, newly appointed Xbox CEO Asha Sharma announced that Gaming Copilot, a chatbot built into Xbox’s mobile and PC gaming apps, would be wound down.&nbsp;</p>",
+      "published_raw": "2026-05-07T17:30:26Z",
+      "source": "The Information AI",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "enterprise",
+        "exclusive"
+      ],
+      "published_at": "2026-05-07T17:30:26+00:00",
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": "OpenAI",
+      "matched_tags": [
+        "coding",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Treasury Department Demands Binance Compliance After Iran Crypto Reports",
+      "url": "https://www.theinformation.com/articles/treasury-department-demands-binance-compliance-iran-crypto-reports",
+      "summary": "<p>The U.S. Department of the Treasury has privately demanded that Binance comply with a monitoring program U.S. regulators imposed on the crypto exchange in 2023, when it pleaded guilty to charges related to sanctions and anti&ndash;money-laundering violations, The Information has learned.</p>\n\n<p>The Treasury Department’s request&mdash;which it sent to Binance in a letter in the past few weeks&mdash;comes in the wake of recent reports that more than $1 billion flowed through the crypto exchange to Iran-linked entities in 2024 and 2025. The department’s demand is the first publicly reported s",
+      "published_raw": "2026-05-07T16:05:38Z",
+      "source": "The Information AI",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "enterprise",
+        "exclusive"
+      ],
+      "published_at": "2026-05-07T16:05:38+00:00",
+      "module": "operation",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "operation",
+        "pricing"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Elon Musk’s xAI Is Becoming a Cloud Firm",
+      "url": "https://www.theinformation.com/articles/elon-musks-ai-becoming-cloud-firm",
+      "summary": "<p>Is xAI the next CoreWeave? SpaceX’s <a href=\"https://x.ai/news/anthropic-compute-partnership\">announcement on Wednesday</a> that its xAI unit had struck a deal to supply computing capacity to Anthropic comes a couple of weeks after xAI struck a <a href=\"https://cursor.com/blog/spacex-model-training\">similar deal</a> with AI coding startup Cursor. Last we checked, AI firms with leading models need all the computing capacity they can get, which means they’re constantly looking for capacity from others. Renting out their own capacity is unheard of for most of them.&nbsp;</p><p>That’s precisely",
+      "published_raw": "2026-05-07T00:00:09Z",
+      "source": "The Information AI",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "enterprise",
+        "exclusive"
+      ],
+      "published_at": "2026-05-07T00:00:09+00:00",
+      "module": "operation",
+      "importance_score": 2,
+      "matched_company": "Anthropic",
+      "matched_tags": [
+        "coding",
+        "operation"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Nvidia Inks Deal To Invest Up To $3.2 Billion in Corning",
+      "url": "https://www.theinformation.com/briefings/nvidia-inks-deal-invest-3-2-billion-corning",
+      "summary": "<p>Nvidia is partnering with Corning, which manufactures glass used in smartphones as well as optical fiber and hardware components for data centers, to build three new factories in North Carolina and Texas focused on optical technologies. As part of the arrangement, Corning has issued Nvidia ...</p>",
+      "published_raw": "2026-05-06T20:43:49Z",
+      "source": "The Information AI",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "enterprise",
+        "exclusive"
+      ],
+      "published_at": "2026-05-06T20:43:49+00:00",
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": "NVIDIA",
+      "matched_tags": [
+        "pricing",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Nvidia CEO says AI partnership with Corning will 'revitalize American manufacturing'",
+      "url": "https://www.cnbc.com/2026/05/07/nvidia-ceo-ai-partnership-corning-revitalize-american-manufacturing.html",
+      "summary": "Nvidia CEO Jensen Huang highlighted his company's partnership with Corning as an opportunity to reinvest in American manufacturing.",
+      "published_raw": "Thu, 07 May 2026 22:57:30 GMT",
+      "source": "CNBC Technology",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "business",
+        "funding"
+      ],
+      "published_at": "2026-05-07T22:57:30+00:00",
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": "NVIDIA",
+      "matched_tags": [
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "OpenAI rolls out new model for cybersecurity teams a month after Anthropic's Mythos debut",
+      "url": "https://www.cnbc.com/2026/05/07/openai-rolls-out-new-gpt-5point5-cyber-to-vetted-cybersecurity-teams.html",
+      "summary": "OpenAI said GPT-5.5-Cyber, a variation of its latest AI model, is rolling out in a limited preview capacity to vetted cybersecurity teams.",
+      "published_raw": "Thu, 07 May 2026 22:06:20 GMT",
+      "source": "CNBC Technology",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "business",
+        "funding"
+      ],
+      "published_at": "2026-05-07T22:06:20+00:00",
+      "module": "model",
+      "importance_score": 2,
+      "matched_company": "OpenAI",
+      "matched_tags": [
+        "model"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "IREN inks AI infrastructure deal with Nvidia",
+      "url": "https://www.cnbc.com/2026/05/07/iren-stock-ai-infrastructure-nvidia.html",
+      "summary": "Data center operator IREN announced a partnership with semiconductor giant Nvidia.",
+      "published_raw": "Thu, 07 May 2026 23:02:37 GMT",
+      "source": "CNBC Technology",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "business",
+        "funding"
+      ],
+      "published_at": "2026-05-07T23:02:37+00:00",
+      "module": "operation",
+      "importance_score": 2,
+      "matched_company": "NVIDIA",
+      "matched_tags": [
+        "browser-agent",
+        "operation"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "DoorDash pops 12% on strong earnings, upbeat order growth guidance",
+      "url": "https://www.cnbc.com/2026/05/06/doordash-dash-earnings-q1-2026.html",
+      "summary": "DoorDash is in the middle of a massive spending initiative as it builds out a new tech platform following a string of acquisitions.",
+      "published_raw": "Wed, 06 May 2026 21:33:21 GMT",
+      "source": "CNBC Technology",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "business",
+        "funding"
+      ],
+      "published_at": "2026-05-06T21:33:21+00:00",
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Elon Musk's Terafab chip factory in Texas could cost up to $119 billion, filing shows",
+      "url": "https://www.cnbc.com/2026/05/06/elon-musks-spacex-chip-fab-in-texas-to-cost-up-to-119-billion.html",
+      "summary": "Elon Musk's giant Terafab facility in Texas could cost up to $119 billion, with hopes of manufacturing chips for Tesla, SpaceX and xAI",
+      "published_raw": "Wed, 06 May 2026 19:40:16 GMT",
+      "source": "CNBC Technology",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "business",
+        "funding"
+      ],
+      "published_at": "2026-05-06T19:40:16+00:00",
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": "xAI",
+      "matched_tags": [
+        "pricing",
+        "product",
+        "startup"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Nvidia to invest up to $3.2 billion in Corning as part of massive optical fiber deal with 3 new factories focused on AI",
+      "url": "https://www.cnbc.com/2026/05/06/nvidia-corning-optical-factories-nc-texas-ai.html",
+      "summary": "Corning is opening three new advanced manufacturing plants in the U.S. dedicated entirely to optical technologies for Nvidia.",
+      "published_raw": "Wed, 06 May 2026 20:12:47 GMT",
+      "source": "CNBC Technology",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "business",
+        "funding"
+      ],
+      "published_at": "2026-05-06T20:12:47+00:00",
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": "NVIDIA",
+      "matched_tags": [
+        "pricing",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "10 secret Netflix codes I use to find hidden movies (and how to enter them) - it's easy",
+      "url": "https://www.zdnet.com/article/netflix-codes-how-to-find-hidden-movies-free/",
+      "summary": "Netflix codes let you access movies in buried genres and micro-categories - for free. Here's how, plus my favorites.",
+      "published_raw": "Thu, 07 May 2026 12:10:00 GMT",
+      "source": "ZDNet AI",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "enterprise",
+        "product"
+      ],
+      "published_at": "2026-05-07T12:10:00+00:00",
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "coding",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "How I upgraded my Sonos soundbar's audio quality - 3 easy and free methods",
+      "url": "https://www.zdnet.com/article/how-to-improve-sonos-soundbar-quality/",
+      "summary": "If you're not satisfied with your soundbar's audio performance, these quick and simple tweaks made a big difference for me.",
+      "published_raw": "Thu, 07 May 2026 01:00:50 GMT",
+      "source": "ZDNet AI",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "enterprise",
+        "product"
+      ],
+      "published_at": "2026-05-07T01:00:50+00:00",
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": "Udio",
+      "matched_tags": [
+        "multimodal",
+        "product",
+        "startup"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Subquadratic claims to break LLM scaling limits! 1000x less costs",
+      "url": "https://v.redd.it/jqncdi6ieozg1",
+      "summary": "First, to join the early access queue, you must submit a form on their website. https://subq.ai/\n\nThe startup Subquadratic, founded by ex-DeepMind and Meta engineers, claims to have developed an architecture that reduces processing costs by up to 1,000x compared to current models.\n\nHere is the breakdown of the technical claims:\n\nThe bottleneck\n\nCurrent LLMs face a scaling wall. Doubling the input ",
+      "published_raw": "2026-05-07T08:28:04+00:00",
+      "source": "r/singularity",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "futurism"
+      ],
+      "reddit_score": 654,
+      "reddit_comments": 157,
+      "module": "model",
+      "importance_score": 2,
+      "matched_company": "DeepMind",
+      "matched_tags": [
+        "model"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "WARNING: Open-OSS/privacy-filter MALWARE",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1t6febk/warning_openossprivacyfilter_malware/",
+      "summary": "There's this new \"model\" on Hugging Face titled `Open-OSS/privacy-filter` which is actually a customized infostealer virus. It's a fake version of the OpenAI privacy filter and it uses a Python-based dropper (`loader.py`) which downloads a malicious PowerShell command from the internet, which spawns another PowerShell command and downloads a shady EXE file and runs it using Task Scheduler.\n\nHere's",
+      "published_raw": "2026-05-07T16:20:54+00:00",
+      "source": "r/LocalLLaMA",
+      "tier": "community",
+      "module_hint": "model",
+      "source_tags": [
+        "open-weight",
+        "inference",
+        "community"
+      ],
+      "reddit_score": 586,
+      "reddit_comments": 97,
+      "module": "model",
+      "importance_score": 2,
+      "matched_company": "OpenAI",
+      "matched_tags": [
+        "model"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Anthropic co-founder Jack Clark says AI is nearing the point where it can automate AI research",
+      "url": "https://i.redd.it/b9cwfq1g56zg1.png",
+      "summary": "[Import AI 455: AI systems are about to start building themselves.](https://importai.substack.com/p/import-ai-455-automating-ai-research)\n\n* Jack Clark thinks there’s a \\~30% chance by the end of 2027 and a \\~60%+ chance by the end of 2028 that AI research becomes automated, with models eventually helping train the next generation of models themselves.\n* He argues AI may not need genius-level crea",
+      "published_raw": "2026-05-04T19:24:36+00:00",
+      "source": "r/singularity",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "futurism"
+      ],
+      "reddit_score": 582,
+      "reddit_comments": 132,
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": "Anthropic",
+      "matched_tags": [
+        "product",
+        "research"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Higher usage limits for Claude and a compute deal with SpaceX",
+      "url": "https://www.anthropic.com/news/higher-limits-spacex",
+      "summary": "HN score: 496 | comments: 469",
+      "published_raw": "2026-05-06T16:17:33+00:00",
+      "source": "Hacker News",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "hacker-news"
+      ],
+      "hn_score": 496,
+      "hn_comments": 469,
+      "published_at": "2026-05-06T16:17:33+00:00",
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Zuckerberg 'Personally Authorized and Encouraged' Meta's Copyright Infringement",
+      "url": "https://variety.com/2026/digital/news/meta-ai-mark-zuckerberg-copyright-infringement-lawsuit-publishers-scott-turow-1236738383/",
+      "summary": "HN score: 485 | comments: 441",
+      "published_raw": "2026-05-05T18:04:25+00:00",
+      "source": "Hacker News",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "hacker-news"
+      ],
+      "hn_score": 485,
+      "hn_comments": 441,
+      "published_at": "2026-05-05T18:04:25+00:00",
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": "Meta",
+      "matched_tags": [
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Train Your Own LLM from Scratch",
+      "url": "https://github.com/angelos-p/llm-from-scratch",
+      "summary": "HN score: 468 | comments: 50",
+      "published_raw": "2026-05-05T04:09:17+00:00",
+      "source": "Hacker News",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "hacker-news"
+      ],
+      "hn_score": 468,
+      "hn_comments": 50,
+      "published_at": "2026-05-05T04:09:17+00:00",
+      "module": "model",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "model"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Y Combinator's Stake in OpenAI (0.6%?)",
+      "url": "https://daringfireball.net/2026/05/y_combinators_stake_in_openai",
+      "summary": "HN score: 378 | comments: 68",
+      "published_raw": "2026-05-05T00:09:01+00:00",
+      "source": "Hacker News",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "hacker-news"
+      ],
+      "hn_score": 378,
+      "hn_comments": 68,
+      "published_at": "2026-05-05T00:09:01+00:00",
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": "OpenAI",
+      "matched_tags": [
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Dirtyfrag: Universal Linux LPE",
+      "url": "https://www.openwall.com/lists/oss-security/2026/05/07/8",
+      "summary": "HN score: 308 | comments: 145",
+      "published_raw": "2026-05-07T19:21:32+00:00",
+      "source": "Hacker News",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "hacker-news"
+      ],
+      "hn_score": 308,
+      "hn_comments": 145,
+      "published_at": "2026-05-07T19:21:32+00:00",
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Lessons for Agentic Coding: What should we do when code is cheap?",
+      "url": "https://www.dbreunig.com/2026/05/04/10-lessons-for-agentic-coding.html",
+      "summary": "HN score: 265 | comments: 236",
+      "published_raw": "2026-05-05T07:05:25+00:00",
+      "source": "Hacker News",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "hacker-news"
+      ],
+      "hn_score": 265,
+      "hn_comments": 236,
+      "published_at": "2026-05-05T07:05:25+00:00",
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "agent",
+        "coding",
+        "product"
+      ],
+      "rule_filtered": true
+    }
+  ]
+}

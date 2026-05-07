@@ -1,0 +1,47 @@
+{
+  "theme": "AI 推理基础与行业落地能力齐升，基础设施和支付集成成新焦点",
+  "bullets": [
+    {
+      "text": "**Together AI**：发布高效大规模推理基础研究，为生产级 AI 部署团队提供关键性能参考",
+      "slugs": [
+        "2026-05-07-together-ai-together-ai-efficient-inference-research"
+      ]
+    },
+    {
+      "text": "**Amazon Bedrock AgentCore Payments**：预览版支持 AI agent 通过 Coinbase、Stripe 自动支付，推动智能体自主交易场景落地",
+      "slugs": [
+        "2026-05-07-amazon-amazon-bedrock-agentcore-payments"
+      ]
+    },
+    {
+      "text": "**NVIDIA Spectrum-X with MRC**：以 MRC 升级以太网架构，显著提升超大规模 AI 部署的网络性能与弹性",
+      "slugs": [
+        "2026-05-07-nvidia-nvidia-spectrum-x-with-mrc"
+      ]
+    },
+    {
+      "text": "**Tomofun**：基于 AWS Inferentia2 部署宠物行为检测模型，降低推理成本，助力宠物科技产品规模化",
+      "slugs": [
+        "2026-05-07-tomofun-pet-behavior-detection-on-aws-inferentia2"
+      ]
+    },
+    {
+      "text": "**Microsoft GitHub OpenClaw**：举办开源 AI 项目交流活动，推动社区协作与创新，支持线上参与",
+      "slugs": [
+        "2026-05-07-microsoft-openclaw-after-hours-github"
+      ]
+    },
+    {
+      "text": "**Benchmaxxer Repellant**：Open ASR 榜单引入隐私保护新机制，提升评测公正性，促进行业健康发展",
+      "slugs": [
+        "2026-05-07-none-benchmaxxer-repellant-on-open-asr-leaderboard"
+      ]
+    },
+    {
+      "text": "**Amazon SageMaker AI**：集成 MLflow v3.10，优化生成式 AI 实验管理，提升团队协作效率",
+      "slugs": [
+        "2026-05-07-amazon-mlflow-v3-10-on-amazon-sagemaker-ai"
+      ]
+    }
+  ]
+}

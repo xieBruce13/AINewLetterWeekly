@@ -4,7 +4,8 @@ import { auth } from "@/lib/auth";
 import { getItemBySlug, getUserItemState } from "@/lib/db/queries";
 import { ItemActions } from "@/components/item-actions";
 import { WhyShown } from "@/components/why-shown";
-import { ArrowLeft, MessageSquare, ExternalLink } from "lucide-react";
+import { ItemPageShell } from "@/components/item-page-shell";
+import { ArrowLeft, ExternalLink } from "lucide-react";
 import { storyDate } from "@/lib/utils";
 import { moduleLabel } from "@/lib/modules";
 
@@ -108,8 +109,12 @@ export default async function ItemDetailPage({
   const quotes = Array.isArray(rec.quotes) ? rec.quotes : [];
 
   return (
+    <ItemPageShell
+      item={{ id: item.id, name: item.name, company: item.company, slug: item.slug }}
+      isAuthenticated={!!session?.user?.id}
+    >
     <article className="bg-claude-canvas dark:bg-claude-dark">
-      <div className="mx-auto w-full max-w-[1120px] px-5 py-10 sm:px-8 sm:py-16">
+      <div className="mx-auto w-full max-w-[760px] px-5 py-10 sm:px-8 sm:py-16">
         <Link
           href="/"
           className="mb-8 inline-flex items-center gap-1 text-[13px] text-claude-coral hover:underline"
@@ -141,10 +146,6 @@ export default async function ItemDetailPage({
           </h1>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <Link href={`/chat?item=${item.id}`} className="btn-coral press">
-              <MessageSquare className="h-4 w-4" />
-              和 Agent 讨论这条
-            </Link>
             {sourceUrl && (
               <a
                 href={sourceUrl}
@@ -480,6 +481,7 @@ export default async function ItemDetailPage({
         </div>{/* end grid */}
       </div>
     </article>
+    </ItemPageShell>
   );
 }
 

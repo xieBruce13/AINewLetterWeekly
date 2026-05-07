@@ -1,14 +1,16 @@
 """
 tools/scraper.py — Fast RSS/API feed collector. Zero AI calls.
 
-Collects raw AI news items from structured sources (RSS feeds, HN API,
-Reddit JSON) and writes a flat JSON list to stdout or a file.
+Collects raw AI news items from structured sources defined in tools/sources.yaml
+(RSS/Atom feeds, Hacker News API, Reddit JSON) and writes a flat JSON list.
 
 Usage:
     python tools/scraper.py --days 7 --out newsletter_runs/YYYY-MM-DD/raw_scraped.json
 
-Then feed raw_scraped.json into the AI filter+rank step instead of
-having an AI agent manually browse the web.
+Then feed raw_scraped.json into rule_filter.py (deterministic) → ai_filter.py (AI
+enrichment) instead of having an AI agent manually browse the web.
+
+Source registry: tools/sources.yaml  ← edit that file to add/remove feeds.
 """
 
 import argparse
@@ -17,66 +19,65 @@ import sys
 import time
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
+from pathlib import Path
 from urllib.request import Request, urlopen
 from urllib.error import URLError, HTTPError
 
+try:
+    import yaml  # PyYAML
+except ImportError:
+    print(
+        "PyYAML is required. Run: pip install pyyaml",
+        file=sys.stderr,
+    )
+    sys.exit(1)
+
 # ---------------------------------------------------------------------------
-# Source registry
+# Load source registry from YAML
 # ---------------------------------------------------------------------------
 
-RSS_SOURCES = [
-    # ── Official model labs ──────────────────────────────────────────────
-    {"name": "OpenAI Blog",          "url": "https://openai.com/blog/rss/",                                   "tier": "official", "module_hint": "model"},
-    {"name": "Anthropic News",       "url": "https://www.anthropic.com/news/rss.xml",                         "tier": "official", "module_hint": "model"},
-    {"name": "Google DeepMind",      "url": "https://deepmind.google/blog/feed/basic/",                       "tier": "official", "module_hint": "model"},
-    {"name": "Google AI Blog",       "url": "https://blog.google/technology/ai/rss/",                         "tier": "official", "module_hint": "model"},
-    {"name": "Meta AI Blog",         "url": "https://ai.meta.com/blog/rss/",                                  "tier": "official", "module_hint": "model"},
-    {"name": "Mistral AI News",      "url": "https://mistral.ai/news/rss.xml",                                "tier": "official", "module_hint": "model"},
-    {"name": "HuggingFace Blog",     "url": "https://huggingface.co/blog/feed.xml",                           "tier": "official", "module_hint": "model"},
-    {"name": "Cohere Blog",          "url": "https://cohere.com/blog/rss",                                    "tier": "official", "module_hint": "model"},
-    {"name": "xAI News",             "url": "https://x.ai/news/rss",                                          "tier": "official", "module_hint": "model"},
-    {"name": "Stability AI Blog",    "url": "https://stability.ai/news/rss.xml",                              "tier": "official", "module_hint": "model"},
-    # ── AI Creative / Image / Video / Design tools ───────────────────────
-    {"name": "Luma AI Blog",         "url": "https://lumalabs.ai/blog/rss.xml",                               "tier": "official", "module_hint": "product"},
-    {"name": "Runway Blog",          "url": "https://runwayml.com/blog/rss.xml",                              "tier": "official", "module_hint": "product"},
-    {"name": "Runway Research",      "url": "https://research.runwayml.com/feed.xml",                         "tier": "official", "module_hint": "product"},
-    {"name": "Pika Blog",            "url": "https://pika.art/blog/rss.xml",                                  "tier": "official", "module_hint": "product"},
-    {"name": "Midjourney Updates",   "url": "https://updates.midjourney.com/rss.xml",                         "tier": "official", "module_hint": "product"},
-    {"name": "Adobe Blog AI",        "url": "https://blog.adobe.com/en/topics/ai-ml/feed",                    "tier": "official", "module_hint": "product"},
-    {"name": "Figma Blog",           "url": "https://www.figma.com/blog/rss.xml",                             "tier": "official", "module_hint": "product"},
-    {"name": "Canva Newsroom",       "url": "https://www.canva.com/newsroom/rss.xml",                         "tier": "official", "module_hint": "product"},
-    {"name": "ElevenLabs Blog",      "url": "https://elevenlabs.io/blog/rss.xml",                             "tier": "official", "module_hint": "product"},
-    {"name": "Suno Blog",            "url": "https://suno.com/blog/rss.xml",                                  "tier": "official", "module_hint": "product"},
-    {"name": "Udio Blog",            "url": "https://www.udio.com/blog/rss.xml",                              "tier": "official", "module_hint": "product"},
-    {"name": "Krea AI Blog",         "url": "https://www.krea.ai/blog/rss.xml",                               "tier": "official", "module_hint": "product"},
-    # ── Coding / Agent tooling ───────────────────────────────────────────
-    {"name": "Cursor Changelog",     "url": "https://cursor.com/changelog/rss.xml",                           "tier": "official", "module_hint": "product"},
-    {"name": "Vercel Blog",          "url": "https://vercel.com/blog/rss.xml",                                "tier": "official", "module_hint": "product"},
-    {"name": "LangChain Blog",       "url": "https://blog.langchain.dev/rss/",                                "tier": "official", "module_hint": "product"},
-    {"name": "Linear Blog",          "url": "https://linear.app/blog/rss.xml",                                "tier": "official", "module_hint": "product"},
-    # ── Tech press ───────────────────────────────────────────────────────
-    {"name": "TechCrunch AI",        "url": "https://techcrunch.com/category/artificial-intelligence/feed/",  "tier": "press", "module_hint": None},
-    {"name": "VentureBeat AI",       "url": "https://venturebeat.com/ai/feed/",                               "tier": "press", "module_hint": None},
-    {"name": "The Verge AI",         "url": "https://www.theverge.com/ai-artificial-intelligence/rss/index.xml", "tier": "press", "module_hint": None},
-    {"name": "Ars Technica AI",      "url": "https://feeds.arstechnica.com/arstechnica/technology-lab",       "tier": "press", "module_hint": None},
-    {"name": "Wired AI",             "url": "https://www.wired.com/feed/tag/ai/latest/rss",                   "tier": "press", "module_hint": None},
-    {"name": "MIT Tech Review AI",   "url": "https://www.technologyreview.com/feed/",                         "tier": "press", "module_hint": None},
-    {"name": "9to5Mac AI",           "url": "https://9to5mac.com/guides/artificial-intelligence/feed/",       "tier": "press", "module_hint": None},
-    {"name": "The Information AI",   "url": "https://www.theinformation.com/feed",                            "tier": "press", "module_hint": None},
-]
+SOURCES_YAML = Path(__file__).parent / "sources.yaml"
 
-HN_AI_KEYWORDS = [
-    "gpt", "claude", "llm", "openai", "anthropic", "gemini", "mistral",
-    "deepseek", "llama", "ai ", " ai,", "artificial intelligence",
-    "machine learning", "neural", "transformer", "diffusion", "midjourney",
-    "stable diffusion", "cursor", "copilot", "agentic", "agent",
-    "embedding", "rag", "vector", "hugging face", "huggingface",
-    "inference", "fine-tun", "quantiz", "grok", "xai", "runway",
-    "sora", "veo", "imagen", "firefly", "luma", "pika", "kling",
-    "flux", "comfyui", "image gen", "video gen", "text-to-image",
-    "text-to-video", "elevenlabs", "suno", "udio", "figma", "adobe",
-    "canva", "creative", "design tool", "multimodal",
-]
+
+def _load_sources() -> dict:
+    """Load and return the parsed sources.yaml dict."""
+    if not SOURCES_YAML.exists():
+        print(
+            f"Warning: sources.yaml not found at {SOURCES_YAML}. "
+            "Using empty source list.",
+            file=sys.stderr,
+        )
+        return {}
+    with SOURCES_YAML.open("r", encoding="utf-8") as fh:
+        return yaml.safe_load(fh) or {}
+
+
+def _rss_sources(config: dict) -> list[dict]:
+    """Return active RSS/Atom source dicts."""
+    return [
+        s for s in (config.get("rss_sources") or [])
+        if s.get("active", True)
+    ]
+
+
+def _reddit_sources(config: dict) -> list[dict]:
+    """Return active Reddit source dicts."""
+    return [
+        s for s in (config.get("reddit_sources") or [])
+        if s.get("active", True)
+    ]
+
+
+def _hn_config(config: dict) -> dict:
+    """Return the HackerNews config block (with defaults)."""
+    hn = config.get("hacker_news") or {}
+    return {
+        "enabled": hn.get("enabled", True),
+        "max_stories": hn.get("max_stories", 500),
+        "min_score": hn.get("min_score", 50),
+        "keywords": [str(k).lower() for k in (hn.get("keywords") or [])],
+    }
+
 
 # ---------------------------------------------------------------------------
 # HTTP helpers
@@ -88,7 +89,7 @@ HEADERS = {
 }
 
 
-def fetch(url: str, timeout: int = 10) -> bytes | None:
+def fetch(url: str, timeout: int = 12) -> bytes | None:
     try:
         req = Request(url, headers=HEADERS)
         with urlopen(req, timeout=timeout) as resp:
@@ -103,15 +104,15 @@ def fetch(url: str, timeout: int = 10) -> bytes | None:
 # ---------------------------------------------------------------------------
 
 NS = {
-    "atom": "http://www.w3.org/2005/Atom",
-    "dc":   "http://purl.org/dc/elements/1.1/",
-    "media":"http://search.yahoo.com/mrss/",
+    "atom":    "http://www.w3.org/2005/Atom",
+    "dc":      "http://purl.org/dc/elements/1.1/",
+    "media":   "http://search.yahoo.com/mrss/",
     "content": "http://purl.org/rss/1.0/modules/content/",
 }
 
 
 def _text(el, *tags):
-    """Return stripped text from the first matching tag, or ''."""
+    """Return stripped text from the first matching child tag, or ''."""
     for tag in tags:
         child = el.find(tag, NS) or el.find(tag)
         if child is not None and child.text:
@@ -132,13 +133,28 @@ def _parse_date(s: str) -> datetime | None:
     ]
     for fmt in formats:
         try:
-            dt = datetime.strptime(s.strip(), fmt)
-            if dt.tzinfo is None:
-                dt = dt.replace(tzinfo=timezone.utc)
-            return dt
+            d = datetime.strptime(s.strip(), fmt)
+            if d.tzinfo is None:
+                d = d.replace(tzinfo=timezone.utc)
+            return d
         except ValueError:
             continue
     return None
+
+
+def _make_item(title: str, url: str, summary: str, pub_raw: str,
+               source: dict) -> dict:
+    """Build a normalised raw item dict from feed data + source metadata."""
+    return {
+        "title": title,
+        "url": url,
+        "summary": summary[:600],
+        "published_raw": pub_raw,
+        "source": source["name"],
+        "tier": source["tier"],
+        "module_hint": source.get("module") or source.get("module_hint"),
+        "source_tags": source.get("tags") or [],
+    }
 
 
 def parse_rss_atom(raw: bytes, source: dict) -> list[dict]:
@@ -151,44 +167,49 @@ def parse_rss_atom(raw: bytes, source: dict) -> list[dict]:
     tag = root.tag.lower()
 
     # ── Atom feed ────────────────────────────────────────────────────────
-    if "atom" in tag or root.tag.endswith("}feed") or root.tag == "{http://www.w3.org/2005/Atom}feed":
+    if ("atom" in tag
+            or root.tag.endswith("}feed")
+            or root.tag == "{http://www.w3.org/2005/Atom}feed"):
         for entry in root.findall("{http://www.w3.org/2005/Atom}entry"):
             link_el = entry.find("{http://www.w3.org/2005/Atom}link[@rel='alternate']")
             if link_el is None:
                 link_el = entry.find("{http://www.w3.org/2005/Atom}link")
-            url = (link_el.attrib.get("href", "") if link_el is not None else "")
+            url = link_el.attrib.get("href", "") if link_el is not None else ""
             title = _text(entry, "{http://www.w3.org/2005/Atom}title")
-            summary = _text(entry, "{http://www.w3.org/2005/Atom}summary",
-                            "{http://www.w3.org/2005/Atom}content")
-            pub = _text(entry, "{http://www.w3.org/2005/Atom}published",
-                        "{http://www.w3.org/2005/Atom}updated")
-            items.append({
-                "title": title, "url": url,
-                "summary": summary[:600], "published_raw": pub,
-                "source": source["name"], "tier": source["tier"],
-                "module_hint": source["module_hint"],
-            })
+            summary = _text(
+                entry,
+                "{http://www.w3.org/2005/Atom}summary",
+                "{http://www.w3.org/2005/Atom}content",
+            )
+            pub = _text(
+                entry,
+                "{http://www.w3.org/2005/Atom}published",
+                "{http://www.w3.org/2005/Atom}updated",
+            )
+            items.append(_make_item(title, url, summary, pub, source))
     else:
         # ── RSS 2.0 / 1.0 ────────────────────────────────────────────────
         channel = root.find("channel") or root
         for item in channel.findall("item"):
-            url = _text(item, "link")
-            title = _text(item, "title")
+            url     = _text(item, "link")
+            title   = _text(item, "title")
             summary = _text(item, "description", "content:encoded", "dc:description")
-            pub = _text(item, "pubDate", "dc:date")
-            items.append({
-                "title": title, "url": url,
-                "summary": summary[:600], "published_raw": pub,
-                "source": source["name"], "tier": source["tier"],
-                "module_hint": source["module_hint"],
-            })
+            pub     = _text(item, "pubDate", "dc:date")
+            items.append(_make_item(title, url, summary, pub, source))
 
     return items
 
 
-def fetch_hacker_news(cutoff: datetime, max_stories: int = 500) -> list[dict]:
-    """Pull top HN stories, filter for AI keywords, keep those within cutoff."""
-    print("  ↳ Fetching Hacker News top stories...", file=sys.stderr)
+def fetch_hacker_news(hn_cfg: dict, cutoff: datetime) -> list[dict]:
+    """Pull top HN stories, keyword-filter for AI relevance, respect cutoff."""
+    if not hn_cfg.get("enabled"):
+        return []
+
+    max_stories = hn_cfg["max_stories"]
+    min_score   = hn_cfg["min_score"]
+    keywords    = hn_cfg["keywords"]
+
+    print(f"  ↳ Fetching Hacker News top stories (top {max_stories})...", file=sys.stderr)
     raw = fetch("https://hacker-news.firebaseio.com/v0/topstories.json")
     if not raw:
         return []
@@ -201,34 +222,37 @@ def fetch_hacker_news(cutoff: datetime, max_stories: int = 500) -> list[dict]:
             continue
         item = json.loads(raw_item)
         title = (item.get("title") or "").lower()
-        url = item.get("url") or f"https://news.ycombinator.com/item?id={story_id}"
-        # Filter for AI relevance
-        if not any(kw in title for kw in HN_AI_KEYWORDS):
+        score = item.get("score", 0) or 0
+        if score < min_score:
             continue
+        if not any(kw in title for kw in keywords):
+            continue
+        url = item.get("url") or f"https://news.ycombinator.com/item?id={story_id}"
         ts = item.get("time")
         pub_dt = datetime.fromtimestamp(ts, tz=timezone.utc) if ts else None
         if pub_dt and pub_dt < cutoff:
             continue
         results.append({
-            "title": item.get("title", ""),
-            "url": url,
-            "summary": f"HN score: {item.get('score',0)} | comments: {item.get('descendants',0)}",
+            "title":        item.get("title", ""),
+            "url":          url,
+            "summary":      f"HN score: {score} | comments: {item.get('descendants', 0)}",
             "published_raw": pub_dt.isoformat() if pub_dt else "",
-            "source": "Hacker News",
-            "tier": "community",
-            "module_hint": None,
-            "hn_score": item.get("score", 0),
-            "hn_comments": item.get("descendants", 0),
+            "source":       "Hacker News",
+            "tier":         "community",
+            "module_hint":  None,
+            "source_tags":  ["hacker-news"],
+            "hn_score":     score,
+            "hn_comments":  item.get("descendants", 0),
         })
-        # Be polite — small delay between item fetches
-        time.sleep(0.05)
+        time.sleep(0.05)  # polite per-item delay
 
     print(f"    → {len(results)} AI-relevant HN stories", file=sys.stderr)
     return results
 
 
-def fetch_reddit(subreddit: str, cutoff: datetime, limit: int = 50) -> list[dict]:
-    """Fetch new posts from a subreddit via JSON endpoint."""
+def fetch_reddit(source: dict, cutoff: datetime, limit: int = 50) -> list[dict]:
+    """Fetch new posts from a subreddit via the public JSON endpoint."""
+    subreddit = source["subreddit"]
     url = f"https://www.reddit.com/r/{subreddit}/new.json?limit={limit}"
     raw = fetch(url)
     if not raw:
@@ -246,14 +270,15 @@ def fetch_reddit(subreddit: str, cutoff: datetime, limit: int = 50) -> list[dict
         if pub_dt < cutoff:
             continue
         results.append({
-            "title": p.get("title", ""),
-            "url": p.get("url") or f"https://reddit.com{p.get('permalink','')}",
-            "summary": (p.get("selftext") or "")[:400],
+            "title":         p.get("title", ""),
+            "url":           p.get("url") or f"https://reddit.com{p.get('permalink', '')}",
+            "summary":       (p.get("selftext") or "")[:400],
             "published_raw": pub_dt.isoformat(),
-            "source": f"r/{subreddit}",
-            "tier": "community",
-            "module_hint": None,
-            "reddit_score": p.get("score", 0),
+            "source":        f"r/{subreddit}",
+            "tier":          "community",
+            "module_hint":   source.get("module_hint"),
+            "source_tags":   source.get("tags") or [],
+            "reddit_score":  p.get("score", 0),
             "reddit_comments": p.get("num_comments", 0),
         })
     return results
@@ -263,13 +288,21 @@ def fetch_reddit(subreddit: str, cutoff: datetime, limit: int = 50) -> list[dict
 # Main collector
 # ---------------------------------------------------------------------------
 
-def collect(days: int = 7) -> list[dict]:
+def collect(days: int = 7, sources_config: dict | None = None) -> list[dict]:
+    if sources_config is None:
+        sources_config = _load_sources()
+
+    rss_srcs    = _rss_sources(sources_config)
+    reddit_srcs = _reddit_sources(sources_config)
+    hn_cfg      = _hn_config(sources_config)
+
     cutoff = datetime.now(tz=timezone.utc) - timedelta(days=days)
     all_items: list[dict] = []
     seen_urls: set[str] = set()
 
     # ── RSS/Atom sources ─────────────────────────────────────────────────
-    for source in RSS_SOURCES:
+    print(f"\nCollecting from {len(rss_srcs)} RSS/Atom sources...", file=sys.stderr)
+    for source in rss_srcs:
         print(f"  ↳ {source['name']}...", file=sys.stderr)
         raw = fetch(source["url"])
         if not raw:
@@ -292,8 +325,8 @@ def collect(days: int = 7) -> list[dict]:
         time.sleep(0.3)
 
     # ── Hacker News ──────────────────────────────────────────────────────
-    hn_items = fetch_hacker_news(cutoff)
-    for item in hn_items:
+    print("\nCollecting from Hacker News...", file=sys.stderr)
+    for item in fetch_hacker_news(hn_cfg, cutoff):
         if item["url"] not in seen_urls:
             pub = _parse_date(item["published_raw"])
             item["published_at"] = pub.isoformat() if pub else None
@@ -301,16 +334,11 @@ def collect(days: int = 7) -> list[dict]:
             all_items.append(item)
 
     # ── Reddit ───────────────────────────────────────────────────────────
-    reddit_subs = [
-        "MachineLearning", "LocalLLaMA", "artificial", "singularity",
-        "ChatGPT", "ClaudeAI",
-        # AI creative tool communities
-        "StableDiffusion", "midjourney", "aivideo", "AIArt",
-        "ChatGPTPromptEngineering", "artificial",
-    ]
-    for sub in reddit_subs:
+    print(f"\nCollecting from {len(reddit_srcs)} subreddits...", file=sys.stderr)
+    for source in reddit_srcs:
+        sub = source["subreddit"]
         print(f"  ↳ r/{sub}...", file=sys.stderr)
-        items = fetch_reddit(sub, cutoff)
+        items = fetch_reddit(source, cutoff)
         added = 0
         for item in items:
             if item["url"] not in seen_urls:
@@ -320,10 +348,13 @@ def collect(days: int = 7) -> list[dict]:
         print(f"    → {added} items", file=sys.stderr)
         time.sleep(0.5)
 
-    # Sort by source tier priority, then recency
+    # Sort: tier priority first, then social signal strength
     tier_order = {"official": 0, "press": 1, "community": 2}
     all_items.sort(
-        key=lambda x: (tier_order.get(x["tier"], 9), -(x.get("hn_score") or x.get("reddit_score") or 0))
+        key=lambda x: (
+            tier_order.get(x.get("tier"), 9),
+            -(x.get("hn_score") or x.get("reddit_score") or 0),
+        )
     )
 
     return all_items
@@ -335,12 +366,30 @@ def collect(days: int = 7) -> list[dict]:
 
 def main():
     parser = argparse.ArgumentParser(description="Scrape AI news from RSS/API feeds.")
-    parser.add_argument("--days", type=int, default=7, help="Look-back window in days (default: 7)")
-    parser.add_argument("--out", type=str, default=None, help="Output JSON file (default: stdout)")
+    parser.add_argument("--days", type=int, default=7,
+                        help="Look-back window in days (default: 7)")
+    parser.add_argument("--out",  type=str, default=None,
+                        help="Output JSON file (default: stdout)")
+    parser.add_argument("--sources", type=str, default=None,
+                        help="Path to a custom sources.yaml (default: tools/sources.yaml)")
     args = parser.parse_args()
 
-    print(f"Collecting AI news from the last {args.days} days...", file=sys.stderr)
-    items = collect(days=args.days)
+    if args.sources:
+        import yaml as _yaml  # noqa
+        with open(args.sources, encoding="utf-8") as fh:
+            sources_config = _yaml.safe_load(fh)
+    else:
+        sources_config = _load_sources()
+
+    rss_count    = len(_rss_sources(sources_config))
+    reddit_count = len(_reddit_sources(sources_config))
+    print(
+        f"Collecting AI news from the last {args.days} days "
+        f"({rss_count} RSS feeds, {reddit_count} subreddits, HN)...",
+        file=sys.stderr,
+    )
+
+    items = collect(days=args.days, sources_config=sources_config)
     print(f"\nTotal: {len(items)} items collected", file=sys.stderr)
 
     output = {
@@ -353,9 +402,9 @@ def main():
 
     if args.out:
         import os
-        os.makedirs(os.path.dirname(args.out), exist_ok=True) if os.path.dirname(args.out) else None
-        with open(args.out, "w", encoding="utf-8") as f:
-            f.write(payload)
+        out_path = Path(args.out)
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        out_path.write_text(payload, encoding="utf-8")
         print(f"Written to {args.out}", file=sys.stderr)
     else:
         print(payload)

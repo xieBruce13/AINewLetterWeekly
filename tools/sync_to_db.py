@@ -430,22 +430,23 @@ ON CONFLICT (slug) DO UPDATE SET
   source_tier         = EXCLUDED.source_tier,
   verification_status = EXCLUDED.verification_status,
   confidence          = EXCLUDED.confidence,
-  headline            = EXCLUDED.headline,
   one_line_judgment   = EXCLUDED.one_line_judgment,
   relevance_to_us     = EXCLUDED.relevance_to_us,
   tags                = EXCLUDED.tags,
   image_urls          = EXCLUDED.image_urls,
   primary_image       = EXCLUDED.primary_image,
-  record              = EXCLUDED.record || (
+  -- Merge order: existing _zh keys → NEW record. The right side of `||`
+  -- wins on duplicate keys, so new _zh values overwrite old, but old _zh
+  -- values are kept if the incoming record happens to be missing them
+  -- (defensive against partial re-syncs that only carry English fields).
+  record              = (
                           SELECT COALESCE(jsonb_object_agg(key, value), '{}'::jsonb)
                           FROM jsonb_each(news_items.record)
-                          WHERE key LIKE '%_zh'
-                        ),
-  headline            = CASE
-                          WHEN news_items.record->>'summary_zh' IS NOT NULL
-                          THEN news_items.headline
-                          ELSE EXCLUDED.headline
-                        END,
+                          WHERE key LIKE '%%_zh'
+                        ) || EXCLUDED.record,
+  -- Always take the freshest factual headline. Legacy "preserve old when
+  -- summary_zh exists" caused stale rows to never update.
+  headline            = EXCLUDED.headline,
   embedding           = COALESCE(EXCLUDED.embedding, news_items.embedding),
   updated_at          = now();
 """

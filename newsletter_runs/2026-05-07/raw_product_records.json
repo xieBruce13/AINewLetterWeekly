@@ -1,0 +1,1089 @@
+[
+  {
+    "name": "Amazon Bedrock AgentCore Payments",
+    "company": "Amazon",
+    "module": "operation",
+    "updated_at": "2026-05-07",
+    "headline": "Amazon announced a preview of Bedrock AgentCore Payments, enabling AI agents to transact using Coinbase and Stripe.",
+    "one_line_judgment": "A step toward autonomous agents handling real-world transactions, but still early-stage.",
+    "official_claims": [
+      "AgentCore Payments allows AI agents to instantly access and pay for what they use.",
+      "Developed in partnership with Coinbase and Stripe."
+    ],
+    "external_validation_summary": null,
+    "real_change_notes": "Preview release of payment integration for Bedrock AgentCore agents.",
+    "core_positioning": "Enables AI agents to perform real-world transactions directly, expanding agent use cases.",
+    "user_scenarios": [
+      "AI agents purchasing APIs or services on behalf of users",
+      "Automated procurement or subscription management"
+    ],
+    "business_model": null,
+    "price_speed_cost_notes": null,
+    "user_market_feedback": {
+      "good": [
+        "Expands agent capabilities to include payments.",
+        "Partnership with major payment providers increases trust."
+      ],
+      "bad": [
+        "Still in preview; limited real-world adoption yet.",
+        "Potential compliance and security concerns."
+      ]
+    },
+    "ecosystem_echo": null,
+    "relevance_to_us": "Shows the direction of agent autonomy and integration with financial systems, relevant for teams building transactional AI products.",
+    "raw_urls": [
+      "https://aws.amazon.com/blogs/machine-learning/agents-that-transact-introducing-amazon-bedrock-agentcore-payments-built-with-coinbase-and-stripe/"
+    ],
+    "item_tier": "brief",
+    "tags": [
+      "agent",
+      "operation",
+      "payment",
+      "integration"
+    ],
+    "summary_zh": "Amazon 推出 Bedrock AgentCore Payments 预览版，支持 AI agent 通过 Coinbase 和 Stripe 实现自动支付与交易",
+    "key_points_zh": "支持 AI agent 直接发起和完成支付流程；集成 Coinbase 和 Stripe 两大支付平台；拓展 agent 在实际业务场景中的应用能力",
+    "scenarios_zh": "AI 工程师可开发具备自动采购、订阅管理等支付能力的智能体；产品经理可探索自动化服务购买等新型业务模式",
+    "business_model_zh": "目前为预览版，具体定价和商业模式待公布",
+    "feedback_zh": "正面：拓展 agent 能力，便于自动化业务流程；负面：合规与安全性仍需关注，实际落地有限",
+    "judgment_zh": "AI agent 支付能力是迈向自主智能体的重要一步，值得关注其后续发展和合规实现",
+    "relevance_zh": "为 AI 产品团队提供 agent 端到端自动化业务的能力参考，尤其适合探索智能体商业化场景",
+    "official_zh": "AgentCore Payments 让 AI agent 能即时访问和支付所用服务，由 Coinbase 和 Stripe 提供支付能力",
+    "community_zh": "社区关注 agent 金融能力的合规与安全性，实际应用场景有待进一步验证",
+    "issue_date": "2026-05-07"
+  },
+  {
+    "name": "Amazon Bedrock Feedback Analysis",
+    "company": "Amazon",
+    "module": "operation",
+    "updated_at": "2026-05-05",
+    "headline": "Hapag-Lloyd uses Amazon Bedrock, Elasticsearch, and open-source tools to analyze customer feedback with generative AI.",
+    "one_line_judgment": "A practical case of generative AI improving enterprise customer experience pipelines.",
+    "official_claims": [
+      "Bedrock enables generative AI–powered feedback analysis.",
+      "Integration with Elasticsearch and open-source frameworks."
+    ],
+    "external_validation_summary": null,
+    "real_change_notes": null,
+    "core_positioning": "Demonstrates how Bedrock can be used for actionable customer feedback analysis in enterprise settings.",
+    "user_scenarios": [
+      "Automated analysis of large-scale customer feedback",
+      "Generating insights for product and service improvements"
+    ],
+    "business_model": null,
+    "price_speed_cost_notes": null,
+    "user_market_feedback": {
+      "good": [
+        "Showcases real-world enterprise AI adoption.",
+        "Integrates with existing data infrastructure."
+      ],
+      "bad": [
+        "Case-specific; generalizability may vary.",
+        "Requires technical integration effort."
+      ]
+    },
+    "ecosystem_echo": null,
+    "relevance_to_us": "Highlights how generative AI can be embedded into enterprise feedback loops, relevant for product teams building analytics features.",
+    "raw_urls": [
+      "https://aws.amazon.com/blogs/machine-learning/how-hapag-lloyd-uses-amazon-bedrock-to-transform-customer-feedback-into-actionable-insights/"
+    ],
+    "item_tier": "brief",
+    "tags": [
+      "operation",
+      "enterprise",
+      "feedback",
+      "analytics"
+    ],
+    "summary_zh": "Amazon 助力 Hapag-Lloyd 利用 Bedrock、Elasticsearch 和开源框架实现客户反馈自动化分析",
+    "key_points_zh": "结合生成式 AI 自动分析大规模客户反馈；与企业现有数据系统无缝集成；提升客户体验与产品优化效率",
+    "scenarios_zh": "AI 工程师可参考企业级反馈分析方案；产品经理可借鉴生成式 AI 在客户体验提升中的应用",
+    "business_model_zh": "基于 Amazon Bedrock 平台，按使用量计费",
+    "feedback_zh": "正面：实际企业案例，展示生成式 AI 落地价值；负面：集成与定制化门槛较高",
+    "judgment_zh": "生成式 AI 在企业反馈分析中的应用已具备可复制性，值得关注其扩展性",
+    "relevance_zh": "为 AI 产品团队提供企业级反馈分析自动化的参考范例",
+    "official_zh": "Bedrock 支持生成式 AI 客户反馈分析，结合 Elasticsearch 与开源工具实现端到端流程",
+    "community_zh": "社区关注企业级 AI 应用的可扩展性与集成难度",
+    "issue_date": "2026-05-07"
+  },
+  {
+    "name": "MLflow v3.10 on Amazon SageMaker AI",
+    "company": "Amazon",
+    "module": "operation",
+    "updated_at": "2026-05-05",
+    "headline": "Amazon SageMaker AI now supports MLflow v3.10, enhancing generative AI development and experiment tracking.",
+    "one_line_judgment": "Brings up-to-date ML experiment management to SageMaker, improving workflow efficiency.",
+    "official_claims": [
+      "MLflow v3.10 brings enhanced capabilities for generative AI development.",
+      "New features for observability, evaluation, and workflow streamlining."
+    ],
+    "external_validation_summary": null,
+    "real_change_notes": "Added support for MLflow v3.10 in SageMaker AI MLflow Apps.",
+    "core_positioning": "Streamlines generative AI development and experiment tracking on SageMaker.",
+    "user_scenarios": [
+      "Managing and tracking generative AI experiments",
+      "Improving observability and evaluation in model development"
+    ],
+    "business_model": null,
+    "price_speed_cost_notes": null,
+    "user_market_feedback": {
+      "good": [
+        "Keeps SageMaker up-to-date with MLflow ecosystem.",
+        "Improves developer productivity."
+      ],
+      "bad": [
+        "Incremental update; not a breakthrough feature.",
+        "Requires users to adapt to new MLflow version."
+      ]
+    },
+    "ecosystem_echo": null,
+    "relevance_to_us": "Relevant for teams using SageMaker for generative AI, as it improves experiment management and workflow.",
+    "raw_urls": [
+      "https://aws.amazon.com/blogs/machine-learning/streamlining-generative-ai-development-with-mlflow-v3-10-on-amazon-sagemaker-ai/"
+    ],
+    "item_tier": "brief",
+    "tags": [
+      "operation",
+      "workflow",
+      "mlops",
+      "generative-ai"
+    ],
+    "summary_zh": "Amazon SageMaker AI 集成 MLflow v3.10，提升生成式 AI 开发与实验管理能力",
+    "key_points_zh": "支持最新 MLflow 版本，增强实验追踪与评估；提升生成式 AI 工作流可观测性；优化模型开发与部署流程",
+    "scenarios_zh": "AI 工程师可高效管理生成式模型实验；产品经理可提升团队开发与上线效率",
+    "business_model_zh": "基于 SageMaker 平台，按云资源计费",
+    "feedback_zh": "正面：对接主流 MLflow 工具链，提升生产力；负面：升级需适应新版本特性",
+    "judgment_zh": "SageMaker 持续对齐主流 ML 工具链，有助于提升团队协作与效率",
+    "relevance_zh": "为 AI 团队提供更强的实验管理与生成式 AI 开发支持",
+    "official_zh": "MLflow v3.10 为 SageMaker AI 带来更强的生成式 AI 开发与实验追踪能力",
+    "community_zh": "社区关注与主流 MLflow 生态兼容性及迁移成本",
+    "issue_date": "2026-05-07"
+  },
+  {
+    "name": "AgentCore Quality Optimization",
+    "company": "Amazon",
+    "module": "operation",
+    "updated_at": "2026-05-04",
+    "headline": "Amazon introduced agent quality optimization in AgentCore, now in preview, to improve agent performance via recommendations and evaluation.",
+    "one_line_judgment": "Addresses the challenge of agent performance drift with systematic evaluation and improvement tools.",
+    "official_claims": [
+      "Generate recommendations from production traces.",
+      "Validate with batch evaluation and A/B testing."
+    ],
+    "external_validation_summary": null,
+    "real_change_notes": "Preview release of agent quality optimization features in AgentCore.",
+    "core_positioning": "Provides tools for continuous agent performance monitoring and improvement.",
+    "user_scenarios": [
+      "AI teams monitoring agent quality in production",
+      "Automated recommendations for agent improvement"
+    ],
+    "business_model": null,
+    "price_speed_cost_notes": null,
+    "user_market_feedback": {
+      "good": [
+        "Systematic approach to agent quality management.",
+        "Supports A/B testing and batch evaluation."
+      ],
+      "bad": [
+        "Preview stage; feature completeness unknown.",
+        "May require additional integration work."
+      ]
+    },
+    "ecosystem_echo": null,
+    "relevance_to_us": "Helps AI product teams maintain and improve agent quality over time, crucial for production reliability.",
+    "raw_urls": [
+      "https://aws.amazon.com/blogs/machine-learning/introducing-agent-quality-optimization-in-agentcore-now-in-preview/"
+    ],
+    "item_tier": "brief",
+    "tags": [
+      "agent",
+      "operation",
+      "quality",
+      "evaluation"
+    ],
+    "summary_zh": "Amazon 推出 AgentCore 代理质量优化预览版，支持生产追踪、批量评估与 A/B 测试提升 agent 表现",
+    "key_points_zh": "自动生成优化建议，基于生产数据追踪；支持批量评估与 A/B 测试；提升 agent 持续表现与可靠性",
+    "scenarios_zh": "AI 工程师可持续监控和优化 agent 质量；产品经理可用数据驱动 agent 迭代",
+    "business_model_zh": "预览版，具体商业模式待公布",
+    "feedback_zh": "正面：系统化提升 agent 质量；负面：功能完整性和集成难度待验证",
+    "judgment_zh": "为 agent 持续优化提供工具链，适合关注生产质量的团队",
+    "relevance_zh": "帮助 AI 产品团队解决 agent 质量衰减问题，提升线上可靠性",
+    "official_zh": "AgentCore 质量优化可基于生产追踪生成建议，并通过批量评估与 A/B 测试验证优化效果",
+    "community_zh": "社区关注工具链的易用性与实际提升效果",
+    "issue_date": "2026-05-07"
+  },
+  {
+    "name": "Amazon SageMaker AI Agent-Guided Workflows",
+    "company": "Amazon",
+    "module": "operation",
+    "updated_at": "2026-05-04",
+    "headline": "Amazon SageMaker AI now offers agent-guided workflows for model customization, streamlining the end-to-end process.",
+    "one_line_judgment": "Lowers the barrier for model customization by automating key workflow steps with AI agents.",
+    "official_claims": [
+      "Developers can describe use cases in natural language.",
+      "AI coding agent automates data prep, technique selection, evaluation, and deployment."
+    ],
+    "external_validation_summary": null,
+    "real_change_notes": "Introduced agentic experience for model customization in SageMaker AI.",
+    "core_positioning": "Automates the model customization lifecycle, making it accessible to more developers.",
+    "user_scenarios": [
+      "Developers customizing models with minimal manual steps",
+      "Teams accelerating model deployment for specific use cases"
+    ],
+    "business_model": null,
+    "price_speed_cost_notes": null,
+    "user_market_feedback": {
+      "good": [
+        "Reduces manual workload for model customization.",
+        "Makes advanced workflows accessible via natural language."
+      ],
+      "bad": [
+        "Automation may not cover all edge cases.",
+        "Requires trust in agent's workflow decisions."
+      ]
+    },
+    "ecosystem_echo": null,
+    "relevance_to_us": "Demonstrates how agentic workflows can speed up model iteration and deployment for AI product teams.",
+    "raw_urls": [
+      "https://aws.amazon.com/blogs/machine-learning/agent-guided-workflows-to-accelerate-model-customization-in-amazon-sagemaker-ai/"
+    ],
+    "item_tier": "brief",
+    "tags": [
+      "agent",
+      "operation",
+      "workflow",
+      "customization"
+    ],
+    "summary_zh": "Amazon SageMaker AI 推出 agent 驱动的模型定制工作流，实现用例定义到部署的自动化",
+    "key_points_zh": "支持自然语言描述用例，自动生成定制流程；AI agent 覆盖数据准备、技术选择、评估与部署；降低模型定制门槛",
+    "scenarios_zh": "AI 工程师可用 agent 自动定制模型；产品经理可快速验证新业务场景",
+    "business_model_zh": "基于 SageMaker 平台，按云资源计费",
+    "feedback_zh": "正面：极大简化定制流程，提升效率；负面：自动化流程覆盖面有限",
+    "judgment_zh": "agent 驱动的自动化定制流程有助于加速模型落地",
+    "relevance_zh": "为 AI 团队提供低门槛模型定制与快速迭代能力",
+    "official_zh": "开发者可用自然语言描述用例，AI agent 自动完成定制、评估与部署",
+    "community_zh": "社区关注自动化流程的灵活性与适用范围",
+    "issue_date": "2026-05-07"
+  },
+  {
+    "name": "OpenClaw: After Hours @ GitHub",
+    "company": "Microsoft",
+    "module": "product",
+    "updated_at": "2026-05-04",
+    "headline": "GitHub will host OpenClaw builders for demos and discussions during Microsoft Build 2026, with livestream available.",
+    "one_line_judgment": "Community event highlighting open-source AI projects and networking opportunities.",
+    "official_claims": [
+      "OpenClaw builders will gather at GitHub HQ for demos and conversations.",
+      "Livestream available for remote participation."
+    ],
+    "external_validation_summary": null,
+    "real_change_notes": null,
+    "core_positioning": "Facilitates community engagement and showcases open-source AI innovation.",
+    "user_scenarios": [
+      "Developers networking and sharing open-source AI projects",
+      "Remote participation in AI community events"
+    ],
+    "business_model": null,
+    "price_speed_cost_notes": null,
+    "user_market_feedback": {
+      "good": [
+        "Promotes open-source collaboration.",
+        "Accessible via livestream."
+      ],
+      "bad": [
+        "Event-focused; limited direct product impact.",
+        "No technical updates announced."
+      ]
+    },
+    "ecosystem_echo": null,
+    "relevance_to_us": "Opportunity for AI teams to connect with open-source community and discover new projects.",
+    "raw_urls": [
+      "https://github.blog/open-source/register-now-for-openclaw-after-hours-github/"
+    ],
+    "item_tier": "brief",
+    "tags": [
+      "product",
+      "community",
+      "event",
+      "open-source"
+    ],
+    "summary_zh": "Microsoft GitHub 举办 OpenClaw After Hours 活动，聚焦开源 AI 项目交流与演示，支持线上直播",
+    "key_points_zh": "汇聚开源 AI 社区开发者；现场演示与交流，促进合作；支持线上远程参与",
+    "scenarios_zh": "AI 工程师可参与开源项目交流；产品经理可了解社区创新动态",
+    "business_model_zh": "社区活动，免费参与",
+    "feedback_zh": "正面：促进开源合作与交流；负面：无具体产品或技术更新",
+    "judgment_zh": "适合关注开源生态和社区动态的团队参与",
+    "relevance_zh": "为 AI 团队提供与开源社区对接和学习新项目的机会",
+    "official_zh": "OpenClaw 开发者将在 GitHub HQ 进行演示与交流，支持线上直播",
+    "community_zh": "社区积极参与，关注开源创新与合作机会",
+    "issue_date": "2026-05-07"
+  },
+  {
+    "name": "EC2 Capacity Blocks for ML and SageMaker Training Plans",
+    "company": "Amazon",
+    "module": "operation",
+    "updated_at": "2026-05-07",
+    "headline": "Amazon introduces EC2 Capacity Blocks for ML and SageMaker training plans to secure short-term GPU capacity for ML workloads.",
+    "one_line_judgment": "Addresses GPU availability challenges for time-bound ML tasks.",
+    "official_claims": [
+      "Enables reserved GPU capacity for short-term ML workloads.",
+      "Supports load testing, model validation, and inference preparation."
+    ],
+    "external_validation_summary": null,
+    "real_change_notes": "Introduced EC2 Capacity Blocks for ML and SageMaker training plans.",
+    "core_positioning": "Provides flexible, short-term GPU access for ML teams.",
+    "user_scenarios": [
+      "Teams reserving GPU resources for load testing or workshops",
+      "Ensuring GPU availability for model validation or release prep"
+    ],
+    "business_model": null,
+    "price_speed_cost_notes": null,
+    "user_market_feedback": {
+      "good": [
+        "Solves short-term GPU bottleneck for ML teams.",
+        "Flexible resource allocation."
+      ],
+      "bad": [
+        "Pricing and availability details not specified."
+      ]
+    },
+    "ecosystem_echo": null,
+    "relevance_to_us": "Useful for AI teams needing reliable, short-term GPU access for critical ML workloads.",
+    "raw_urls": [
+      "https://aws.amazon.com/blogs/machine-learning/secure-short-term-gpu-capacity-for-ml-workloads-with-ec2-capacity-blocks-for-ml-and-sagemaker-training-plans/"
+    ],
+    "item_tier": "brief",
+    "tags": [
+      "operation",
+      "gpu",
+      "infrastructure",
+      "resource"
+    ],
+    "summary_zh": "Amazon 推出 EC2 Capacity Blocks for ML 及 SageMaker training plans，解决短期 GPU 资源保障难题",
+    "key_points_zh": "支持短期预留 GPU 资源；适用于负载测试、模型验证和上线准备；提升 ML 团队资源灵活性",
+    "scenarios_zh": "AI 工程师可灵活预定 GPU 资源；产品经理可保障关键阶段算力需求",
+    "business_model_zh": "基于 EC2/SageMaker 平台，按需计费",
+    "feedback_zh": "正面：解决 GPU 资源短缺问题；负面：价格与可用性细节未公布",
+    "judgment_zh": "为 ML 团队提供灵活算力保障，适合高峰期或临时需求",
+    "relevance_zh": "帮助 AI 团队应对 GPU 资源瓶颈，提升项目交付确定性",
+    "official_zh": "EC2 Capacity Blocks for ML 支持短期 GPU 预留，适用于多种 ML 场景",
+    "community_zh": "社区关注资源灵活性与实际可用性",
+    "issue_date": "2026-05-07"
+  },
+  {
+    "name": "GRPO on SageMaker AI",
+    "company": "Amazon",
+    "module": "operation",
+    "updated_at": "2026-05-07",
+    "headline": "Amazon details how to implement verifiable rewards-based reinforcement learning (RLVR) using Group Relative Policy Optimization (GRPO) on SageMaker AI.",
+    "one_line_judgment": "Amazon provides practical guidance for more transparent and reliable RL training using verifiable rewards and GRPO.",
+    "official_claims": [
+      "RLVR introduces verification and transparency into reward signals to improve training performance.",
+      "GRPO and few-shot examples can further enhance results in tasks with objectively verifiable outputs."
+    ],
+    "external_validation_summary": null,
+    "real_change_notes": null,
+    "core_positioning": null,
+    "user_scenarios": [
+      "Training RL models for code generation",
+      "Improving mathematical reasoning tasks with verifiable reward signals"
+    ],
+    "business_model": null,
+    "price_speed_cost_notes": null,
+    "user_market_feedback": {
+      "good": [
+        "Improves transparency and reliability in RL training."
+      ],
+      "bad": [
+        "Limited to tasks where outputs can be objectively verified."
+      ]
+    },
+    "ecosystem_echo": null,
+    "relevance_to_us": "Highlights practical RL techniques for AI teams seeking more robust and auditable training pipelines.",
+    "raw_urls": [
+      "https://aws.amazon.com/blogs/machine-learning/overcoming-reward-signal-challenges-verifiable-rewards-based-reinforcement-learning-with-grpo-on-sagemaker-ai/"
+    ],
+    "item_tier": "brief",
+    "tags": [
+      "reinforcement-learning",
+      "sagemaker",
+      "rlvr",
+      "grpo",
+      "operation",
+      "reasoning"
+    ],
+    "summary_zh": "亚马逊发布在 SageMaker AI 上实现可验证奖励信号的强化学习方法，结合 GRPO 提升训练透明度与性能，适用于代码生成和数学推理等场景。",
+    "key_points_zh": "引入可验证奖励信号提升 RL 训练可靠性；结合 GRPO 和 few-shot 提高结果；适用于输出可客观验证的任务。",
+    "scenarios_zh": "AI 工程师在代码生成、数学推理等需可验证输出的 RL 任务中提升训练效果和透明度。",
+    "business_model_zh": "依托 SageMaker AI 平台，按云服务计费。",
+    "feedback_zh": "提升 RL 训练透明度和可靠性；仅适用于可验证输出的任务，应用范围有限。",
+    "judgment_zh": "为需要高可解释性和可审计性的 RL 训练场景提供实用方法。",
+    "relevance_zh": "为 AI 团队提供更稳健、可追溯的 RL 训练技术参考。",
+    "official_zh": "RLVR 引入奖励信号验证与透明性，提升训练性能；GRPO 和 few-shot 可进一步增强结果。",
+    "community_zh": "社区关注 RL 训练的可解释性和透明度提升。",
+    "issue_date": "2026-05-07"
+  },
+  {
+    "name": "Pet Behavior Detection on AWS Inferentia2",
+    "company": "Tomofun",
+    "module": "operation",
+    "updated_at": "2026-05-06",
+    "headline": "Tomofun deploys vision-language models for pet behavior detection on AWS Inferentia2, reducing costs while maintaining accuracy.",
+    "one_line_judgment": "Tomofun leverages AWS's AI chips to optimize cost and performance for pet-tech applications.",
+    "official_claims": [
+      "EC2 Inf2 instances powered by AWS Inferentia2 reduce costs and maintain accuracy for vision-language models."
+    ],
+    "external_validation_summary": null,
+    "real_change_notes": null,
+    "core_positioning": null,
+    "user_scenarios": [
+      "Deploying cost-effective vision-language models for pet monitoring",
+      "Scaling AI-powered pet-tech products"
+    ],
+    "business_model": "Cloud-based AI inference on AWS, pay-as-you-go.",
+    "price_speed_cost_notes": null,
+    "user_market_feedback": {
+      "good": [
+        "Reduces operational costs for AI inference.",
+        "Maintains model accuracy."
+      ],
+      "bad": [
+        "Dependent on AWS infrastructure."
+      ]
+    },
+    "ecosystem_echo": null,
+    "relevance_to_us": "Demonstrates practical deployment of multimodal AI on specialized hardware for cost-sensitive applications.",
+    "raw_urls": [
+      "https://aws.amazon.com/blogs/machine-learning/cost-effective-deployment-of-vision-language-models-for-pet-behavior-detection-on-aws-inferentia2/"
+    ],
+    "item_tier": "brief",
+    "tags": [
+      "multimodal",
+      "operation",
+      "inferentia2",
+      "pet-tech"
+    ],
+    "summary_zh": "Tomofun 利用 AWS Inferentia2 部署宠物行为检测视觉语言模型，显著降低推理成本并保持准确率，助力宠物科技产品规模化。",
+    "key_points_zh": "基于 AWS Inferentia2 AI 芯片实现高效推理；降低云端 AI 运算成本；保持模型准确率。",
+    "scenarios_zh": "AI 工程师在宠物监控、智能硬件等场景部署多模态模型，优化成本与性能。",
+    "business_model_zh": "基于 AWS 云服务，按需计费。",
+    "feedback_zh": "推理成本降低，适合大规模应用；依赖 AWS 基础设施，灵活性有限。",
+    "judgment_zh": "为成本敏感型 AI 产品提供高性价比推理方案。",
+    "relevance_zh": "展示多模态 AI 在专用硬件上的实际落地经验，对工程部署有参考价值。",
+    "official_zh": "EC2 Inf2 实例结合 Inferentia2 芯片，降低视觉语言模型推理成本并保持准确率。",
+    "community_zh": "社区关注 AI 芯片在实际产品中的降本增效作用。",
+    "issue_date": "2026-05-07"
+  },
+  {
+    "name": "OS Level Actions in Amazon Bedrock AgentCore Browser",
+    "company": "Amazon",
+    "module": "operation",
+    "updated_at": "2026-05-05",
+    "headline": "Amazon introduces OS Level Actions for AgentCore Browser, enabling agents to interact with native UI via the InvokeBrowser API.",
+    "one_line_judgment": "AgentCore Browser now supports direct OS-level control, expanding agent automation capabilities beyond the browser.",
+    "official_claims": [
+      "OS Level Actions expose direct OS control through the InvokeBrowser API.",
+      "Agents can observe and act on native UI elements within the same session."
+    ],
+    "external_validation_summary": null,
+    "real_change_notes": null,
+    "core_positioning": null,
+    "user_scenarios": [
+      "Building agents that automate desktop applications",
+      "Enabling end-to-end workflow automation across web and native UI"
+    ],
+    "business_model": null,
+    "price_speed_cost_notes": null,
+    "user_market_feedback": {
+      "good": [
+        "Expands agent automation to native desktop environments."
+      ],
+      "bad": [
+        "Potentially increases security and complexity risks."
+      ]
+    },
+    "ecosystem_echo": null,
+    "relevance_to_us": "Enables AI teams to build agents that can automate both web and desktop tasks, broadening automation scenarios.",
+    "raw_urls": [
+      "https://aws.amazon.com/blogs/machine-learning/introducing-os-level-actions-in-amazon-bedrock-agentcore-browser/"
+    ],
+    "item_tier": "brief",
+    "tags": [
+      "agent",
+      "browser-agent",
+      "operation",
+      "automation"
+    ],
+    "summary_zh": "亚马逊为 Bedrock AgentCore Browser 推出 OS 级操作能力，通过 InvokeBrowser API 实现代理对桌面原生 UI 的直接控制，拓展自动化场景。",
+    "key_points_zh": "支持代理直接操作桌面原生 UI；API 统一管理浏览器与 OS 层交互；提升自动化流程覆盖面。",
+    "scenarios_zh": "AI 工程师开发可自动化桌面与网页混合流程的智能代理。",
+    "business_model_zh": "基于 Bedrock 平台服务，按需计费。",
+    "feedback_zh": "自动化能力大幅提升；安全与复杂性管理需加强。",
+    "judgment_zh": "为桌面与网页一体化自动化提供关键能力，适合复杂企业场景。",
+    "relevance_zh": "拓展 AI 代理在实际办公和自动化流程中的应用边界。",
+    "official_zh": "OS Level Actions 通过 API 实现对桌面原生 UI 的直接控制，提升代理自动化能力。",
+    "community_zh": "社区关注代理自动化能力的拓展与安全性挑战。",
+    "issue_date": "2026-05-07"
+  },
+  {
+    "name": "Bedrock AgentCore Identity on Amazon ECS",
+    "company": "Amazon",
+    "module": "operation",
+    "updated_at": "2026-05-05",
+    "headline": "Amazon launches Bedrock AgentCore Identity as a standalone service to secure AI agent access to external services on ECS and other platforms.",
+    "one_line_judgment": "Bedrock AgentCore Identity enhances security for AI agents operating across cloud and on-premises environments.",
+    "official_claims": [
+      "Secures AI agent access to external services across ECS, EKS, Lambda, and on-premises.",
+      "Implements Authorization Code Grant (3-legged OAuth) with secure session binding and scoped tokens."
+    ],
+    "external_validation_summary": null,
+    "real_change_notes": null,
+    "core_positioning": null,
+    "user_scenarios": [
+      "Securing AI agents' external API access in production",
+      "Managing agent identity and authorization in multi-cloud environments"
+    ],
+    "business_model": null,
+    "price_speed_cost_notes": null,
+    "user_market_feedback": {
+      "good": [
+        "Improves security and compliance for agent-based architectures."
+      ],
+      "bad": [
+        "Adds complexity to agent deployment and management."
+      ]
+    },
+    "ecosystem_echo": null,
+    "relevance_to_us": "Addresses a key challenge for AI-native teams deploying agents at scale with external integrations.",
+    "raw_urls": [
+      "https://aws.amazon.com/blogs/machine-learning/secure-ai-agents-with-amazon-bedrock-agentcore-identity-on-amazon-ecs/"
+    ],
+    "item_tier": "brief",
+    "tags": [
+      "agent",
+      "operation",
+      "security",
+      "identity"
+    ],
+    "summary_zh": "亚马逊推出 Bedrock AgentCore Identity 独立服务，为 ECS 等平台上的 AI 代理提供安全外部访问与 OAuth 授权管理，提升生产环境安全性。",
+    "key_points_zh": "支持多平台 AI 代理安全接入外部服务；实现 OAuth 授权与会话绑定；提升合规与安全能力。",
+    "scenarios_zh": "AI 工程师在多云或本地环境中安全部署和管理智能代理的外部访问权限。",
+    "business_model_zh": "Bedrock 平台增值服务，按需计费。",
+    "feedback_zh": "提升代理安全性和合规性；部署和管理复杂度增加。",
+    "judgment_zh": "为大规模代理部署提供安全基石，适合企业级应用。",
+    "relevance_zh": "解决 AI 代理在生产环境中的安全与身份管理难题。",
+    "official_zh": "Bedrock AgentCore Identity 独立服务支持多平台代理安全接入外部服务，提供 OAuth 授权与会话绑定。",
+    "community_zh": "社区关注代理安全与合规能力的提升。",
+    "issue_date": "2026-05-07"
+  },
+  {
+    "name": "Message Defense and Insights using Amazon Bedrock",
+    "company": "Amazon",
+    "module": "operation",
+    "updated_at": "2026-05-05",
+    "headline": "Amazon demonstrates using Nova Foundation Models in Bedrock to detect message threats and extract customer insights.",
+    "one_line_judgment": "Bedrock leverages generative AI for both business protection and customer sentiment analysis.",
+    "official_claims": [
+      "Identifies direct and disguised contact attempts.",
+      "Provides insights into customer sentiment and service improvement opportunities."
+    ],
+    "external_validation_summary": null,
+    "real_change_notes": null,
+    "core_positioning": null,
+    "user_scenarios": [
+      "Detecting fraudulent or risky messages in business communications",
+      "Analyzing customer sentiment for service improvement"
+    ],
+    "business_model": null,
+    "price_speed_cost_notes": null,
+    "user_market_feedback": {
+      "good": [
+        "Combines security and analytics in one solution."
+      ],
+      "bad": [
+        "Effectiveness depends on model accuracy and data quality."
+      ]
+    },
+    "ecosystem_echo": null,
+    "relevance_to_us": "Illustrates practical generative AI applications for business risk mitigation and customer analytics.",
+    "raw_urls": [
+      "https://aws.amazon.com/blogs/machine-learning/intelligence-driven-message-defense-and-insights-using-amazon-bedrock/"
+    ],
+    "item_tier": "brief",
+    "tags": [
+      "operation",
+      "security",
+      "analytics",
+      "bedrock"
+    ],
+    "summary_zh": "亚马逊通过 Bedrock Nova 基础模型实现消息防御与客户洞察，识别伪装联系并分析客户情绪，提升业务安全与服务优化。",
+    "key_points_zh": "结合生成式 AI 进行消息安全检测；自动识别伪装联系与风险信息；提取客户情绪与服务改进建议。",
+    "scenarios_zh": "AI 工程师在企业消息系统中集成自动安全检测与客户分析能力。",
+    "business_model_zh": "Bedrock 平台服务，按量计费。",
+    "feedback_zh": "安全与分析一体化提升效率；模型准确性和数据质量影响效果。",
+    "judgment_zh": "为企业级消息安全和客户洞察提供实用 AI 方案。",
+    "relevance_zh": "展示生成式 AI 在业务安全与客户分析中的落地价值。",
+    "official_zh": "Bedrock Nova 基础模型可识别伪装联系并提供客户情绪洞察，助力业务保护与优化。",
+    "community_zh": "社区关注生成式 AI 在安全与分析场景的实际效果。",
+    "issue_date": "2026-05-07"
+  },
+  {
+    "name": "Dataset Q&A in Amazon Quick",
+    "company": "Amazon",
+    "module": "operation",
+    "updated_at": "2026-05-04",
+    "headline": "Amazon Quick introduces Dataset Q&A, enabling natural language querying and multi-dataset exploration for business intelligence.",
+    "one_line_judgment": "Dataset Q&A lowers the barrier for ad-hoc data exploration beyond traditional dashboards.",
+    "official_claims": [
+      "Enables natural language querying across structured datasets.",
+      "Supports auto-discovery and multi-dataset querying in a single conversation."
+    ],
+    "external_validation_summary": null,
+    "real_change_notes": null,
+    "core_positioning": null,
+    "user_scenarios": [
+      "Business users querying data without SQL knowledge",
+      "Exploring and analyzing multiple datasets conversationally"
+    ],
+    "business_model": null,
+    "price_speed_cost_notes": null,
+    "user_market_feedback": {
+      "good": [
+        "Empowers non-technical users to explore data independently."
+      ],
+      "bad": [
+        "May have limitations in complex or ambiguous queries."
+      ]
+    },
+    "ecosystem_echo": null,
+    "relevance_to_us": "Shows how LLMs can democratize data access and accelerate business decision-making.",
+    "raw_urls": [
+      "https://aws.amazon.com/blogs/machine-learning/introducing-dataset-qa-expanding-natural-language-querying-for-structured-datasets-in-amazon-quick/"
+    ],
+    "item_tier": "brief",
+    "tags": [
+      "operation",
+      "nlq",
+      "bi",
+      "amazon-quick"
+    ],
+    "summary_zh": "亚马逊 Quick 推出 Dataset Q&A 功能，支持自然语言跨多数据集查询，提升业务数据探索效率，降低分析门槛。",
+    "key_points_zh": "自然语言查询结构化数据集；支持多数据集自动发现与会话式分析；无需 SQL 技能即可操作。",
+    "scenarios_zh": "产品经理和业务分析师通过自然语言快速探索和分析多数据集。",
+    "business_model_zh": "Amazon Quick 平台功能，按需计费。",
+    "feedback_zh": "降低数据分析门槛，提升效率；复杂查询场景下可能有限制。",
+    "judgment_zh": "为非技术用户赋能，推动数据驱动决策普及。",
+    "relevance_zh": "展示 LLM 在企业数据分析场景的实际应用价值。",
+    "official_zh": "Dataset Q&A 支持自然语言跨结构化数据集查询，实现自动发现与多数据集会话分析。",
+    "community_zh": "社区关注自然语言数据分析的易用性与准确性。",
+    "issue_date": "2026-05-07"
+  },
+  {
+    "name": "Generate Dashboards from Natural Language in Amazon Quick",
+    "company": "Amazon",
+    "module": "operation",
+    "updated_at": "2026-05-04",
+    "headline": "Amazon Quick now generates multi-sheet dashboards from natural language prompts, streamlining BI report creation.",
+    "one_line_judgment": "Natural language dashboard generation accelerates BI workflows and reduces manual setup.",
+    "official_claims": [
+      "Generates production-ready dashboards from natural language prompts.",
+      "Reduces manual setup time for BI professionals."
+    ],
+    "external_validation_summary": null,
+    "real_change_notes": null,
+    "core_positioning": null,
+    "user_scenarios": [
+      "BI analysts creating dashboards from conversational input",
+      "Rapid prototyping of data visualizations"
+    ],
+    "business_model": null,
+    "price_speed_cost_notes": null,
+    "user_market_feedback": {
+      "good": [
+        "Significantly reduces dashboard creation time."
+      ],
+      "bad": [
+        "Quality may vary depending on prompt clarity."
+      ]
+    },
+    "ecosystem_echo": null,
+    "relevance_to_us": "Demonstrates LLM-driven automation for BI and analytics product teams.",
+    "raw_urls": [
+      "https://aws.amazon.com/blogs/machine-learning/generate-dashboards-from-natural-language-prompts-in-amazon-quick/"
+    ],
+    "item_tier": "brief",
+    "tags": [
+      "operation",
+      "bi",
+      "dashboard",
+      "nlq",
+      "amazon-quick"
+    ],
+    "summary_zh": "亚马逊 Quick 新增自然语言生成多页仪表盘功能，BI 报告从数据到可视化分析仅需几分钟，大幅提升效率。",
+    "key_points_zh": "支持自然语言生成多页仪表盘；显著减少手动配置时间；适用于快速数据可视化原型。",
+    "scenarios_zh": "BI 分析师和产品经理通过对话式输入快速生成数据仪表盘。",
+    "business_model_zh": "Amazon Quick 平台功能，按需计费。",
+    "feedback_zh": "极大提升仪表盘制作效率；生成质量依赖于输入提示的准确性。",
+    "judgment_zh": "推动 BI 自动化，提升数据分析团队生产力。",
+    "relevance_zh": "为数据分析和 BI 产品团队提供 LLM 自动化落地范例。",
+    "official_zh": "支持通过自然语言提示生成生产级多页仪表盘，简化 BI 报告流程。",
+    "community_zh": "社区关注自然语言驱动 BI 自动化的实际效果。",
+    "issue_date": "2026-05-07"
+  },
+  {
+    "name": "Amazon S3 Tables in Amazon Quick",
+    "company": "Amazon",
+    "module": "operation",
+    "updated_at": "2026-05-04",
+    "headline": "Amazon Quick adds direct querying and visualization of Apache Iceberg tables stored in S3, enabling near real-time analytics.",
+    "one_line_judgment": "Direct S3 Table support streamlines modern data architectures and accelerates analytics workflows.",
+    "official_claims": [
+      "Enables direct query and visualization of Apache Iceberg tables in S3.",
+      "Removes need for intermediate data layers for analytics."
+    ],
+    "external_validation_summary": null,
+    "real_change_notes": null,
+    "core_positioning": null,
+    "user_scenarios": [
+      "Real-time analytics on data lakes",
+      "Simplifying data pipelines for AI-ready analytics"
+    ],
+    "business_model": null,
+    "price_speed_cost_notes": null,
+    "user_market_feedback": {
+      "good": [
+        "Reduces data pipeline complexity.",
+        "Enables faster analytics."
+      ],
+      "bad": [
+        "Limited to Apache Iceberg table format."
+      ]
+    },
+    "ecosystem_echo": null,
+    "relevance_to_us": "Facilitates AI product teams' access to large-scale, real-time data for analytics and model training.",
+    "raw_urls": [
+      "https://aws.amazon.com/blogs/machine-learning/from-data-lake-to-ai-ready-analytics-introducing-direct-query-with-s3-tables-in-amazon-quick/"
+    ],
+    "item_tier": "brief",
+    "tags": [
+      "operation",
+      "data-lake",
+      "analytics",
+      "s3",
+      "iceberg",
+      "amazon-quick"
+    ],
+    "summary_zh": "亚马逊 Quick 支持直接查询和可视化 S3 上的 Apache Iceberg 表，实现近实时数据分析，简化数据架构。",
+    "key_points_zh": "支持 S3 上 Iceberg 表的直接分析；无需中间数据层；加速数据湖到 AI 分析流程。",
+    "scenarios_zh": "AI 工程师和数据分析师直接在数据湖上做实时分析和可视化。",
+    "business_model_zh": "Amazon Quick 平台功能，按需计费。",
+    "feedback_zh": "简化数据管道，提升分析效率；仅支持 Iceberg 格式，兼容性有限。",
+    "judgment_zh": "为大规模数据分析和 AI 训练提供更高效的数据接入方式。",
+    "relevance_zh": "有助于 AI 团队快速获取和分析大规模实时数据。",
+    "official_zh": "支持直接查询和可视化 S3 上的 Apache Iceberg 表，提升数据分析效率。",
+    "community_zh": "社区关注数据湖与 AI 分析的集成能力。",
+    "issue_date": "2026-05-07"
+  },
+  {
+    "name": "Capacity-Aware Inference for SageMaker AI Endpoints",
+    "company": "Amazon",
+    "module": "operation",
+    "updated_at": "2026-05-04",
+    "headline": "Amazon SageMaker AI introduces capacity-aware instance pools for inference endpoints, enabling automatic fallback across prioritized instance types.",
+    "one_line_judgment": "Automatic instance fallback improves reliability and scalability of AI inference deployments.",
+    "official_claims": [
+      "Automatically provisions endpoints on available infrastructure based on prioritized instance list.",
+      "Supports Single Model, Component-based, and Asynchronous Inference endpoints."
+    ],
+    "external_validation_summary": null,
+    "real_change_notes": null,
+    "core_positioning": null,
+    "user_scenarios": [
+      "Ensuring high availability for AI inference services",
+      "Scaling inference workloads without manual intervention"
+    ],
+    "business_model": null,
+    "price_speed_cost_notes": null,
+    "user_market_feedback": {
+      "good": [
+        "Reduces manual management for endpoint scaling.",
+        "Improves service reliability."
+      ],
+      "bad": [
+        "Complexity may increase for multi-instance configurations."
+      ]
+    },
+    "ecosystem_echo": null,
+    "relevance_to_us": "Enhances robustness of AI product deployments by automating infrastructure failover.",
+    "raw_urls": [
+      "https://aws.amazon.com/blogs/machine-learning/capacity-aware-inference-automatic-instance-fallback-for-sagemaker-ai-endpoints/"
+    ],
+    "item_tier": "brief",
+    "tags": [
+      "operation",
+      "sagemaker",
+      "inference",
+      "scalability"
+    ],
+    "summary_zh": "亚马逊 SageMaker AI 推出推理端点容量感知实例池，支持自动实例回退，提升 AI 服务可用性与弹性扩展能力。",
+    "key_points_zh": "自动根据优先级实例列表分配推理端点；支持多种推理端点类型；提升服务高可用性。",
+    "scenarios_zh": "AI 工程师部署高可用、自动扩缩容的推理服务。",
+    "business_model_zh": "SageMaker 平台服务，按用量计费。",
+    "feedback_zh": "减少人工管理，提升可靠性；多实例配置下管理复杂度增加。",
+    "judgment_zh": "为大规模 AI 推理部署提供更高弹性和自动化能力。",
+    "relevance_zh": "提升 AI 产品端到端服务的稳定性和运维效率。",
+    "official_zh": "SageMaker AI 支持容量感知实例池，自动回退至可用基础设施，提升推理服务可靠性。",
+    "community_zh": "社区关注推理服务的高可用与自动化能力。",
+    "issue_date": "2026-05-07"
+  },
+  {
+    "name": "AWS Transform BI Migration Automation",
+    "company": "Amazon",
+    "module": "operation",
+    "updated_at": "2026-05-01",
+    "headline": "AWS Transform now automates BI migration to Amazon Quick, reducing migration time to days.",
+    "one_line_judgment": "Automated BI migration streamlines transition to modern analytics platforms.",
+    "official_claims": [
+      "Enables full BI migration to Amazon Quick in days.",
+      "Integrates with AWS Marketplace partner agents for extended capabilities."
+    ],
+    "external_validation_summary": null,
+    "real_change_notes": null,
+    "core_positioning": null,
+    "user_scenarios": [
+      "Migrating legacy BI systems to Amazon Quick",
+      "Accelerating analytics modernization projects"
+    ],
+    "business_model": null,
+    "price_speed_cost_notes": null,
+    "user_market_feedback": {
+      "good": [
+        "Reduces migration effort and time."
+      ],
+      "bad": [
+        "May require adaptation for complex legacy systems."
+      ]
+    },
+    "ecosystem_echo": null,
+    "relevance_to_us": "Accelerates analytics modernization for teams moving to cloud-native BI solutions.",
+    "raw_urls": [
+      "https://aws.amazon.com/blogs/machine-learning/aws-transform-now-automates-bi-migration-to-amazon-quick-in-days/"
+    ],
+    "item_tier": "brief",
+    "tags": [
+      "operation",
+      "bi",
+      "migration",
+      "automation"
+    ],
+    "summary_zh": "AWS Transform 实现 BI 系统自动迁移至 Amazon Quick，迁移周期缩短至数天，助力企业快速升级数据分析平台。",
+    "key_points_zh": "自动化 BI 迁移流程；与 AWS Marketplace 合作伙伴代理集成；大幅缩短迁移时间。",
+    "scenarios_zh": "数据团队将传统 BI 系统迁移至云端现代分析平台。",
+    "business_model_zh": "AWS Transform 服务，按项目或用量计费。",
+    "feedback_zh": "迁移效率显著提升；复杂遗留系统需额外适配。",
+    "judgment_zh": "为企业数据分析平台升级提供高效迁移工具。",
+    "relevance_zh": "加速 BI 现代化进程，降低迁移门槛。",
+    "official_zh": "支持 BI 系统自动迁移至 Amazon Quick，数天内完成，集成合作伙伴代理扩展能力。",
+    "community_zh": "社区关注自动化迁移工具对数据平台升级的推动作用。",
+    "issue_date": "2026-05-07"
+  },
+  {
+    "name": "Powering the Next American Century: Genesis Mission",
+    "company": "NVIDIA",
+    "module": "operation",
+    "updated_at": "2026-05-07",
+    "headline": "NVIDIA and the US Energy Secretary discuss the Genesis Mission, highlighting AI's role in building future energy infrastructure.",
+    "one_line_judgment": "NVIDIA positions AI as a core enabler for next-generation energy solutions.",
+    "official_claims": [
+      "AI will help build the energy infrastructure needed for the next American century."
+    ],
+    "external_validation_summary": null,
+    "real_change_notes": null,
+    "core_positioning": null,
+    "user_scenarios": [
+      "Applying AI to optimize energy systems",
+      "Collaborating on public-private AI infrastructure projects"
+    ],
+    "business_model": null,
+    "price_speed_cost_notes": null,
+    "user_market_feedback": {
+      "good": [
+        "Highlights AI's strategic importance in energy."
+      ],
+      "bad": [
+        "Lacks concrete technical details."
+      ]
+    },
+    "ecosystem_echo": null,
+    "relevance_to_us": "Signals growing intersection of AI and critical infrastructure sectors.",
+    "raw_urls": [
+      "https://blogs.nvidia.com/blog/energy-secretary-chris-wright-ian-buck/"
+    ],
+    "item_tier": "brief",
+    "tags": [
+      "operation",
+      "energy",
+      "infrastructure"
+    ],
+    "summary_zh": "NVIDIA 与美国能源部长共同探讨 Genesis 计划，强调 AI 在未来能源基础设施建设中的核心作用。",
+    "key_points_zh": "AI 助力能源基础设施升级；推动公私合作 AI 项目；提升能源系统智能化水平。",
+    "scenarios_zh": "AI 工程师参与能源系统优化与基础设施智能化项目。",
+    "business_model_zh": "暂无具体商业模式披露。",
+    "feedback_zh": "凸显 AI 在能源领域的战略价值；缺乏具体技术细节。",
+    "judgment_zh": "AI 与能源基础设施深度融合趋势明显，值得关注。",
+    "relevance_zh": "为 AI 团队提供能源行业应用与合作新方向。",
+    "official_zh": "AI 将成为未来美国能源基础设施建设的核心推动力。",
+    "community_zh": "社区关注 AI 在能源等关键行业的落地与合作前景。",
+    "issue_date": "2026-05-07"
+  },
+  {
+    "name": "Gaijin Single Sign-On on GeForce NOW",
+    "company": "NVIDIA",
+    "module": "operation",
+    "updated_at": "2026-05-07",
+    "headline": "NVIDIA adds Gaijin Single Sign-On to GeForce NOW, streamlining user login for cloud gaming.",
+    "one_line_judgment": "Single Sign-On integration enhances user experience and reduces login friction for gamers.",
+    "official_claims": [
+      "Provides faster, smoother logins for GeForce NOW members accessing Gaijin games."
+    ],
+    "external_validation_summary": null,
+    "real_change_notes": null,
+    "core_positioning": null,
+    "user_scenarios": [
+      "Gamers accessing Gaijin titles on GeForce NOW",
+      "Reducing login steps for cloud gaming services"
+    ],
+    "business_model": null,
+    "price_speed_cost_notes": null,
+    "user_market_feedback": {
+      "good": [
+        "Improves convenience and speed for users."
+      ],
+      "bad": [
+        "Limited impact for non-Gaijin games."
+      ]
+    },
+    "ecosystem_echo": null,
+    "relevance_to_us": "Illustrates importance of seamless authentication in consumer AI/cloud products.",
+    "raw_urls": [
+      "https://blogs.nvidia.com/blog/geforce-now-thursday-gaijin-sso/"
+    ],
+    "item_tier": "brief",
+    "tags": [
+      "operation",
+      "cloud-gaming",
+      "sso",
+      "user-experience"
+    ],
+    "summary_zh": "NVIDIA GeForce NOW 集成 Gaijin 单点登录，简化云游戏玩家登录流程，提升用户体验。",
+    "key_points_zh": "支持 Gaijin 账号一键登录 GeForce NOW；减少登录步骤，提高访问速度；优化云游戏用户体验。",
+    "scenarios_zh": "云游戏平台工程师集成第三方 SSO，提升玩家体验。",
+    "business_model_zh": "GeForce NOW 订阅服务，按月/年计费。",
+    "feedback_zh": "极大提升 Gaijin 游戏玩家便利性；对非 Gaijin 游戏影响有限。",
+    "judgment_zh": "无缝认证是消费级 AI/云产品体验优化关键环节。",
+    "relevance_zh": "为 AI 产品团队提供用户认证与体验优化参考。",
+    "official_zh": "GeForce NOW 集成 Gaijin SSO，提供更快更流畅的登录体验。",
+    "community_zh": "社区关注云游戏平台用户体验提升措施。",
+    "issue_date": "2026-05-07"
+  },
+  {
+    "name": "NVIDIA Spectrum-X with MRC",
+    "company": "NVIDIA",
+    "module": "operation",
+    "updated_at": "2026-05-06",
+    "headline": "NVIDIA updates Spectrum-X Ethernet fabric with MRC, advancing AI-native networking for gigascale AI deployments.",
+    "one_line_judgment": "Spectrum-X with MRC sets new standards for scalable, resilient AI networking infrastructure.",
+    "official_claims": [
+      "Spectrum-X is the most advanced AI networking technology for large-scale deployments.",
+      "Now includes MRC for enhanced performance and resilience."
+    ],
+    "external_validation_summary": null,
+    "real_change_notes": null,
+    "core_positioning": null,
+    "user_scenarios": [
+      "Building large-scale AI data centers",
+      "Deploying high-performance AI networking fabrics"
+    ],
+    "business_model": null,
+    "price_speed_cost_notes": null,
+    "user_market_feedback": {
+      "good": [
+        "Improves scalability and reliability for AI infrastructure."
+      ],
+      "bad": [
+        "Requires specialized hardware investment."
+      ]
+    },
+    "ecosystem_echo": null,
+    "relevance_to_us": "Critical for teams building or scaling AI-native infrastructure at datacenter scale.",
+    "raw_urls": [
+      "https://blogs.nvidia.com/blog/spectrum-x-ethernet-mrc/"
+    ],
+    "item_tier": "brief",
+    "tags": [
+      "operation",
+      "networking",
+      "infrastructure",
+      "ai-native"
+    ],
+    "summary_zh": "NVIDIA Spectrum-X 以 MRC 升级 AI 原生以太网架构，提升超大规模 AI 部署的网络性能与弹性。",
+    "key_points_zh": "AI 原生以太网架构支持千亿级规模；MRC 提升网络性能与可靠性；适用于高性能 AI 数据中心。",
+    "scenarios_zh": "AI 基础设施团队部署大规模高性能 AI 网络。",
+    "business_model_zh": "NVIDIA 网络硬件与解决方案销售。",
+    "feedback_zh": "显著提升 AI 基础设施扩展性和可靠性；需投入专用硬件。",
+    "judgment_zh": "为超大规模 AI 部署提供关键网络基础能力。",
+    "relevance_zh": "AI 产品团队构建数据中心级基础设施的重要参考。",
+    "official_zh": "Spectrum-X 以 MRC 升级，成为最先进的 AI 网络技术，适用于大规模部署。",
+    "community_zh": "社区关注 AI 原生网络架构的性能与扩展能力。",
+    "issue_date": "2026-05-07"
+  },
+  {
+    "name": "NVIDIA & ServiceNow Autonomous AI Agents",
+    "company": "NVIDIA",
+    "module": "operation",
+    "updated_at": "2026-05-05",
+    "headline": "NVIDIA and ServiceNow partner to develop new autonomous AI agents for enterprise environments.",
+    "one_line_judgment": "Partnership aims to bring advanced agent capabilities into enterprise operations.",
+    "official_claims": [
+      "New agents move beyond simple prompts to handle complex tasks in enterprise settings."
+    ],
+    "external_validation_summary": null,
+    "real_change_notes": null,
+    "core_positioning": null,
+    "user_scenarios": [
+      "Automating complex enterprise workflows with AI agents",
+      "Integrating advanced agents into business operations"
+    ],
+    "business_model": null,
+    "price_speed_cost_notes": null,
+    "user_market_feedback": {
+      "good": [
+        "Expands AI agent use cases in enterprise."
+      ],
+      "bad": [
+        "Details on technical implementation are limited."
+      ]
+    },
+    "ecosystem_echo": null,
+    "relevance_to_us": "Highlights the trend of agentic AI moving into real-world enterprise applications.",
+    "raw_urls": [
+      "https://blogs.nvidia.com/blog/servicenow-autonomous-ai-agents-enterprises/"
+    ],
+    "item_tier": "brief",
+    "tags": [
+      "operation",
+      "agent",
+      "enterprise",
+      "partnership"
+    ],
+    "summary_zh": "NVIDIA 与 ServiceNow 合作开发企业级自主 AI 代理，推动复杂任务自动化进入实际业务场景。",
+    "key_points_zh": "AI 代理能力从简单指令升级为复杂任务处理；聚焦企业级自动化场景；推动智能代理落地应用。",
+    "scenarios_zh": "企业 IT 团队集成高级 AI 代理自动化复杂业务流程。",
+    "business_model_zh": "暂无具体商业模式披露。",
+    "feedback_zh": "拓展企业 AI 代理应用场景；技术细节披露有限。",
+    "judgment_zh": "AI 代理正加速进入企业级实际应用，值得关注。",
+    "relevance_zh": "为 AI 团队探索企业自动化和智能代理落地提供新方向。",
+    "official_zh": "新一代 AI 代理可在企业环境中处理复杂任务，推动自动化升级。",
+    "community_zh": "社区关注 AI 代理在企业级场景的落地与挑战。",
+    "issue_date": "2026-05-07"
+  }
+]

@@ -78,15 +78,7 @@ export default async function ForgotPasswordPage() {
             </form>
           ) : (
             <div className="rounded-md bg-claude-surface-soft px-4 py-3 text-[13px] text-claude-body dark:bg-white/[0.04] dark:text-white/70">
-              管理员可以在数据库里手动覆盖
-              <code className="mx-1 rounded bg-claude-canvas/60 px-1.5 py-0.5 text-[12px]">
-                users.password_hash
-              </code>
-              字段（bcrypt 哈希），或先配置
-              <code className="mx-1 rounded bg-claude-canvas/60 px-1.5 py-0.5 text-[12px]">
-                AUTH_RESEND_KEY
-              </code>
-              再来。
+              邮件服务暂未配置。请联系管理员协助重置。
             </div>
           )}
 
