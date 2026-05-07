@@ -99,7 +99,7 @@ export default async function ItemDetailPage({
 
   return (
     <article className="bg-claude-canvas dark:bg-claude-dark">
-      <div className="container-reading py-10 sm:py-16">
+      <div className="mx-auto w-full max-w-[1120px] px-5 py-10 sm:px-8 sm:py-16">
         <Link
           href="/"
           className="mb-8 inline-flex items-center gap-1 text-[13px] text-claude-coral hover:underline"
@@ -108,7 +108,7 @@ export default async function ItemDetailPage({
           返回新闻首页
         </Link>
 
-        {/* Header */}
+        {/* Header — full width */}
         <header className="border-b border-claude-hairline pb-10 dark:border-white/10">
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[12px] font-medium uppercase tracking-uc text-claude-coral">
             <span>{moduleLabel(item.module)}</span>
@@ -158,15 +158,21 @@ export default async function ItemDetailPage({
           )}
         </header>
 
-        {/* TLDR */}
-        <section className="mt-10 rounded-lg bg-claude-surface-soft p-6 dark:bg-white/[0.04]">
-          <p className="text-[12px] font-semibold uppercase tracking-uc text-claude-coral">
-            TL;DR
-          </p>
-          <p className="mt-3 font-display text-[22px] leading-[1.35] tracking-display text-claude-ink dark:text-white sm:text-[26px]">
-            {tldr}
-          </p>
-        </section>
+        {/* Two-column grid: wide main content + sticky sidebar */}
+        <div className="mt-10 grid grid-cols-1 gap-x-12 gap-y-10 lg:grid-cols-[1fr_320px]">
+
+          {/* ── LEFT: main article ── */}
+          <div className="min-w-0">
+
+            {/* TLDR */}
+            <section className="rounded-lg bg-claude-surface-soft p-6 dark:bg-white/[0.04]">
+              <p className="text-[12px] font-semibold uppercase tracking-uc text-claude-coral">
+                TL;DR
+              </p>
+              <p className="mt-3 font-display text-[22px] leading-[1.35] tracking-display text-claude-ink dark:text-white sm:text-[26px]">
+                {tldr}
+              </p>
+            </section>
 
         {/* 这是什么? — always-on plain-language explainer. Especially load-bearing
             for niche startups (Caraway, Suno, Modal…) where the reader may
@@ -330,62 +336,91 @@ export default async function ItemDetailPage({
           </Section>
         )}
 
-        {/* 信息分层 — 2x2 */}
-        {(officialClaims.length > 0 ||
-          externalValidation ||
-          communityReaction ||
-          editorialJudgment) && (
-          <Section title="信息分层">
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <Quadrant label="官方声明">
-                {officialClaims.length > 0 ? (
-                  <Bulleted items={officialClaims} small />
-                ) : (
-                  <Empty>暂无独立的官方声明记录。</Empty>
-                )}
-              </Quadrant>
-              <Quadrant label="外部验证">
-                {externalValidation ?? (
-                  <Empty>本周尚未有第三方独立验证。</Empty>
-                )}
-              </Quadrant>
-              <Quadrant label="社区反馈">
-                {communityReaction ?? <Empty>社区讨论暂时安静。</Empty>}
-              </Quadrant>
-              <Quadrant label="编辑判断" emphasis>
-                {editorialJudgment ?? <Empty>编辑部尚未给出独立判断。</Empty>}
-              </Quadrant>
-            </div>
-          </Section>
-        )}
+          </div> {/* end left column */}
 
-        {/* 编辑评分 */}
-        {rec.score_breakdown && (
-          <Section title="编辑评分">
-            <ScoreBreakdown breakdown={rec.score_breakdown} module={item.module} />
-          </Section>
-        )}
+          {/* ── RIGHT: sticky sidebar ── */}
+          <aside className="space-y-6 lg:sticky lg:top-20 lg:self-start">
 
-        {/* 参考来源 */}
-        {Array.isArray(rec.raw_urls) && rec.raw_urls.length > 0 && (
-          <Section title="参考来源">
-            <ul className="space-y-2">
-              {rec.raw_urls.map((url: string) => (
-                <li key={url}>
-                  <a
-                    href={url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 text-[14px] text-claude-coral hover:underline"
-                  >
-                    <ExternalLink className="h-3.5 w-3.5" />
-                    <span className="break-all">{url}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </Section>
-        )}
+            {/* Tags */}
+            {item.tags.length > 0 && (
+              <SideCard label="标签">
+                <div className="flex flex-wrap gap-1.5 pt-1">
+                  {item.tags.map((t) => (
+                    <span key={t} className="chip text-[11px]">{t}</span>
+                  ))}
+                </div>
+              </SideCard>
+            )}
+
+            {/* 编辑评分 */}
+            {rec.score_breakdown && (
+              <SideCard label="编辑评分">
+                <ScoreBreakdown breakdown={rec.score_breakdown} module={item.module} />
+              </SideCard>
+            )}
+
+            {/* 信息分层 */}
+            {(officialClaims.length > 0 || externalValidation || communityReaction || editorialJudgment) && (
+              <SideCard label="信息分层">
+                <div className="space-y-3">
+                  {editorialJudgment && (
+                    <div className="rounded-md bg-claude-dark p-3 text-claude-on-dark">
+                      <p className="text-[10px] font-semibold uppercase tracking-uc text-claude-coral">编辑判断</p>
+                      <p className="mt-1 text-[13px] leading-[1.55]">{editorialJudgment}</p>
+                    </div>
+                  )}
+                  {externalValidation && (
+                    <div>
+                      <p className="text-[10px] font-semibold uppercase tracking-uc text-claude-coral">外部验证</p>
+                      <p className="mt-1 text-[13px] leading-[1.55] text-claude-body dark:text-white/85">{externalValidation}</p>
+                    </div>
+                  )}
+                  {communityReaction && (
+                    <div>
+                      <p className="text-[10px] font-semibold uppercase tracking-uc text-claude-coral">社区反馈</p>
+                      <p className="mt-1 text-[13px] leading-[1.55] text-claude-body dark:text-white/85">{communityReaction}</p>
+                    </div>
+                  )}
+                  {officialClaims.length > 0 && (
+                    <div>
+                      <p className="text-[10px] font-semibold uppercase tracking-uc text-claude-coral">官方声明</p>
+                      <ul className="mt-1 space-y-1">
+                        {officialClaims.map((c, i) => (
+                          <li key={i} className="flex gap-2 text-[13px] text-claude-body dark:text-white/85">
+                            <span className="mt-[0.5em] h-1 w-1 shrink-0 rounded-full bg-claude-coral" />
+                            {c}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              </SideCard>
+            )}
+
+            {/* 参考来源 */}
+            {Array.isArray(rec.raw_urls) && rec.raw_urls.length > 0 && (
+              <SideCard label="参考来源">
+                <ul className="space-y-2">
+                  {rec.raw_urls.map((url: string) => (
+                    <li key={url}>
+                      <a
+                        href={url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-start gap-1.5 text-[12px] text-claude-coral hover:underline"
+                      >
+                        <ExternalLink className="mt-0.5 h-3 w-3 shrink-0" />
+                        <span className="break-all">{url}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </SideCard>
+            )}
+
+          </aside>
+        </div>{/* end grid */}
       </div>
     </article>
   );
@@ -431,6 +466,23 @@ function Section({
         {children}
       </div>
     </section>
+  );
+}
+
+function SideCard({
+  label,
+  children,
+}: {
+  label: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="rounded-xl border border-claude-hairline bg-white p-4 dark:border-white/10 dark:bg-white/[0.03]">
+      <p className="mb-3 text-[11px] font-semibold uppercase tracking-uc text-claude-coral">
+        {label}
+      </p>
+      {children}
+    </div>
   );
 }
 
