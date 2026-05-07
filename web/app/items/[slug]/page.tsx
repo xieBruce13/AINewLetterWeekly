@@ -45,7 +45,9 @@ export default async function ItemDetailPage({
 
   const rec = (item.record ?? {}) as Record<string, any>;
 
+  // Prefer Chinese fields when available, fall back to English.
   const tldr =
+    rec.summary_zh ||
     rec.one_line_judgment ||
     rec.tldr ||
     rec.summary ||
@@ -56,17 +58,31 @@ export default async function ItemDetailPage({
 
   const officialClaims = arr(rec.official_claims);
   const externalValidation = str(
-    rec.external_validation_summary || rec.external_validation
+    rec.external_zh ||
+    rec.external_validation_summary ||
+    rec.external_validation
   );
   const communityReaction = str(
+    rec.community_zh ||
     rec.market_signal_strength ||
     rec.community_reaction ||
     rec.ecosystem_echo
   );
   const editorialJudgment = str(
-    rec.one_line_judgment || rec.editor_judgment || rec.summary
+    rec.judgment_zh ||
+    rec.one_line_judgment ||
+    rec.editor_judgment ||
+    rec.summary
   );
 
+  // Chinese key-points text (bullet-formatted string from newsletter draft).
+  const keyPointsZh = str(rec.key_points_zh);
+  const scenariosZh = str(rec.scenarios_zh);
+  const businessModelZh = str(rec.business_model_zh);
+  const feedbackZh = str(rec.feedback_zh);
+  const quotesZh = Array.isArray(rec.quotes_zh)
+    ? (rec.quotes_zh as string[]).filter(Boolean)
+    : [];
 
   const productHighlights = arr(rec.product_highlights);
   const keyFindings = arr(
@@ -166,8 +182,9 @@ export default async function ItemDetailPage({
           </section>
         )}
 
-        {/* 核心定位 / 核心能力变化 */}
-        {(rec.core_positioning ||
+        {/* 核心定位 / 核心能力变化 — prefer Chinese key_points_zh block */}
+        {(keyPointsZh ||
+          rec.core_positioning ||
           rec.problem_it_solves ||
           rec.real_change_notes ||
           officialClaims.length > 0 ||
@@ -175,64 +192,81 @@ export default async function ItemDetailPage({
           rec.workflow_change ||
           rec.access_barrier_change) && (
           <Section title={item.module === "model" ? "核心能力变化" : "核心定位"}>
-            {rec.core_positioning && (
-              <p className="text-[17px] leading-[1.65] text-claude-body-strong dark:text-white/90">
-                {rec.core_positioning}
-              </p>
-            )}
-            {rec.problem_it_solves && (
-              <KV label="解决的问题" value={rec.problem_it_solves} />
-            )}
-            {item.module !== "model" && rec.workflow_change && (
-              <KV label="工作流改变" value={rec.workflow_change} />
-            )}
-            {item.module !== "model" && rec.access_barrier_change && (
-              <KV label="门槛变化" value={rec.access_barrier_change} />
-            )}
-
-            {(officialClaims.length > 0 || productHighlights.length > 0) && (
+            {keyPointsZh ? (
+              <BulletText text={keyPointsZh} />
+            ) : (
               <>
-                <Subhead>
-                  {item.module === "model" ? "关键发现" : "产品重点"}
-                </Subhead>
-                <Bulleted
-                  items={
-                    item.module === "model" ? officialClaims : productHighlights
-                  }
-                />
+                {rec.core_positioning && (
+                  <p className="text-[17px] leading-[1.65] text-claude-body-strong dark:text-white/90">
+                    {rec.core_positioning}
+                  </p>
+                )}
+                {rec.problem_it_solves && (
+                  <KV label="解决的问题" value={rec.problem_it_solves} />
+                )}
+                {item.module !== "model" && rec.workflow_change && (
+                  <KV label="工作流改变" value={rec.workflow_change} />
+                )}
+                {item.module !== "model" && rec.access_barrier_change && (
+                  <KV label="门槛变化" value={rec.access_barrier_change} />
+                )}
+                {(officialClaims.length > 0 || productHighlights.length > 0) && (
+                  <>
+                    <Subhead>
+                      {item.module === "model" ? "关键发现" : "产品重点"}
+                    </Subhead>
+                    <Bulleted
+                      items={
+                        item.module === "model" ? officialClaims : productHighlights
+                      }
+                    />
+                  </>
+                )}
+                {item.module === "model" && rec.real_change_notes && (
+                  <p className="mt-5 text-[16px] leading-[1.65] text-claude-body dark:text-white/85">
+                    {rec.real_change_notes}
+                  </p>
+                )}
               </>
             )}
+          </Section>
+        )}
 
-            {item.module === "model" && rec.real_change_notes && (
-              <p className="mt-5 text-[16px] leading-[1.65] text-claude-body dark:text-white/85">
-                {rec.real_change_notes}
-              </p>
+        {/* 谁会用、怎么用 — prefer Chinese scenarios_zh */}
+        {(scenariosZh || scenarios.length > 0) && (
+          <Section title="谁会用、怎么用">
+            {scenariosZh ? (
+              <BulletText text={scenariosZh} />
+            ) : (
+              <Bulleted items={scenarios} markdown />
             )}
           </Section>
         )}
 
-        {/* 谁会用、怎么用 */}
-        {scenarios.length > 0 && (
-          <Section title="谁会用、怎么用">
-            <Bulleted items={scenarios} markdown />
-          </Section>
-        )}
-
-        {/* 商业模式与定价 */}
-        {(rec.business_model ||
+        {/* 商业模式与定价 — prefer Chinese business_model_zh */}
+        {(businessModelZh ||
+          rec.business_model ||
           rec.price_speed_cost_notes ||
           rec.app_api_workflow_notes) && (
           <Section title="商业模式与定价">
-            {rec.business_model && (
+            {businessModelZh ? (
               <p className="text-[17px] leading-[1.65] text-claude-body-strong dark:text-white/90">
-                {rec.business_model}
+                {businessModelZh}
               </p>
-            )}
-            {rec.price_speed_cost_notes && (
-              <KV label="价格 / 速度" value={rec.price_speed_cost_notes} />
-            )}
-            {rec.app_api_workflow_notes && (
-              <KV label="上线渠道" value={rec.app_api_workflow_notes} />
+            ) : (
+              <>
+                {rec.business_model && (
+                  <p className="text-[17px] leading-[1.65] text-claude-body-strong dark:text-white/90">
+                    {rec.business_model}
+                  </p>
+                )}
+                {rec.price_speed_cost_notes && (
+                  <KV label="价格 / 速度" value={rec.price_speed_cost_notes} />
+                )}
+                {rec.app_api_workflow_notes && (
+                  <KV label="上线渠道" value={rec.app_api_workflow_notes} />
+                )}
+              </>
             )}
           </Section>
         )}
@@ -246,32 +280,53 @@ export default async function ItemDetailPage({
           </Section>
         )}
 
-        {/* 用户反馈 */}
-        {feedback && <FeedbackBlock feedback={feedback} />}
+        {/* 用户反馈 — prefer Chinese feedbackZh */}
+        {feedbackZh ? (
+          <Section title="用户反馈">
+            <BulletText text={feedbackZh} />
+          </Section>
+        ) : (
+          feedback && <FeedbackBlock feedback={feedback} />
+        )}
 
-        {/* 真实引用 */}
-        {quotes.length > 0 && (
+        {/* 真实引用 — prefer Chinese quotes_zh, fallback to English */}
+        {(quotesZh.length > 0 || quotes.length > 0) && (
           <Section title="真实引用">
-            <ul className="space-y-5">
-              {quotes.map((q: any, i: number) => (
-                <li
-                  key={i}
-                  className="rounded-lg border-l-4 border-claude-coral bg-claude-surface-soft p-5 dark:bg-white/[0.04]"
-                >
-                  <p className="text-[16px] leading-[1.65] text-claude-body-strong dark:text-white/95">
-                    「{q.text}」
-                  </p>
-                  <p className="mt-2 text-[13px] text-claude-muted">
-                    — {q.author}
-                    {q.source && (
-                      <>
-                        ，<span className="italic">{q.source}</span>
-                      </>
-                    )}
-                  </p>
-                </li>
-              ))}
-            </ul>
+            {quotesZh.length > 0 ? (
+              <ul className="space-y-5">
+                {quotesZh.map((q, i) => (
+                  <li
+                    key={i}
+                    className="rounded-lg border-l-4 border-claude-coral bg-claude-surface-soft p-5 dark:bg-white/[0.04]"
+                  >
+                    <p className="prose-cjk text-[16px] leading-[1.65] text-claude-body-strong dark:text-white/95">
+                      {q}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <ul className="space-y-5">
+                {quotes.map((q: any, i: number) => (
+                  <li
+                    key={i}
+                    className="rounded-lg border-l-4 border-claude-coral bg-claude-surface-soft p-5 dark:bg-white/[0.04]"
+                  >
+                    <p className="text-[16px] leading-[1.65] text-claude-body-strong dark:text-white/95">
+                      「{q.text}」
+                    </p>
+                    <p className="mt-2 text-[13px] text-claude-muted">
+                      — {q.author}
+                      {q.source && (
+                        <>
+                          ，<span className="italic">{q.source}</span>
+                        </>
+                      )}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            )}
           </Section>
         )}
 
@@ -484,6 +539,49 @@ function Empty({ children }: { children: React.ReactNode }) {
     <span className="text-claude-muted-soft dark:text-white/40">
       {children}
     </span>
+  );
+}
+
+/**
+ * Renders a freeform Chinese bullet-text block from the newsletter draft.
+ * Splits on ● (newsletter bullet) and 好：/坏：（section headers).
+ * Lines without ● are rendered as paragraphs.
+ */
+function BulletText({ text }: { text: string }) {
+  const segments = text.split(/(?=●)/).filter(Boolean);
+  if (segments.length <= 1) {
+    // Plain paragraph — may contain inline ● markers
+    const lines = text.split(/\s*●\s*/).filter(Boolean);
+    if (lines.length <= 1) {
+      return (
+        <p className="prose-cjk text-[17px] leading-[1.65] text-claude-body-strong dark:text-white/90">
+          {text}
+        </p>
+      );
+    }
+    return (
+      <ul className="mt-3 space-y-3 text-[16px] text-claude-body dark:text-white/85">
+        {lines.map((line, i) => (
+          <li key={i} className="flex gap-3">
+            <span className="mt-[0.55em] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-claude-coral" />
+            <span className="prose-cjk flex-1 leading-[1.65]">{line.trim()}</span>
+          </li>
+        ))}
+      </ul>
+    );
+  }
+  return (
+    <ul className="mt-3 space-y-3 text-[16px] text-claude-body dark:text-white/85">
+      {segments.map((seg, i) => {
+        const line = seg.replace(/^●\s*/, "").trim();
+        return (
+          <li key={i} className="flex gap-3">
+            <span className="mt-[0.55em] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-claude-coral" />
+            <span className="prose-cjk flex-1 leading-[1.65]">{line}</span>
+          </li>
+        );
+      })}
+    </ul>
   );
 }
 
