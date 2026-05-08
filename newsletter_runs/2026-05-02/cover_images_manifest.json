@@ -1,0 +1,11 @@
+[
+  {
+    "slug": "2026-05-02-harness-harness-cursor-plugin",
+    "company": "Harness",
+    "name": "Harness Cursor Plugin",
+    "image_url": "/generated-covers/2026-05-02/2026-05-02-harness-harness-cursor-plugin.png",
+    "output_path": "web\\public\\generated-covers\\2026-05-02\\2026-05-02-harness-harness-cursor-plugin.png",
+    "prompt": "News item:\n- Module: product\n- Company: Harness\n- Product / event: Harness Cursor Plugin\n- Headline: Cursor Marketplace 第一个真正企业级的 CI/CD 插件 —— DevOps 进入 IDE。\n- What changed: 把企业级 CI/CD（部署、回滚、policy 检查）从 dashboard 拖进 Cursor chat —— 「DevOps in your editor」。\n- Use cases or affected workflow: **SRE / 平台工程师**：在 Cursor 里跟 agent 说「把这个分支部到 staging 跑一遍 smoke test」—— 不用切窗口。；**做 release 的工程经理**：approve / reject deployments 直接在 Cursor chat 里完成。\n- Editorial judgment: Cursor Marketplace 的企业插件生态正在起步 —— 我们应该评估自己的 chat agent 是否能 export 一个 Cursor plugin（让用户在 Cursor 里直接「向我们的 agent 提问」）。\n- Tags: \n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow.",
+    "dry_run": false
+  }
+]
