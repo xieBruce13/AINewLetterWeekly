@@ -56,7 +56,7 @@ export function ItemPageShell({
     <>
       {/* Sticky toggle bar — sits below the global nav. */}
       <div className="sticky top-16 z-20 border-b border-claude-hairline bg-claude-canvas/95 backdrop-blur dark:border-white/10 dark:bg-claude-dark/95">
-        <div className="mx-auto flex w-full max-w-[1400px] flex-wrap items-center gap-3 px-5 py-2.5 sm:px-8">
+        <div className="mx-auto flex w-full max-w-[1800px] flex-wrap items-center gap-3 px-5 py-2.5 sm:px-6">
           <ModeToggle mode={mode} onChange={setMode} />
           <p className="ml-auto hidden text-[11px] text-claude-muted sm:block">
             {mode === "read"
@@ -71,7 +71,7 @@ export function ItemPageShell({
       {/* Body */}
       <div
         className={cn(
-          "mx-auto w-full max-w-[1400px]",
+          "mx-auto w-full max-w-[1800px]",
           // Reading-dominant on item page: ratio reading : chat = 3 : 1.
           // Long-form CJK needs measure; chat is a sidekick rail here.
           mode === "split" && "lg:grid lg:grid-cols-[3fr_1fr] lg:gap-0"

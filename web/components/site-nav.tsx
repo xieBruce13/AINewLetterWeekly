@@ -17,7 +17,7 @@ export async function SiteNav() {
 
   return (
     <header className="sticky top-0 z-30 border-b border-claude-hairline bg-claude-canvas/95 backdrop-blur dark:border-white/10 dark:bg-claude-dark/95">
-      <div className="container-page flex h-16 items-center gap-6">
+      <div className="mx-auto flex h-16 w-full max-w-[1800px] items-center gap-6 px-5 sm:px-6">
         <Link
           href="/"
           className="flex items-center gap-2 font-display text-[22px] tracking-display text-claude-ink dark:text-white"

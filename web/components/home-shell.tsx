@@ -101,7 +101,7 @@ export function HomeShell({
       {/* Sticky toolbar — sits below the global nav. Title block on the
           left, view-mode toggle on the right. */}
       <div className="sticky top-16 z-20 border-b border-claude-hairline bg-claude-canvas/95 backdrop-blur dark:border-white/10 dark:bg-claude-dark/95">
-        <div className="mx-auto flex w-full max-w-[1400px] flex-wrap items-center gap-3 px-5 py-3 sm:px-8">
+        <div className="mx-auto flex w-full max-w-[1800px] flex-wrap items-center gap-3 px-5 py-3 sm:px-6">
           <div className="min-w-0 flex-1">
             <p className="text-[11px] font-semibold uppercase tracking-uc text-claude-coral">
               AI 周报 · {formatIssueDate(issueDate)}
@@ -135,7 +135,7 @@ export function HomeShell({
           mode flips. */}
       <div
         className={cn(
-          "mx-auto w-full max-w-[1400px] px-0 sm:px-2 lg:px-4",
+          "mx-auto w-full max-w-[1800px] px-0 sm:px-2 lg:px-3",
           // ratio reading : chat = 3 : 1 (75 % / 25 %) per editorial direction.
           mode === "split" && "lg:grid lg:grid-cols-[3fr_1fr] lg:gap-4"
         )}

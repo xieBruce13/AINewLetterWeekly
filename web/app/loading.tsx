@@ -11,7 +11,7 @@ export default function HomeLoading() {
     <>
       {/* Toolbar */}
       <div className="border-b border-claude-hairline dark:border-white/10">
-        <div className="mx-auto flex w-full max-w-[1400px] items-center gap-3 px-5 py-3 sm:px-8">
+        <div className="mx-auto flex w-full max-w-[1800px] items-center gap-3 px-5 py-3 sm:px-6">
           <div className="flex-1">
             <div className="h-3 w-32 animate-pulse rounded bg-claude-surface-card" />
             <div className="mt-1.5 h-5 w-2/3 max-w-md animate-pulse rounded bg-claude-surface-card" />
@@ -21,7 +21,7 @@ export default function HomeLoading() {
       </div>
 
       {/* Split body — 3:1 (reading : chat) */}
-      <div className="mx-auto w-full max-w-[1400px] lg:grid lg:grid-cols-[3fr_1fr] lg:gap-4">
+      <div className="mx-auto w-full max-w-[1800px] lg:grid lg:grid-cols-[3fr_1fr] lg:gap-4">
         {/* Reading column — week highlights card + news cards */}
         <div className="px-5 py-6 sm:px-6">
           {/* Week highlights skeleton */}

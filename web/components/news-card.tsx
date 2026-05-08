@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { ItemActions } from "./item-actions";
 import { WhyShown } from "./why-shown";
 import { CardImage } from "./card-image";
 import { moduleLabel } from "@/lib/modules";
@@ -180,8 +179,6 @@ export function NewsCard({
           <div className="flex-1" />
           <CardActionRow
             slug={item.slug}
-            itemId={item.id}
-            state={state}
             personalNote={personalNote}
             personalizedReason={personalizedReason}
           />
@@ -252,8 +249,6 @@ export function NewsCard({
 
         <CardActionRow
           slug={item.slug}
-          itemId={item.id}
-          state={state}
           personalNote={personalNote}
           personalizedReason={personalizedReason}
         />
@@ -303,30 +298,30 @@ function CardEyebrow({
   );
 }
 
+/**
+ * Footer row for a news card. Used to also surface 收藏 / 赞 / 不太相关
+ * icons here, but in user testing the icons crowded the card and the
+ * reactions felt premature on a card the reader hadn't even opened yet —
+ * those actions now live only on the item detail page where they make
+ * sense.
+ */
 function CardActionRow({
   slug,
-  itemId,
-  state,
   personalNote,
   personalizedReason,
 }: {
   slug: string;
-  itemId: number;
-  state?: NewsCardProps["state"];
   personalNote: string | null;
   personalizedReason: string;
 }) {
   return (
     <div className="mt-5 border-t border-claude-hairline pt-3 dark:border-white/10">
-      <div className="flex items-center justify-between gap-2">
-        <Link
-          href={`/items/${slug}`}
-          className="inline-flex items-center gap-1 whitespace-nowrap text-[13px] font-medium text-claude-coral hover:underline"
-        >
-          阅读 &amp; 聊这条 <ArrowRight className="h-3 w-3" />
-        </Link>
-        {state !== undefined && <ItemActions itemId={itemId} state={state} />}
-      </div>
+      <Link
+        href={`/items/${slug}`}
+        className="inline-flex items-center gap-1 whitespace-nowrap text-[13px] font-medium text-claude-coral hover:underline"
+      >
+        阅读 &amp; 聊这条 <ArrowRight className="h-3 w-3" />
+      </Link>
       {personalNote && (
         <p className="mt-2.5 line-clamp-2 text-[12.5px] leading-[1.5] text-claude-muted">
           <span className="mr-1 font-medium text-claude-coral">为你而推</span>

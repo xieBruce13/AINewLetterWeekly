@@ -2,7 +2,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { auth } from "@/lib/auth";
 import { getItemBySlug, getUserItemState } from "@/lib/db/queries";
-import { ItemActions } from "@/components/item-actions";
 import { WhyShown } from "@/components/why-shown";
 import { ItemPageShell } from "@/components/item-page-shell";
 import { CardImage } from "@/components/card-image";
@@ -181,20 +180,6 @@ export default async function ItemDetailPage({
                 <ExternalLink className="h-4 w-4" />
                 阅读原文
               </a>
-            )}
-            {session?.user?.id && (
-              <ItemActions
-                itemId={item.id}
-                state={
-                  state
-                    ? {
-                        saved: state.saved,
-                        dismissed: state.dismissed,
-                        reaction: state.reaction,
-                      }
-                    : undefined
-                }
-              />
             )}
           </div>
 
