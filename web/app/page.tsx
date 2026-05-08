@@ -79,6 +79,7 @@ export default async function HomePage({
                  * card hides the personalized strip when blurb is empty. */
                 personalizedBlurb=""
                 personalizedReason="登录后可以看到这条新闻为何对你重要。"
+                variant="compact"
               />
             ))}
           </CardGrid>
@@ -455,6 +456,15 @@ function CardGrid({ children }: { children: React.ReactNode }) {
   );
 }
 
+/**
+ * Vertical stack used for the signed-in personalized feed. One Wired-style
+ * horizontal card per row — image on the left, content on the right.
+ * Generous gap so each card reads as its own beat instead of a tile.
+ */
+function CardStack({ children }: { children: React.ReactNode }) {
+  return <div className="flex flex-col gap-6">{children}</div>;
+}
+
 type Item = Awaited<ReturnType<typeof getPersonalizedFeed>>[number];
 
 function ModuleSections({ items }: { items: Item[] }) {
@@ -478,7 +488,7 @@ function ModuleSections({ items }: { items: Item[] }) {
               count={list.length}
               focusHref={`/?module=${m}`}
             />
-            <CardGrid>
+            <CardStack>
               {list.map((item, i) => (
                 <NewsCard
                   key={item.id}
@@ -487,9 +497,10 @@ function ModuleSections({ items }: { items: Item[] }) {
                   personalizedBlurb={item.personalizedBlurb}
                   personalizedReason={item.personalizedReason}
                   state={item.state}
+                  variant="wired"
                 />
               ))}
-            </CardGrid>
+            </CardStack>
           </section>
         );
       })}
@@ -517,7 +528,7 @@ function SingleModuleView({
         blurb={MODULE_BLURB[m]}
         count={items.length}
       />
-      <CardGrid>
+      <CardStack>
         {items.map((item, i) => (
           <NewsCard
             key={item.id}
@@ -526,9 +537,10 @@ function SingleModuleView({
             personalizedBlurb={item.personalizedBlurb}
             personalizedReason={item.personalizedReason}
             state={item.state}
+            variant="wired"
           />
         ))}
-      </CardGrid>
+      </CardStack>
     </section>
   );
 }

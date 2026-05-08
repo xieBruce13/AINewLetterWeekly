@@ -1,0 +1,72 @@
+# tools/image_overrides.yaml — hand-curated images for the highest-priority items
+#
+# Each entry has the form:
+#
+#   - match:                       # one or more conditions, ALL must be true
+#       slug_contains:  string     # substring match on the issue-date slug
+#       company:        string     # exact match (case-insensitive)
+#       name_contains:  string     # substring match on the item name
+#       tags_contains:  string     # one of the item's tags equals this
+#     image: <https URL>           # the image to use
+#     caption: string              # optional, not yet rendered
+#
+# Match priority: the FIRST matching entry wins, so put the most specific
+# matches at the top.
+#
+# Goal: replace the cheap RSS/og:image fallback for the week's top 5-10
+# items with a real product screenshot. Editors should curate this list
+# weekly while reviewing main-tier items. Updates take effect on the
+# next run of `python tools/image_resolver.py`.
+#
+# IMPORTANT: pick durable URLs (CDN/Wikipedia/the company's official press
+# kit). News-site URLs frequently expire when the article is paywalled
+# or rotated — those will start 404'ing in a few weeks.
+
+# ---------------------------------------------------------------------------
+# Curated entries
+# ---------------------------------------------------------------------------
+
+# Anthropic / Claude — wordmark from Wikimedia Commons (durable).
+# Replace with a real Opus 4.7 benchmark screenshot when one is available.
+- match: { company: "Anthropic" }
+  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Anthropic_logo.svg/1280px-Anthropic_logo.svg.png"
+  caption: "Anthropic"
+
+# OpenAI / ChatGPT — official wordmark.
+- match: { company: "OpenAI" }
+  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/640px-ChatGPT_logo.svg.png"
+  caption: "ChatGPT"
+
+# Google Gemini — official wordmark.
+- match: { company: "Google" }
+  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Google_Gemini_logo.svg/1280px-Google_Gemini_logo.svg.png"
+  caption: "Google Gemini"
+
+# Cursor — keep the IDE feel
+- match: { company: "Cursor" }
+  image: "https://www.cursor.com/og-image.png"
+  caption: "Cursor"
+
+# Figma
+- match: { company: "Figma" }
+  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/512px-Figma-logo.svg.png"
+  caption: "Figma"
+
+# Perplexity Comet — agentic browser
+- match: { slug_contains: "perplexity-comet" }
+  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Perplexity_AI_logo.svg/1280px-Perplexity_AI_logo.svg.png"
+  caption: "Perplexity Comet"
+
+# NVIDIA — green brand block, real product photos come through og:image
+- match: { company: "NVIDIA" }
+  image: "https://upload.wikimedia.org/wikipedia/sco/thumb/2/21/Nvidia_logo.svg/1280px-Nvidia_logo.svg.png"
+  caption: "NVIDIA"
+
+# Adobe Firefly — design tooling
+- match: { name_contains: "Firefly" }
+  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Adobe_Corporate_Logo.png/1280px-Adobe_Corporate_Logo.png"
+  caption: "Adobe Firefly"
+
+# ---------------------------------------------------------------------------
+# Add new entries above this line as the week's main-tier items emerge.
+# ---------------------------------------------------------------------------

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { auth } from "@/lib/auth";
@@ -122,6 +123,24 @@ export default async function ItemDetailPage({
           <ArrowLeft className="h-3.5 w-3.5" />
           返回新闻首页
         </Link>
+
+        {/* Hero image — only renders when we resolved one for this item.
+            Uses `unoptimized` because the URL comes from arbitrary 3rd-party
+            CDNs we don't control; we'd rather serve the raw asset than have
+            Next.js' image optimizer 502 on a missing CDN. */}
+        {item.primaryImage && (
+          <figure className="relative mb-8 aspect-[16/9] w-full overflow-hidden rounded-xl bg-claude-surface-card sm:aspect-[2/1]">
+            <Image
+              src={item.primaryImage}
+              alt={`${item.company} ${item.name}`}
+              fill
+              sizes="(min-width: 768px) 760px, 100vw"
+              className="object-cover"
+              priority
+              unoptimized
+            />
+          </figure>
+        )}
 
         {/* Header — full width */}
         <header className="border-b border-claude-hairline pb-10 dark:border-white/10">

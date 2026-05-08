@@ -15,6 +15,7 @@ Source registry: tools/sources.yaml  ← edit that file to add/remove feeds.
 
 import argparse
 import json
+import re
 import sys
 import time
 import xml.etree.ElementTree as ET
@@ -143,7 +144,7 @@ def _parse_date(s: str) -> datetime | None:
 
 
 def _make_item(title: str, url: str, summary: str, pub_raw: str,
-               source: dict) -> dict:
+               source: dict, image_candidates: list[str] | None = None) -> dict:
     """Build a normalised raw item dict from feed data + source metadata."""
     return {
         "title": title,
@@ -154,7 +155,125 @@ def _make_item(title: str, url: str, summary: str, pub_raw: str,
         "tier": source["tier"],
         "module_hint": source.get("module") or source.get("module_hint"),
         "source_tags": source.get("tags") or [],
+        "image_candidates": _dedupe_urls(image_candidates or []),
     }
+
+
+# ---------------------------------------------------------------------------
+# Image extraction
+# ---------------------------------------------------------------------------
+
+# Strip 1×1 pixel trackers, ad beacons, share/social buttons, etc.
+_IMAGE_BLOCKLIST = re.compile(
+    r"(pixel|tracker|beacon|spacer|1x1|share-button|social|twitter\.com/intent)",
+    re.IGNORECASE,
+)
+_IMG_TAG_RE = re.compile(r"""<img[^>]+src=["']([^"']+)["']""", re.IGNORECASE)
+# Extract <enclosure url="..." type="image/..."> attributes flexibly.
+_ENCLOSURE_IMG_RE = re.compile(
+    r"""<enclosure[^>]*url=["']([^"']+)["'][^>]*type=["']image/[^"']+["']""",
+    re.IGNORECASE,
+)
+
+
+def _dedupe_urls(urls: list[str]) -> list[str]:
+    """Filter to plausible image URLs, dedupe preserving order."""
+    seen: set[str] = set()
+    out: list[str] = []
+    for u in urls:
+        if not u:
+            continue
+        u = u.strip()
+        if not u.startswith(("http://", "https://", "//")):
+            continue
+        if u.startswith("//"):
+            u = "https:" + u
+        if u in seen:
+            continue
+        if _IMAGE_BLOCKLIST.search(u):
+            continue
+        seen.add(u)
+        out.append(u)
+        if len(out) >= 5:  # plenty of candidates; resolver picks one
+            break
+    return out
+
+
+def _extract_inline_imgs(html_blob: str) -> list[str]:
+    """Pull <img src> URLs from a description / content:encoded HTML blob."""
+    if not html_blob:
+        return []
+    return _IMG_TAG_RE.findall(html_blob)
+
+
+def _media_namespaced_images(entry) -> list[str]:
+    """Pull <media:content> and <media:thumbnail> URLs from any element.
+
+    These show up under namespaces media:* (Yahoo Media RSS) and we want any
+    that look like images. ElementTree exposes them as `{ns-uri}local`.
+    """
+    out: list[str] = []
+    for child in entry.iter():
+        local = child.tag.rsplit("}", 1)[-1]
+        if local not in ("content", "thumbnail"):
+            continue
+        url = child.attrib.get("url") or child.attrib.get("href") or ""
+        if not url:
+            continue
+        # media:content can be audio/video too — keep only images, but be
+        # lenient when no medium/type attribute is set.
+        medium = (
+            child.attrib.get("medium")
+            or child.attrib.get("type")
+            or ""
+        ).lower()
+        if medium and not medium.startswith("image"):
+            continue
+        out.append(url)
+    return out
+
+
+def _entry_image_candidates(entry, summary_html: str, raw_xml: str) -> list[str]:
+    """Combine all in-RSS image signals into a deduped candidate list.
+
+    Sources, in order of preference:
+      1. media:content / media:thumbnail (namespaced)
+      2. <enclosure type="image/...">
+      3. <image> child element (some RSS 1.0 feeds)
+      4. inline <img src="..."> in description / content:encoded
+    """
+    cands: list[str] = []
+
+    cands.extend(_media_namespaced_images(entry))
+
+    # Enclosures — ElementTree may not preserve the original XML,
+    # so fall back to a regex scan of the raw text for the entry.
+    for enc in entry.iter():
+        if enc.tag.rsplit("}", 1)[-1] != "enclosure":
+            continue
+        url = enc.attrib.get("url") or ""
+        type_ = (enc.attrib.get("type") or "").lower()
+        if url and (type_.startswith("image") or not type_):
+            cands.append(url)
+
+    # <image><url>…</url></image> child of <item>
+    for img in entry.iter():
+        if img.tag.rsplit("}", 1)[-1] == "image":
+            url_node = next(
+                (c for c in img if c.tag.rsplit("}", 1)[-1] == "url"),
+                None,
+            )
+            if url_node is not None and url_node.text:
+                cands.append(url_node.text.strip())
+
+    cands.extend(_extract_inline_imgs(summary_html))
+
+    # As a last resort, regex the raw XML for enclosure URLs in case
+    # ElementTree dropped them (some namespace edge cases).
+    if raw_xml:
+        cands.extend(_ENCLOSURE_IMG_RE.findall(raw_xml))
+
+    return _dedupe_urls(cands)
 
 
 def parse_rss_atom(raw: bytes, source: dict) -> list[dict]:
@@ -163,6 +282,13 @@ def parse_rss_atom(raw: bytes, source: dict) -> list[dict]:
         root = ET.fromstring(raw)
     except ET.ParseError:
         return []
+
+    # Decode once so we can fall-back to a regex scan for enclosures that
+    # ElementTree dropped (rare, but happens with some namespace shapes).
+    try:
+        raw_text = raw.decode("utf-8", errors="replace")
+    except Exception:
+        raw_text = ""
 
     tag = root.tag.lower()
 
@@ -186,7 +312,8 @@ def parse_rss_atom(raw: bytes, source: dict) -> list[dict]:
                 "{http://www.w3.org/2005/Atom}published",
                 "{http://www.w3.org/2005/Atom}updated",
             )
-            items.append(_make_item(title, url, summary, pub, source))
+            imgs = _entry_image_candidates(entry, summary, "")
+            items.append(_make_item(title, url, summary, pub, source, imgs))
     else:
         # ── RSS 2.0 / 1.0 ────────────────────────────────────────────────
         channel = root.find("channel") or root
@@ -195,7 +322,15 @@ def parse_rss_atom(raw: bytes, source: dict) -> list[dict]:
             title   = _text(item, "title")
             summary = _text(item, "description", "content:encoded", "dc:description")
             pub     = _text(item, "pubDate", "dc:date")
-            items.append(_make_item(title, url, summary, pub, source))
+            # Slice the raw text down to roughly this item's XML so the
+            # enclosure regex only sees its own attributes. Cheap enough.
+            try:
+                idx = raw_text.find(title) if title else -1
+                slice_xml = raw_text[max(0, idx - 200):idx + 4000] if idx > 0 else ""
+            except Exception:
+                slice_xml = ""
+            imgs = _entry_image_candidates(item, summary, slice_xml)
+            items.append(_make_item(title, url, summary, pub, source, imgs))
 
     return items
 
@@ -243,6 +378,9 @@ def fetch_hacker_news(hn_cfg: dict, cutoff: datetime) -> list[dict]:
             "source_tags":  ["hacker-news"],
             "hn_score":     score,
             "hn_comments":  item.get("descendants", 0),
+            # HN itself doesn't host images; image_resolver.py will try
+            # og:image on the linked URL.
+            "image_candidates": [],
         })
         time.sleep(0.05)  # polite per-item delay
 
@@ -269,6 +407,28 @@ def fetch_reddit(source: dict, cutoff: datetime, limit: int = 50) -> list[dict]:
         pub_dt = datetime.fromtimestamp(ts, tz=timezone.utc)
         if pub_dt < cutoff:
             continue
+
+        # Reddit gives us the original image URL (sometimes HTML-escaped) on
+        # `preview.images[0].source.url`, plus the post's own URL when the
+        # link is a direct image upload (i.redd.it / imgur). Collect both.
+        cands: list[str] = []
+        post_url = p.get("url") or ""
+        if post_url and re.search(r"\.(?:png|jpe?g|gif|webp)(?:$|\?)", post_url, re.IGNORECASE):
+            cands.append(post_url)
+        elif "i.redd.it/" in post_url or "imgur.com/" in post_url:
+            cands.append(post_url)
+
+        preview = p.get("preview") or {}
+        for img in (preview.get("images") or []):
+            src = (img.get("source") or {}).get("url") or ""
+            if src:
+                # Reddit JSON uses HTML entity encoding for & in preview URLs.
+                cands.append(src.replace("&amp;", "&"))
+
+        thumb = p.get("thumbnail") or ""
+        if thumb.startswith(("http://", "https://")):
+            cands.append(thumb)
+
         results.append({
             "title":         p.get("title", ""),
             "url":           p.get("url") or f"https://reddit.com{p.get('permalink', '')}",
@@ -280,6 +440,7 @@ def fetch_reddit(source: dict, cutoff: datetime, limit: int = 50) -> list[dict]:
             "source_tags":   source.get("tags") or [],
             "reddit_score":  p.get("score", 0),
             "reddit_comments": p.get("num_comments", 0),
+            "image_candidates": _dedupe_urls(cands),
         })
     return results
 

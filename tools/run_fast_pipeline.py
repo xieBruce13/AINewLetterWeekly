@@ -7,7 +7,8 @@ Architecture:
   Step 2 — rule_filter.py    Deterministic filter  ~5 sec   0 AI calls
   Step 3 — ai_filter.py      AI enrichment only    ~2 min   N calls (batched)
   Step 4 — weekly_summary.py Theme + bullets       ~30 sec  1 AI call
-  Step 5 — sync_to_db.py     Push to Postgres      ~2 min   N embed calls
+  Step 5 — image_resolver.py Override+og:image     ~1-2 min 0 AI calls
+  Step 6 — sync_to_db.py     Push to Postgres      ~2 min   N embed calls
 
 Total: ~7 min vs ~60-120 min with the old AI-browsing collector.
 
@@ -130,10 +131,26 @@ def main():
             file=sys.stderr,
         )
 
-    # ── Step 5: Sync to DB ───────────────────────────────────────────────
+    # ── Step 5: Image resolver (overrides → RSS → og:image) ──────────
+    print("\n" + "=" * 60)
+    print("STEP 5 — Image resolver (no AI calls)")
+    print("=" * 60)
+    rc = run([
+        sys.executable, "tools/image_resolver.py",
+        "--run-dir",    str(run_dir),
+        "--issue-date", args.issue_date,
+    ])
+    if rc != 0:
+        print(
+            f"Image resolver failed (exit {rc}). Continuing anyway — "
+            "cards will render the no-image variant.",
+            file=sys.stderr,
+        )
+
+    # ── Step 6: Sync to DB ───────────────────────────────────────────────
     if not args.skip_db:
         print("\n" + "=" * 60)
-        print("STEP 5 — Sync to Postgres")
+        print("STEP 6 — Sync to Postgres")
         print("=" * 60)
 
         # Build verified_records.json from AI filter output

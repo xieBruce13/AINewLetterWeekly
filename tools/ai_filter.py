@@ -252,6 +252,10 @@ def enrich_items(
     )[:top_n]
 
     enrich_inputs = []
+    # Side table: keep the raw item alongside the enrich input so we can
+    # carry through fields like image_candidates that we don't want the LLM
+    # to see (would pollute the prompt and risk hallucinated URLs).
+    side_data: list[dict] = []
     for item in sorted_items:
         enrich_inputs.append({
             "title":          item.get("title", ""),
@@ -264,6 +268,10 @@ def enrich_items(
             "company_hint":   item.get("matched_company"),
             "tags_hint":      item.get("matched_tags") or item.get("source_tags") or [],
         })
+        side_data.append({
+            "url":              item.get("url", ""),
+            "image_candidates": item.get("image_candidates") or [],
+        })
 
     print(
         f"  Enriching {len(enrich_inputs)} items via AI "
@@ -274,19 +282,24 @@ def enrich_items(
     all_records: list[dict] = []
     for start in range(0, len(enrich_inputs), MAX_ITEMS_PER_ENRICH_CALL):
         batch = enrich_inputs[start : start + MAX_ITEMS_PER_ENRICH_CALL]
+        side  = side_data[start : start + MAX_ITEMS_PER_ENRICH_CALL]
         print(
             f"    → batch {start // MAX_ITEMS_PER_ENRICH_CALL + 1} "
             f"({len(batch)} items)...",
             file=sys.stderr,
         )
         records = enrich_batch(client, batch, issue_date)
-        for rec in records:
+        for i, rec in enumerate(records):
             rec.setdefault("updated_at", issue_date)
             rec.setdefault("issue_date", issue_date)
-            # Carry the source URL if the LLM didn't set one
-            orig_idx = start + records.index(rec)
-            if not rec.get("raw_urls") and orig_idx < len(enrich_inputs):
-                rec["raw_urls"] = [enrich_inputs[orig_idx].get("url", "")]
+            # Carry the source URL + image candidates from the original item.
+            # `i` is the LLM's output index — we trust it to preserve order
+            # within the batch, which it does in practice for these calls.
+            if i < len(side):
+                if not rec.get("raw_urls"):
+                    rec["raw_urls"] = [side[i].get("url", "")]
+                if not rec.get("image_candidates"):
+                    rec["image_candidates"] = side[i].get("image_candidates") or []
         all_records.extend(records)
 
     return all_records
