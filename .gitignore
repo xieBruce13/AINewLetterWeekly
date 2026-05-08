@@ -71,3 +71,7 @@ debug-*.log
 # Fast pipeline scratch
 # ============================================================
 newsletter_runs/**/raw_scraped.json
+
+# Local commit-message scratch files
+.commit_msg.tmp
+*.commit_msg.tmp
