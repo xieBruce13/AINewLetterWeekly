@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import { BookOpen, Columns, MessageSquare } from "lucide-react";
 import { NewsCard } from "@/components/news-card";
@@ -78,12 +78,7 @@ export function HomeShell({
   feed,
   isAnonymous = false,
 }: HomeShellProps) {
-  const [mode, setMode] = useState<ViewMode>(isAnonymous ? "read" : "split");
-
-  // Keep anonymous locked to read mode if prop changes.
-  useEffect(() => {
-    if (isAnonymous) setMode("read");
-  }, [isAnonymous]);
+  const [mode, setMode] = useState<ViewMode>("split");
 
   const display = focusModule
     ? feed.filter((r) => isModule(r.module) && r.module === focusModule)
@@ -142,7 +137,7 @@ export function HomeShell({
             )}
           </div>
 
-          {!isAnonymous && <ModeToggle mode={mode} onChange={setMode} />}
+          <ModeToggle mode={mode} onChange={setMode} />
         </div>
       </div>
 
@@ -191,30 +186,29 @@ export function HomeShell({
           </div>
         </div>
 
-        {/* Chat column — hidden for anonymous users */}
-        {!isAnonymous && (
-          <aside
+        {/* Chat column — anonymous users get a read-only preview. */}
+        <aside
+          className={cn(
+            mode === "read" ? "hidden" : "block",
+            mode === "split" && "lg:sticky lg:top-44 lg:self-start"
+          )}
+        >
+          <div
             className={cn(
-              mode === "read" ? "hidden" : "block",
-              mode === "split" && "lg:sticky lg:top-44 lg:self-start"
+              mode === "split"
+                ? "h-[calc(100vh-11.5rem)] border-l border-claude-hairline dark:border-white/10"
+                : "h-[calc(100vh-11.5rem)]"
             )}
           >
-            <div
-              className={cn(
-                mode === "split"
-                  ? "h-[calc(100vh-11.5rem)] border-l border-claude-hairline dark:border-white/10"
-                  : "h-[calc(100vh-11.5rem)]"
-              )}
-            >
-              <AgentChatPanel
-                referencedItemIds={referencedIds}
-                suggestions={suggestions}
-                density="compact"
-                headerEyebrow="Zeno Agent · 本周对话"
-              />
-            </div>
-          </aside>
-        )}
+            <AgentChatPanel
+              referencedItemIds={referencedIds}
+              suggestions={suggestions}
+              density="compact"
+              headerEyebrow="Zeno Agent · 本周对话"
+              readOnly={isAnonymous}
+            />
+          </div>
+        </aside>
       </div>
     </>
   );

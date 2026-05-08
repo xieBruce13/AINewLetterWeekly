@@ -33,6 +33,8 @@ export interface AgentChatPanelProps {
   headerEyebrow?: string;
   /** Override the input placeholder. */
   inputPlaceholder?: string;
+  /** Anonymous preview: disable the input, replace footer with sign-in CTA. */
+  readOnly?: boolean;
   className?: string;
 }
 
@@ -65,6 +67,7 @@ export function AgentChatPanel({
   inputFooter,
   headerEyebrow = "Zeno Agent",
   inputPlaceholder,
+  readOnly = false,
   className,
 }: AgentChatPanelProps) {
   const referenced =
@@ -153,7 +156,10 @@ export function AgentChatPanel({
             <ChatEmptyState
               suggestions={suggestions}
               compact={compact}
-              onPick={(s) => setInput(s)}
+              readOnly={readOnly}
+              onPick={(s) => {
+                if (!readOnly) setInput(s);
+              }}
             />
           )}
 
@@ -176,47 +182,81 @@ export function AgentChatPanel({
       </div>
 
       {/* Input dock */}
-      <form
-        onSubmit={handleSubmit}
-        className="shrink-0 border-t border-claude-hairline bg-claude-surface-soft/95 px-3 py-3 backdrop-blur dark:border-white/10 dark:bg-claude-dark/95 sm:px-4"
-      >
-        <div className="mx-auto flex w-full max-w-3xl flex-col">
-          <div className="flex items-end gap-2 rounded-lg bg-white p-2 shadow-hairline focus-within:shadow-focus dark:bg-white/[0.04]">
-            <textarea
-              value={input}
-              onChange={handleInputChange}
-              placeholder={placeholder}
+      {readOnly ? (
+        <div className="shrink-0 border-t border-claude-hairline bg-claude-surface-soft/95 px-3 py-3 backdrop-blur dark:border-white/10 dark:bg-claude-dark/95 sm:px-4">
+          <div className="mx-auto flex w-full max-w-3xl flex-col">
+            <div
               className={cn(
-                "flex-1 resize-none border-0 bg-transparent px-2 py-1.5 text-claude-ink outline-none dark:text-white",
-                compact ? "min-h-[36px] text-[14px]" : "min-h-[40px] text-[15px]"
+                "flex items-center gap-2 rounded-lg border border-dashed border-claude-hairline bg-white/70 p-2 dark:border-white/15 dark:bg-white/[0.03]",
+                compact ? "min-h-[44px]" : "min-h-[52px]"
               )}
-              rows={1}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" && !e.shiftKey) {
-                  e.preventDefault();
-                  handleSubmit(
-                    e as unknown as React.FormEvent<HTMLFormElement>
-                  );
-                }
-              }}
-            />
-            <button
-              type="submit"
-              disabled={isLoading || input.trim().length === 0}
-              className={cn(
-                "inline-flex shrink-0 items-center justify-center rounded-md bg-claude-coral text-white transition-colors hover:bg-claude-coral-active disabled:bg-claude-coral-disabled disabled:text-claude-muted press",
-                compact ? "h-8 w-8" : "h-9 w-9"
-              )}
-              aria-label="发送"
             >
-              <ArrowUp className={compact ? "h-3.5 w-3.5" : "h-4 w-4"} />
-            </button>
+              <span
+                className={cn(
+                  "flex-1 px-2 py-1.5 text-claude-muted",
+                  compact ? "text-[14px]" : "text-[15px]"
+                )}
+              >
+                登录后即可和 Zeno Agent 对话
+              </span>
+              <Link
+                href="/signin"
+                className={cn(
+                  "inline-flex shrink-0 items-center justify-center rounded-md bg-claude-coral px-3 text-white transition-colors hover:bg-claude-coral-active press",
+                  compact ? "h-8 text-[12.5px]" : "h-9 text-[13px]"
+                )}
+              >
+                登录 / 注册
+              </Link>
+            </div>
+            <p className="mt-2 text-center text-[11px] text-claude-muted">
+              登录后 Agent 会按你的角色和当前在做的事重写每一条新闻。
+            </p>
           </div>
-          <p className="mt-2 text-center text-[11px] text-claude-muted">
-            {inputFooter ?? DEFAULT_FOOTER}
-          </p>
         </div>
-      </form>
+      ) : (
+        <form
+          onSubmit={handleSubmit}
+          className="shrink-0 border-t border-claude-hairline bg-claude-surface-soft/95 px-3 py-3 backdrop-blur dark:border-white/10 dark:bg-claude-dark/95 sm:px-4"
+        >
+          <div className="mx-auto flex w-full max-w-3xl flex-col">
+            <div className="flex items-end gap-2 rounded-lg bg-white p-2 shadow-hairline focus-within:shadow-focus dark:bg-white/[0.04]">
+              <textarea
+                value={input}
+                onChange={handleInputChange}
+                placeholder={placeholder}
+                className={cn(
+                  "flex-1 resize-none border-0 bg-transparent px-2 py-1.5 text-claude-ink outline-none dark:text-white",
+                  compact ? "min-h-[36px] text-[14px]" : "min-h-[40px] text-[15px]"
+                )}
+                rows={1}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && !e.shiftKey) {
+                    e.preventDefault();
+                    handleSubmit(
+                      e as unknown as React.FormEvent<HTMLFormElement>
+                    );
+                  }
+                }}
+              />
+              <button
+                type="submit"
+                disabled={isLoading || input.trim().length === 0}
+                className={cn(
+                  "inline-flex shrink-0 items-center justify-center rounded-md bg-claude-coral text-white transition-colors hover:bg-claude-coral-active disabled:bg-claude-coral-disabled disabled:text-claude-muted press",
+                  compact ? "h-8 w-8" : "h-9 w-9"
+                )}
+                aria-label="发送"
+              >
+                <ArrowUp className={compact ? "h-3.5 w-3.5" : "h-4 w-4"} />
+              </button>
+            </div>
+            <p className="mt-2 text-center text-[11px] text-claude-muted">
+              {inputFooter ?? DEFAULT_FOOTER}
+            </p>
+          </div>
+        </form>
+      )}
     </div>
   );
 }
@@ -226,10 +266,12 @@ export function AgentChatPanel({
 function ChatEmptyState({
   suggestions,
   compact,
+  readOnly = false,
   onPick,
 }: {
   suggestions?: string[];
   compact: boolean;
+  readOnly?: boolean;
   onPick: (s: string) => void;
 }) {
   const list = suggestions ?? [];
@@ -238,8 +280,9 @@ function ChatEmptyState({
       {!compact && (
         <div className="pb-1">
           <p className="text-[13px] text-claude-body dark:text-white/75">
-            可以问一条具体的新闻、做横向对比，或直接告诉我你在乎的事 ——
-            我会记下来。
+            {readOnly
+              ? "登录后可以问一条具体的新闻、做横向对比，或直接告诉 Agent 你在乎的事。"
+              : "可以问一条具体的新闻、做横向对比，或直接告诉我你在乎的事 —— 我会记下来。"}
           </p>
         </div>
       )}
@@ -248,10 +291,15 @@ function ChatEmptyState({
           {list.map((s) => (
             <button
               key={s}
+              type="button"
+              disabled={readOnly}
               onClick={() => onPick(s)}
               className={cn(
-                "rounded-lg bg-white text-left text-claude-body shadow-hairline transition-colors hover:bg-claude-surface-soft hover:text-claude-ink dark:bg-white/[0.04] dark:text-white/85 press",
-                compact ? "px-3 py-2 text-[13px]" : "px-3.5 py-2.5 text-[14px]"
+                "rounded-lg bg-white text-left text-claude-body shadow-hairline transition-colors dark:bg-white/[0.04] dark:text-white/85",
+                compact ? "px-3 py-2 text-[13px]" : "px-3.5 py-2.5 text-[14px]",
+                readOnly
+                  ? "cursor-not-allowed opacity-60"
+                  : "press hover:bg-claude-surface-soft hover:text-claude-ink"
               )}
             >
               {s}
