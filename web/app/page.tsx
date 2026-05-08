@@ -498,26 +498,28 @@ function BulletThumb({
   name: string;
   image: string | null;
 }) {
-  const inner = (
-    <div className="relative hidden h-14 w-20 shrink-0 overflow-hidden rounded-md bg-claude-surface-card sm:block">
+  // The wrapper is sized; CardImage runs in `fill` mode so its image
+  // overlays the wrapper without its own sized container fighting ours.
+  const thumb = (
+    <div className="relative hidden h-16 w-24 shrink-0 overflow-hidden rounded-md bg-claude-surface-card shadow-hairline sm:block">
       <CardImage
         image={image}
         company={company}
         name={name}
         slug={slug ?? ""}
-        aspect="aspect-[16/9] h-14 w-20"
-        sizes="80px"
+        aspect="fill"
+        sizes="96px"
       />
     </div>
   );
-  if (!slug) return inner;
+  if (!slug) return thumb;
   return (
     <Link
       href={`/items/${slug}`}
       aria-label={`${company} ${name}`}
       className="hidden shrink-0 sm:block"
     >
-      {inner}
+      {thumb}
     </Link>
   );
 }

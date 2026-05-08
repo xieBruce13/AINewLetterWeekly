@@ -125,9 +125,8 @@ export default async function ItemDetailPage({
         </Link>
 
         {/* Hero image — only renders when we resolved one for this item.
-            Uses `unoptimized` because the URL comes from arbitrary 3rd-party
-            CDNs we don't control; we'd rather serve the raw asset than have
-            Next.js' image optimizer 502 on a missing CDN. */}
+            Routed through Next.js' image optimizer so we get a server-side
+            fetch (avoids browser hotlink/referer blocks) plus WebP. */}
         {item.primaryImage && (
           <figure className="relative mb-8 aspect-[16/9] w-full overflow-hidden rounded-xl bg-claude-surface-card sm:aspect-[2/1]">
             <Image
@@ -137,7 +136,6 @@ export default async function ItemDetailPage({
               sizes="(min-width: 768px) 760px, 100vw"
               className="object-cover"
               priority
-              unoptimized
             />
           </figure>
         )}

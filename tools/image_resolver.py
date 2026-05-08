@@ -3,15 +3,24 @@ tools/image_resolver.py — Resolve a primary image for each enriched record.
 
 Resolution cascade per item (first hit wins):
 
-  1. tools/image_overrides.yaml   — hand-curated per-item screenshots
-  2. record["image_candidates"]   — URLs lifted from the RSS feed
-  3. og:image / twitter:image     — fetched from the article URL
-  4. (none — leaves image_urls empty; the card renders no-image variant)
+  1. record["image_candidates"]   — images embedded in the RSS feed
+  2. og:image / twitter:image     — scraped from the article URL
+  3. tools/image_overrides.yaml   — curated company logos as fallback
 
-Each candidate is HEAD-validated (200 status, image/* content-type, size
-≥ 5 KB) before being accepted, so we don't fill the DB with broken links
-or 1×1 trackers. Resolutions are cached in
-`newsletter_runs/<date>/image_resolutions.json` so re-runs are cheap.
+Order intent: prefer the article's own visual (a real product hero / press
+photo) over a generic company wordmark. Logos kick in only when neither
+the RSS feed nor the article's social-preview metadata yielded anything
+useful — that way an Anthropic news item gets the actual Claude product
+shot rather than the Anthropic wordmark.
+
+Every candidate (including manual overrides) is HEAD-validated against
+the publisher: 200 status, `image/*` content-type, size ≥ 5 KB. Stale
+override URLs (e.g. Wikimedia's small-thumbnail sizes that return 400,
+or moved press-kit assets) get rejected here rather than rendering as
+a broken image in production.
+
+Resolutions are cached in `newsletter_runs/<date>/image_resolutions.json`
+so re-runs are cheap.
 
 Usage:
     py tools/image_resolver.py --run-dir newsletter_runs/2026-05-07
@@ -245,30 +254,40 @@ def resolve_record(
     overrides: list[dict],
     cache: dict,
 ) -> str | None:
-    """Return the best image URL for this record, or None if nothing valid."""
+    """Return the best image URL for this record, or None if nothing valid.
+
+    Cascade (first VALID hit wins; everything is HEAD-validated):
+      1. RSS-embedded image candidates (publisher's own images)
+      2. og:image / twitter:image scraped from the article URL
+      3. Manual override from tools/image_overrides.yaml
+    """
     slug = _slug_for(rec, issue_date)
 
-    # 1) Manual overrides
-    override = find_override(rec, slug, overrides)
-    if override and override.get("image"):
-        # Trust hand-curated images; skip HEAD validation to save a request.
-        return override["image"]
-
-    # 2) Cache hit (re-runs are free)
-    if slug in cache:
+    # Cache hit short-circuits the whole cascade.
+    if slug in cache and cache[slug]:
         return cache[slug]
 
-    # 3) RSS-embedded candidates
+    # 1) RSS-embedded candidates (often the publisher's actual hero image)
     for cand in rec.get("image_candidates") or []:
         if _head_image(cand):
             return cand
 
-    # 4) og:image / twitter:image scraped from the article
+    # 2) og:image / twitter:image — the article's intended social preview
     raw_urls = rec.get("raw_urls") or []
     for url in raw_urls:
         og = fetch_og_image(url)
         if og and _head_image(og):
             return og
+
+    # 3) Manual override (logos / hand-picked screenshots) — last-resort
+    # fallback for items where neither RSS nor og:image yielded anything.
+    # We DO validate these — Wikimedia thumbnails frequently 400, press
+    # kit URLs move, etc.
+    override = find_override(rec, slug, overrides)
+    if override and override.get("image"):
+        url = override["image"]
+        if _head_image(url):
+            return url
 
     return None
 

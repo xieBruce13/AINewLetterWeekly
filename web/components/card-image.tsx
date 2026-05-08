@@ -10,7 +10,9 @@ interface CardImageProps {
   company: string;
   name: string;
   slug: string;
-  aspect: string;
+  /** Tailwind classes that size the component. Pass `fill` if the parent
+   *  is already sized and should be filled (e.g. small thumbnails). */
+  aspect: string | "fill";
   sizes: string;
   rounded?: string;
   /** Honour priority for above-the-fold cards (faster LCP). */
@@ -78,20 +80,29 @@ export function CardImage({
   const isLogo = !!image && isLogoUrl(image);
   const palette = paletteFor(company || name || slug);
 
+  // `fill` mode: the parent is already sized, so we render a positioned
+  // overlay instead of our own sized box. Used by tiny thumbnails where
+  // aspect classes would conflict with the parent's fixed h/w.
+  const isFill = aspect === "fill";
+  const containerClass = isFill ? "absolute inset-0" : cn("relative w-full", aspect);
+
   if (!showImage) {
     const initial = (company || name || "?").trim().slice(0, 1).toUpperCase();
     return (
       <div
         className={cn(
-          "relative w-full overflow-hidden bg-gradient-to-br",
+          "overflow-hidden bg-gradient-to-br",
           palette,
-          aspect,
+          containerClass,
           rounded
         )}
       >
         <span
           aria-hidden
-          className="absolute inset-0 flex items-center justify-center font-display text-[64px] tracking-display text-claude-coral/60 md:text-[88px]"
+          className={cn(
+            "absolute inset-0 flex items-center justify-center font-display tracking-display text-claude-coral/60",
+            isFill ? "text-[18px]" : "text-[64px] md:text-[88px]"
+          )}
         >
           {initial}
         </span>
@@ -102,11 +113,11 @@ export function CardImage({
   return (
     <div
       className={cn(
-        "relative w-full overflow-hidden",
+        "overflow-hidden",
         // Logo backdrop matches the no-image palette so a logo card
         // doesn't sit on a stark white panel.
         isLogo ? `bg-gradient-to-br ${palette}` : "bg-claude-surface-card",
-        aspect,
+        containerClass,
         rounded
       )}
     >
@@ -119,13 +130,19 @@ export function CardImage({
         className={cn(
           "transition-transform duration-300",
           isLogo
-            ? "object-contain p-6 md:p-10"
+            // Padding scales with the component: thumbnails get a tiny
+            // breathing room, full cards get generous margins so the
+            // wordmark doesn't fill the entire frame.
+            ? isFill
+              ? "object-contain p-2"
+              : "object-contain p-6 md:p-10"
             : "object-cover group-hover:scale-[1.02]"
         )}
-        // Image URLs come from arbitrary CDNs we don't host. Keep the
-        // optimizer off so a 4xx on one publisher doesn't take down
-        // the whole route — onError above swaps to the gradient.
-        unoptimized
+        // Let Next.js's image optimizer proxy the request server-side.
+        // This sidesteps browser hotlink/referer blocks (Wikimedia, etc.)
+        // that turn the gradient placeholder into the de-facto card. If
+        // the upstream URL 404s the optimizer returns 4xx and `onError`
+        // below swaps in the gradient.
         onError={() => setErrored(true)}
       />
     </div>

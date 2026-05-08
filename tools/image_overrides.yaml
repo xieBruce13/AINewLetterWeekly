@@ -10,69 +10,20 @@
 #     image: <https URL>           # the image to use
 #     caption: string              # optional, not yet rendered
 #
-# Match priority: the FIRST matching entry wins, so put the most specific
-# matches at the top. A logo-style URL (Wikimedia, *.svg, …/logo*.*) is
-# auto-detected by the UI and rendered with `object-contain` + padding —
-# don't try to crop wordmarks to a 4:3 box.
+# CASCADE NOTE: as of 2026-05-07, image_resolver.py uses overrides as a
+# LAST-RESORT fallback. The cascade is:
+#   1. RSS image candidates  →  2. og:image scrape  →  3. these overrides
+# So if a publisher has a real product hero image in their og:image, that
+# wins. These overrides only kick in for items with no usable scrape result.
 #
-# IMPORTANT: pick durable URLs (CDN/Wikipedia/the company's official press
-# kit). News-site URLs frequently expire when the article is paywalled
-# or rotated — those will start 404'ing in a few weeks.
+# Every URL here is HEAD-validated by the resolver before being used. If
+# you add an entry that 404s or 400s (e.g. a Wikimedia small thumbnail —
+# only 1280px sizes are reliably pre-rendered), it will silently be
+# skipped and the card will render the gradient placeholder instead.
 
 # ---------------------------------------------------------------------------
-# Specific product launches — pinpoint matches first.
-# These should ideally point to a real screenshot/hero image from the
-# product's official press kit. When that's not available we fall back
-# to the wordmark variant (handled below by the company-level overrides).
-# ---------------------------------------------------------------------------
-
-- match: { slug_contains: "claude-opus-4-7" }
-  image: "https://www-cdn.anthropic.com/images/4zrzovbb/website/claude-3-family-hero.png"
-  caption: "Claude Opus 4.7"
-
-- match: { slug_contains: "claude-sonnet-4-6" }
-  image: "https://www-cdn.anthropic.com/images/4zrzovbb/website/claude-3-family-hero.png"
-  caption: "Claude Sonnet 4.6"
-
-- match: { slug_contains: "cursor-composer-2" }
-  image: "https://www.cursor.com/og-image.png"
-  caption: "Cursor Composer 2"
-
-- match: { slug_contains: "cursor-sdk" }
-  image: "https://www.cursor.com/og-image.png"
-  caption: "Cursor SDK"
-
-- match: { slug_contains: "chatgpt-pulse" }
-  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/640px-ChatGPT_logo.svg.png"
-  caption: "ChatGPT Pulse"
-
-- match: { slug_contains: "perplexity-comet" }
-  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Perplexity_AI_logo.svg/1280px-Perplexity_AI_logo.svg.png"
-  caption: "Perplexity Comet"
-
-- match: { slug_contains: "figma-make" }
-  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/512px-Figma-logo.svg.png"
-  caption: "Figma Make"
-
-- match: { name_contains: "Lovable" }
-  image: "https://lovable.dev/opengraph-image.png"
-  caption: "Lovable"
-
-- match: { name_contains: "Notion" }
-  image: "https://www.notion.com/front-static/meta/custom-agents-og.png"
-  caption: "Notion Q&A"
-
-- match: { name_contains: "Mistral" }
-  image: "https://mistral.ai/-/news/opengraph-image-1o1w9k.png?opengraph-image.0"
-  caption: "Mistral"
-
-- match: { name_contains: "Firefly" }
-  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Adobe_Corporate_Logo.png/1280px-Adobe_Corporate_Logo.png"
-  caption: "Adobe Firefly"
-
-# ---------------------------------------------------------------------------
-# Catch-all by company. Wordmarks render as `object-contain` so they don't
-# crop weirdly. Order from most-specific to least-specific brands.
+# Verified durable URLs — all checked 2026-05-07.
+# Wikimedia: ALWAYS use 1280px thumbnails; smaller sizes return 400.
 # ---------------------------------------------------------------------------
 
 - match: { company: "Anthropic" }
@@ -80,7 +31,7 @@
   caption: "Anthropic"
 
 - match: { company: "OpenAI" }
-  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/640px-ChatGPT_logo.svg.png"
+  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/OpenAI_Logo.svg/1280px-OpenAI_Logo.svg.png"
   caption: "OpenAI"
 
 - match: { company: "Google DeepMind" }
@@ -91,22 +42,6 @@
   image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Google_Gemini_logo.svg/1280px-Google_Gemini_logo.svg.png"
   caption: "Google Gemini"
 
-- match: { company: "Cursor" }
-  image: "https://www.cursor.com/og-image.png"
-  caption: "Cursor"
-
-- match: { company: "Figma" }
-  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/512px-Figma-logo.svg.png"
-  caption: "Figma"
-
-- match: { company: "NVIDIA" }
-  image: "https://upload.wikimedia.org/wikipedia/sco/thumb/2/21/Nvidia_logo.svg/1280px-Nvidia_logo.svg.png"
-  caption: "NVIDIA"
-
-- match: { company: "Adobe" }
-  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Adobe_Corporate_Logo.png/1280px-Adobe_Corporate_Logo.png"
-  caption: "Adobe"
-
 - match: { company: "Microsoft" }
   image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/1280px-Microsoft_logo_%282012%29.svg.png"
   caption: "Microsoft"
@@ -115,14 +50,48 @@
   image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png"
   caption: "Amazon"
 
+- match: { company: "NVIDIA" }
+  image: "https://upload.wikimedia.org/wikipedia/sco/thumb/2/21/Nvidia_logo.svg/1280px-Nvidia_logo.svg.png"
+  caption: "NVIDIA"
+
 - match: { company: "Meta" }
   image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/1280px-Meta_Platforms_Inc._logo.svg.png"
   caption: "Meta"
+
+- match: { company: "Perplexity" }
+  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Perplexity_AI_logo.svg/1280px-Perplexity_AI_logo.svg.png"
+  caption: "Perplexity"
 
 - match: { company: "Hugging Face" }
   image: "https://huggingface.co/front/assets/huggingface_logo-noborder.svg"
   caption: "Hugging Face"
 
+- match: { company: "Mistral" }
+  image: "https://mistral.ai/-/news/opengraph-image-1o1w9k.png?opengraph-image.0"
+  caption: "Mistral"
+
+- match: { company: "Lovable" }
+  image: "https://lovable.dev/opengraph-image.png"
+  caption: "Lovable"
+
+- match: { company: "Notion" }
+  image: "https://www.notion.com/front-static/meta/custom-agents-og.png"
+  caption: "Notion"
+
+- match: { company: "Figma" }
+  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/1280px-Figma-logo.svg.png"
+  caption: "Figma"
+
+- match: { company: "Cursor" }
+  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Cursor_AI.svg/1280px-Cursor_AI.svg.png"
+  caption: "Cursor"
+
+- match: { company: "Adobe" }
+  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Adobe_Corporate_Logo.png/1280px-Adobe_Corporate_Logo.png"
+  caption: "Adobe"
+
 # ---------------------------------------------------------------------------
 # Add new entries above this line as the week's main-tier items emerge.
+# Always HEAD-test new URLs first (curl -I); the resolver also validates
+# at apply time but a 30-item batch with several broken URLs is wasteful.
 # ---------------------------------------------------------------------------
