@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { db, sqlClient } from "./client";
 import {
   newsItems,
@@ -10,7 +11,13 @@ import {
 } from "./schema";
 import { and, desc, eq, sql } from "drizzle-orm";
 
-export async function getIssueSummary(
+/**
+ * `cache()` dedupes calls within a single render so e.g. the home page
+ * and the layout both calling `getLatestIssueDate()` only do one query.
+ * Cleared between requests automatically.
+ */
+
+export const getIssueSummary = cache(async function getIssueSummary(
   issueDate: string
 ): Promise<IssueSummary | null> {
   try {
@@ -25,7 +32,7 @@ export async function getIssueSummary(
     // page just hides the bullet strip rather than crashing.
     return null;
   }
-}
+});
 
 /** Return the set of `news_items.slug` values present for an issue. Used
  *  by the home page to filter out dead links from the weekly summary
@@ -38,16 +45,50 @@ export async function getIssueSlugs(issueDate: string): Promise<Set<string>> {
   return new Set(rows.map((r) => r.slug));
 }
 
-export async function getLatestIssueDate(): Promise<string | null> {
-  const rows = await db
-    .select({ issueDate: newsItems.issueDate })
-    .from(newsItems)
-    .orderBy(desc(newsItems.issueDate))
-    .limit(1);
-  return rows[0]?.issueDate ?? null;
+/**
+ * Returns slug → { image, company, name } for every item in `slugs` that
+ * the weekly summary bullets reference. Used to render thumbnails next to
+ * the top-3 bullets without doing N round trips from the client.
+ */
+export async function getItemThumbsBySlug(
+  slugs: string[]
+): Promise<
+  Map<string, { primaryImage: string | null; company: string; name: string }>
+> {
+  if (slugs.length === 0) return new Map();
+  const rows = await sqlClient<
+    Array<{ slug: string; primary_image: string | null; company: string; name: string }>
+  >`
+    SELECT slug, primary_image, company, name
+    FROM news_items
+    WHERE slug = ANY(${slugs}::text[])
+  `;
+  const out = new Map<
+    string,
+    { primaryImage: string | null; company: string; name: string }
+  >();
+  for (const r of rows) {
+    out.set(r.slug, {
+      primaryImage: r.primary_image,
+      company: r.company,
+      name: r.name,
+    });
+  }
+  return out;
 }
 
-export async function getProfile(
+export const getLatestIssueDate = cache(
+  async function getLatestIssueDate(): Promise<string | null> {
+    const rows = await db
+      .select({ issueDate: newsItems.issueDate })
+      .from(newsItems)
+      .orderBy(desc(newsItems.issueDate))
+      .limit(1);
+    return rows[0]?.issueDate ?? null;
+  }
+);
+
+export const getProfile = cache(async function getProfile(
   userId: string
 ): Promise<UserProfile | null> {
   const rows = await db
@@ -56,16 +97,18 @@ export async function getProfile(
     .where(eq(userProfiles.userId, userId))
     .limit(1);
   return rows[0] ?? null;
-}
+});
 
-export async function getItemBySlug(slug: string): Promise<NewsItem | null> {
+export const getItemBySlug = cache(async function getItemBySlug(
+  slug: string
+): Promise<NewsItem | null> {
   const rows = await db
     .select()
     .from(newsItems)
     .where(eq(newsItems.slug, slug))
     .limit(1);
   return rows[0] ?? null;
-}
+});
 
 export async function getItemById(id: number): Promise<NewsItem | null> {
   const rows = await db

@@ -5,11 +5,13 @@ import {
   getAnonymousFeed,
   getIssueSlugs,
   getIssueSummary,
+  getItemThumbsBySlug,
   getLatestIssueDate,
   getProfile,
 } from "@/lib/db/queries";
 import { getPersonalizedFeed } from "@/lib/personalization/rerank";
 import { NewsCard } from "@/components/news-card";
+import { CardImage } from "@/components/card-image";
 import { formatIssueDate } from "@/lib/utils";
 import {
   MODULE_BLURB,
@@ -46,15 +48,28 @@ export default async function HomePage({
     getIssueSummary(issueDate),
     getIssueSlugs(issueDate),
   ]);
+  // Cap bullets to the top 3 most-important takeaways. The LLM already
+  // ranks them by importance when generating, so we just take the head.
+  // Going from 5-7 → 3 makes the strip readable in 30 seconds and gives
+  // each bullet enough horizontal room for a thumbnail.
   const summary = rawSummary
     ? {
         ...rawSummary,
-        bullets: (rawSummary.bullets ?? []).map((b) => ({
-          ...b,
-          slugs: (b.slugs ?? []).filter((s) => validSlugs.has(s)),
-        })),
+        bullets: (rawSummary.bullets ?? [])
+          .map((b) => ({
+            ...b,
+            slugs: (b.slugs ?? []).filter((s) => validSlugs.has(s)),
+          }))
+          .slice(0, 3),
       }
     : null;
+
+  // Resolve thumbnails for the 3 bullets so the WeekSummary card can
+  // render them inline without doing extra queries client-side.
+  const bulletPrimarySlugs = (summary?.bullets ?? [])
+    .map((b) => (b.slugs ?? [])[0])
+    .filter((s): s is string => !!s);
+  const bulletThumbs = await getItemThumbsBySlug(bulletPrimarySlugs);
 
   // Anonymous landing — quiet hero + week summary + 6-card preview + CTA.
   if (!session?.user?.id) {
@@ -63,7 +78,7 @@ export default async function HomePage({
       <>
         <Hero issueDate={issueDate} signedIn={false} />
         <div className="container-page py-12">
-          {summary && <WeekSummary summary={summary} />}
+          {summary && <WeekSummary summary={summary} thumbs={bulletThumbs} />}
           <SectionHeader
             label="本周编辑精选"
             blurb="登录后，同样的新闻会按你的角色重写。"
@@ -153,6 +168,7 @@ export default async function HomePage({
         {summary && !focusModule && (
           <WeekSummary
             summary={summary}
+            thumbs={bulletThumbs}
             userProfile={profile ? {
               role: profile.role ?? undefined,
               focusTopics: profile.focusTopics ?? [],
@@ -329,12 +345,20 @@ function bulletRelevance(
   return null;
 }
 
+type BulletThumb = {
+  primaryImage: string | null;
+  company: string;
+  name: string;
+};
+
 function WeekSummary({
   summary,
+  thumbs,
   userProfile,
   feed = [],
 }: {
   summary: { theme: string; bullets: { text: string; slugs?: string[] }[] };
+  thumbs?: Map<string, BulletThumb>;
   userProfile?: UserProfileHint;
   feed?: Array<{ slug: string; tags: string[]; headline: string }>;
 }) {
@@ -347,7 +371,7 @@ function WeekSummary({
     >
       <div className="flex items-start justify-between gap-4">
         <p className="text-[12px] font-semibold uppercase tracking-uc text-claude-coral">
-          本周要点 · 30 秒看完
+          本周要点 · 3 条最重要的事
         </p>
         {userProfile?.role && (
           <span className="shrink-0 rounded-full bg-claude-coral/10 px-2.5 py-0.5 text-[11px] font-medium text-claude-coral">
@@ -358,10 +382,20 @@ function WeekSummary({
       <p className="prose-cjk mt-3 font-display text-[22px] leading-[1.35] tracking-display text-claude-ink dark:text-white sm:text-[26px]">
         {summary.theme}
       </p>
-      <ul className="mt-6 space-y-2.5">
+      <ul className="mt-7 space-y-3">
         {bullets.map((b, i) => {
           const relevance = bulletRelevance(b.text, feed, b.slugs ?? [], userProfile);
-          return <SummaryBullet key={i} index={i} bullet={b} relevance={relevance} />;
+          const primarySlug = (b.slugs ?? [])[0];
+          const thumb = primarySlug ? thumbs?.get(primarySlug) : undefined;
+          return (
+            <SummaryBullet
+              key={i}
+              index={i}
+              bullet={b}
+              relevance={relevance}
+              thumb={thumb}
+            />
+          );
         })}
       </ul>
     </section>
@@ -372,10 +406,12 @@ function SummaryBullet({
   index,
   bullet,
   relevance,
+  thumb,
 }: {
   index: number;
   bullet: { text: string; slugs?: string[] };
   relevance?: string | null;
+  thumb?: BulletThumb;
 }) {
   const slugs = bullet.slugs ?? [];
   const primary = slugs[0];
@@ -384,11 +420,8 @@ function SummaryBullet({
   const lead = m?.[1] ?? null;
   const body = m?.[2] ?? bullet.text;
 
-  // Two-zone layout: the headline + body wrap into a single <Link> (the
-  // primary jump target). Secondary chips live OUTSIDE that link as their
-  // own <Link>s — anchors can't nest.
   const headline = (
-    <p className="prose-cjk text-[15.5px] text-claude-body dark:text-white/85">
+    <p className="prose-cjk text-[15.5px] leading-[1.6] text-claude-body dark:text-white/85">
       {lead && (
         <span className="font-semibold text-claude-ink dark:text-white group-hover:text-claude-coral">
           {lead}：
@@ -402,11 +435,22 @@ function SummaryBullet({
   );
 
   return (
-    <li className="-mx-2 rounded-lg px-2 py-2 transition-colors hover:bg-claude-surface-soft dark:hover:bg-white/[0.04]">
-      <div className="flex gap-4">
-        <span className="mt-1 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-claude-coral/10 text-[12px] font-semibold text-claude-coral">
+    <li className="-mx-2 rounded-lg px-2 py-3 transition-colors hover:bg-claude-surface-soft dark:hover:bg-white/[0.04]">
+      <div className="flex items-start gap-4">
+        <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-claude-coral/10 text-[12px] font-semibold text-claude-coral">
           {index + 1}
         </span>
+        {/* Inline thumbnail. Hidden on mobile — bullets are already
+            visually scannable on small screens, and the thumbnail eats
+            valuable horizontal room for the body text. */}
+        {thumb && (
+          <BulletThumb
+            slug={primary}
+            company={thumb.company}
+            name={thumb.name}
+            image={thumb.primaryImage}
+          />
+        )}
         <div className="min-w-0 flex-1">
           {relevance && (
             <span className="mb-1 inline-block rounded-full bg-claude-coral/10 px-2 py-0.5 text-[10px] font-semibold text-claude-coral">
@@ -416,7 +460,7 @@ function SummaryBullet({
           {primary ? (
             <Link
               href={`/items/${primary}`}
-              className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-claude-coral/30 rounded"
+              className="group block rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-claude-coral/30"
             >
               {headline}
             </Link>
@@ -440,6 +484,41 @@ function SummaryBullet({
         </div>
       </div>
     </li>
+  );
+}
+
+function BulletThumb({
+  slug,
+  company,
+  name,
+  image,
+}: {
+  slug?: string;
+  company: string;
+  name: string;
+  image: string | null;
+}) {
+  const inner = (
+    <div className="relative hidden h-14 w-20 shrink-0 overflow-hidden rounded-md bg-claude-surface-card sm:block">
+      <CardImage
+        image={image}
+        company={company}
+        name={name}
+        slug={slug ?? ""}
+        aspect="aspect-[16/9] h-14 w-20"
+        sizes="80px"
+      />
+    </div>
+  );
+  if (!slug) return inner;
+  return (
+    <Link
+      href={`/items/${slug}`}
+      aria-label={`${company} ${name}`}
+      className="hidden shrink-0 sm:block"
+    >
+      {inner}
+    </Link>
   );
 }
 

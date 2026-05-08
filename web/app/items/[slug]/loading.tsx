@@ -1,55 +1,46 @@
+/**
+ * Skeleton shown while a news item's data is fetched. Matches the live
+ * detail page's structure so the layout doesn't reflow when content
+ * lands.
+ */
 export default function ItemLoading() {
   return (
-    <div className="mx-auto w-full max-w-[1120px] px-5 py-10 sm:px-8 sm:py-16 animate-pulse">
-      <div className="mb-8">
-        <div className="h-4 w-24 rounded bg-claude-surface-soft mb-6" />
-        <div className="h-3 w-32 rounded bg-claude-surface-soft mb-4" />
-        <div className="h-10 w-3/4 rounded bg-claude-surface-soft mb-3" />
-        <div className="h-10 w-1/2 rounded bg-claude-surface-soft mb-6" />
-        <div className="flex gap-3">
-          <div className="h-5 w-16 rounded-full bg-claude-surface-soft" />
-          <div className="h-5 w-20 rounded-full bg-claude-surface-soft" />
-          <div className="h-5 w-24 rounded-full bg-claude-surface-soft" />
-        </div>
-      </div>
+    <article className="bg-claude-canvas dark:bg-claude-dark">
+      <div className="mx-auto w-full max-w-[760px] px-5 py-10 sm:px-8 sm:py-16">
+        <div className="mb-8 h-3.5 w-32 animate-pulse rounded bg-claude-surface-card" />
 
-      <div className="lg:grid lg:grid-cols-[1fr_320px] lg:gap-10">
-        <div className="space-y-8">
-          {/* TLDR */}
-          <div className="rounded-xl bg-claude-surface-soft p-5">
-            <div className="h-4 w-12 rounded bg-claude-hairline mb-3" />
-            <div className="h-4 w-full rounded bg-claude-hairline mb-2" />
-            <div className="h-4 w-5/6 rounded bg-claude-hairline" />
+        <div className="mb-8 aspect-[16/9] w-full animate-pulse rounded-xl bg-claude-surface-card sm:aspect-[2/1]" />
+
+        <div className="border-b border-claude-hairline pb-10 dark:border-white/10">
+          <div className="flex gap-2">
+            <div className="h-3 w-20 animate-pulse rounded bg-claude-surface-card" />
+            <div className="h-3 w-16 animate-pulse rounded bg-claude-surface-card" />
           </div>
-
-          {/* Body sections */}
-          {[1, 2, 3, 4].map((i) => (
-            <div key={i}>
-              <div className="h-5 w-40 rounded bg-claude-surface-soft mb-4" />
-              <div className="space-y-2">
-                <div className="h-4 w-full rounded bg-claude-surface-soft" />
-                <div className="h-4 w-full rounded bg-claude-surface-soft" />
-                <div className="h-4 w-4/5 rounded bg-claude-surface-soft" />
-              </div>
-            </div>
-          ))}
+          <div className="mt-5 space-y-3">
+            <div className="h-10 w-full animate-pulse rounded bg-claude-surface-card sm:h-12" />
+            <div className="h-10 w-3/4 animate-pulse rounded bg-claude-surface-card sm:h-12" />
+          </div>
         </div>
 
-        <div className="hidden lg:block space-y-4 mt-0">
-          <div className="rounded-xl border border-claude-hairline p-5">
-            <div className="h-4 w-16 rounded bg-claude-surface-soft mb-3" />
-            <div className="flex flex-wrap gap-2">
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="h-6 w-16 rounded-full bg-claude-surface-soft" />
-              ))}
+        <div className="mt-10 grid grid-cols-1 gap-x-12 gap-y-10 lg:grid-cols-[1fr_320px]">
+          <div className="min-w-0 space-y-6">
+            <div className="rounded-lg bg-claude-surface-soft p-6 dark:bg-white/[0.04]">
+              <div className="h-3 w-12 animate-pulse rounded bg-claude-surface-card" />
+              <div className="mt-3 h-7 w-full animate-pulse rounded bg-claude-surface-card" />
+              <div className="mt-2 h-7 w-2/3 animate-pulse rounded bg-claude-surface-card" />
+            </div>
+            <div className="space-y-2">
+              <div className="h-5 w-32 animate-pulse rounded bg-claude-surface-card" />
+              <div className="h-4 w-full animate-pulse rounded bg-claude-surface-card" />
+              <div className="h-4 w-5/6 animate-pulse rounded bg-claude-surface-card" />
             </div>
           </div>
-          <div className="rounded-xl border border-claude-hairline p-5">
-            <div className="h-4 w-20 rounded bg-claude-surface-soft mb-3" />
-            <div className="h-8 w-full rounded bg-claude-surface-soft" />
-          </div>
+          <aside className="space-y-4">
+            <div className="h-32 animate-pulse rounded-xl bg-claude-surface-card" />
+            <div className="h-40 animate-pulse rounded-xl bg-claude-surface-card" />
+          </aside>
         </div>
       </div>
-    </div>
+    </article>
   );
 }

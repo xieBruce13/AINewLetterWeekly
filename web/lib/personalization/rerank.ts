@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { db, sqlClient } from "@/lib/db/client";
 import { newsItems, userItemState, userProfiles } from "@/lib/db/schema";
 import { and, eq } from "drizzle-orm";
@@ -101,7 +102,9 @@ function compactItemForPrompt(row: CheapRerankRow): string {
  * `user_item_state` — we recompute only if the user's profile changed since
  * the last rerank or the cached rows are missing.
  */
-export async function getPersonalizedFeed(
+export const getPersonalizedFeed = cache(_getPersonalizedFeed);
+
+async function _getPersonalizedFeed(
   userId: string,
   issueDate: string
 ): Promise<PersonalizedItem[]> {

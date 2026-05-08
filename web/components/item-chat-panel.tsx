@@ -2,7 +2,7 @@
 
 import { useChat } from "ai/react";
 import { useEffect, useRef, useState } from "react";
-import { ArrowUp, Bot, Loader2, User2, Wrench, X } from "lucide-react";
+import { ArrowUp, Bot, Loader2, User2, Wrench } from "lucide-react";
 import { cn } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
 import Link from "next/link";
@@ -16,9 +16,9 @@ interface PinnedItem {
 
 interface ItemChatPanelProps {
   item: PinnedItem;
-  /** When true the panel is visible (used by parent to toggle on mobile) */
+  /** Whether the panel should render. Parent controls visibility via the
+   *  detail-page top toggle. Defaults to true. */
   visible?: boolean;
-  onClose?: () => void;
 }
 
 const ITEM_SUGGESTIONS = (name: string, company: string) => [
@@ -28,7 +28,7 @@ const ITEM_SUGGESTIONS = (name: string, company: string) => [
   `帮我用 3 条 bullet 总结 ${name} 最重要的变化。`,
 ];
 
-export function ItemChatPanel({ item, visible = true, onClose }: ItemChatPanelProps) {
+export function ItemChatPanel({ item, visible = true }: ItemChatPanelProps) {
   const referencedItemIds = [item.id];
   const initialPrompt = `结合我的角色和当前在做的项目，告诉我从 ${item.name}（${item.company}）这条新闻里我应该带走什么。`;
 
@@ -64,16 +64,12 @@ export function ItemChatPanel({ item, visible = true, onClose }: ItemChatPanelPr
   return (
     <div
       className={cn(
-        "flex flex-col bg-claude-canvas dark:bg-claude-dark",
-        // Desktop: always visible sticky column
-        "lg:flex lg:h-[calc(100vh-4rem)] lg:sticky lg:top-16 lg:overflow-hidden",
-        // Mobile: full-screen overlay toggled by parent
-        "fixed inset-0 z-40 lg:static lg:z-auto",
-        !visible && "hidden lg:flex"
+        "flex h-full min-h-0 flex-1 flex-col bg-claude-canvas dark:bg-claude-dark",
+        !visible && "hidden"
       )}
     >
       {/* Panel header */}
-      <div className="flex shrink-0 items-center justify-between border-b border-claude-hairline bg-claude-surface-soft px-4 py-3 dark:border-white/10 dark:bg-white/[0.03]">
+      <div className="flex shrink-0 items-center justify-between border-b border-claude-hairline bg-claude-surface-soft px-5 py-3 dark:border-white/10 dark:bg-white/[0.03]">
         <div className="min-w-0">
           <p className="text-[11px] font-semibold uppercase tracking-uc text-claude-coral">
             AI 周报 Agent
@@ -82,15 +78,6 @@ export function ItemChatPanel({ item, visible = true, onClose }: ItemChatPanelPr
             {item.company} — {item.name}
           </p>
         </div>
-        {onClose && (
-          <button
-            onClick={onClose}
-            className="ml-3 shrink-0 rounded-md p-1.5 text-claude-muted hover:bg-claude-hairline hover:text-claude-ink dark:hover:bg-white/10 lg:hidden"
-            aria-label="关闭"
-          >
-            <X className="h-4 w-4" />
-          </button>
-        )}
       </div>
 
       {/* Messages */}

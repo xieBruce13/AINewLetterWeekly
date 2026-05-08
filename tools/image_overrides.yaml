@@ -11,61 +11,117 @@
 #     caption: string              # optional, not yet rendered
 #
 # Match priority: the FIRST matching entry wins, so put the most specific
-# matches at the top.
-#
-# Goal: replace the cheap RSS/og:image fallback for the week's top 5-10
-# items with a real product screenshot. Editors should curate this list
-# weekly while reviewing main-tier items. Updates take effect on the
-# next run of `python tools/image_resolver.py`.
+# matches at the top. A logo-style URL (Wikimedia, *.svg, …/logo*.*) is
+# auto-detected by the UI and rendered with `object-contain` + padding —
+# don't try to crop wordmarks to a 4:3 box.
 #
 # IMPORTANT: pick durable URLs (CDN/Wikipedia/the company's official press
 # kit). News-site URLs frequently expire when the article is paywalled
 # or rotated — those will start 404'ing in a few weeks.
 
 # ---------------------------------------------------------------------------
-# Curated entries
+# Specific product launches — pinpoint matches first.
+# These should ideally point to a real screenshot/hero image from the
+# product's official press kit. When that's not available we fall back
+# to the wordmark variant (handled below by the company-level overrides).
 # ---------------------------------------------------------------------------
 
-# Anthropic / Claude — wordmark from Wikimedia Commons (durable).
-# Replace with a real Opus 4.7 benchmark screenshot when one is available.
-- match: { company: "Anthropic" }
-  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Anthropic_logo.svg/1280px-Anthropic_logo.svg.png"
-  caption: "Anthropic"
+- match: { slug_contains: "claude-opus-4-7" }
+  image: "https://www-cdn.anthropic.com/images/4zrzovbb/website/claude-3-family-hero.png"
+  caption: "Claude Opus 4.7"
 
-# OpenAI / ChatGPT — official wordmark.
-- match: { company: "OpenAI" }
-  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/640px-ChatGPT_logo.svg.png"
-  caption: "ChatGPT"
+- match: { slug_contains: "claude-sonnet-4-6" }
+  image: "https://www-cdn.anthropic.com/images/4zrzovbb/website/claude-3-family-hero.png"
+  caption: "Claude Sonnet 4.6"
 
-# Google Gemini — official wordmark.
-- match: { company: "Google" }
-  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Google_Gemini_logo.svg/1280px-Google_Gemini_logo.svg.png"
-  caption: "Google Gemini"
-
-# Cursor — keep the IDE feel
-- match: { company: "Cursor" }
+- match: { slug_contains: "cursor-composer-2" }
   image: "https://www.cursor.com/og-image.png"
-  caption: "Cursor"
+  caption: "Cursor Composer 2"
 
-# Figma
-- match: { company: "Figma" }
-  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/512px-Figma-logo.svg.png"
-  caption: "Figma"
+- match: { slug_contains: "cursor-sdk" }
+  image: "https://www.cursor.com/og-image.png"
+  caption: "Cursor SDK"
 
-# Perplexity Comet — agentic browser
+- match: { slug_contains: "chatgpt-pulse" }
+  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/640px-ChatGPT_logo.svg.png"
+  caption: "ChatGPT Pulse"
+
 - match: { slug_contains: "perplexity-comet" }
   image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Perplexity_AI_logo.svg/1280px-Perplexity_AI_logo.svg.png"
   caption: "Perplexity Comet"
 
-# NVIDIA — green brand block, real product photos come through og:image
+- match: { slug_contains: "figma-make" }
+  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/512px-Figma-logo.svg.png"
+  caption: "Figma Make"
+
+- match: { name_contains: "Lovable" }
+  image: "https://lovable.dev/opengraph-image.png"
+  caption: "Lovable"
+
+- match: { name_contains: "Notion" }
+  image: "https://www.notion.com/front-static/meta/custom-agents-og.png"
+  caption: "Notion Q&A"
+
+- match: { name_contains: "Mistral" }
+  image: "https://mistral.ai/-/news/opengraph-image-1o1w9k.png?opengraph-image.0"
+  caption: "Mistral"
+
+- match: { name_contains: "Firefly" }
+  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Adobe_Corporate_Logo.png/1280px-Adobe_Corporate_Logo.png"
+  caption: "Adobe Firefly"
+
+# ---------------------------------------------------------------------------
+# Catch-all by company. Wordmarks render as `object-contain` so they don't
+# crop weirdly. Order from most-specific to least-specific brands.
+# ---------------------------------------------------------------------------
+
+- match: { company: "Anthropic" }
+  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Anthropic_logo.svg/1280px-Anthropic_logo.svg.png"
+  caption: "Anthropic"
+
+- match: { company: "OpenAI" }
+  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/640px-ChatGPT_logo.svg.png"
+  caption: "OpenAI"
+
+- match: { company: "Google DeepMind" }
+  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Google_Gemini_logo.svg/1280px-Google_Gemini_logo.svg.png"
+  caption: "Google DeepMind"
+
+- match: { company: "Google" }
+  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Google_Gemini_logo.svg/1280px-Google_Gemini_logo.svg.png"
+  caption: "Google Gemini"
+
+- match: { company: "Cursor" }
+  image: "https://www.cursor.com/og-image.png"
+  caption: "Cursor"
+
+- match: { company: "Figma" }
+  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/512px-Figma-logo.svg.png"
+  caption: "Figma"
+
 - match: { company: "NVIDIA" }
   image: "https://upload.wikimedia.org/wikipedia/sco/thumb/2/21/Nvidia_logo.svg/1280px-Nvidia_logo.svg.png"
   caption: "NVIDIA"
 
-# Adobe Firefly — design tooling
-- match: { name_contains: "Firefly" }
+- match: { company: "Adobe" }
   image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Adobe_Corporate_Logo.png/1280px-Adobe_Corporate_Logo.png"
-  caption: "Adobe Firefly"
+  caption: "Adobe"
+
+- match: { company: "Microsoft" }
+  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/1280px-Microsoft_logo_%282012%29.svg.png"
+  caption: "Microsoft"
+
+- match: { company: "Amazon" }
+  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png"
+  caption: "Amazon"
+
+- match: { company: "Meta" }
+  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/1280px-Meta_Platforms_Inc._logo.svg.png"
+  caption: "Meta"
+
+- match: { company: "Hugging Face" }
+  image: "https://huggingface.co/front/assets/huggingface_logo-noborder.svg"
+  caption: "Hugging Face"
 
 # ---------------------------------------------------------------------------
 # Add new entries above this line as the week's main-tier items emerge.

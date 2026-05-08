@@ -66,17 +66,32 @@ def _head_image(url: str) -> bool:
     """Return True if `url` looks like a real image (HEAD, then short GET)."""
     if not url or not url.startswith(("http://", "https://")):
         return False
+    # Drop obvious non-image URL shapes early (we've seen these slip
+    # through og:image: pages serving an HTML "image not found" page,
+    # tracking pixels, social share buttons, etc.).
+    low = url.lower()
+    if any(bad in low for bad in (
+        "/share?", "/intent/", "tracking", "pixel.gif", "spacer",
+    )):
+        return False
     try:
         with _request(url, method="HEAD", timeout=HEAD_TIMEOUT) as resp:
             ctype = (resp.headers.get("Content-Type") or "").lower()
             clen  = resp.headers.get("Content-Length")
-            if not ctype.startswith("image/"):
-                # Some CDNs don't return Content-Type on HEAD — fall through
-                # and try a tiny ranged GET.
-                if ctype:
+            if ctype:
+                # Reject anything that explicitly isn't an image. Some
+                # publishers' og:image actually points at a 200 HTML page
+                # when the asset has been rotated — don't treat that as OK.
+                if not ctype.startswith("image/"):
                     return False
-            if clen and clen.isdigit() and int(clen) < MIN_BYTES:
-                return False
+            if clen and clen.isdigit():
+                size = int(clen)
+                if size < MIN_BYTES:
+                    return False
+                # Reject absurdly tiny "images" that are clearly icons /
+                # share buttons, even when CDN returns image/* type.
+                if size < 3 * 1024 and ctype.startswith("image/svg"):
+                    return False
             return True
     except (URLError, HTTPError, TimeoutError, OSError):
         # HEAD blocked or unreliable — try a 0-1 range GET.
@@ -89,8 +104,11 @@ def _head_image(url: str) -> bool:
                 ctype = (resp.headers.get("Content-Type") or "").lower()
                 if ctype.startswith("image/"):
                     return True
-                # Magic-number sniff — first bytes
+                # Magic-number sniff — first bytes. Reject HTML/JSON
+                # explicitly.
                 head = resp.read(16)
+                if head.lstrip().startswith((b"<!", b"<html", b"<HTML", b"{")):
+                    return False
                 return _sniff_image(head)
         except Exception:
             return False

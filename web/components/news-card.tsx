@@ -1,8 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { ItemActions } from "./item-actions";
 import { WhyShown } from "./why-shown";
+import { CardImage } from "./card-image";
 import { moduleLabel } from "@/lib/modules";
 import { cn, storyDate } from "@/lib/utils";
 
@@ -53,6 +53,39 @@ function pickStr(rec: Record<string, unknown> | null | undefined, ...keys: strin
   return null;
 }
 
+/**
+ * Build the "deck" — a 2-3 sentence body paragraph that gives the actual
+ * news content (vs the headline, which is only one factual sentence).
+ *
+ * Source priority:
+ *   1. `key_points_zh` — what the product/feature actually IS / does
+ *   2. `scenarios_zh` — who uses it, how
+ *   3. `relevance_zh` — relevance to AI engineers/PMs
+ *
+ * `key_points_zh` arrives in two shapes from the LLM:
+ *   - a string with `；` / `;` separated points
+ *   - an array of bullet strings
+ * We normalise both to a single paragraph because that reads better
+ * inside a card (a 3-bullet list inside a card competes visually with
+ * the headline).
+ */
+function buildDeck(rec: Record<string, unknown> | null | undefined): string | null {
+  if (!rec) return null;
+  const kp = rec["key_points_zh"];
+  let points: string[] = [];
+  if (Array.isArray(kp)) {
+    points = kp.filter((s): s is string => typeof s === "string" && s.trim().length > 0);
+  } else if (typeof kp === "string" && kp.trim()) {
+    points = kp.split(/[;；]\s*/).map((s) => s.trim()).filter(Boolean);
+  }
+  if (points.length > 0) {
+    // Use a Chinese full-stop only between points, not at the end —
+    // matches the way these are written in newsletters.
+    return points.slice(0, 3).join("；") + "。";
+  }
+  return pickStr(rec, "scenarios_zh", "relevance_zh", "what_it_is_zh");
+}
+
 /** Pick the best available image URL across the two field-name conventions. */
 function pickImage(item: NewsCardProps["item"]): string | null {
   if (item.primaryImage) return item.primaryImage;
@@ -60,27 +93,6 @@ function pickImage(item: NewsCardProps["item"]): string | null {
   if (Array.isArray(item.imageUrls) && item.imageUrls[0]) return item.imageUrls[0];
   if (Array.isArray(item.image_urls) && item.image_urls[0]) return item.image_urls[0];
   return null;
-}
-
-/**
- * Stable per-company background colour for the no-image variant.
- * We don't want to import a hash library — a tiny djb2 over the company
- * string is plenty for a fixed palette of warm / cool / neutral hues.
- */
-const NO_IMAGE_PALETTE = [
-  "from-claude-coral/20 to-claude-coral/5",
-  "from-amber-300/25 to-amber-100/10",
-  "from-emerald-300/25 to-emerald-100/10",
-  "from-sky-300/25 to-sky-100/10",
-  "from-indigo-300/25 to-indigo-100/10",
-  "from-rose-300/25 to-rose-100/10",
-  "from-violet-300/25 to-violet-100/10",
-];
-
-function paletteFor(seed: string): string {
-  let h = 5381;
-  for (let i = 0; i < seed.length; i++) h = ((h << 5) + h + seed.charCodeAt(i)) | 0;
-  return NO_IMAGE_PALETTE[Math.abs(h) % NO_IMAGE_PALETTE.length];
 }
 
 /**
@@ -105,6 +117,10 @@ export function NewsCard({
   const factualHeadline =
     pickStr(item.record, "summary_zh") || item.headline || item.name;
 
+  // Lead paragraph — what this product/feature actually IS / does.
+  // Sits between the headline and the editor judgment.
+  const deck = buildDeck(item.record);
+
   const judgment =
     pickStr(item.record, "judgment_zh", "one_line_judgment") || null;
 
@@ -128,7 +144,9 @@ export function NewsCard({
       >
         <CardImage
           image={image}
-          item={item}
+          company={item.company}
+          name={item.name}
+          slug={item.slug}
           aspect="aspect-[16/9]"
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
         />
@@ -139,8 +157,14 @@ export function NewsCard({
               {factualHeadline}
             </h2>
           </Link>
+          {deck && (
+            <p className="prose-cjk mt-3 line-clamp-3 text-[14px] leading-[1.65] text-claude-body dark:text-white/85">
+              {deck}
+            </p>
+          )}
           {judgment && (
-            <p className="mt-3 line-clamp-2 text-[14px] leading-[1.55] text-claude-body dark:text-white/70">
+            <p className="mt-2 line-clamp-2 text-[13px] italic leading-[1.55] text-claude-muted dark:text-white/60">
+              <span className="font-medium not-italic text-claude-coral">编辑判断 · </span>
               {judgment}
             </p>
           )}
@@ -177,13 +201,15 @@ export function NewsCard({
       <Link
         href={`/items/${item.slug}`}
         aria-label={factualHeadline}
-        className="block w-full shrink-0 md:w-[40%] md:min-w-[260px] md:max-w-[420px]"
+        className="block w-full shrink-0 md:w-[38%] md:min-w-[260px] md:max-w-[400px]"
       >
         <CardImage
           image={image}
-          item={item}
+          company={item.company}
+          name={item.name}
+          slug={item.slug}
           aspect="aspect-[16/9] md:aspect-[4/3] md:h-full"
-          sizes="(min-width: 768px) 40vw, 100vw"
+          sizes="(min-width: 768px) 38vw, 100vw"
           rounded="md:rounded-l-xl md:rounded-tr-none"
         />
       </Link>
@@ -197,10 +223,19 @@ export function NewsCard({
           </h2>
         </Link>
 
-        {judgment && (
-          <p className="mt-3 line-clamp-3 text-[14.5px] leading-[1.6] text-claude-body dark:text-white/70 md:text-[15px]">
-            {judgment}
+        {deck && (
+          <p className="prose-cjk mt-4 line-clamp-4 text-[15px] leading-[1.7] text-claude-body dark:text-white/85 md:text-[15.5px]">
+            {deck}
           </p>
+        )}
+
+        {judgment && (
+          <div className="mt-4 rounded-md border-l-2 border-claude-coral/60 bg-claude-coral/5 px-3 py-2 dark:bg-claude-coral/10">
+            <p className="line-clamp-2 text-[13.5px] leading-[1.6] text-claude-body-strong dark:text-white/85">
+              <span className="font-medium text-claude-coral">编辑判断 · </span>
+              {judgment}
+            </p>
+          </div>
         )}
 
         {item.tags.length > 0 && (
@@ -303,67 +338,6 @@ function CardActionRow({
           <WhyShown reason={personalizedReason} />
         </div>
       )}
-    </div>
-  );
-}
-
-function CardImage({
-  image,
-  item,
-  aspect,
-  sizes,
-  rounded,
-}: {
-  image: string | null;
-  item: NewsCardProps["item"];
-  aspect: string;
-  sizes: string;
-  rounded?: string;
-}) {
-  if (image) {
-    return (
-      <div
-        className={cn(
-          "relative w-full overflow-hidden bg-claude-surface-card",
-          aspect,
-          rounded
-        )}
-      >
-        <Image
-          src={image}
-          alt={`${item.company} ${item.name}`}
-          fill
-          sizes={sizes}
-          className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-          // Most of these come from third-party CDNs we don't control.
-          // We accept layout-shift on a broken image rather than risk
-          // crashing the whole page on a bad URL — the fill+cover wrapper
-          // maintains the alignment grid even if the <img> is missing.
-          unoptimized
-        />
-      </div>
-    );
-  }
-
-  // No-image variant: warm gradient panel + company initial. Keeps grid
-  // alignment without pretending to be a real photograph.
-  const initial = (item.company || item.name || "?").trim().slice(0, 1).toUpperCase();
-  const palette = paletteFor(item.company || item.name || item.slug);
-  return (
-    <div
-      className={cn(
-        "relative w-full overflow-hidden bg-gradient-to-br",
-        palette,
-        aspect,
-        rounded
-      )}
-    >
-      <span
-        aria-hidden
-        className="absolute inset-0 flex items-center justify-center font-display text-[64px] tracking-display text-claude-coral/60 md:text-[88px]"
-      >
-        {initial}
-      </span>
     </div>
   );
 }
