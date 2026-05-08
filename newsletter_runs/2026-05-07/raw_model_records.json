@@ -47,7 +47,13 @@
     "relevance_zh": "为团队提供智能体跨行业应用的参考，但缺乏可落地的新信息",
     "official_zh": "AlphaEvolve 的 Gemini 算法正在推动多领域影响",
     "community_zh": "社区关注实际应用案例，但期待更多技术细节",
-    "issue_date": "2026-05-07"
+    "issue_date": "2026-05-07",
+    "image_urls": [
+      "/generated-covers/2026-05-07/2026-05-07-google-deepmind-alphaevolve.png"
+    ],
+    "primary_image": "/generated-covers/2026-05-07/2026-05-07-google-deepmind-alphaevolve.png",
+    "cover_image_kind": "ai-generated",
+    "cover_image_prompt": "News item:\n- Module: model\n- Company: Google DeepMind\n- Product / event: AlphaEvolve\n- Headline: AlphaEvolve, powered by Gemini, is driving impact across business, infrastructure, and science.\n- What changed: Gemini 算法赋能多领域智能体；强调跨行业应用潜力\n- Use cases or affected workflow: machine intelligence 工程师可参考智能体在业务自动化和科研中的应用；产品经理关注跨行业落地案例\n- Editorial judgment: 更多为案例宣传，实际技术更新有限\n- Tags: agent, coding, model, impact\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow."
   },
   {
     "name": "Google AI Mode in Search",
@@ -96,7 +102,13 @@
     "relevance_zh": "主要为消费级应用展示，技术团队可关注用户体验创新",
     "official_zh": "Google Search 通过 AI Mode 和 Shopping 提供园艺建议",
     "community_zh": "社区关注 AI 搜索实际应用场景",
-    "issue_date": "2026-05-07"
+    "issue_date": "2026-05-07",
+    "image_urls": [
+      "/generated-covers/2026-05-07/2026-05-07-google-google-ai-mode-in-search.png"
+    ],
+    "primary_image": "/generated-covers/2026-05-07/2026-05-07-google-google-ai-mode-in-search.png",
+    "cover_image_kind": "ai-generated",
+    "cover_image_prompt": "News item:\n- Module: model\n- Company: Google\n- Product / event: Google machine intelligence Mode in Search\n- Headline: Google highlights machine intelligence Mode, Search Live, and Shopping features for gardening tips in Search.\n- What changed: machine intelligence Mode 支持园艺知识问答；结合购物推荐，提升用户体验\n- Use cases or affected workflow: machine intelligence 工程师可参考消费级 machine intelligence 搜索场景；产品经理关注用户端 machine intelligence 体验\n- Editorial judgment: 偏消费端展示，对工程团队参考价值有限\n- Tags: model, consumer, search\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow."
   },
   {
     "name": "Future Vision Film Competition",
@@ -146,7 +158,13 @@
     "relevance_zh": "为 AI 团队提供跨界创新与内容生成的机会参考",
     "official_zh": "Google 参与 350 万美元 Future Vision AI 电影竞赛，推动 AI 创意应用",
     "community_zh": "社区关注 AI 在影视内容生成领域的创新潜力",
-    "issue_date": "2026-05-07"
+    "issue_date": "2026-05-07",
+    "image_urls": [
+      "/generated-covers/2026-05-07/2026-05-07-google-future-vision-film-competition.png"
+    ],
+    "primary_image": "/generated-covers/2026-05-07/2026-05-07-google-future-vision-film-competition.png",
+    "cover_image_kind": "ai-generated",
+    "cover_image_prompt": "News item:\n- Module: model\n- Company: Google\n- Product / event: Future Vision Film Competition\n- Headline: Google partners with XPRIZE and Range Media Partners on the $3.5 million Future Vision film competition.\n- What changed: 推动 machine intelligence 在影视创意领域应用；高额奖金激励创新；多方合作提升行业影响力\n- Use cases or affected workflow: machine intelligence 工程师可关注多模态内容生成；产品经理可探索 intelligent systems + 媒体新场景\n- Editorial judgment: 适合关注 machine intelligence 创意与多模态内容的团队参考\n- Tags: model, multimodal, competition, media\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow."
   },
   {
     "name": "Google AI April 2026 Updates",
