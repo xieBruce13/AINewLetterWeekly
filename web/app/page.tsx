@@ -74,7 +74,10 @@ export default async function HomePage({
                 key={item.id}
                 rank={i}
                 item={item}
-                personalizedBlurb={item.headline}
+                /* Anonymous: no "为你而推" line — only logged-in users get
+                 * a real personalized angle. Empty string is fine; the
+                 * card hides the personalized strip when blurb is empty. */
+                personalizedBlurb=""
                 personalizedReason="登录后可以看到这条新闻为何对你重要。"
               />
             ))}
