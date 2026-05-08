@@ -286,7 +286,12 @@
     "relevance_zh": "为 AI 团队提供低门槛模型定制与快速迭代能力",
     "official_zh": "开发者可用自然语言描述用例，AI agent 自动完成定制、评估与部署",
     "community_zh": "社区关注自动化流程的灵活性与适用范围",
-    "issue_date": "2026-05-07"
+    "issue_date": "2026-05-07",
+    "image_urls": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png"
+    ],
+    "primary_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png",
+    "cover_image_kind": "company-logo"
   },
   {
     "name": "OpenClaw: After Hours @ GitHub",
@@ -339,7 +344,12 @@
     "relevance_zh": "为 AI 团队提供与开源社区对接和学习新项目的机会",
     "official_zh": "OpenClaw 开发者将在 GitHub HQ 进行演示与交流，支持线上直播",
     "community_zh": "社区积极参与，关注开源创新与合作机会",
-    "issue_date": "2026-05-07"
+    "issue_date": "2026-05-07",
+    "image_urls": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/1280px-Microsoft_logo_%282012%29.svg.png"
+    ],
+    "primary_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/1280px-Microsoft_logo_%282012%29.svg.png",
+    "cover_image_kind": "company-logo"
   },
   {
     "name": "EC2 Capacity Blocks for ML and SageMaker Training Plans",
@@ -391,7 +401,12 @@
     "relevance_zh": "帮助 AI 团队应对 GPU 资源瓶颈，提升项目交付确定性",
     "official_zh": "EC2 Capacity Blocks for ML 支持短期 GPU 预留，适用于多种 ML 场景",
     "community_zh": "社区关注资源灵活性与实际可用性",
-    "issue_date": "2026-05-07"
+    "issue_date": "2026-05-07",
+    "image_urls": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png"
+    ],
+    "primary_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png",
+    "cover_image_kind": "company-logo"
   },
   {
     "name": "GRPO on SageMaker AI",
@@ -444,7 +459,12 @@
     "relevance_zh": "为 AI 团队提供更稳健、可追溯的 RL 训练技术参考。",
     "official_zh": "RLVR 引入奖励信号验证与透明性，提升训练性能；GRPO 和 few-shot 可进一步增强结果。",
     "community_zh": "社区关注 RL 训练的可解释性和透明度提升。",
-    "issue_date": "2026-05-07"
+    "issue_date": "2026-05-07",
+    "image_urls": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png"
+    ],
+    "primary_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png",
+    "cover_image_kind": "company-logo"
   },
   {
     "name": "Pet Behavior Detection on AWS Inferentia2",
@@ -546,7 +566,12 @@
     "relevance_zh": "拓展 AI 代理在实际办公和自动化流程中的应用边界。",
     "official_zh": "OS Level Actions 通过 API 实现对桌面原生 UI 的直接控制，提升代理自动化能力。",
     "community_zh": "社区关注代理自动化能力的拓展与安全性挑战。",
-    "issue_date": "2026-05-07"
+    "issue_date": "2026-05-07",
+    "image_urls": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png"
+    ],
+    "primary_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png",
+    "cover_image_kind": "company-logo"
   },
   {
     "name": "Bedrock AgentCore Identity on Amazon ECS",
@@ -597,7 +622,12 @@
     "relevance_zh": "解决 AI 代理在生产环境中的安全与身份管理难题。",
     "official_zh": "Bedrock AgentCore Identity 独立服务支持多平台代理安全接入外部服务，提供 OAuth 授权与会话绑定。",
     "community_zh": "社区关注代理安全与合规能力的提升。",
-    "issue_date": "2026-05-07"
+    "issue_date": "2026-05-07",
+    "image_urls": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png"
+    ],
+    "primary_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png",
+    "cover_image_kind": "company-logo"
   },
   {
     "name": "Message Defense and Insights using Amazon Bedrock",
@@ -648,7 +678,12 @@
     "relevance_zh": "展示生成式 AI 在业务安全与客户分析中的落地价值。",
     "official_zh": "Bedrock Nova 基础模型可识别伪装联系并提供客户情绪洞察，助力业务保护与优化。",
     "community_zh": "社区关注生成式 AI 在安全与分析场景的实际效果。",
-    "issue_date": "2026-05-07"
+    "issue_date": "2026-05-07",
+    "image_urls": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png"
+    ],
+    "primary_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png",
+    "cover_image_kind": "company-logo"
   },
   {
     "name": "Dataset Q&A in Amazon Quick",
@@ -699,7 +734,12 @@
     "relevance_zh": "展示 LLM 在企业数据分析场景的实际应用价值。",
     "official_zh": "Dataset Q&A 支持自然语言跨结构化数据集查询，实现自动发现与多数据集会话分析。",
     "community_zh": "社区关注自然语言数据分析的易用性与准确性。",
-    "issue_date": "2026-05-07"
+    "issue_date": "2026-05-07",
+    "image_urls": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png"
+    ],
+    "primary_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png",
+    "cover_image_kind": "company-logo"
   },
   {
     "name": "Generate Dashboards from Natural Language in Amazon Quick",
@@ -751,7 +791,12 @@
     "relevance_zh": "为数据分析和 BI 产品团队提供 LLM 自动化落地范例。",
     "official_zh": "支持通过自然语言提示生成生产级多页仪表盘，简化 BI 报告流程。",
     "community_zh": "社区关注自然语言驱动 BI 自动化的实际效果。",
-    "issue_date": "2026-05-07"
+    "issue_date": "2026-05-07",
+    "image_urls": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png"
+    ],
+    "primary_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png",
+    "cover_image_kind": "company-logo"
   },
   {
     "name": "Amazon S3 Tables in Amazon Quick",
@@ -805,7 +850,12 @@
     "relevance_zh": "有助于 AI 团队快速获取和分析大规模实时数据。",
     "official_zh": "支持直接查询和可视化 S3 上的 Apache Iceberg 表，提升数据分析效率。",
     "community_zh": "社区关注数据湖与 AI 分析的集成能力。",
-    "issue_date": "2026-05-07"
+    "issue_date": "2026-05-07",
+    "image_urls": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png"
+    ],
+    "primary_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png",
+    "cover_image_kind": "company-logo"
   },
   {
     "name": "Capacity-Aware Inference for SageMaker AI Endpoints",
@@ -857,7 +907,12 @@
     "relevance_zh": "提升 AI 产品端到端服务的稳定性和运维效率。",
     "official_zh": "SageMaker AI 支持容量感知实例池，自动回退至可用基础设施，提升推理服务可靠性。",
     "community_zh": "社区关注推理服务的高可用与自动化能力。",
-    "issue_date": "2026-05-07"
+    "issue_date": "2026-05-07",
+    "image_urls": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png"
+    ],
+    "primary_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png",
+    "cover_image_kind": "company-logo"
   },
   {
     "name": "AWS Transform BI Migration Automation",
@@ -908,7 +963,12 @@
     "relevance_zh": "加速 BI 现代化进程，降低迁移门槛。",
     "official_zh": "支持 BI 系统自动迁移至 Amazon Quick，数天内完成，集成合作伙伴代理扩展能力。",
     "community_zh": "社区关注自动化迁移工具对数据平台升级的推动作用。",
-    "issue_date": "2026-05-07"
+    "issue_date": "2026-05-07",
+    "image_urls": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png"
+    ],
+    "primary_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png",
+    "cover_image_kind": "company-logo"
   },
   {
     "name": "Powering the Next American Century: Genesis Mission",
@@ -957,7 +1017,12 @@
     "relevance_zh": "为 AI 团队提供能源行业应用与合作新方向。",
     "official_zh": "AI 将成为未来美国能源基础设施建设的核心推动力。",
     "community_zh": "社区关注 AI 在能源等关键行业的落地与合作前景。",
-    "issue_date": "2026-05-07"
+    "issue_date": "2026-05-07",
+    "image_urls": [
+      "https://upload.wikimedia.org/wikipedia/sco/thumb/2/21/Nvidia_logo.svg/1280px-Nvidia_logo.svg.png"
+    ],
+    "primary_image": "https://upload.wikimedia.org/wikipedia/sco/thumb/2/21/Nvidia_logo.svg/1280px-Nvidia_logo.svg.png",
+    "cover_image_kind": "company-logo"
   },
   {
     "name": "Gaijin Single Sign-On on GeForce NOW",
@@ -1007,7 +1072,12 @@
     "relevance_zh": "为 AI 产品团队提供用户认证与体验优化参考。",
     "official_zh": "GeForce NOW 集成 Gaijin SSO，提供更快更流畅的登录体验。",
     "community_zh": "社区关注云游戏平台用户体验提升措施。",
-    "issue_date": "2026-05-07"
+    "issue_date": "2026-05-07",
+    "image_urls": [
+      "https://upload.wikimedia.org/wikipedia/sco/thumb/2/21/Nvidia_logo.svg/1280px-Nvidia_logo.svg.png"
+    ],
+    "primary_image": "https://upload.wikimedia.org/wikipedia/sco/thumb/2/21/Nvidia_logo.svg/1280px-Nvidia_logo.svg.png",
+    "cover_image_kind": "company-logo"
   },
   {
     "name": "NVIDIA Spectrum-X with MRC",
@@ -1058,7 +1128,12 @@
     "relevance_zh": "AI 产品团队构建数据中心级基础设施的重要参考。",
     "official_zh": "Spectrum-X 以 MRC 升级，成为最先进的 AI 网络技术，适用于大规模部署。",
     "community_zh": "社区关注 AI 原生网络架构的性能与扩展能力。",
-    "issue_date": "2026-05-07"
+    "issue_date": "2026-05-07",
+    "image_urls": [
+      "https://upload.wikimedia.org/wikipedia/sco/thumb/2/21/Nvidia_logo.svg/1280px-Nvidia_logo.svg.png"
+    ],
+    "primary_image": "https://upload.wikimedia.org/wikipedia/sco/thumb/2/21/Nvidia_logo.svg/1280px-Nvidia_logo.svg.png",
+    "cover_image_kind": "company-logo"
   },
   {
     "name": "NVIDIA & ServiceNow Autonomous AI Agents",
@@ -1108,6 +1183,11 @@
     "relevance_zh": "为 AI 团队探索企业自动化和智能代理落地提供新方向。",
     "official_zh": "新一代 AI 代理可在企业环境中处理复杂任务，推动自动化升级。",
     "community_zh": "社区关注 AI 代理在企业级场景的落地与挑战。",
-    "issue_date": "2026-05-07"
+    "issue_date": "2026-05-07",
+    "image_urls": [
+      "https://upload.wikimedia.org/wikipedia/sco/thumb/2/21/Nvidia_logo.svg/1280px-Nvidia_logo.svg.png"
+    ],
+    "primary_image": "https://upload.wikimedia.org/wikipedia/sco/thumb/2/21/Nvidia_logo.svg/1280px-Nvidia_logo.svg.png",
+    "cover_image_kind": "company-logo"
   }
 ]
