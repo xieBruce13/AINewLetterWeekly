@@ -212,7 +212,13 @@
     "relevance_zh": "为团队提供 Google AI 生态趋势参考",
     "official_zh": "总结 Google 2026 年 4 月 AI 相关最新动态",
     "community_zh": "社区关注整体趋势，但期待更多具体更新",
-    "issue_date": "2026-05-07"
+    "issue_date": "2026-05-07",
+    "image_urls": [
+      "/generated-covers/2026-05-07/2026-05-07-google-google-ai-april-2026-updates.png"
+    ],
+    "primary_image": "/generated-covers/2026-05-07/2026-05-07-google-google-ai-april-2026-updates.png",
+    "cover_image_kind": "ai-generated",
+    "cover_image_prompt": "News item:\n- Module: model\n- Company: Google\n- Product / event: Google machine intelligence April 2026 Updates\n- Headline: Google recaps its latest machine intelligence updates from April 2026.\n- What changed: 汇总 Google machine intelligence 近期动态；便于了解整体趋势\n- Use cases or affected workflow: machine intelligence 工程师和产品经理可快速了解 Google machine intelligence 生态最新进展\n- Editorial judgment: 适合宏观了解行业动态，缺乏落地参考\n- Tags: model, update, news\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow."
   },
   {
     "name": "Gemini API Webhooks",
@@ -263,7 +269,13 @@
     "relevance_zh": "为 AI 团队开发高效异步应用提供关键能力",
     "official_zh": "Gemini API Webhooks 消除了低效轮询，提升异步任务处理效率",
     "community_zh": "社区积极评价 Webhook 对开发体验的提升",
-    "issue_date": "2026-05-07"
+    "issue_date": "2026-05-07",
+    "image_urls": [
+      "/generated-covers/2026-05-07/2026-05-07-google-gemini-api-webhooks.png"
+    ],
+    "primary_image": "/generated-covers/2026-05-07/2026-05-07-google-gemini-api-webhooks.png",
+    "cover_image_kind": "ai-generated",
+    "cover_image_prompt": "News item:\n- Module: model\n- Company: Google\n- Product / event: Gemini API Webhooks\n- Headline: Google introduces event-driven Webhooks in Gemini API to reduce latency for long-running jobs.\n- What changed: 支持推送式通知，替代轮询机制；提升长任务处理效率；简化异步工作流集成\n- Use cases or affected workflow: machine intelligence 工程师可用 Webhook 实现实时任务回调；产品经理可提升产品响应速度\n- Editorial judgment: Webhooks 是提升异步 machine intelligence 应用体验的重要基础设施\n- Tags: model, api, webhook, workflow\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow."
   },
   {
     "name": "vLLM V0 to V1: Correctness Before Corrections in RL",
@@ -310,7 +322,13 @@
     "relevance_zh": "为 RL 方向团队提供研究思路参考",
     "official_zh": "ServiceNow 强调 RL 模型开发中正确性优先",
     "community_zh": "社区关注 RL 正确性与模型演进",
-    "issue_date": "2026-05-07"
+    "issue_date": "2026-05-07",
+    "image_urls": [
+      "/generated-covers/2026-05-07/2026-05-07-servicenow-vllm-v0-to-v1-correctness-before-corrections-in-rl.png"
+    ],
+    "primary_image": "/generated-covers/2026-05-07/2026-05-07-servicenow-vllm-v0-to-v1-correctness-before-corrections-in-rl.png",
+    "cover_image_kind": "ai-generated",
+    "cover_image_prompt": "News item:\n- Module: model\n- Company: ServiceNow\n- Product / event: vLLM V0 to V1: Correctness Before Corrections in RL\n- Headline: ServiceNow discusses the transition from vLLM V0 to V1, emphasizing correctness in reinforcement learning.\n- What changed: 关注 RL 模型开发中的正确性；强调研究导向\n- Use cases or affected workflow: machine intelligence 工程师和研究员可参考 RL 正确性优化思路\n- Editorial judgment: 适合关注 RL 研究方向的团队参考\n- Tags: model, rl, research\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow."
   },
   {
     "name": "Benchmaxxer Repellant on Open ASR Leaderboard",
@@ -358,7 +376,13 @@
     "relevance_zh": "为关注 ASR 评测和数据隐私的团队提供参考",
     "official_zh": "Open ASR Leaderboard 引入 Benchmaxxer Repellant，提升数据隐私与榜单公正性",
     "community_zh": "社区认可榜单机制优化，关注评测透明度",
-    "issue_date": "2026-05-07"
+    "issue_date": "2026-05-07",
+    "image_urls": [
+      "/generated-covers/2026-05-07/2026-05-07-none-benchmaxxer-repellant-on-open-asr-leaderboard.png"
+    ],
+    "primary_image": "/generated-covers/2026-05-07/2026-05-07-none-benchmaxxer-repellant-on-open-asr-leaderboard.png",
+    "cover_image_kind": "ai-generated",
+    "cover_image_prompt": "News item:\n- Module: model\n- Company: Unknown\n- Product / event: Benchmaxxer Repellant on Open ASR Leaderboard\n- Headline: Benchmaxxer Repellant added to the Open ASR Leaderboard to address private data concerns.\n- What changed: 防止私有数据泄漏影响榜单结果；提升 ASR 评测透明度与可信度\n- Use cases or affected workflow: machine intelligence 工程师可更放心提交 ASR 模型评测；产品经理关注榜单公正性\n- Editorial judgment: 榜单机制优化有助于行业健康发展\n- Tags: benchmark, model, asr, privacy\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow."
   },
   {
     "name": "Together AI Efficient Inference Research",
@@ -408,6 +432,12 @@
     "relevance_zh": "适合关注高效推理和大规模部署的团队",
     "official_zh": "研究聚焦高效、可靠、可扩展的 AI 推理能力",
     "community_zh": "社区关注生产级 AI 推理的最佳实践",
-    "issue_date": "2026-05-07"
+    "issue_date": "2026-05-07",
+    "image_urls": [
+      "/generated-covers/2026-05-07/2026-05-07-together-ai-together-ai-efficient-inference-research.png"
+    ],
+    "primary_image": "/generated-covers/2026-05-07/2026-05-07-together-ai-together-ai-efficient-inference-research.png",
+    "cover_image_kind": "ai-generated",
+    "cover_image_prompt": "News item:\n- Module: model\n- Company: Together machine intelligence\n- Product / event: Together machine intelligence Efficient Inference Research\n- Headline: Together machine intelligence shares foundational research on powering efficient inference at scale for machine intelligence-native teams.\n- What changed: 聚焦高效、可靠、可扩展的模型推理；为 machine intelligence 团队提供生产落地经验\n- Use cases or affected workflow: machine intelligence 工程师可参考推理优化方案；产品经理关注大规模部署挑战\n- Editorial judgment: 为生产级 machine intelligence 推理提供有价值的研究参考\n- Tags: model, research, inference, scalability\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow."
   }
 ]

@@ -246,6 +246,17 @@ def should_skip(rec: dict[str, Any], *, overwrite: bool) -> bool:
     return isinstance(primary, str) and primary.startswith("/generated-covers/")
 
 
+def matches_name_filter(rec: dict[str, Any], name_contains: str | None) -> bool:
+    if not name_contains:
+        return True
+    needle = name_contains.lower()
+    haystack = " ".join(
+        str(rec.get(key) or "")
+        for key in ("name", "company", "headline")
+    ).lower()
+    return needle in haystack
+
+
 def apply_cover(rec: dict[str, Any], image_url: str, prompt: str) -> None:
     old_urls = rec.get("image_urls") or []
     if not isinstance(old_urls, list):
@@ -266,6 +277,11 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("run_dir", help="Path to newsletter_runs/YYYY-MM-DD")
     parser.add_argument("--limit", type=int, default=None, help="Maximum records to generate")
+    parser.add_argument(
+        "--name-contains",
+        default=None,
+        help="Only generate records whose name/company/headline contains this text",
+    )
     parser.add_argument("--overwrite", action="store_true", help="Regenerate existing AI covers")
     parser.add_argument("--dry-run", action="store_true", help="Write prompts/manifest only")
     parser.add_argument("--model", default="gpt-image-1")
@@ -293,6 +309,8 @@ def main() -> int:
     unique_refs: list[RecordRef] = []
     for ref in refs:
         ident = id(ref.record)
+        if not matches_name_filter(ref.record, args.name_contains):
+            continue
         if ident in seen or should_skip(ref.record, overwrite=args.overwrite):
             continue
         seen.add(ident)

@@ -25,5 +25,86 @@
     "output_path": "web\\public\\generated-covers\\2026-05-07\\2026-05-07-google-future-vision-film-competition.png",
     "prompt": "News item:\n- Module: model\n- Company: Google\n- Product / event: Future Vision Film Competition\n- Headline: Google partners with XPRIZE and Range Media Partners on the $3.5 million Future Vision film competition.\n- What changed: 推动 machine intelligence 在影视创意领域应用；高额奖金激励创新；多方合作提升行业影响力\n- Use cases or affected workflow: machine intelligence 工程师可关注多模态内容生成；产品经理可探索 intelligent systems + 媒体新场景\n- Editorial judgment: 适合关注 machine intelligence 创意与多模态内容的团队参考\n- Tags: model, multimodal, competition, media\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow.",
     "dry_run": false
+  },
+  {
+    "slug": "2026-05-07-google-google-ai-april-2026-updates",
+    "company": "Google",
+    "name": "Google AI April 2026 Updates",
+    "image_url": "/generated-covers/2026-05-07/2026-05-07-google-google-ai-april-2026-updates.png",
+    "output_path": "web\\public\\generated-covers\\2026-05-07\\2026-05-07-google-google-ai-april-2026-updates.png",
+    "prompt": "News item:\n- Module: model\n- Company: Google\n- Product / event: Google machine intelligence April 2026 Updates\n- Headline: Google recaps its latest machine intelligence updates from April 2026.\n- What changed: 汇总 Google machine intelligence 近期动态；便于了解整体趋势\n- Use cases or affected workflow: machine intelligence 工程师和产品经理可快速了解 Google machine intelligence 生态最新进展\n- Editorial judgment: 适合宏观了解行业动态，缺乏落地参考\n- Tags: model, update, news\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow.",
+    "dry_run": false
+  },
+  {
+    "slug": "2026-05-07-google-gemini-api-webhooks",
+    "company": "Google",
+    "name": "Gemini API Webhooks",
+    "image_url": "/generated-covers/2026-05-07/2026-05-07-google-gemini-api-webhooks.png",
+    "output_path": "web\\public\\generated-covers\\2026-05-07\\2026-05-07-google-gemini-api-webhooks.png",
+    "prompt": "News item:\n- Module: model\n- Company: Google\n- Product / event: Gemini API Webhooks\n- Headline: Google introduces event-driven Webhooks in Gemini API to reduce latency for long-running jobs.\n- What changed: 支持推送式通知，替代轮询机制；提升长任务处理效率；简化异步工作流集成\n- Use cases or affected workflow: machine intelligence 工程师可用 Webhook 实现实时任务回调；产品经理可提升产品响应速度\n- Editorial judgment: Webhooks 是提升异步 machine intelligence 应用体验的重要基础设施\n- Tags: model, api, webhook, workflow\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow.",
+    "dry_run": false
+  },
+  {
+    "slug": "2026-05-07-servicenow-vllm-v0-to-v1-correctness-before-corrections-in-rl",
+    "company": "ServiceNow",
+    "name": "vLLM V0 to V1: Correctness Before Corrections in RL",
+    "image_url": "/generated-covers/2026-05-07/2026-05-07-servicenow-vllm-v0-to-v1-correctness-before-corrections-in-rl.png",
+    "output_path": "web\\public\\generated-covers\\2026-05-07\\2026-05-07-servicenow-vllm-v0-to-v1-correctness-before-corrections-in-rl.png",
+    "prompt": "News item:\n- Module: model\n- Company: ServiceNow\n- Product / event: vLLM V0 to V1: Correctness Before Corrections in RL\n- Headline: ServiceNow discusses the transition from vLLM V0 to V1, emphasizing correctness in reinforcement learning.\n- What changed: 关注 RL 模型开发中的正确性；强调研究导向\n- Use cases or affected workflow: machine intelligence 工程师和研究员可参考 RL 正确性优化思路\n- Editorial judgment: 适合关注 RL 研究方向的团队参考\n- Tags: model, rl, research\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow.",
+    "dry_run": false
+  },
+  {
+    "slug": "2026-05-07-none-benchmaxxer-repellant-on-open-asr-leaderboard",
+    "company": null,
+    "name": "Benchmaxxer Repellant on Open ASR Leaderboard",
+    "image_url": "/generated-covers/2026-05-07/2026-05-07-none-benchmaxxer-repellant-on-open-asr-leaderboard.png",
+    "output_path": "web\\public\\generated-covers\\2026-05-07\\2026-05-07-none-benchmaxxer-repellant-on-open-asr-leaderboard.png",
+    "prompt": "News item:\n- Module: model\n- Company: Unknown\n- Product / event: Benchmaxxer Repellant on Open ASR Leaderboard\n- Headline: Benchmaxxer Repellant added to the Open ASR Leaderboard to address private data concerns.\n- What changed: 防止私有数据泄漏影响榜单结果；提升 ASR 评测透明度与可信度\n- Use cases or affected workflow: machine intelligence 工程师可更放心提交 ASR 模型评测；产品经理关注榜单公正性\n- Editorial judgment: 榜单机制优化有助于行业健康发展\n- Tags: benchmark, model, asr, privacy\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow.",
+    "dry_run": false
+  },
+  {
+    "slug": "2026-05-07-together-ai-together-ai-efficient-inference-research",
+    "company": "Together AI",
+    "name": "Together AI Efficient Inference Research",
+    "image_url": "/generated-covers/2026-05-07/2026-05-07-together-ai-together-ai-efficient-inference-research.png",
+    "output_path": "web\\public\\generated-covers\\2026-05-07\\2026-05-07-together-ai-together-ai-efficient-inference-research.png",
+    "prompt": "News item:\n- Module: model\n- Company: Together machine intelligence\n- Product / event: Together machine intelligence Efficient Inference Research\n- Headline: Together machine intelligence shares foundational research on powering efficient inference at scale for machine intelligence-native teams.\n- What changed: 聚焦高效、可靠、可扩展的模型推理；为 machine intelligence 团队提供生产落地经验\n- Use cases or affected workflow: machine intelligence 工程师可参考推理优化方案；产品经理关注大规模部署挑战\n- Editorial judgment: 为生产级 machine intelligence 推理提供有价值的研究参考\n- Tags: model, research, inference, scalability\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow.",
+    "dry_run": false
+  },
+  {
+    "slug": "2026-05-07-amazon-amazon-bedrock-agentcore-payments",
+    "company": "Amazon",
+    "name": "Amazon Bedrock AgentCore Payments",
+    "image_url": "/generated-covers/2026-05-07/2026-05-07-amazon-amazon-bedrock-agentcore-payments.png",
+    "output_path": "web\\public\\generated-covers\\2026-05-07\\2026-05-07-amazon-amazon-bedrock-agentcore-payments.png",
+    "prompt": "News item:\n- Module: operation\n- Company: Amazon\n- Product / event: Amazon Bedrock AgentCore Payments\n- Headline: Amazon announced a preview of Bedrock AgentCore Payments, enabling machine intelligence agents to transact using Coinbase and Stripe.\n- What changed: 支持 machine intelligence agent 直接发起和完成支付流程；集成 Coinbase 和 Stripe 两大支付平台；拓展 agent 在实际业务场景中的应用能力\n- Use cases or affected workflow: machine intelligence 工程师可开发具备自动采购、订阅管理等支付能力的智能体；产品经理可探索自动化服务购买等新型业务模式\n- Editorial judgment: machine intelligence agent 支付能力是迈向自主智能体的重要一步，值得关注其后续发展和合规实现\n- Tags: agent, operation, payment, integration\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow.",
+    "dry_run": false
+  },
+  {
+    "slug": "2026-05-07-amazon-amazon-bedrock-feedback-analysis",
+    "company": "Amazon",
+    "name": "Amazon Bedrock Feedback Analysis",
+    "image_url": "/generated-covers/2026-05-07/2026-05-07-amazon-amazon-bedrock-feedback-analysis.png",
+    "output_path": "web\\public\\generated-covers\\2026-05-07\\2026-05-07-amazon-amazon-bedrock-feedback-analysis.png",
+    "prompt": "News item:\n- Module: operation\n- Company: Amazon\n- Product / event: Amazon Bedrock Feedback Analysis\n- Headline: Hapag-Lloyd uses Amazon Bedrock, Elasticsearch, and open-source tools to analyze customer feedback with generative machine intelligence.\n- What changed: 结合生成式 machine intelligence 自动分析大规模客户反馈；与企业现有数据系统无缝集成；提升客户体验与产品优化效率\n- Use cases or affected workflow: machine intelligence 工程师可参考企业级反馈分析方案；产品经理可借鉴生成式 machine intelligence 在客户体验提升中的应用\n- Editorial judgment: 生成式 machine intelligence 在企业反馈分析中的应用已具备可复制性，值得关注其扩展性\n- Tags: operation, enterprise, feedback, analytics\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow.",
+    "dry_run": false
+  },
+  {
+    "slug": "2026-05-07-amazon-mlflow-v3-10-on-amazon-sagemaker-ai",
+    "company": "Amazon",
+    "name": "MLflow v3.10 on Amazon SageMaker AI",
+    "image_url": "/generated-covers/2026-05-07/2026-05-07-amazon-mlflow-v3-10-on-amazon-sagemaker-ai.png",
+    "output_path": "web\\public\\generated-covers\\2026-05-07\\2026-05-07-amazon-mlflow-v3-10-on-amazon-sagemaker-ai.png",
+    "prompt": "News item:\n- Module: operation\n- Company: Amazon\n- Product / event: MLflow v3.10 on Amazon SageMaker machine intelligence\n- Headline: Amazon SageMaker machine intelligence now supports MLflow v3.10, enhancing generative machine intelligence development and experiment tracking.\n- What changed: 支持最新 MLflow 版本，增强实验追踪与评估；提升生成式 machine intelligence 工作流可观测性；优化模型开发与部署流程\n- Use cases or affected workflow: machine intelligence 工程师可高效管理生成式模型实验；产品经理可提升团队开发与上线效率\n- Editorial judgment: SageMaker 持续对齐主流 ML 工具链，有助于提升团队协作与效率\n- Tags: operation, workflow, mlops, generative-ai\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow.",
+    "dry_run": false
+  },
+  {
+    "slug": "2026-05-07-amazon-agentcore-quality-optimization",
+    "company": "Amazon",
+    "name": "AgentCore Quality Optimization",
+    "image_url": "/generated-covers/2026-05-07/2026-05-07-amazon-agentcore-quality-optimization.png",
+    "output_path": "web\\public\\generated-covers\\2026-05-07\\2026-05-07-amazon-agentcore-quality-optimization.png",
+    "prompt": "News item:\n- Module: operation\n- Company: Amazon\n- Product / event: AgentCore Quality Optimization\n- Headline: Amazon introduced agent quality optimization in AgentCore, now in preview, to improve agent performance via recommendations and evaluation.\n- What changed: 自动生成优化建议，基于生产数据追踪；支持批量评估与 A/B 测试；提升 agent 持续表现与可靠性\n- Use cases or affected workflow: machine intelligence 工程师可持续监控和优化 agent 质量；产品经理可用数据驱动 agent 迭代\n- Editorial judgment: 为 agent 持续优化提供工具链，适合关注生产质量的团队\n- Tags: agent, operation, quality, evaluation\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow.",
+    "dry_run": false
   }
 ]

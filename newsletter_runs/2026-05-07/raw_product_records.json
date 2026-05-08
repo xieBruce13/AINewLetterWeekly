@@ -50,7 +50,13 @@
     "relevance_zh": "为 AI 产品团队提供 agent 端到端自动化业务的能力参考，尤其适合探索智能体商业化场景",
     "official_zh": "AgentCore Payments 让 AI agent 能即时访问和支付所用服务，由 Coinbase 和 Stripe 提供支付能力",
     "community_zh": "社区关注 agent 金融能力的合规与安全性，实际应用场景有待进一步验证",
-    "issue_date": "2026-05-07"
+    "issue_date": "2026-05-07",
+    "image_urls": [
+      "/generated-covers/2026-05-07/2026-05-07-amazon-amazon-bedrock-agentcore-payments.png"
+    ],
+    "primary_image": "/generated-covers/2026-05-07/2026-05-07-amazon-amazon-bedrock-agentcore-payments.png",
+    "cover_image_kind": "ai-generated",
+    "cover_image_prompt": "News item:\n- Module: operation\n- Company: Amazon\n- Product / event: Amazon Bedrock AgentCore Payments\n- Headline: Amazon announced a preview of Bedrock AgentCore Payments, enabling machine intelligence agents to transact using Coinbase and Stripe.\n- What changed: 支持 machine intelligence agent 直接发起和完成支付流程；集成 Coinbase 和 Stripe 两大支付平台；拓展 agent 在实际业务场景中的应用能力\n- Use cases or affected workflow: machine intelligence 工程师可开发具备自动采购、订阅管理等支付能力的智能体；产品经理可探索自动化服务购买等新型业务模式\n- Editorial judgment: machine intelligence agent 支付能力是迈向自主智能体的重要一步，值得关注其后续发展和合规实现\n- Tags: agent, operation, payment, integration\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow."
   },
   {
     "name": "Amazon Bedrock Feedback Analysis",
@@ -103,7 +109,13 @@
     "relevance_zh": "为 AI 产品团队提供企业级反馈分析自动化的参考范例",
     "official_zh": "Bedrock 支持生成式 AI 客户反馈分析，结合 Elasticsearch 与开源工具实现端到端流程",
     "community_zh": "社区关注企业级 AI 应用的可扩展性与集成难度",
-    "issue_date": "2026-05-07"
+    "issue_date": "2026-05-07",
+    "image_urls": [
+      "/generated-covers/2026-05-07/2026-05-07-amazon-amazon-bedrock-feedback-analysis.png"
+    ],
+    "primary_image": "/generated-covers/2026-05-07/2026-05-07-amazon-amazon-bedrock-feedback-analysis.png",
+    "cover_image_kind": "ai-generated",
+    "cover_image_prompt": "News item:\n- Module: operation\n- Company: Amazon\n- Product / event: Amazon Bedrock Feedback Analysis\n- Headline: Hapag-Lloyd uses Amazon Bedrock, Elasticsearch, and open-source tools to analyze customer feedback with generative machine intelligence.\n- What changed: 结合生成式 machine intelligence 自动分析大规模客户反馈；与企业现有数据系统无缝集成；提升客户体验与产品优化效率\n- Use cases or affected workflow: machine intelligence 工程师可参考企业级反馈分析方案；产品经理可借鉴生成式 machine intelligence 在客户体验提升中的应用\n- Editorial judgment: 生成式 machine intelligence 在企业反馈分析中的应用已具备可复制性，值得关注其扩展性\n- Tags: operation, enterprise, feedback, analytics\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow."
   },
   {
     "name": "MLflow v3.10 on Amazon SageMaker AI",
@@ -156,7 +168,13 @@
     "relevance_zh": "为 AI 团队提供更强的实验管理与生成式 AI 开发支持",
     "official_zh": "MLflow v3.10 为 SageMaker AI 带来更强的生成式 AI 开发与实验追踪能力",
     "community_zh": "社区关注与主流 MLflow 生态兼容性及迁移成本",
-    "issue_date": "2026-05-07"
+    "issue_date": "2026-05-07",
+    "image_urls": [
+      "/generated-covers/2026-05-07/2026-05-07-amazon-mlflow-v3-10-on-amazon-sagemaker-ai.png"
+    ],
+    "primary_image": "/generated-covers/2026-05-07/2026-05-07-amazon-mlflow-v3-10-on-amazon-sagemaker-ai.png",
+    "cover_image_kind": "ai-generated",
+    "cover_image_prompt": "News item:\n- Module: operation\n- Company: Amazon\n- Product / event: MLflow v3.10 on Amazon SageMaker machine intelligence\n- Headline: Amazon SageMaker machine intelligence now supports MLflow v3.10, enhancing generative machine intelligence development and experiment tracking.\n- What changed: 支持最新 MLflow 版本，增强实验追踪与评估；提升生成式 machine intelligence 工作流可观测性；优化模型开发与部署流程\n- Use cases or affected workflow: machine intelligence 工程师可高效管理生成式模型实验；产品经理可提升团队开发与上线效率\n- Editorial judgment: SageMaker 持续对齐主流 ML 工具链，有助于提升团队协作与效率\n- Tags: operation, workflow, mlops, generative-ai\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow."
   },
   {
     "name": "AgentCore Quality Optimization",
@@ -209,7 +227,13 @@
     "relevance_zh": "帮助 AI 产品团队解决 agent 质量衰减问题，提升线上可靠性",
     "official_zh": "AgentCore 质量优化可基于生产追踪生成建议，并通过批量评估与 A/B 测试验证优化效果",
     "community_zh": "社区关注工具链的易用性与实际提升效果",
-    "issue_date": "2026-05-07"
+    "issue_date": "2026-05-07",
+    "image_urls": [
+      "/generated-covers/2026-05-07/2026-05-07-amazon-agentcore-quality-optimization.png"
+    ],
+    "primary_image": "/generated-covers/2026-05-07/2026-05-07-amazon-agentcore-quality-optimization.png",
+    "cover_image_kind": "ai-generated",
+    "cover_image_prompt": "News item:\n- Module: operation\n- Company: Amazon\n- Product / event: AgentCore Quality Optimization\n- Headline: Amazon introduced agent quality optimization in AgentCore, now in preview, to improve agent performance via recommendations and evaluation.\n- What changed: 自动生成优化建议，基于生产数据追踪；支持批量评估与 A/B 测试；提升 agent 持续表现与可靠性\n- Use cases or affected workflow: machine intelligence 工程师可持续监控和优化 agent 质量；产品经理可用数据驱动 agent 迭代\n- Editorial judgment: 为 agent 持续优化提供工具链，适合关注生产质量的团队\n- Tags: agent, operation, quality, evaluation\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow."
   },
   {
     "name": "Amazon SageMaker AI Agent-Guided Workflows",
