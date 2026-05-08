@@ -76,6 +76,7 @@
      * as the universal CJK fallback. CJK readability benefits from a
      * looser line-height (~1.75) than Latin-only copy needs. */
     font-family:
+      var(--font-inter),
       "InterVariable",
       Inter,
       "StyreneB",
@@ -83,6 +84,7 @@
       -apple-system,
       "PingFang SC",
       "Hiragino Sans GB",
+      var(--font-noto-sans-sc),
       "Noto Sans SC",
       "Microsoft YaHei",
       sans-serif;
@@ -103,11 +105,13 @@
     /* Display headlines: Newsreader for Latin, Noto Serif SC for CJK.
      * Weight 500 for CJK serifs because 400 looks anemic on screen. */
     font-family:
+      var(--font-newsreader),
       "Newsreader",
       "Copernicus",
       "Tiempos Headline",
       ui-serif,
       Georgia,
+      var(--font-noto-serif-sc),
       "Noto Serif SC",
       "Source Han Serif SC",
       "Songti SC",

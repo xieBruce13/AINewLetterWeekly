@@ -1,22 +1,15 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { BookOpen, Columns, MessageSquare } from "lucide-react";
-import { NewsCard } from "@/components/news-card";
 import { AgentChatPanel } from "@/components/agent-chat-panel";
 import {
   WeekHighlightsCard,
   type BulletThumb,
   type WeekSummaryBullet,
 } from "@/components/week-highlights-card";
-import {
-  MODULE_BLURB,
-  MODULE_LABEL_ZH,
-  MODULES,
-  isModule,
-  type Module,
-} from "@/lib/modules";
+import { MODULE_LABEL_ZH, type Module } from "@/lib/modules";
 import { cn, formatIssueDate } from "@/lib/utils";
 
 /**
@@ -59,8 +52,18 @@ export interface HomeShellProps {
   focusTopics?: string[];
   /** Reader role label for the small "为 [role] 筛选" badge. */
   forRole?: string;
-  /** The personalized news cards displayed on the left. */
-  feed: ShellItem[];
+  /**
+   * Pre-resolved card list. When `feedContent` is also provided, it takes
+   * precedence and `feed` is used only for `feedHints` / referenced ids.
+   * Defaults to `[]` so streaming pages can omit it.
+   */
+  feed?: ShellItem[];
+  /**
+   * Optional pre-rendered news section. Lets the page stream the heavy
+   * personalized feed in behind a Suspense boundary while the rest of the
+   * shell ships immediately.
+   */
+  feedContent?: ReactNode;
   /** When true: lock to read-only mode, hide chat, show sign-in CTA. */
   isAnonymous?: boolean;
 }
@@ -75,14 +78,11 @@ export function HomeShell({
   weekSummaryThumbs,
   focusTopics,
   forRole,
-  feed,
+  feed = [],
+  feedContent,
   isAnonymous = false,
 }: HomeShellProps) {
   const [mode, setMode] = useState<ViewMode>("split");
-
-  const display = focusModule
-    ? feed.filter((r) => isModule(r.module) && r.module === focusModule)
-    : feed;
 
   const referencedIds = feed.slice(0, 4).map((i) => i.id);
   const suggestions = useMemo(
@@ -167,22 +167,7 @@ export function HomeShell({
                 variant="full"
               />
             )}
-            {display.length === 0 ? (
-              <p className="rounded-lg bg-white p-12 text-center text-claude-muted shadow-hairline">
-                本周没有匹配你偏好的内容。可以去
-                <Link
-                  href="/onboarding"
-                  className="ml-1 text-claude-coral underline"
-                >
-                  扩大关注话题
-                </Link>
-                。
-              </p>
-            ) : focusModule ? (
-              <SingleModuleView module={focusModule} items={display} mode={mode} />
-            ) : (
-              <ModuleSections items={display} mode={mode} />
-            )}
+            {feedContent}
           </div>
         </div>
 
@@ -278,142 +263,6 @@ function ModeBtn({
       {icon}
       <span className="hidden sm:inline">{label}</span>
     </button>
-  );
-}
-
-function SectionHeader({
-  label,
-  blurb,
-  count,
-  focusHref,
-}: {
-  label: string;
-  blurb?: string;
-  count?: number;
-  focusHref?: string;
-}) {
-  return (
-    <header className="mb-5 flex flex-wrap items-baseline justify-between gap-3">
-      <div>
-        <h2 className="font-display text-[24px] tracking-display text-claude-ink dark:text-white sm:text-[26px]">
-          {label}
-          {typeof count === "number" && (
-            <span className="ml-3 text-[14px] font-normal text-claude-muted">
-              {count} 条
-            </span>
-          )}
-        </h2>
-        {blurb && (
-          <p className="mt-1 max-w-2xl text-[13.5px] text-claude-muted">
-            {blurb}
-          </p>
-        )}
-      </div>
-      {focusHref && (
-        <Link
-          href={focusHref}
-          className="text-[13px] font-medium text-claude-coral hover:underline"
-        >
-          只看这个模块 →
-        </Link>
-      )}
-    </header>
-  );
-}
-
-function ModuleSections({
-  items,
-  mode,
-}: {
-  items: ShellItem[];
-  mode: ViewMode;
-}) {
-  const grouped: Record<Module, ShellItem[]> = {
-    model: [],
-    product: [],
-    operation: [],
-  };
-  for (const it of items) if (isModule(it.module)) grouped[it.module].push(it);
-
-  // Wired horizontal cards work fine at 75 %-of-1400 (~1050 px). Keep them
-  // for both split and read modes; collapse to compact only when the chat
-  // takes the whole viewport (we never get there in the reading column).
-  const variant = "wired";
-
-  return (
-    <div className="space-y-12">
-      {MODULES.map((m) => {
-        const list = grouped[m];
-        if (list.length === 0) return null;
-        return (
-          <section key={m} aria-labelledby={`mod-${m}`}>
-            <SectionHeader
-              label={MODULE_LABEL_ZH[m]}
-              blurb={MODULE_BLURB[m]}
-              count={list.length}
-              focusHref={`/?module=${m}`}
-            />
-            <div
-              className={cn(
-                "flex flex-col gap-5",
-                mode === "read" && "gap-6"
-              )}
-            >
-              {list.map((item, i) => (
-                <NewsCard
-                  key={item.id}
-                  rank={i}
-                  item={item}
-                  personalizedBlurb={item.personalizedBlurb}
-                  personalizedReason={item.personalizedReason}
-                  state={item.state}
-                  variant={variant}
-                />
-              ))}
-            </div>
-          </section>
-        );
-      })}
-    </div>
-  );
-}
-
-function SingleModuleView({
-  module: m,
-  items,
-  mode: _mode,
-}: {
-  module: Module;
-  items: ShellItem[];
-  mode: ViewMode;
-}) {
-  return (
-    <section>
-      <Link
-        href="/"
-        className="mb-5 inline-flex items-center gap-1 text-[13px] text-claude-coral hover:underline"
-      >
-        ← 返回全部模块
-      </Link>
-      <SectionHeader
-        label={MODULE_LABEL_ZH[m]}
-        blurb={MODULE_BLURB[m]}
-        count={items.length}
-      />
-      <div className="flex flex-col gap-5">
-        {items.map((item, i) => (
-          <NewsCard
-            key={item.id}
-            rank={i}
-            item={item}
-            personalizedBlurb={item.personalizedBlurb}
-            personalizedReason={item.personalizedReason}
-            state={item.state}
-            variant="wired"
-          />
-        ))}
-      </div>
-    </section>
   );
 }
 

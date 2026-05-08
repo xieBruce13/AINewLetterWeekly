@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { sqlClient } from "@/lib/db/client";
 
-export const dynamic = "force-dynamic";
+// Re-render at most once an hour. /about has no per-user state and only
+// reads two lightweight aggregates from `news_items`, so there's no reason
+// to pay the dynamic-render cost on every navigation.
+export const revalidate = 3600;
 
 export const metadata = {
   title: "如何运作 · ZenoNews",

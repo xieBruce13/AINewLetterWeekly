@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
 import {
@@ -10,6 +11,7 @@ import {
 } from "@/lib/db/queries";
 import { getPersonalizedFeed } from "@/lib/personalization/rerank";
 import { HomeShell, type ShellItem } from "@/components/home-shell";
+import { NewsFeed, NewsFeedSkeleton } from "@/components/news-feed";
 import { isModule, type Module } from "@/lib/modules";
 
 export const dynamic = "force-dynamic";
@@ -98,6 +100,7 @@ export default async function HomePage({
         weekSummary={summary}
         weekSummaryThumbs={bulletThumbs}
         feed={anonFeed}
+        feedContent={<NewsFeed items={anonFeed} focusModule={focusModule} />}
         isAnonymous={true}
       />
     );
@@ -106,15 +109,58 @@ export default async function HomePage({
   const profile = await getProfile(session.user.id).catch(() => null);
   if (!profile?.onboardedAt) redirect("/onboarding");
 
-  // The personalized rerank can fail in production (LLM hiccup, DB cache,
-  // null embedding column, etc.). Don't let any of that take down the home
-  // page — degrade to the anonymous feed instead.
+  // Stream the personalized feed: the toolbar / week highlights / chat panel
+  // ship immediately; the heavy LLM-rerank-driven `<NewsFeed>` arrives on a
+  // separate flush so users aren't staring at the loading skeleton for 5–15s
+  // while OpenAI generates Chinese blurbs. Cache hits resolve in <500 ms;
+  // only the first visit per issue per user pays the LLM round-trip.
+  return (
+    <HomeShell
+      issueDate={issueDate}
+      profileSnippet={
+        profile.role
+          ? `${profile.role}${profile.company ? `，${profile.company}` : ""}`
+          : undefined
+      }
+      focusModule={focusModule}
+      weekSummary={summary}
+      weekSummaryThumbs={bulletThumbs}
+      focusTopics={profile.focusTopics ?? []}
+      forRole={profile.role ?? undefined}
+      feedContent={
+        <Suspense fallback={<NewsFeedSkeleton />}>
+          <PersonalizedFeedSection
+            userId={session.user.id}
+            issueDate={issueDate}
+            focusModule={focusModule}
+          />
+        </Suspense>
+      }
+    />
+  );
+}
+
+/**
+ * Async server component that resolves the personalized feed. Wrapped in
+ * `<Suspense>` by the home page so the rest of the shell doesn't block on
+ * it. Errors fall through to an empty list — the user still sees the week
+ * highlights and can chat with the agent while we recover.
+ */
+async function PersonalizedFeedSection({
+  userId,
+  issueDate,
+  focusModule,
+}: {
+  userId: string;
+  issueDate: string;
+  focusModule: Module | null;
+}) {
   let ranked: Awaited<ReturnType<typeof getPersonalizedFeed>> = [];
   try {
-    ranked = await getPersonalizedFeed(session.user.id, issueDate);
+    ranked = await getPersonalizedFeed(userId, issueDate);
   } catch (err) {
     console.error(
-      "[home] getPersonalizedFeed failed, falling back to anonymous feed:",
+      "[home] getPersonalizedFeed failed, rendering empty feed:",
       err
     );
   }
@@ -129,22 +175,7 @@ export default async function HomePage({
     : feed;
   const finalFeed = filtered.length > 0 ? filtered : feed;
 
-  return (
-    <HomeShell
-      issueDate={issueDate}
-      profileSnippet={
-        profile.role
-          ? `${profile.role}${profile.company ? `，${profile.company}` : ""}`
-          : undefined
-      }
-      focusModule={focusModule}
-      weekSummary={summary}
-      weekSummaryThumbs={bulletThumbs}
-      focusTopics={profile.focusTopics ?? []}
-      forRole={profile.role ?? undefined}
-      feed={finalFeed}
-    />
-  );
+  return <NewsFeed items={finalFeed} focusModule={focusModule} />;
 }
 
 /* ---------------- helpers / subcomponents ---------------- */

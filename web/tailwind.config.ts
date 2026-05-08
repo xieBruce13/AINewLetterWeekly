@@ -80,15 +80,17 @@ export default {
       },
       fontFamily: {
         // For headlines we keep Newsreader (Latin) up front. CJK glyphs fall
-        // through to Noto Serif SC (loaded from Google Fonts in layout.tsx)
+        // through to Noto Serif SC (self-hosted via next/font in layout.tsx)
         // — a much cleaner, more legible CJK serif than the OS-default
         // `Songti SC` which has hairline strokes that look poor on screen.
         display: [
+          "var(--font-newsreader)",
           "Newsreader",
           "Copernicus",
           "Tiempos Headline",
           "ui-serif",
           "Georgia",
+          "var(--font-noto-serif-sc)",
           "'Noto Serif SC'",
           "'Source Han Serif SC'",
           "'Songti SC'",
@@ -100,6 +102,7 @@ export default {
         // at body sizes on Windows; Noto Sans SC ships with hinting that
         // looks much sharper.
         sans: [
+          "var(--font-inter)",
           "InterVariable",
           "Inter",
           "StyreneB",
@@ -107,6 +110,7 @@ export default {
           "-apple-system",
           "'PingFang SC'",
           "'Hiragino Sans GB'",
+          "var(--font-noto-sans-sc)",
           "'Noto Sans SC'",
           "'Microsoft YaHei'",
           "sans-serif",
