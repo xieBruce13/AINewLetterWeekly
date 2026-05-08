@@ -84,6 +84,9 @@ export default async function ItemDetailPage({
   const keyPointsZh = keyPointsZhArr.length > 0 ? null : str(rec.key_points_zh);
   const relevanceZh = str(rec.relevance_zh);
   const judgmentZh = str(rec.judgment_zh);
+  /** Newsletter-style narrative blocks (preferred over one-line stubs). */
+  const leadZh = str(rec.lead_zh);
+  const deepDiveZh = str(rec.deep_dive_zh);
   const whatItIsZh = str(rec.what_it_is_zh || rec.what_it_is);
   const sourceUrl: string | undefined =
     str(rec.source_url) ||
@@ -115,7 +118,9 @@ export default async function ItemDetailPage({
       isAuthenticated={!!session?.user?.id}
     >
     <article className="bg-claude-canvas dark:bg-claude-dark">
-      <div className="mx-auto w-full max-w-[760px] px-5 py-10 sm:px-8 sm:py-16">
+      {/* max-w-7xl: two-column layout needs room — at 760px the main column
+          was only ~400px wide next to a 320px sidebar. */}
+      <div className="mx-auto w-full max-w-7xl px-5 py-10 sm:px-8 sm:py-16 lg:px-12">
         <Link
           href="/"
           className="mb-8 inline-flex items-center gap-1 text-[13px] text-claude-coral hover:underline"
@@ -133,7 +138,7 @@ export default async function ItemDetailPage({
               src={item.primaryImage}
               alt={`${item.company} ${item.name}`}
               fill
-              sizes="(min-width: 768px) 760px, 100vw"
+              sizes="(min-width: 1280px) 1100px, (min-width: 768px) 90vw, 100vw"
               className="object-cover"
               priority
             />
@@ -207,29 +212,50 @@ export default async function ItemDetailPage({
           )}
         </header>
 
-        {/* Two-column grid: wide main content + sticky sidebar */}
-        <div className="mt-10 grid grid-cols-1 gap-x-12 gap-y-10 lg:grid-cols-[1fr_320px]">
+        {/* Two-column grid: reading column gets ~2/3 of ~1200px — comfortable
+            measure for long-form newsletter text (see ~65–75ch body below). */}
+        <div className="mt-10 grid grid-cols-1 gap-x-10 gap-y-10 lg:grid-cols-[minmax(0,1fr)_300px] xl:gap-x-14">
 
           {/* ── LEFT: main article ── */}
-          <div className="min-w-0">
+          <div className="min-w-0 max-w-[46rem] xl:max-w-[50rem]">
 
             {/* TLDR */}
             <section className="rounded-lg bg-claude-surface-soft p-6 dark:bg-white/[0.04]">
               <p className="text-[12px] font-semibold uppercase tracking-uc text-claude-coral">
                 TL;DR
               </p>
-              <p className="mt-3 font-display text-[22px] leading-[1.35] tracking-display text-claude-ink dark:text-white sm:text-[26px]">
+              <p className="mt-3 font-display text-[22px] leading-[1.4] tracking-display text-claude-ink dark:text-white sm:text-[27px]">
                 {tldr}
               </p>
             </section>
 
-        {/* 这是什么? */}
+            {/* Lead + deep dive — professional newsletter ladder (deck → nut graf → body) */}
+            {leadZh && (
+              <section className="mt-10 border-l-[3px] border-claude-coral/70 pl-5 sm:pl-6">
+                <p className="text-[12px] font-semibold uppercase tracking-uc text-claude-coral">
+                  导语
+                </p>
+                <p className="article-body mt-3 text-[17px] leading-[1.85] text-claude-body-strong dark:text-white/92">
+                  {leadZh}
+                </p>
+              </section>
+            )}
+            {deepDiveZh && (
+              <section className="mt-10">
+                <p className="text-[12px] font-semibold uppercase tracking-uc text-claude-coral">
+                  深度解读
+                </p>
+                <p className="article-body prose-cjk mt-3 text-[17px] leading-[1.85] text-claude-body dark:text-white/88">
+                  {deepDiveZh}
+                </p>
+              </section>
+            )}
         {whatItIsZh && (
           <section className="mt-8 border-l-4 border-claude-coral pl-5">
             <p className="text-[12px] font-semibold uppercase tracking-uc text-claude-coral">
               {item.name} 是什么
             </p>
-            <p className="prose-cjk mt-2 text-[16px] text-claude-body-strong dark:text-white/90">
+            <p className="prose-cjk mt-2 text-[17px] leading-[1.82] text-claude-body-strong dark:text-white/90">
               {whatItIsZh}
             </p>
           </section>
@@ -249,7 +275,7 @@ export default async function ItemDetailPage({
             {keyPointsZhArr.length > 0 ? (
               <ul className="space-y-2 mt-1">
                 {keyPointsZhArr.map((pt, i) => (
-                  <li key={i} className="flex gap-2.5 text-[16px] leading-[1.65] text-claude-body dark:text-white/85">
+                  <li key={i} className="flex gap-2.5 text-[17px] leading-[1.8] text-claude-body dark:text-white/88">
                     <span className="mt-[0.55em] h-1.5 w-1.5 shrink-0 rounded-full bg-claude-coral" />
                     {pt}
                   </li>
@@ -299,7 +325,7 @@ export default async function ItemDetailPage({
         {(scenariosZh || scenarios.length > 0) && (
           <Section title="谁会用、怎么用">
             {scenariosZh ? (
-              <p className="prose-cjk text-[16px] leading-[1.65] text-claude-body dark:text-white/85">
+              <p className="prose-cjk text-[17px] leading-[1.82] text-claude-body dark:text-white/88">
                 {scenariosZh}
               </p>
             ) : (
@@ -312,7 +338,7 @@ export default async function ItemDetailPage({
         {judgmentZh && (
           <Section title="编辑判断">
             <div className="rounded-lg bg-claude-dark p-5 text-claude-on-dark">
-              <p className="prose-cjk text-[15px] leading-[1.65]">{judgmentZh}</p>
+              <p className="prose-cjk text-[17px] leading-[1.8]">{judgmentZh}</p>
             </div>
           </Section>
         )}
@@ -538,7 +564,7 @@ function Section({
       <h2 className="mb-5 font-display text-[26px] tracking-display text-claude-ink dark:text-white">
         {title}
       </h2>
-      <div className="text-[16px] leading-[1.65] text-claude-body dark:text-white/85">
+      <div className="text-[17px] leading-[1.82] tracking-[0.01em] text-claude-body dark:text-white/86">
         {children}
       </div>
     </section>

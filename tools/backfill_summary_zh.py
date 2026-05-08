@@ -2,12 +2,13 @@
 Backfill summary_zh / judgment_zh / etc. on older news_items rows that were
 synced before the new factual-headline prompt existed.
 
-Reads rows where record->>'summary_zh' IS NULL, sends each (name, company,
-headline, module, tags, relevance_to_us) to the LLM, gets back the 9
-*_zh fields, and merges them into news_items.record + updates news_items.headline.
+Reads rows (by default: missing summary_zh). With --expand-narrative, also
+targets rows whose Chinese body is still "stub" sized (no or short lead_zh)
+so you can revamp content after prompt changes.
 
 Usage:
     py tools/backfill_summary_zh.py --since 2026-04-01
+    py tools/backfill_summary_zh.py --since 2026-05-01 --expand-narrative
 """
 from __future__ import annotations
 
@@ -32,36 +33,35 @@ MODEL = "gpt-4o-mini"
 
 
 SYSTEM = """
-You are normalizing AI news items for a Chinese-language weekly newsletter.
+You are the lead Chinese-language writer for a B2B AI weekly newsletter aimed at engineers and PMs.
+Editorial benchmark: TLDR AI / Axios Pro / reputable tech digests — each item reads as a short article, not bullets only.
 
-For each input item produce ONLY these 9 Chinese fields, all in simplified
-Chinese, returned as a JSON object with key "items":
+Given each input JSON object with id, name, company, module, headline, tags, relevance_to_us, hints (prior record fields):
 
-{
-  "items": [
-    {
-      "id": <input id>,
-      "summary_zh":        "一句中文新闻稿式标题（30-70字，含公司名、产品/动作、核心变化、关键事实/数字）",
-      "judgment_zh":       "编辑判断（中文，给AI产品团队的一句话结论）",
-      "key_points_zh":     "核心技术能力或产品亮点（中文，2-4点，分号分隔）",
-      "scenarios_zh":      "谁会用、怎么用（中文）",
-      "business_model_zh": "商业模式与定价（中文，可为 null）",
-      "feedback_zh":       "用户与社区反馈（中文，好坏各一两点，可为 null）",
-      "relevance_zh":      "与AI工程师/PM的关系（中文）",
-      "official_zh":       "官方核心声明（中文，1-2句，可为 null）",
-      "community_zh":      "社区与外部反馈（中文，1-2句，可为 null）"
-    },
-    ...
-  ]
-}
+Return a JSON object with key "items" whose value is an array. Each element MUST include input "id" and these fields:
 
-CRITICAL summary_zh rules — this is THE headline.
-- Format: [主体公司] + [动作动词] + [产品名] + [核心变化或关键数字]
-- GOOD: "Anthropic 发布 Claude Opus 4.7，SWE-bench Verified 87.6% 把工程能力基准拉高一档"
-- BAD:  "你的工程方向值得看：……"   ← personalized "你/your"
-- BAD:  "AlphaEvolve 应用于多领域"   ← too vague
-- Never use "你/你的/your" framing
-- Base on input only; do not hallucinate numbers
+  summary_zh —  headline, 30-70 Chinese characters, news style: Company + Verb + Product + Fact. No 「你/你的」.
+  what_it_is_zh — 80-160 chars: what category is this and how it differs from sibling products/features.
+  lead_zh — 140-320 chars, 2-4 FULL sentences — deck paragraph (who/when/what changed/why it matters NOW).
+  deep_dive_zh — 260-520 chars, 4-8 sentences: context, mechanism/how it works at a practitioner level,
+                   ecosystem impact, and at least ONE sentence on limits/unknowns/unverified claims.
+  key_points_zh — strongly prefer JSON array of 4-6 strings, each bullet >= 38 characters; ELSE one string with
+                  4-6 clauses separated by ；
+  scenarios_zh — 180-380 chars; cover TWO+ roles (e.g. infra engineer + PM, or ML + compliance) with concrete usage.
+  business_model_zh — null if unknowable; otherwise >=90 chars on availability, SKU, GA/preview, pricing shape.
+  feedback_zh — >=140 chars; MUST include BOTH upside and downside/skepticism.
+  judgment_zh — 110-260 chars, 2-4 sentences — editorial verdict + explicit risk/watch-out.
+  relevance_zh — >=110 chars, tie to practitioner outcomes (latency, eval, roadmap, procurement), not hype.
+  official_zh — null or >=85 chars paraphrasing company claims faithfully.
+  community_zh — >=85 chars independent discussion; if none, explain the gap («公开讨论仍然有限……»).
+
+Rules:
+- Simplified Chinese only for all *_zh values.
+- Never fabricate metrics; cite uncertainty as「未披露」/「尚需验证」.
+- Base expansions strictly on headline + hints; do NOT invent unrelated products.
+
+OUTPUT SHAPE EXAMPLE:
+{"items": [{"id": 1, "summary_zh": "...", ...}, ...]}
 """.strip()
 
 
@@ -83,11 +83,38 @@ def get_api_key() -> str | None:
     return None
 
 
+def record_hints(record: dict | None) -> dict:
+    """Pass forward only grounding fields so the payload stays bounded."""
+    if not record:
+        return {}
+    keys = (
+        "headline", "summary_zh", "one_line_judgment", "official_claims",
+        "core_positioning", "real_change_notes", "business_model",
+        "relevance_to_us", "lead_zh", "deep_dive_zh", "key_points_zh",
+        "raw_urls",
+    )
+    out: dict = {}
+    for k in keys:
+        if k not in record or record[k] in (None, "", []):
+            continue
+        v = record[k]
+        out[k] = v if k != "raw_urls" else (v[:3] if isinstance(v, list) else v)
+    return out
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--since",      default="2026-04-01")
     parser.add_argument("--batch-size", type=int, default=8)
     parser.add_argument("--dry-run",    action="store_true")
+    parser.add_argument(
+        "--expand-narrative",
+        action="store_true",
+        help=(
+            "Also pick up rows whose lead_zh is missing or very short (<100 chars after trim), "
+            "so skinny legacy content gets rewritten with the new newsletter-depth rules."
+        ),
+    )
     args = parser.parse_args()
 
     api_key = get_api_key()
@@ -98,18 +125,30 @@ def main() -> int:
 
     conn = psycopg2.connect(get_db_url())
     cur  = conn.cursor()
+    expanded_filter = ""
+    if args.expand_narrative:
+        expanded_filter = """ OR (
+            length(trim(COALESCE(record->>'lead_zh',''))) < 100
+          )"""
+
     cur.execute(
-        """
+        f"""
         SELECT id, name, company, module, headline, tags, relevance_to_us, record
         FROM news_items
         WHERE issue_date >= %s
-          AND (record->>'summary_zh' IS NULL OR record->>'summary_zh' = '')
+          AND (
+               (record->>'summary_zh' IS NULL OR record->>'summary_zh' = '')
+               {expanded_filter}
+              )
         ORDER BY issue_date DESC, id ASC
         """,
         (args.since,),
     )
     rows = cur.fetchall()
-    print(f"Found {len(rows)} rows missing summary_zh since {args.since}")
+    print(
+        f"Found {len(rows)} candidate rows since {args.since} "
+        f"({'missing summary_zh' if not args.expand_narrative else 'missing summary or skinny lead_zh'})"
+    )
     if not rows:
         return 0
 
@@ -118,13 +157,14 @@ def main() -> int:
         batch = rows[i : i + args.batch_size]
         prompt_items = [
             {
-                "id":              r[0],
-                "name":            r[1],
-                "company":         r[2],
-                "module":          r[3],
-                "headline":        r[4],
-                "tags":            r[5] or [],
+                "id":               r[0],
+                "name":             r[1],
+                "company":          r[2],
+                "module":           r[3],
+                "headline":         r[4],
+                "tags":             r[5] or [],
                 "relevance_to_us": r[6] or "",
+                "hints":           record_hints((r[7] or {}) if isinstance(r[7], dict) else {}),
             }
             for r in batch
         ]
@@ -147,7 +187,8 @@ def main() -> int:
             continue
 
         zh_keys = (
-            "summary_zh", "judgment_zh", "key_points_zh", "scenarios_zh",
+            "summary_zh", "what_it_is_zh", "lead_zh", "deep_dive_zh",
+            "judgment_zh", "key_points_zh", "scenarios_zh",
             "business_model_zh", "feedback_zh", "relevance_zh",
             "official_zh", "community_zh",
         )
@@ -160,11 +201,23 @@ def main() -> int:
                 print(f"  [{item_id}] {r[1]}: no LLM output, skipped")
                 continue
             existing_record = r[7] or {}
+            if not isinstance(existing_record, dict):
+                existing_record = {}
             merged = dict(existing_record)
             for k in zh_keys:
                 v = zh.get(k)
-                if v and isinstance(v, str) and v.strip():
+                if v is None:
+                    continue
+                if k == "key_points_zh":
+                    if isinstance(v, list):
+                        cleaned = [s.strip() for s in v if isinstance(s, str) and s.strip()]
+                        if cleaned:
+                            merged[k] = cleaned
+                    elif isinstance(v, str) and v.strip():
+                        merged[k] = v.strip()
+                elif isinstance(v, str) and v.strip():
                     merged[k] = v.strip()
+
             new_summary = merged.get("summary_zh") or r[4]
             print(f"  [{item_id}] {r[1][:30]}…")
             print(f"      summary_zh: {merged.get('summary_zh')}")

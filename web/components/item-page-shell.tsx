@@ -41,7 +41,7 @@ export function ItemPageShell({
       {/* Sticky tab bar — sits below the global nav (top-16). Persists on
           scroll so the user can flip modes without scrolling back up. */}
       <div className="sticky top-16 z-30 border-b border-claude-hairline bg-claude-canvas/95 backdrop-blur dark:border-white/10 dark:bg-claude-dark/95">
-        <div className="mx-auto flex w-full max-w-[760px] items-center gap-1 px-5 py-2 sm:px-8">
+        <div className="mx-auto flex w-full max-w-7xl items-center gap-1 px-5 py-2 sm:px-8 lg:px-12">
           <ModeButton
             active={mode === "read"}
             onClick={() => setMode("read")}
@@ -72,7 +72,7 @@ export function ItemPageShell({
           mode === "chat" ? "block" : "hidden"
         )}
       >
-        <div className="mx-auto flex h-[calc(100vh-9rem)] max-w-[760px] flex-col px-0 sm:px-4">
+        <div className="mx-auto flex h-[calc(100vh-9rem)] max-w-7xl flex-col px-0 sm:px-4 lg:px-8">
           <ItemChatPanel item={item} visible />
         </div>
       </div>

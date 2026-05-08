@@ -6,10 +6,10 @@
 export default function ItemLoading() {
   return (
     <article className="bg-claude-canvas dark:bg-claude-dark">
-      <div className="mx-auto w-full max-w-[760px] px-5 py-10 sm:px-8 sm:py-16">
+      <div className="mx-auto w-full max-w-7xl px-5 py-10 sm:px-8 sm:py-16 lg:px-12">
         <div className="mb-8 h-3.5 w-32 animate-pulse rounded bg-claude-surface-card" />
 
-        <div className="mb-8 aspect-[16/9] w-full animate-pulse rounded-xl bg-claude-surface-card sm:aspect-[2/1]" />
+        <div className="mb-8 aspect-[16/9] w-full max-w-[50rem] animate-pulse rounded-xl bg-claude-surface-card sm:aspect-[2/1]" />
 
         <div className="border-b border-claude-hairline pb-10 dark:border-white/10">
           <div className="flex gap-2">
@@ -22,8 +22,8 @@ export default function ItemLoading() {
           </div>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-x-12 gap-y-10 lg:grid-cols-[1fr_320px]">
-          <div className="min-w-0 space-y-6">
+        <div className="mt-10 grid grid-cols-1 gap-x-10 gap-y-10 lg:grid-cols-[minmax(0,1fr)_300px] xl:gap-x-14">
+          <div className="min-w-0 max-w-[46rem] space-y-6 xl:max-w-[50rem]">
             <div className="rounded-lg bg-claude-surface-soft p-6 dark:bg-white/[0.04]">
               <div className="h-3 w-12 animate-pulse rounded bg-claude-surface-card" />
               <div className="mt-3 h-7 w-full animate-pulse rounded bg-claude-surface-card" />
