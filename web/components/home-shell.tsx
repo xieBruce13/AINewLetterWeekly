@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import Link from "next/link";
 import { BookOpen, Columns, MessageSquare } from "lucide-react";
 import { NewsCard } from "@/components/news-card";
@@ -55,12 +55,14 @@ export interface HomeShellProps {
   weekSummary: { theme: string; bullets: WeekSummaryBullet[] } | null;
   /** Plain-object map (slug → thumb) — Maps don't cross client boundary. */
   weekSummaryThumbs?: Record<string, BulletThumb>;
-  /** Reader's focus topics — used to tag bullets with "为你而推" pills. */
+  /** Reader's focus topics — used to tag bullets with pills. */
   focusTopics?: string[];
   /** Reader role label for the small "为 [role] 筛选" badge. */
   forRole?: string;
   /** The personalized news cards displayed on the left. */
   feed: ShellItem[];
+  /** When true: lock to read-only mode, hide chat, show sign-in CTA. */
+  isAnonymous?: boolean;
 }
 
 type ViewMode = "split" | "read" | "chat";
@@ -74,8 +76,14 @@ export function HomeShell({
   focusTopics,
   forRole,
   feed,
+  isAnonymous = false,
 }: HomeShellProps) {
-  const [mode, setMode] = useState<ViewMode>("split");
+  const [mode, setMode] = useState<ViewMode>(isAnonymous ? "read" : "split");
+
+  // Keep anonymous locked to read mode if prop changes.
+  useEffect(() => {
+    if (isAnonymous) setMode("read");
+  }, [isAnonymous]);
 
   const display = focusModule
     ? feed.filter((r) => isModule(r.module) && r.module === focusModule)
@@ -124,9 +132,17 @@ export function HomeShell({
                 以「{profileSnippet}」的视角重排和改写
               </p>
             )}
+            {isAnonymous && (
+              <Link
+                href="/signin"
+                className="mt-1 inline-flex items-center gap-1 text-[12px] text-claude-coral hover:underline"
+              >
+                登录看个性化推荐版本 →
+              </Link>
+            )}
           </div>
 
-          <ModeToggle mode={mode} onChange={setMode} />
+          {!isAnonymous && <ModeToggle mode={mode} onChange={setMode} />}
         </div>
       </div>
 
@@ -175,33 +191,30 @@ export function HomeShell({
           </div>
         </div>
 
-        {/* Chat column */}
-        <aside
-          className={cn(
-            mode === "read" ? "hidden" : "block",
-            // Sticky below the global nav (h-16 = 64px) AND the toolbar
-            // (with the ZenoNews eyebrow + headline + role subtitle the
-            // toolbar stacks ~95px tall, so the chat panel needs ≥160px
-            // of top offset to keep its first row visible). Using 11rem
-            // (176px) as a comfortable buffer.
-            mode === "split" && "lg:sticky lg:top-44 lg:self-start"
-          )}
-        >
-          <div
+        {/* Chat column — hidden for anonymous users */}
+        {!isAnonymous && (
+          <aside
             className={cn(
-              mode === "split"
-                ? "h-[calc(100vh-11.5rem)] border-l border-claude-hairline dark:border-white/10"
-                : "h-[calc(100vh-11.5rem)]"
+              mode === "read" ? "hidden" : "block",
+              mode === "split" && "lg:sticky lg:top-44 lg:self-start"
             )}
           >
-            <AgentChatPanel
-              referencedItemIds={referencedIds}
-              suggestions={suggestions}
-              density="compact"
-              headerEyebrow="Zeno Agent · 本周对话"
-            />
-          </div>
-        </aside>
+            <div
+              className={cn(
+                mode === "split"
+                  ? "h-[calc(100vh-11.5rem)] border-l border-claude-hairline dark:border-white/10"
+                  : "h-[calc(100vh-11.5rem)]"
+              )}
+            >
+              <AgentChatPanel
+                referencedItemIds={referencedIds}
+                suggestions={suggestions}
+                density="compact"
+                headerEyebrow="Zeno Agent · 本周对话"
+              />
+            </div>
+          </aside>
+        )}
       </div>
     </>
   );

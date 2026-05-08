@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
 import {
@@ -10,11 +9,8 @@ import {
   getProfile,
 } from "@/lib/db/queries";
 import { getPersonalizedFeed } from "@/lib/personalization/rerank";
-import { NewsCard } from "@/components/news-card";
 import { HomeShell, type ShellItem } from "@/components/home-shell";
-import { formatIssueDate } from "@/lib/utils";
 import { isModule, type Module } from "@/lib/modules";
-import { ArrowRight } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 
@@ -75,28 +71,35 @@ export default async function HomePage({
 
   /* ---------------- Anonymous landing ---------------- */
   if (!session?.user?.id) {
-    const items = await getAnonymousFeed(issueDate, 6).catch(
+    const items = await getAnonymousFeed(issueDate, 15).catch(
       () => [] as Awaited<ReturnType<typeof getAnonymousFeed>>
     );
+    const anonFeed: ShellItem[] = items.map((item) => ({
+      id: item.id,
+      slug: item.slug,
+      module: item.module,
+      name: item.name,
+      company: item.company,
+      headline: item.headline,
+      tags: item.tags ?? [],
+      item_tier: item.itemTier,
+      published_at: item.publishedAt,
+      issue_date: item.issueDate,
+      primary_image: item.primaryImage,
+      image_urls: item.imageUrls,
+      record: item.record as Record<string, unknown> | null,
+      personalizedBlurb: "",
+      personalizedReason: "",
+    }));
     return (
-      <>
-        <Hero issueDate={issueDate} signedIn={false} />
-        <div className="container-page py-12">
-          <CardGrid>
-            {items.map((item, i) => (
-              <NewsCard
-                key={item.id}
-                rank={i}
-                item={item}
-                personalizedBlurb=""
-                personalizedReason="登录后可以看到这条新闻为何对你重要。"
-                variant="compact"
-              />
-            ))}
-          </CardGrid>
-          <SignInBanner />
-        </div>
-      </>
+      <HomeShell
+        issueDate={issueDate}
+        focusModule={focusModule}
+        weekSummary={summary}
+        weekSummaryThumbs={bulletThumbs}
+        feed={anonFeed}
+        isAnonymous={true}
+      />
     );
   }
 
@@ -183,61 +186,6 @@ function EmptyIssue() {
         </code>{" "}
         写入一期 demo 数据。
       </p>
-    </div>
-  );
-}
-
-function Hero({
-  issueDate,
-  signedIn,
-}: {
-  issueDate: string;
-  signedIn: boolean;
-}) {
-  return (
-    <section className="border-b border-claude-hairline dark:border-white/10">
-      <div className="container-page py-14 sm:py-20">
-        <div className="text-[12px] font-medium uppercase tracking-uc text-claude-coral">
-          ZenoNews · {formatIssueDate(issueDate)}
-        </div>
-        <h1 className="mt-4 max-w-3xl font-display text-[40px] leading-[1.1] tracking-display text-claude-ink dark:text-white sm:text-[56px]">
-          这一周的 AI，<span className="text-claude-coral">为你而写</span>
-        </h1>
-        {!signedIn && (
-          <p className="mt-4 max-w-2xl text-[18px] text-claude-body dark:text-white/70">
-            同一份编辑流水线、同一套 Zeno判断 ——
-            但每一条标题都按你的角色与当前在做的事重新讲一遍。
-          </p>
-        )}
-      </div>
-    </section>
-  );
-}
-
-function CardGrid({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="grid auto-rows-fr grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      {children}
-    </div>
-  );
-}
-
-function SignInBanner() {
-  return (
-    <div className="mt-12 rounded-lg bg-claude-coral p-10 text-center text-white">
-      <h3 className="font-display text-[28px] tracking-display text-white">
-        让这份周报真正写给你
-      </h3>
-      <p className="mx-auto mt-2 max-w-xl text-white/85">
-        告诉我们你的角色、所在团队、当前在做的项目 ——
-        同样的新闻会以你能用得上的角度重写。
-      </p>
-      <Link
-        href="/signin"
-        className="press mt-6 inline-flex h-10 items-center gap-1 rounded-md bg-white px-5 text-[14px] font-medium text-claude-coral-active hover:bg-white/95"
-      >
-        生成我的简报 <ArrowRight className="h-4 w-4" />
-      </Link>
     </div>
   );
 }

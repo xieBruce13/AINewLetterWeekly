@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { auth, signOut } from "@/lib/auth";
+import { auth } from "@/lib/auth";
 import { ThemeToggle } from "./theme-toggle";
+import { SignOutButton } from "./sign-out-button";
 import { Newspaper } from "lucide-react";
 
 /**
@@ -51,16 +52,7 @@ export async function SiteNav() {
         <div className="ml-auto flex items-center gap-2">
           <ThemeToggle />
           {signedIn ? (
-            <form
-              action={async () => {
-                "use server";
-                await signOut({ redirectTo: "/" });
-              }}
-            >
-              <button type="submit" className="btn-ghost press">
-                退出
-              </button>
-            </form>
+            <SignOutButton />
           ) : (
             <>
               <Link
