@@ -109,12 +109,15 @@ export function AgentChatPanel({
   return (
     <div
       className={cn(
-        "flex h-full min-h-0 flex-1 flex-col bg-claude-canvas dark:bg-claude-dark",
+        // Slightly deeper than the page canvas so the chat rail visually
+        // separates from the reading column without needing a heavy
+        // border. Dark mode keeps the existing flat surface.
+        "flex h-full min-h-0 flex-1 flex-col bg-claude-surface-soft dark:bg-claude-dark",
         className
       )}
     >
       {/* Header — eyebrow + (optional) pinned item summary */}
-      <div className="flex shrink-0 items-center gap-3 border-b border-claude-hairline bg-claude-surface-soft px-4 py-2.5 dark:border-white/10 dark:bg-white/[0.03] sm:px-5">
+      <div className="flex shrink-0 items-center gap-3 border-b border-claude-hairline bg-claude-surface-card px-4 py-2.5 dark:border-white/10 dark:bg-white/[0.04] sm:px-5">
         <div className="min-w-0">
           <p className="text-[11px] font-semibold uppercase tracking-uc text-claude-coral">
             {headerEyebrow}
@@ -175,7 +178,7 @@ export function AgentChatPanel({
       {/* Input dock */}
       <form
         onSubmit={handleSubmit}
-        className="shrink-0 border-t border-claude-hairline bg-claude-canvas/95 px-3 py-3 backdrop-blur dark:border-white/10 dark:bg-claude-dark/95 sm:px-4"
+        className="shrink-0 border-t border-claude-hairline bg-claude-surface-soft/95 px-3 py-3 backdrop-blur dark:border-white/10 dark:bg-claude-dark/95 sm:px-4"
       >
         <div className="mx-auto flex w-full max-w-3xl flex-col">
           <div className="flex items-end gap-2 rounded-lg bg-white p-2 shadow-hairline focus-within:shadow-focus dark:bg-white/[0.04]">

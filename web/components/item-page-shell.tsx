@@ -72,9 +72,10 @@ export function ItemPageShell({
       <div
         className={cn(
           "mx-auto w-full max-w-[1800px]",
-          // Reading-dominant on item page: ratio reading : chat = 3 : 1.
-          // Long-form CJK needs measure; chat is a sidekick rail here.
-          mode === "split" && "lg:grid lg:grid-cols-[3fr_1fr] lg:gap-0"
+          // Reading : chat = 11 : 9 (~55 / 45) — match home shell so
+          // the divider sits in the same place as the user toggles
+          // between list and detail views.
+          mode === "split" && "lg:grid lg:grid-cols-[11fr_9fr] lg:gap-0"
         )}
       >
         {/* Left: long-form article */}

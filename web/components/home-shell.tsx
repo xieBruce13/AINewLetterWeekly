@@ -136,8 +136,10 @@ export function HomeShell({
       <div
         className={cn(
           "mx-auto w-full max-w-[1800px] px-0 sm:px-2 lg:px-3",
-          // ratio reading : chat = 3 : 1 (75 % / 25 %) per editorial direction.
-          mode === "split" && "lg:grid lg:grid-cols-[3fr_1fr] lg:gap-4"
+          // Reading : chat = 11 : 9 (~55 / 45). Earlier 3:1 felt too
+          // narrow for the conversation; user feedback (May 2026) put
+          // the divider near mid-page.
+          mode === "split" && "lg:grid lg:grid-cols-[11fr_9fr] lg:gap-4"
         )}
       >
         {/* Reading column */}

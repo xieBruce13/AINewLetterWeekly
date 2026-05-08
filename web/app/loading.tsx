@@ -1,10 +1,11 @@
 import { NewsCardSkeleton } from "@/components/news-card";
 
 /**
- * Instant loading shell for `/`. Mirrors the new HomeShell — reading column
- * 75 %, Agent chat column 25 %. The week-highlights card sits at the top of
- * the reading column so the skeleton matches the same layout the resolved
- * page renders with.
+ * Instant loading shell for `/`. Mirrors HomeShell — reading column ~55 %,
+ * Agent chat column ~45 %. The week-highlights card sits at the top of the
+ * reading column so the skeleton matches the same layout the resolved page
+ * renders with. The chat column gets the deeper `surface-soft` tint so it
+ * pre-stages the visual contrast of the real panel.
  */
 export default function HomeLoading() {
   return (
@@ -20,8 +21,8 @@ export default function HomeLoading() {
         </div>
       </div>
 
-      {/* Split body — 3:1 (reading : chat) */}
-      <div className="mx-auto w-full max-w-[1800px] lg:grid lg:grid-cols-[3fr_1fr] lg:gap-4">
+      {/* Split body — 11:9 (~55/45) reading : chat */}
+      <div className="mx-auto w-full max-w-[1800px] lg:grid lg:grid-cols-[11fr_9fr] lg:gap-4">
         {/* Reading column — week highlights card + news cards */}
         <div className="px-5 py-6 sm:px-6">
           {/* Week highlights skeleton */}
@@ -51,7 +52,7 @@ export default function HomeLoading() {
         </div>
 
         {/* Chat column */}
-        <aside className="hidden border-l border-claude-hairline px-3 py-4 dark:border-white/10 lg:block">
+        <aside className="hidden border-l border-claude-hairline bg-claude-surface-soft px-3 py-4 dark:border-white/10 dark:bg-claude-dark lg:block">
           <div className="rounded-lg border border-claude-hairline bg-white p-4 dark:border-white/10 dark:bg-white/[0.04]">
             <div className="h-3 w-24 animate-pulse rounded bg-claude-surface-card" />
             <div className="mt-3 space-y-2">
