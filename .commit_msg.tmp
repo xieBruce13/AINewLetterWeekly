@@ -1,0 +1,10 @@
+fix: personalized home page no longer crashes on rerank failure
+
+- rerank.ts: loosen RerankSchema bounds (blurb 4-220, reason 10-600)
+  so a slightly-too-long LLM blurb no longer triggers a Zod validation
+  error that bubbles up as a Server Components render error.
+- rerank.ts: wrap generateObject() in try/catch with a deterministic
+  template fallback (uses summary_zh + judgment_zh from each candidate).
+  Trim blurbs at 60 chars on the consumer side.
+- page.tsx: wrap getPersonalizedFeed() in try/catch; on any failure,
+  fall back to the anonymous feed instead of crashing.

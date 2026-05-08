@@ -30,6 +30,10 @@ export interface PersonalizedItem extends CheapRerankRow {
   };
 }
 
+// NOTE on bounds: keep these LENIENT. The LLM occasionally over- or under-runs
+// the target length, and a Zod failure here throws all the way up and
+// crashes the personalized home page (Server Components render error).
+// We trim/clamp on the consumer side instead of erroring out.
 const RerankSchema = z.object({
   items: z
     .array(
@@ -37,15 +41,15 @@ const RerankSchema = z.object({
         id: z.number(),
         blurb: z
           .string()
-          .min(10)
-          .max(80)
+          .min(4)
+          .max(220)
           .describe(
-            "Short personalized angle (15-40 Chinese chars). Tells THIS reader why this matters to their work — NOT a re-summary of the news. Example: '影响你 RAG 流水线的 chunking 策略' or '你的多模态 demo 可以直接用'. Do NOT restate the news headline."
+            "Short personalized angle (target 15-40 Chinese chars, hard max 80 — we'll trim if longer). Tells THIS reader why this matters to their work — NOT a re-summary of the news."
           ),
         reason: z
           .string()
-          .min(40)
-          .max(420)
+          .min(10)
+          .max(600)
           .describe(
             "2-3 sentence justification of why THIS user should care, referencing their profile concretely."
           ),
@@ -266,10 +270,33 @@ async function llmRerank(args: {
     }));
   }
 
-  const { object } = await generateObject({
-    model: openai(RERANK_MODEL),
-    schema: RerankSchema,
-    system: [
+  // Helper: build a deterministic template-based fallback that never throws.
+  // Used when generateObject fails (Zod validation error, transient OpenAI
+  // error, schema mismatch, etc.). Better to render *something* than to crash
+  // the home page with a Server Components render error.
+  const fallback = (): PersonalizedItem[] =>
+    args.candidates.slice(0, TOP_N).map((c, idx) => {
+      const rec = (c.record ?? {}) as Record<string, unknown>;
+      const summaryZh = typeof rec.summary_zh === "string" ? rec.summary_zh : "";
+      const judgmentZh = typeof rec.judgment_zh === "string" ? rec.judgment_zh : "";
+      return {
+        ...c,
+        personalizedBlurb: summaryZh || c.headline,
+        personalizedReason:
+          judgmentZh ||
+          c.relevance_to_us ||
+          c.one_line_judgment ||
+          "本周得分较高的一条。",
+        personalizedRank: idx,
+      };
+    });
+
+  let object: { items: { id: number; blurb: string; reason: string }[] };
+  try {
+    const result = await generateObject({
+      model: openai(RERANK_MODEL),
+      schema: RerankSchema,
+      system: [
       "你是 AI 行业周报的个人编辑（中文输出）。",
       "在候选条目里为这位读者按相关性重排，并对每条保留的条目写两段。",
       "",
@@ -298,17 +325,27 @@ async function llmRerank(args: {
       `按相关性从高到低返回 6 到 ${TOP_N} 条。明显不相关（dislikes 覆盖、与角色相距甚远）的跳过。`,
       "不要编造候选里没有的事实。不要提 tier / 分数 / 流水线相关的术语。",
     ].join("\n"),
-    prompt: [
-      "## 读者档案",
-      profileBlock,
-      "",
-      "## 候选新闻（每行一条）",
-      candidateLines,
-      "",
-      "请为这位读者做重排，并为每条保留的新闻写出中文 blurb 与 reason。",
-    ].join("\n"),
-    temperature: 0.4,
-  });
+      prompt: [
+        "## 读者档案",
+        profileBlock,
+        "",
+        "## 候选新闻（每行一条）",
+        candidateLines,
+        "",
+        "请为这位读者做重排，并为每条保留的新闻写出中文 blurb 与 reason。",
+      ].join("\n"),
+      temperature: 0.4,
+    });
+    object = result.object;
+  } catch (err) {
+    console.error("[rerank] generateObject failed, using fallback:", err);
+    return fallback();
+  }
+
+  // Trim overly-long blurbs at the consumer side (40-char target) to keep
+  // the small "为你而推" subtitle from blowing past two lines.
+  const trim = (s: string, max = 60) =>
+    s.length > max ? s.slice(0, max - 1).trimEnd() + "…" : s;
 
   const byId = new Map(args.candidates.map((c) => [c.id, c]));
   const out: PersonalizedItem[] = [];
@@ -317,12 +354,12 @@ async function llmRerank(args: {
     if (!cand) return;
     out.push({
       ...cand,
-      personalizedBlurb: entry.blurb,
+      personalizedBlurb: trim(entry.blurb, 60),
       personalizedReason: entry.reason,
       personalizedRank: idx,
     });
   });
-  return out.slice(0, TOP_N);
+  return out.length > 0 ? out.slice(0, TOP_N) : fallback();
 }
 
 /** Wipe a user's cached rerank for a given issue — used when their profile

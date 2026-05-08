@@ -88,7 +88,45 @@ export default async function HomePage({
   const profile = await getProfile(session.user.id);
   if (!profile?.onboardedAt) redirect("/onboarding");
 
-  const ranked = await getPersonalizedFeed(session.user.id, issueDate);
+  // The personalized rerank can fail in production (LLM hiccup, DB cache
+  // issue, embedding column null, etc.). Don't let any of that take down
+  // the home page — degrade to the anonymous feed instead.
+  let ranked: Awaited<ReturnType<typeof getPersonalizedFeed>> = [];
+  try {
+    ranked = await getPersonalizedFeed(session.user.id, issueDate);
+  } catch (err) {
+    console.error("[home] getPersonalizedFeed failed, falling back to anonymous feed:", err);
+    const fallbackItems = await getAnonymousFeed(issueDate, 12);
+    ranked = fallbackItems.map((item, idx) => ({
+      ...item,
+      issue_date: item.issueDate,
+      published_at: item.publishedAt,
+      item_tier: item.itemTier,
+      total_score: item.totalScore,
+      one_line_judgment: item.oneLineJudgment,
+      relevance_to_us: item.relevanceToUs,
+      image_urls: item.imageUrls,
+      primary_image: item.primaryImage,
+      personalized_score: item.totalScore,
+      similarity: null,
+      memory_similarity: null,
+      tag_overlap: 0,
+      saved_tag_overlap: 0,
+      dislike_overlap: 0,
+      dismissed_company: false,
+      issues_back: 0,
+      personalizedBlurb:
+        (item.record as Record<string, unknown> | null)?.["summary_zh"] as string ??
+        item.headline,
+      personalizedReason:
+        ((item.record as Record<string, unknown> | null)?.["judgment_zh"] as string) ??
+        item.relevanceToUs ??
+        item.oneLineJudgment ??
+        "本周得分较高的一条。",
+      personalizedRank: idx,
+      state: { saved: false, dismissed: false, reaction: null },
+    }));
+  }
   const visibleAll = ranked.filter((r) => !r.state?.dismissed);
   const sourceList = visibleAll.length > 0 ? visibleAll : ranked;
   const display = focusModule
