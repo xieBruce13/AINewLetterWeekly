@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { cn } from "@/lib/utils";
+import { fitFromAspect, shouldLetterbox } from "@/lib/image-fit";
 
 interface CardImageProps {
   image: string | null;
@@ -17,20 +18,6 @@ interface CardImageProps {
   rounded?: string;
   /** Honour priority for above-the-fold cards (faster LCP). */
   priority?: boolean;
-}
-
-/** Common patterns for "this URL is a logo / wordmark, not a photo". */
-const LOGO_HOST_PATTERNS = [
-  /upload\.wikimedia\.org/i,
-  /wikipedia\.org/i,
-  /\.svg($|\?)/i,
-  /\/logo[^/]*\.(png|jpe?g|webp|svg)/i,
-  /\/wordmark[^/]*\.(png|jpe?g|webp|svg)/i,
-  /\/brand[^/]*\.(png|jpe?g|webp|svg)/i,
-];
-
-function isLogoUrl(url: string): boolean {
-  return LOGO_HOST_PATTERNS.some((rx) => rx.test(url));
 }
 
 const NO_IMAGE_PALETTE = [
@@ -54,16 +41,19 @@ function paletteFor(seed: string): string {
  *
  * Why this is a client component:
  *   - We need `onError` to swap in the gradient placeholder when a
- *     third-party image URL 404s after deploy. Server-rendered <img>
- *     tags can't recover from this without a full page reload.
+ *     third-party image URL 404s after deploy.
+ *   - We measure the loaded image's natural aspect against the
+ *     container so we can letterbox extreme-ratio images instead of
+ *     zoom-cropping them.
  *
- * Logo vs photo handling:
- *   - URLs from logo sources (Wikimedia, *.svg, …/logo*.*) are wide
- *     wordmarks. `object-cover` on a 4:3 panel zooms into the middle
- *     ("em" out of "Gemini"), which looks broken. For those we use
- *     `object-contain` with extra padding and a subtle background.
- *   - Real article hero photos still use `object-cover` so they fill
- *     the panel edge-to-edge.
+ * Cover vs contain (see [lib/image-fit.ts](web/lib/image-fit.ts)):
+ *   - URL heuristic up front: logos / wordmarks / SVG / OG share images
+ *     start as `contain` so we don't render a card with just "arr" or
+ *     "mazo" cropped out of a wordmark.
+ *   - Real article photos start as `cover`; once loaded, if the natural
+ *     aspect differs from the container's by >~22% we promote them to
+ *     `contain` so wide UI screenshots and tall vertical mocks get
+ *     shown in full instead of clipped.
  */
 export function CardImage({
   image,
@@ -75,16 +65,24 @@ export function CardImage({
   rounded,
   priority,
 }: CardImageProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
   const [errored, setErrored] = useState(false);
+  const [autoFit, setAutoFit] = useState<"cover" | "contain" | null>(null);
+
   const showImage = !!image && !errored;
-  const isLogo = !!image && isLogoUrl(image);
   const palette = paletteFor(company || name || slug);
 
-  // `fill` mode: the parent is already sized, so we render a positioned
-  // overlay instead of our own sized box. Used by tiny thumbnails where
-  // aspect classes would conflict with the parent's fixed h/w.
+  // `fill` mode: parent is already sized so we render an absolute
+  // overlay. Used by tiny thumbnails where aspect classes would conflict
+  // with the parent's fixed h/w.
   const isFill = aspect === "fill";
   const containerClass = isFill ? "absolute inset-0" : cn("relative w-full", aspect);
+
+  // URL hint wins immediately (avoids a frame of cropped wordmark).
+  // The aspect-ratio measurement only ever flips us TO `contain`, never
+  // back to `cover`, which keeps the transition one-way and unflickery.
+  const urlLetterbox = shouldLetterbox(image);
+  const isLetterbox = urlLetterbox || autoFit === "contain";
 
   if (!showImage) {
     const initial = (company || name || "?").trim().slice(0, 1).toUpperCase();
@@ -112,11 +110,13 @@ export function CardImage({
 
   return (
     <div
+      ref={containerRef}
       className={cn(
         "overflow-hidden",
-        // Logo backdrop matches the no-image palette so a logo card
-        // doesn't sit on a stark white panel.
-        isLogo ? `bg-gradient-to-br ${palette}` : "bg-claude-surface-card",
+        // Letterboxed slot gets the soft gradient backdrop so the image
+        // doesn't sit on a stark white panel; photo slots use the
+        // standard card surface.
+        isLetterbox ? `bg-gradient-to-br ${palette}` : "bg-claude-surface-card",
         containerClass,
         rounded
       )}
@@ -129,20 +129,32 @@ export function CardImage({
         priority={priority}
         className={cn(
           "transition-transform duration-300",
-          isLogo
-            // Padding scales with the component: thumbnails get a tiny
-            // breathing room, full cards get generous margins so the
+          isLetterbox
+            // Padding scales with the slot: thumbnails get a tiny
+            // breathing room, full cards get generous margins so a
             // wordmark doesn't fill the entire frame.
             ? isFill
               ? "object-contain p-2"
               : "object-contain p-6 md:p-10"
             : "object-cover group-hover:scale-[1.02]"
         )}
-        // Let Next.js's image optimizer proxy the request server-side.
-        // This sidesteps browser hotlink/referer blocks (Wikimedia, etc.)
-        // that turn the gradient placeholder into the de-facto card. If
-        // the upstream URL 404s the optimizer returns 4xx and `onError`
-        // below swaps in the gradient.
+        onLoad={(e) => {
+          // Skip if the URL already letterboxed; the measurement would
+          // only confirm it.
+          if (urlLetterbox) return;
+          const img = e.currentTarget;
+          const box = containerRef.current?.getBoundingClientRect();
+          if (!box || !box.width || !box.height) return;
+          const fit = fitFromAspect(
+            { width: img.naturalWidth, height: img.naturalHeight },
+            { width: box.width, height: box.height }
+          );
+          if (fit === "contain") setAutoFit("contain");
+        }}
+        // Routed through Next.js' image optimizer so we get a server-side
+        // fetch (avoids browser hotlink/referer blocks) and WebP. If the
+        // upstream URL 404s the optimizer returns 4xx and `onError` below
+        // swaps in the gradient.
         onError={() => setErrored(true)}
       />
     </div>

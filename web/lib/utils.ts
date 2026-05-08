@@ -52,16 +52,3 @@ export function relativeTime(date: Date | string): string {
   return d.toLocaleDateString();
 }
 
-export function moduleEmoji(module: string): string {
-  if (module === "model") return "Model";
-  if (module === "product") return "Product";
-  return module;
-}
-
-export function chipClassFor(tier: string): string {
-  if (tier === "main")
-    return "bg-amber-100 text-amber-900 dark:bg-amber-900/40 dark:text-amber-100";
-  if (tier === "brief")
-    return "bg-slate-200 text-slate-800 dark:bg-slate-800 dark:text-slate-200";
-  return "bg-slate-100 text-slate-600";
-}

@@ -11,15 +11,9 @@ import {
 } from "@/lib/db/queries";
 import { getPersonalizedFeed } from "@/lib/personalization/rerank";
 import { NewsCard } from "@/components/news-card";
-import { CardImage } from "@/components/card-image";
+import { HomeShell, type ShellItem } from "@/components/home-shell";
 import { formatIssueDate } from "@/lib/utils";
-import {
-  MODULE_BLURB,
-  MODULE_LABEL_ZH,
-  MODULES,
-  type Module,
-  isModule,
-} from "@/lib/modules";
+import { isModule, type Module } from "@/lib/modules";
 import { ArrowRight } from "lucide-react";
 
 export const dynamic = "force-dynamic";
@@ -34,7 +28,10 @@ export default async function HomePage({
   searchParams: Promise<SearchParams>;
 }) {
   const session = await auth();
-  const issueDate = await getLatestIssueDate();
+  // The DB might be unreachable in dev (local Postgres down) or wedged for
+  // a moment in prod. Catch every read so the home page always renders
+  // *something* instead of bubbling up the global error boundary.
+  const issueDate = await getLatestIssueDate().catch(() => null);
   const sp = await searchParams;
   const focusModule: Module | null = isModule(sp.module) ? sp.module : null;
 
@@ -42,16 +39,13 @@ export default async function HomePage({
 
   // Pull the summary AND the set of slugs that actually exist for this
   // issue. Bullets get their slug list filtered to live items only —
-  // if a record was dropped by the validator, its bullet still renders
-  // (text is intact), it just stops trying to link to a 404.
+  // dropped records still render their bullet text but stop linking to 404s.
   const [rawSummary, validSlugs] = await Promise.all([
-    getIssueSummary(issueDate),
-    getIssueSlugs(issueDate),
+    getIssueSummary(issueDate).catch(() => null),
+    getIssueSlugs(issueDate).catch(() => new Set<string>()),
   ]);
-  // Cap bullets to the top 3 most-important takeaways. The LLM already
-  // ranks them by importance when generating, so we just take the head.
-  // Going from 5-7 → 3 makes the strip readable in 30 seconds and gives
-  // each bullet enough horizontal room for a thumbnail.
+  // Cap bullets to the top 3 most-important takeaways. The LLM ranks them
+  // by importance when generating, so we just take the head.
   const summary = rawSummary
     ? {
         ...rawSummary,
@@ -64,34 +58,36 @@ export default async function HomePage({
       }
     : null;
 
-  // Resolve thumbnails for the 3 bullets so the WeekSummary card can
-  // render them inline without doing extra queries client-side.
+  // Resolve thumbnails for each bullet's primary slug so the chat-side
+  // WeekHighlightsCard can render them inline. We pass a plain object
+  // (not a Map) since this crosses the server→client component boundary.
   const bulletPrimarySlugs = (summary?.bullets ?? [])
     .map((b) => (b.slugs ?? [])[0])
     .filter((s): s is string => !!s);
-  const bulletThumbs = await getItemThumbsBySlug(bulletPrimarySlugs);
+  const thumbMap = await getItemThumbsBySlug(bulletPrimarySlugs).catch(
+    () => new Map()
+  );
+  const bulletThumbs: Record<
+    string,
+    { primaryImage: string | null; company: string; name: string }
+  > = {};
+  for (const [slug, thumb] of thumbMap.entries()) bulletThumbs[slug] = thumb;
 
-  // Anonymous landing — quiet hero + week summary + 6-card preview + CTA.
+  /* ---------------- Anonymous landing ---------------- */
   if (!session?.user?.id) {
-    const items = await getAnonymousFeed(issueDate, 6);
+    const items = await getAnonymousFeed(issueDate, 6).catch(
+      () => [] as Awaited<ReturnType<typeof getAnonymousFeed>>
+    );
     return (
       <>
         <Hero issueDate={issueDate} signedIn={false} />
         <div className="container-page py-12">
-          {summary && <WeekSummary summary={summary} thumbs={bulletThumbs} />}
-          <SectionHeader
-            label="本周编辑精选"
-            blurb="登录后，同样的新闻会按你的角色重写。"
-          />
           <CardGrid>
             {items.map((item, i) => (
               <NewsCard
                 key={item.id}
                 rank={i}
                 item={item}
-                /* Anonymous: no "为你而推" line — only logged-in users get
-                 * a real personalized angle. Empty string is fine; the
-                 * card hides the personalized strip when blurb is empty. */
                 personalizedBlurb=""
                 personalizedReason="登录后可以看到这条新闻为何对你重要。"
                 variant="compact"
@@ -104,101 +100,75 @@ export default async function HomePage({
     );
   }
 
-  const profile = await getProfile(session.user.id);
+  const profile = await getProfile(session.user.id).catch(() => null);
   if (!profile?.onboardedAt) redirect("/onboarding");
 
-  // The personalized rerank can fail in production (LLM hiccup, DB cache
-  // issue, embedding column null, etc.). Don't let any of that take down
-  // the home page — degrade to the anonymous feed instead.
+  // The personalized rerank can fail in production (LLM hiccup, DB cache,
+  // null embedding column, etc.). Don't let any of that take down the home
+  // page — degrade to the anonymous feed instead.
   let ranked: Awaited<ReturnType<typeof getPersonalizedFeed>> = [];
   try {
     ranked = await getPersonalizedFeed(session.user.id, issueDate);
   } catch (err) {
-    console.error("[home] getPersonalizedFeed failed, falling back to anonymous feed:", err);
-    const fallbackItems = await getAnonymousFeed(issueDate, 12);
-    ranked = fallbackItems.map((item, idx) => ({
-      ...item,
-      issue_date: item.issueDate,
-      published_at: item.publishedAt,
-      item_tier: item.itemTier,
-      total_score: item.totalScore,
-      one_line_judgment: item.oneLineJudgment,
-      relevance_to_us: item.relevanceToUs,
-      image_urls: item.imageUrls,
-      primary_image: item.primaryImage,
-      personalized_score: item.totalScore,
-      similarity: null,
-      memory_similarity: null,
-      tag_overlap: 0,
-      saved_tag_overlap: 0,
-      dislike_overlap: 0,
-      dismissed_company: false,
-      issues_back: 0,
-      personalizedBlurb:
-        (item.record as Record<string, unknown> | null)?.["summary_zh"] as string ??
-        item.headline,
-      personalizedReason:
-        ((item.record as Record<string, unknown> | null)?.["judgment_zh"] as string) ??
-        item.relevanceToUs ??
-        item.oneLineJudgment ??
-        "本周得分较高的一条。",
-      personalizedRank: idx,
-      state: { saved: false, dismissed: false, reaction: null },
-    }));
+    console.error(
+      "[home] getPersonalizedFeed failed, falling back to anonymous feed:",
+      err
+    );
   }
-  const visibleAll = ranked.filter((r) => !r.state?.dismissed);
-  const sourceList = visibleAll.length > 0 ? visibleAll : ranked;
-  const display = focusModule
-    ? sourceList.filter((r) => r.module === focusModule)
-    : sourceList;
+
+  const visibleRanked = ranked.filter((r) => !r.state?.dismissed);
+  const feed: ShellItem[] = visibleRanked.map(toShellItemFromRanked);
+
+  // If the user is filtering to one module, only pass items in that module.
+  // Fall back to the full list if the filter would otherwise empty the feed.
+  const filtered = focusModule
+    ? feed.filter((r) => isModule(r.module) && r.module === focusModule)
+    : feed;
+  const finalFeed = filtered.length > 0 ? filtered : feed;
 
   return (
-    <>
-      <Hero
-        issueDate={issueDate}
-        signedIn
-        profileSnippet={
-          profile.role
-            ? `${profile.role}${profile.company ? `，${profile.company}` : ""}`
-            : undefined
-        }
-        focusModule={focusModule}
-      />
-      <div className="container-page pb-24 pt-10">
-        {summary && !focusModule && (
-          <WeekSummary
-            summary={summary}
-            thumbs={bulletThumbs}
-            userProfile={profile ? {
-              role: profile.role ?? undefined,
-              focusTopics: profile.focusTopics ?? [],
-              currentProjects: profile.currentProjects ?? undefined,
-            } : undefined}
-            feed={visibleAll.slice(0, 20)}
-          />
-        )}
-        {display.length === 0 ? (
-          <p className="rounded-lg bg-white p-12 text-center text-claude-muted shadow-hairline">
-            本周没有匹配你偏好的内容。可以去
-            <Link
-              href="/onboarding"
-              className="ml-1 text-claude-coral underline"
-            >
-              扩大关注话题
-            </Link>
-            。
-          </p>
-        ) : focusModule ? (
-          <SingleModuleView module={focusModule} items={display} />
-        ) : (
-          <ModuleSections items={display} />
-        )}
-      </div>
-    </>
+    <HomeShell
+      issueDate={issueDate}
+      profileSnippet={
+        profile.role
+          ? `${profile.role}${profile.company ? `，${profile.company}` : ""}`
+          : undefined
+      }
+      focusModule={focusModule}
+      weekSummary={summary}
+      weekSummaryThumbs={bulletThumbs}
+      focusTopics={profile.focusTopics ?? []}
+      forRole={profile.role ?? undefined}
+      feed={finalFeed}
+    />
   );
 }
 
-/* ---------- subcomponents ---------- */
+/* ---------------- helpers / subcomponents ---------------- */
+
+/** Shape the LLM-ranked personalized item into the shell's card schema. */
+function toShellItemFromRanked(
+  r: Awaited<ReturnType<typeof getPersonalizedFeed>>[number]
+): ShellItem {
+  return {
+    id: r.id,
+    slug: r.slug,
+    module: r.module,
+    name: r.name,
+    company: r.company,
+    headline: r.headline,
+    tags: r.tags,
+    item_tier: r.item_tier,
+    published_at: r.published_at,
+    issue_date: r.issue_date,
+    primary_image: r.primary_image,
+    image_urls: r.image_urls,
+    record: r.record as Record<string, unknown> | null,
+    personalizedBlurb: r.personalizedBlurb,
+    personalizedReason: r.personalizedReason,
+    state: r.state,
+  };
+}
 
 function EmptyIssue() {
   return (
@@ -220,13 +190,9 @@ function EmptyIssue() {
 function Hero({
   issueDate,
   signedIn,
-  profileSnippet,
-  focusModule,
 }: {
   issueDate: string;
   signedIn: boolean;
-  profileSnippet?: string;
-  focusModule?: Module | null;
 }) {
   return (
     <section className="border-b border-claude-hairline dark:border-white/10">
@@ -235,26 +201,8 @@ function Hero({
           AI 周报 · {formatIssueDate(issueDate)}
         </div>
         <h1 className="mt-4 max-w-3xl font-display text-[40px] leading-[1.1] tracking-display text-claude-ink dark:text-white sm:text-[56px]">
-          {focusModule ? (
-            <>
-              本周{MODULE_LABEL_ZH[focusModule]}层
-              <span className="text-claude-coral">的关键变化</span>
-            </>
-          ) : signedIn ? (
-            <>
-              这一周的 AI，<span className="text-claude-coral">为你而写</span>
-            </>
-          ) : (
-            <>
-              这一周的 AI，<span className="text-claude-coral">为你而写</span>
-            </>
-          )}
+          这一周的 AI，<span className="text-claude-coral">为你而写</span>
         </h1>
-        {signedIn && profileSnippet && (
-          <p className="mt-4 max-w-2xl text-[18px] text-claude-body dark:text-white/70">
-            以「{profileSnippet}」的视角重排和改写。
-          </p>
-        )}
         {!signedIn && (
           <p className="mt-4 max-w-2xl text-[18px] text-claude-body dark:text-white/70">
             同一份编辑流水线、同一套编辑判断 ——
@@ -266,363 +214,11 @@ function Hero({
   );
 }
 
-function SectionHeader({
-  label,
-  blurb,
-  count,
-  focusHref,
-}: {
-  label: string;
-  blurb?: string;
-  count?: number;
-  focusHref?: string;
-}) {
-  return (
-    <header className="mb-6 flex flex-wrap items-baseline justify-between gap-3">
-      <div>
-        <h2 className="font-display text-[28px] tracking-display text-claude-ink dark:text-white">
-          {label}
-          {typeof count === "number" && (
-            <span className="ml-3 text-[14px] font-normal text-claude-muted">
-              {count} 条
-            </span>
-          )}
-        </h2>
-        {blurb && (
-          <p className="mt-1 max-w-2xl text-[14px] text-claude-muted">
-            {blurb}
-          </p>
-        )}
-      </div>
-      {focusHref && (
-        <Link
-          href={focusHref}
-          className="text-[13px] font-medium text-claude-coral hover:underline"
-        >
-          只看这个模块 →
-        </Link>
-      )}
-    </header>
-  );
-}
-
-/**
- * Top-of-page bullet strip — 1 theme line + 3-5 short takeaways. Sits above
- * the module sections so a returning reader can scan the whole week in
- * 30 seconds without reading any cards.
- *
- * Each bullet is `{ text, slugs }`. The whole bullet card is a Link to the
- * primary slug (slugs[0]); secondary slugs render as small inline chips so
- * the reader can jump straight to the supporting items.
- *
- * `text` supports a single `**bold**:` lead-in to give each takeaway a
- * 2-4 word headline before the explanation.
- */
-interface UserProfileHint {
-  role?: string;
-  focusTopics: string[];
-  currentProjects?: string;
-}
-
-function bulletRelevance(
-  bulletText: string,
-  feedItems: Array<{ slug: string; tags: string[]; headline: string }>,
-  bulletSlugs: string[],
-  profile?: UserProfileHint
-): string | null {
-  if (!profile) return null;
-  // Find matching feed items for this bullet's slugs
-  const matched = feedItems.filter((f) => bulletSlugs.includes(f.slug));
-  const allTags = new Set(matched.flatMap((f) => f.tags));
-  const focusHits = (profile.focusTopics ?? []).filter((t) => allTags.has(t));
-
-  if (focusHits.length > 0) {
-    return `与你关注的 ${focusHits.slice(0, 2).join("、")} 直接相关`;
-  }
-  if (profile.role && (bulletText.includes("产品") || bulletText.includes("PM") || bulletText.includes("设计"))) {
-    return `${profile.role}视角值得关注`;
-  }
-  return null;
-}
-
-type BulletThumb = {
-  primaryImage: string | null;
-  company: string;
-  name: string;
-};
-
-function WeekSummary({
-  summary,
-  thumbs,
-  userProfile,
-  feed = [],
-}: {
-  summary: { theme: string; bullets: { text: string; slugs?: string[] }[] };
-  thumbs?: Map<string, BulletThumb>;
-  userProfile?: UserProfileHint;
-  feed?: Array<{ slug: string; tags: string[]; headline: string }>;
-}) {
-  const bullets = summary.bullets ?? [];
-  if (bullets.length === 0) return null;
-  return (
-    <section
-      aria-label="本周要点"
-      className="mb-14 rounded-xl border border-claude-hairline bg-white p-7 sm:p-9 dark:border-white/10 dark:bg-white/[0.03]"
-    >
-      <div className="flex items-start justify-between gap-4">
-        <p className="text-[12px] font-semibold uppercase tracking-uc text-claude-coral">
-          本周要点 · 3 条最重要的事
-        </p>
-        {userProfile?.role && (
-          <span className="shrink-0 rounded-full bg-claude-coral/10 px-2.5 py-0.5 text-[11px] font-medium text-claude-coral">
-            为 {userProfile.role} 筛选
-          </span>
-        )}
-      </div>
-      <p className="prose-cjk mt-3 font-display text-[22px] leading-[1.35] tracking-display text-claude-ink dark:text-white sm:text-[26px]">
-        {summary.theme}
-      </p>
-      <ul className="mt-7 space-y-3">
-        {bullets.map((b, i) => {
-          const relevance = bulletRelevance(b.text, feed, b.slugs ?? [], userProfile);
-          const primarySlug = (b.slugs ?? [])[0];
-          const thumb = primarySlug ? thumbs?.get(primarySlug) : undefined;
-          return (
-            <SummaryBullet
-              key={i}
-              index={i}
-              bullet={b}
-              relevance={relevance}
-              thumb={thumb}
-            />
-          );
-        })}
-      </ul>
-    </section>
-  );
-}
-
-function SummaryBullet({
-  index,
-  bullet,
-  relevance,
-  thumb,
-}: {
-  index: number;
-  bullet: { text: string; slugs?: string[] };
-  relevance?: string | null;
-  thumb?: BulletThumb;
-}) {
-  const slugs = bullet.slugs ?? [];
-  const primary = slugs[0];
-  const secondary = slugs.slice(1);
-  const m = bullet.text.match(/^\*\*([^*]+)\*\*[：:]?\s*(.*)$/s);
-  const lead = m?.[1] ?? null;
-  const body = m?.[2] ?? bullet.text;
-
-  const headline = (
-    <p className="prose-cjk text-[15.5px] leading-[1.6] text-claude-body dark:text-white/85">
-      {lead && (
-        <span className="font-semibold text-claude-ink dark:text-white group-hover:text-claude-coral">
-          {lead}：
-        </span>
-      )}
-      {body}
-      {primary && (
-        <ArrowRight className="ml-1 inline h-3.5 w-3.5 align-text-bottom text-claude-muted-soft transition-colors group-hover:text-claude-coral" />
-      )}
-    </p>
-  );
-
-  return (
-    <li className="-mx-2 rounded-lg px-2 py-3 transition-colors hover:bg-claude-surface-soft dark:hover:bg-white/[0.04]">
-      <div className="flex items-start gap-4">
-        <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-claude-coral/10 text-[12px] font-semibold text-claude-coral">
-          {index + 1}
-        </span>
-        {/* Inline thumbnail. Hidden on mobile — bullets are already
-            visually scannable on small screens, and the thumbnail eats
-            valuable horizontal room for the body text. */}
-        {thumb && (
-          <BulletThumb
-            slug={primary}
-            company={thumb.company}
-            name={thumb.name}
-            image={thumb.primaryImage}
-          />
-        )}
-        <div className="min-w-0 flex-1">
-          {relevance && (
-            <span className="mb-1 inline-block rounded-full bg-claude-coral/10 px-2 py-0.5 text-[10px] font-semibold text-claude-coral">
-              {relevance}
-            </span>
-          )}
-          {primary ? (
-            <Link
-              href={`/items/${primary}`}
-              className="group block rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-claude-coral/30"
-            >
-              {headline}
-            </Link>
-          ) : (
-            headline
-          )}
-          {secondary.length > 0 && (
-            <p className="mt-1.5 flex flex-wrap items-center gap-x-1.5 gap-y-1 text-[12px] text-claude-muted">
-              <span className="text-claude-muted-soft">相关条目</span>
-              {secondary.map((s) => (
-                <Link
-                  key={s}
-                  href={`/items/${s}`}
-                  className="chip text-[11px] hover:text-claude-coral"
-                >
-                  {prettySlug(s)}
-                </Link>
-              ))}
-            </p>
-          )}
-        </div>
-      </div>
-    </li>
-  );
-}
-
-function BulletThumb({
-  slug,
-  company,
-  name,
-  image,
-}: {
-  slug?: string;
-  company: string;
-  name: string;
-  image: string | null;
-}) {
-  // The wrapper is sized; CardImage runs in `fill` mode so its image
-  // overlays the wrapper without its own sized container fighting ours.
-  const thumb = (
-    <div className="relative hidden h-16 w-24 shrink-0 overflow-hidden rounded-md bg-claude-surface-card shadow-hairline sm:block">
-      <CardImage
-        image={image}
-        company={company}
-        name={name}
-        slug={slug ?? ""}
-        aspect="fill"
-        sizes="96px"
-      />
-    </div>
-  );
-  if (!slug) return thumb;
-  return (
-    <Link
-      href={`/items/${slug}`}
-      aria-label={`${company} ${name}`}
-      className="hidden shrink-0 sm:block"
-    >
-      {thumb}
-    </Link>
-  );
-}
-
-/** Fallback chip label for a slug — strips the date prefix and prettifies. */
-function prettySlug(slug: string): string {
-  return slug.replace(/^\d{4}-\d{2}-\d{2}-/, "").replace(/-/g, " ");
-}
-
 function CardGrid({ children }: { children: React.ReactNode }) {
   return (
     <div className="grid auto-rows-fr grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {children}
     </div>
-  );
-}
-
-/**
- * Vertical stack used for the signed-in personalized feed. One Wired-style
- * horizontal card per row — image on the left, content on the right.
- * Generous gap so each card reads as its own beat instead of a tile.
- */
-function CardStack({ children }: { children: React.ReactNode }) {
-  return <div className="flex flex-col gap-6">{children}</div>;
-}
-
-type Item = Awaited<ReturnType<typeof getPersonalizedFeed>>[number];
-
-function ModuleSections({ items }: { items: Item[] }) {
-  const grouped: Record<Module, Item[]> = {
-    model: [],
-    product: [],
-    operation: [],
-  };
-  for (const it of items) if (isModule(it.module)) grouped[it.module].push(it);
-
-  return (
-    <div className="space-y-16">
-      {MODULES.map((m) => {
-        const list = grouped[m];
-        if (list.length === 0) return null;
-        return (
-          <section key={m} aria-labelledby={`mod-${m}`}>
-            <SectionHeader
-              label={MODULE_LABEL_ZH[m]}
-              blurb={MODULE_BLURB[m]}
-              count={list.length}
-              focusHref={`/?module=${m}`}
-            />
-            <CardStack>
-              {list.map((item, i) => (
-                <NewsCard
-                  key={item.id}
-                  rank={i}
-                  item={item}
-                  personalizedBlurb={item.personalizedBlurb}
-                  personalizedReason={item.personalizedReason}
-                  state={item.state}
-                  variant="wired"
-                />
-              ))}
-            </CardStack>
-          </section>
-        );
-      })}
-    </div>
-  );
-}
-
-function SingleModuleView({
-  module: m,
-  items,
-}: {
-  module: Module;
-  items: Item[];
-}) {
-  return (
-    <section>
-      <Link
-        href="/"
-        className="mb-6 inline-flex items-center gap-1 text-[13px] text-claude-coral hover:underline"
-      >
-        ← 返回全部模块
-      </Link>
-      <SectionHeader
-        label={MODULE_LABEL_ZH[m]}
-        blurb={MODULE_BLURB[m]}
-        count={items.length}
-      />
-      <CardStack>
-        {items.map((item, i) => (
-          <NewsCard
-            key={item.id}
-            rank={i}
-            item={item}
-            personalizedBlurb={item.personalizedBlurb}
-            personalizedReason={item.personalizedReason}
-            state={item.state}
-            variant="wired"
-          />
-        ))}
-      </CardStack>
-    </section>
   );
 }
 
@@ -638,7 +234,7 @@ function SignInBanner() {
       </p>
       <Link
         href="/signin"
-        className="mt-6 inline-flex h-10 items-center gap-1 rounded-md bg-white px-5 text-[14px] font-medium text-claude-coral-active hover:bg-white/95 press"
+        className="press mt-6 inline-flex h-10 items-center gap-1 rounded-md bg-white px-5 text-[14px] font-medium text-claude-coral-active hover:bg-white/95"
       >
         生成我的简报 <ArrowRight className="h-4 w-4" />
       </Link>

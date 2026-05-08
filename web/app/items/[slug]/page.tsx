@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { auth } from "@/lib/auth";
@@ -6,6 +5,7 @@ import { getItemBySlug, getUserItemState } from "@/lib/db/queries";
 import { ItemActions } from "@/components/item-actions";
 import { WhyShown } from "@/components/why-shown";
 import { ItemPageShell } from "@/components/item-page-shell";
+import { CardImage } from "@/components/card-image";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { storyDate } from "@/lib/utils";
 import { moduleLabel } from "@/lib/modules";
@@ -130,16 +130,19 @@ export default async function ItemDetailPage({
         </Link>
 
         {/* Hero image — only renders when we resolved one for this item.
-            Routed through Next.js' image optimizer so we get a server-side
-            fetch (avoids browser hotlink/referer blocks) plus WebP. */}
+            Goes through `CardImage` so cards and the hero use the same
+            cover/contain decision: wordmarks and OG share images stay
+            full inside a soft backdrop, photos still fill the frame. */}
         {item.primaryImage && (
-          <figure className="relative mb-8 aspect-[16/9] w-full overflow-hidden rounded-xl bg-claude-surface-card sm:aspect-[2/1]">
-            <Image
-              src={item.primaryImage}
-              alt={`${item.company} ${item.name}`}
-              fill
+          <figure className="mb-8">
+            <CardImage
+              image={item.primaryImage}
+              company={item.company}
+              name={item.name}
+              slug={item.slug}
+              aspect="aspect-[16/9] sm:aspect-[2/1]"
               sizes="(min-width: 1280px) 1100px, (min-width: 768px) 90vw, 100vw"
-              className="object-cover"
+              rounded="rounded-xl"
               priority
             />
           </figure>
@@ -652,47 +655,6 @@ function Bulleted({
         );
       })}
     </ul>
-  );
-}
-
-function Quadrant({
-  label,
-  emphasis = false,
-  children,
-}: {
-  label: string;
-  emphasis?: boolean;
-  children: React.ReactNode;
-}) {
-  return (
-    <div
-      className={
-        emphasis
-          ? "rounded-lg bg-claude-dark p-5 text-claude-on-dark"
-          : "rounded-lg bg-white p-5 shadow-hairline dark:bg-white/[0.04]"
-      }
-    >
-      <p className="text-[12px] font-semibold uppercase tracking-uc text-claude-coral">
-        {label}
-      </p>
-      <div
-        className={
-          emphasis
-            ? "mt-2 text-[15px] leading-[1.55] text-claude-on-dark"
-            : "mt-2 text-[15px] leading-[1.55] text-claude-body dark:text-white/85"
-        }
-      >
-        {children}
-      </div>
-    </div>
-  );
-}
-
-function Empty({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="text-claude-muted-soft dark:text-white/40">
-      {children}
-    </span>
   );
 }
 
