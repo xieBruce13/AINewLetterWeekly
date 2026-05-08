@@ -179,16 +179,19 @@ export function HomeShell({
         <aside
           className={cn(
             mode === "read" ? "hidden" : "block",
-            // Sticky so the conversation stays put while the reading column
-            // scrolls. Height = viewport − nav (64) − toolbar (~96).
-            mode === "split" && "lg:sticky lg:top-[8.5rem] lg:self-start"
+            // Sticky below the global nav (h-16 = 64px) AND the toolbar
+            // (with the AI 周报 eyebrow + headline + role subtitle the
+            // toolbar stacks ~95px tall, so the chat panel needs ≥160px
+            // of top offset to keep its first row visible). Using 11rem
+            // (176px) as a comfortable buffer.
+            mode === "split" && "lg:sticky lg:top-44 lg:self-start"
           )}
         >
           <div
             className={cn(
               mode === "split"
-                ? "h-[calc(100vh-9rem)] border-l border-claude-hairline dark:border-white/10"
-                : "h-[calc(100vh-9rem)]"
+                ? "h-[calc(100vh-11.5rem)] border-l border-claude-hairline dark:border-white/10"
+                : "h-[calc(100vh-11.5rem)]"
             )}
           >
             <AgentChatPanel

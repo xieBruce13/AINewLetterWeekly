@@ -87,15 +87,18 @@ export function ItemPageShell({
         <aside
           className={cn(
             mode === "read" ? "hidden" : "block",
+            // Sticky below nav (64px) + this slim toolbar (~53px) +
+            // a small buffer so the panel's header stays clear when
+            // the toolbar wraps to two rows on narrow viewports.
             mode === "split" &&
-              "lg:sticky lg:top-[7rem] lg:self-start lg:border-l lg:border-claude-hairline dark:lg:border-white/10"
+              "lg:sticky lg:top-32 lg:self-start lg:border-l lg:border-claude-hairline dark:lg:border-white/10"
           )}
         >
           <div
             className={cn(
               mode === "chat"
-                ? "h-[calc(100vh-8rem)]"
-                : "h-[calc(100vh-7.5rem)]"
+                ? "h-[calc(100vh-8.5rem)]"
+                : "h-[calc(100vh-9rem)]"
             )}
           >
             <AgentChatPanel
