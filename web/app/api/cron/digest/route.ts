@@ -68,7 +68,7 @@ export async function POST(req: Request) {
       await resend.emails.send({
         from,
         to: u.email,
-        subject: `AI 周报 — 本周你的 Top 5`,
+        subject: `ZenoNews — 本周你的 Top 5`,
         html,
       });
       sent++;
@@ -120,7 +120,7 @@ function renderDigestHtml({
       <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;padding:32px 24px;background:#ffffff;">
         <tr><td>
           <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#0066cc;font-weight:600;">
-            ✦ AI 周报
+            ✦ ZenoNews
           </div>
           <h1 style="margin:8px 0 4px;font-family:'SF Pro Display',-apple-system,'PingFang SC',sans-serif;font-size:32px;line-height:1.1;font-weight:600;letter-spacing:-0.374px;">
             ${escapeHtml(recipient)}，你的本周 Top 5

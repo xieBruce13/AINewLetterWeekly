@@ -95,7 +95,7 @@ export async function POST(req: Request) {
     });
   } catch {
     systemPrompt =
-      "你是「AI 周报」的个人新闻编辑助手。用中文简洁回答，不要编造产品细节。";
+      "你是「ZenoNews」的个人新闻编辑助手。用中文简洁回答，不要编造产品细节。";
   }
 
   const tools = buildAgentTools({ userId, sessionId });

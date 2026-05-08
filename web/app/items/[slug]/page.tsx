@@ -23,7 +23,7 @@ export const dynamic = "force-dynamic";
  *   6. 落点 (landing notes — who is and isn't affected)
  *   7. 用户反馈 (好 / 坏 split)
  *   8. 真实引用 (block quotes with attribution)
- *   9. 信息分层 (官方声明 ｜ 外部验证 ｜ 社区反馈 ｜ 编辑判断)
+ *   9. 信息分层 (官方声明 ｜ 外部验证 ｜ 社区反馈 ｜ Zeno判断)
  *  10. 编辑评分 + 参考来源
  *
  * Intentionally NOT rendered: `与我们的关系` and `我们要做的事`. These were
@@ -322,9 +322,9 @@ export default async function ItemDetailPage({
           </Section>
         )}
 
-        {/* 编辑判断 — from judgment_zh */}
+        {/* Zeno判断 — from judgment_zh */}
         {judgmentZh && (
-          <Section title="编辑判断">
+          <Section title="Zeno判断">
             <div className="rounded-lg bg-claude-dark p-5 text-claude-on-dark">
               <p className="prose-cjk text-[17px] leading-[1.8]">{judgmentZh}</p>
             </div>
@@ -447,7 +447,7 @@ export default async function ItemDetailPage({
                 <div className="space-y-3">
                   {editorialJudgment && (
                     <div className="rounded-md bg-claude-dark p-3 text-claude-on-dark">
-                      <p className="text-[10px] font-semibold uppercase tracking-uc text-claude-coral">编辑判断</p>
+                      <p className="text-[10px] font-semibold uppercase tracking-uc text-claude-coral">Zeno判断</p>
                       <p className="mt-1 text-[13px] leading-[1.55]">{editorialJudgment}</p>
                     </div>
                   )}

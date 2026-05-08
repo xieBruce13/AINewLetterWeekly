@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import { auth, signIn } from "@/lib/auth"; // signIn used by demo form (dev-only)
 import { SignInForm } from "./form";
 
-export const metadata = { title: "登录 — AI 周报" };
+export const metadata = { title: "登录 — ZenoNews" };
 
 interface SignInPageProps {
   searchParams: Promise<{ error?: string; from?: string }>;
@@ -33,7 +33,7 @@ export default async function SignInPage({ searchParams }: SignInPageProps) {
       <div className="w-full max-w-sm">
         <div className="text-center">
           <span className="text-[12px] font-semibold uppercase tracking-uc text-claude-coral">
-            AI 周报
+            ZenoNews
           </span>
           <h1 className="mt-3 font-display text-display-md tracking-display text-claude-ink dark:text-white">
             欢迎回来

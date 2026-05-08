@@ -63,7 +63,7 @@ export function AgentChatPanel({
   initialPrompt,
   density = "comfortable",
   inputFooter,
-  headerEyebrow = "AI 周报 Agent",
+  headerEyebrow = "Zeno Agent",
   inputPlaceholder,
   className,
 }: AgentChatPanelProps) {

@@ -5,7 +5,7 @@ import { getProfile } from "@/lib/db/queries";
 import { saveProfile, skipProfile } from "./actions";
 import { ChipsField } from "./chips-field";
 
-export const metadata = { title: "聊聊你 — AI 周报" };
+export const metadata = { title: "聊聊你 — ZenoNews" };
 
 const ROLE_SUGGESTIONS = [
   "产品经理",

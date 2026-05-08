@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { WhyShown } from "./why-shown";
 import { CardImage } from "./card-image";
 import { moduleLabel } from "@/lib/modules";
@@ -123,11 +122,6 @@ export function NewsCard({
   const judgment =
     pickStr(item.record, "judgment_zh", "one_line_judgment") || null;
 
-  const personalNote =
-    personalizedBlurb && personalizedBlurb !== factualHeadline
-      ? personalizedBlurb
-      : null;
-
   const image = pickImage(item);
   const tier = item.item_tier ?? item.itemTier;
   const isCompact = variant === "compact";
@@ -163,7 +157,7 @@ export function NewsCard({
           )}
           {judgment && (
             <p className="mt-2 line-clamp-2 text-[13px] italic leading-[1.55] text-claude-muted dark:text-white/60">
-              <span className="font-medium not-italic text-claude-coral">编辑判断 · </span>
+              <span className="font-medium not-italic text-claude-coral">Zeno判断 · </span>
               {judgment}
             </p>
           )}
@@ -178,8 +172,6 @@ export function NewsCard({
           )}
           <div className="flex-1" />
           <CardActionRow
-            slug={item.slug}
-            personalNote={personalNote}
             personalizedReason={personalizedReason}
           />
         </div>
@@ -229,7 +221,7 @@ export function NewsCard({
         {judgment && (
           <div className="mt-4 rounded-md border-l-2 border-claude-coral/60 bg-claude-coral/5 px-3 py-2 dark:bg-claude-coral/10">
             <p className="line-clamp-2 text-[13.5px] leading-[1.6] text-claude-body-strong dark:text-white/85">
-              <span className="font-medium text-claude-coral">编辑判断 · </span>
+              <span className="font-medium text-claude-coral">Zeno判断 · </span>
               {judgment}
             </p>
           </div>
@@ -248,8 +240,6 @@ export function NewsCard({
         <div className="flex-1" />
 
         <CardActionRow
-          slug={item.slug}
-          personalNote={personalNote}
           personalizedReason={personalizedReason}
         />
       </div>
@@ -306,33 +296,16 @@ function CardEyebrow({
  * sense.
  */
 function CardActionRow({
-  slug,
-  personalNote,
   personalizedReason,
 }: {
-  slug: string;
-  personalNote: string | null;
   personalizedReason: string;
 }) {
+  if (!personalizedReason) return null;
   return (
     <div className="mt-5 border-t border-claude-hairline pt-3 dark:border-white/10">
-      <Link
-        href={`/items/${slug}`}
-        className="inline-flex items-center gap-1 whitespace-nowrap text-[13px] font-medium text-claude-coral hover:underline"
-      >
-        阅读 &amp; 聊这条 <ArrowRight className="h-3 w-3" />
-      </Link>
-      {personalNote && (
-        <p className="mt-2.5 line-clamp-2 text-[12.5px] leading-[1.5] text-claude-muted">
-          <span className="mr-1 font-medium text-claude-coral">为你而推</span>
-          {personalNote}
-        </p>
-      )}
-      {personalizedReason && (
-        <div className="mt-1.5 text-[12px]">
-          <WhyShown reason={personalizedReason} />
-        </div>
-      )}
+      <div className="text-[12px]">
+        <WhyShown reason={personalizedReason} />
+      </div>
     </div>
   );
 }

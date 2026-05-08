@@ -5,7 +5,7 @@ import { AuthProvider } from "@/components/auth-provider";
 import { SiteNav } from "@/components/site-nav";
 
 export const metadata: Metadata = {
-  title: "AI 周报 · 为你而写",
+  title: "ZenoNews · 为你而写",
   description:
     "同一份编辑流水线，按你的角色、所在团队、当前在做的项目重排和改写。",
 };

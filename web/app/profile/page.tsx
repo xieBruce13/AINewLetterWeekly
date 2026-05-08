@@ -9,7 +9,7 @@ import { deleteProfile } from "@/app/onboarding/actions";
 import { MemoryFactItem } from "@/components/memory-fact-item";
 import { Brain } from "lucide-react";
 
-export const metadata = { title: "档案 — AI 周报" };
+export const metadata = { title: "档案 — ZenoNews" };
 export const dynamic = "force-dynamic";
 
 // All known source values → Chinese label

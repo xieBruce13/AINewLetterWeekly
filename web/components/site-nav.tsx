@@ -26,7 +26,7 @@ export async function SiteNav() {
             aria-hidden
             className="inline-block h-2.5 w-2.5 rounded-full bg-claude-coral"
           />
-          AI 周报
+          ZenoNews
         </Link>
 
         <nav className="flex items-center gap-1 text-[14px]">

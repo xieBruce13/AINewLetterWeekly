@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import { auth, signIn } from "@/lib/auth";
 import { KeyRound } from "lucide-react";
 
-export const metadata = { title: "忘记密码 — AI 周报" };
+export const metadata = { title: "忘记密码 — ZenoNews" };
 
 /**
  * Password recovery is bolted on top of the existing Resend magic-link

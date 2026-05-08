@@ -6,7 +6,7 @@ import { Bookmark } from "lucide-react";
 import { formatIssueDate, relativeTime } from "@/lib/utils";
 import { moduleLabel } from "@/lib/modules";
 
-export const metadata = { title: "已保存 — AI 周报" };
+export const metadata = { title: "已保存 — ZenoNews" };
 export const dynamic = "force-dynamic";
 
 export default async function SavedPage() {

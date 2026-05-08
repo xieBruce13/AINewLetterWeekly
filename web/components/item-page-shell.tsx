@@ -106,7 +106,7 @@ export function ItemPageShell({
               initialPrompt={initialPrompt}
               suggestions={suggestions}
               density="compact"
-              headerEyebrow="AI 周报 Agent · 聊这条"
+              headerEyebrow="Zeno Agent · 聊这条"
             />
           </div>
         </aside>

@@ -3,7 +3,7 @@ import { auth } from "@/lib/auth";
 import { getItemById } from "@/lib/db/queries";
 import { AgentChatPanel } from "@/components/agent-chat-panel";
 
-export const metadata = { title: "对话 — AI 周报" };
+export const metadata = { title: "对话 — ZenoNews" };
 export const dynamic = "force-dynamic";
 
 /**

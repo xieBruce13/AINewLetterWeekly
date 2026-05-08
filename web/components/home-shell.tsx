@@ -104,7 +104,7 @@ export function HomeShell({
         <div className="mx-auto flex w-full max-w-[1800px] flex-wrap items-center gap-3 px-5 py-3 sm:px-6">
           <div className="min-w-0 flex-1">
             <p className="text-[11px] font-semibold uppercase tracking-uc text-claude-coral">
-              AI 周报 · {formatIssueDate(issueDate)}
+              ZenoNews · {formatIssueDate(issueDate)}
             </p>
             <h1 className="mt-0.5 truncate font-display text-[20px] tracking-display text-claude-ink dark:text-white sm:text-[22px]">
               {focusModule ? (
@@ -180,7 +180,7 @@ export function HomeShell({
           className={cn(
             mode === "read" ? "hidden" : "block",
             // Sticky below the global nav (h-16 = 64px) AND the toolbar
-            // (with the AI 周报 eyebrow + headline + role subtitle the
+            // (with the ZenoNews eyebrow + headline + role subtitle the
             // toolbar stacks ~95px tall, so the chat panel needs ≥160px
             // of top offset to keep its first row visible). Using 11rem
             // (176px) as a comfortable buffer.
@@ -198,7 +198,7 @@ export function HomeShell({
               referencedItemIds={referencedIds}
               suggestions={suggestions}
               density="compact"
-              headerEyebrow="AI 周报 Agent · 本周对话"
+              headerEyebrow="Zeno Agent · 本周对话"
             />
           </div>
         </aside>

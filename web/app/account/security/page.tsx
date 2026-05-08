@@ -4,7 +4,7 @@ import { auth } from "@/lib/auth";
 import { db } from "@/lib/db/client";
 import { SecurityForm } from "./form";
 
-export const metadata = { title: "帐号安全 — AI 周报" };
+export const metadata = { title: "帐号安全 — ZenoNews" };
 
 interface PageProps {
   // The `?reset=1` marker comes from the magic-link flow in /forgot. We

@@ -198,14 +198,14 @@ function Hero({
     <section className="border-b border-claude-hairline dark:border-white/10">
       <div className="container-page py-14 sm:py-20">
         <div className="text-[12px] font-medium uppercase tracking-uc text-claude-coral">
-          AI 周报 · {formatIssueDate(issueDate)}
+          ZenoNews · {formatIssueDate(issueDate)}
         </div>
         <h1 className="mt-4 max-w-3xl font-display text-[40px] leading-[1.1] tracking-display text-claude-ink dark:text-white sm:text-[56px]">
           这一周的 AI，<span className="text-claude-coral">为你而写</span>
         </h1>
         {!signedIn && (
           <p className="mt-4 max-w-2xl text-[18px] text-claude-body dark:text-white/70">
-            同一份编辑流水线、同一套编辑判断 ——
+            同一份编辑流水线、同一套 Zeno判断 ——
             但每一条标题都按你的角色与当前在做的事重新讲一遍。
           </p>
         )}

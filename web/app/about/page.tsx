@@ -4,9 +4,9 @@ import { sqlClient } from "@/lib/db/client";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "如何运作 · AI 周报",
+  title: "如何运作 · ZenoNews",
   description:
-    "AI 周报的内容流水线、更新频率与后台数据库说明。",
+    "ZenoNews 的内容流水线、更新频率与后台数据库说明。",
 };
 
 /**
