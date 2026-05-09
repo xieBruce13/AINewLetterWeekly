@@ -23,6 +23,8 @@ const LETTERBOX_PATTERNS: RegExp[] = [
   /\/logo[^/]*\.(png|jpe?g|webp|svg)/i,
   /\/wordmark[^/]*\.(png|jpe?g|webp|svg)/i,
   /\/brand[^/]*\.(png|jpe?g|webp|svg)/i,
+  // Self-hosted brand assets under web/public/brand-logos/
+  /\/brand-logos\//i,
   // Common OG / social-share image filename conventions. These are
   // designed for 1.91:1 link previews and almost always lose key info
   // when forced into a 4:3 / square container with `cover`.

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { fitFromAspect, isUnsplashUrl, shouldLetterbox } from "@/lib/image-fit";
+import { brandConfigFor } from "@/lib/brand-colors";
 
 interface CardImageProps {
   image: string | null;
@@ -88,6 +89,13 @@ export function CardImage({
   const urlLetterbox = forceCover ? false : shouldLetterbox(image);
   const isLetterbox = !forceCover && (urlLetterbox || autoFit === "contain");
 
+  // Brand-specific backdrop + logo sizing for letterboxed slots.
+  const brandCfg = isLetterbox ? brandConfigFor(company) : null;
+  const logoBgStyle = brandCfg?.bg ? { backgroundColor: brandCfg.bg } : undefined;
+  // Compact logos (e.g. NVIDIA stacked mark) get extra padding so they
+  // don't fill the entire slot at contain size.
+  const isCompactLogo = isLetterbox && (brandCfg?.compact ?? false);
+
   if (!showImage) {
     const initial = (company || name || "?").trim().slice(0, 1).toUpperCase();
     return (
@@ -116,15 +124,11 @@ export function CardImage({
     <div
       ref={containerRef}
       className={cn(
-        "overflow-hidden",
-        // Both letterboxed and cover slots use the neutral card surface as
-        // backdrop. The previous gradient palette read as a colored frame
-        // around photos that landed on `contain`; the neutral surface keeps
-        // the eye on the image.
-        "bg-claude-surface-card",
+        "overflow-hidden bg-claude-surface-card",
         containerClass,
         rounded
       )}
+      style={logoBgStyle}
     >
       <Image
         src={image as string}
@@ -135,12 +139,13 @@ export function CardImage({
         className={cn(
           "transition-transform duration-300",
           isLetterbox
-            // Tight breathing room only: enough that a logo doesn't
-            // touch the card edges, but small enough that the colored
-            // surface around the image isn't visually a "frame".
             ? isFill
               ? "object-contain p-1"
-              : "object-contain p-3 md:p-5"
+              // Compact logos (e.g. NVIDIA stacked mark) get more
+              // breathing room so they don't dominate the slot.
+              : isCompactLogo
+                ? "object-contain p-8 md:p-12"
+                : "object-contain p-3 md:p-5"
             : "object-cover group-hover:scale-[1.02]"
         )}
         onLoad={(e) => {
