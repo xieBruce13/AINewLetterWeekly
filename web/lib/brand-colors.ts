@@ -36,7 +36,7 @@ const ENTRIES: [string, BrandConfig][] = [
 
   // ── Coloured brand backgrounds ────────────────────────────────────────────
   // Taken from each company's official brand palette.
-  ["figma",               { bg: "#a259e0" }],   // Figma brand purple
+  ["figma",               { bg: "#cb9fd2" }],   // sampled from figma.png background
   ["anthropic",           { bg: "#f5ede3" }],   // soft coral/cream
   ["hugging face",        { bg: "#fff4e5" }],   // HF warm orange tint
   ["lovable",             { bg: "#ffe4e1" }],   // Lovable blush
