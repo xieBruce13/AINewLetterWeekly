@@ -149,14 +149,17 @@ _GENERIC_TAGS = {
     "ml", "research",
 }
 
-# Curated subject hints by tag. Picking one of these as the seed token gives
-# Unsplash a much better photo than e.g. "agent" by itself.
-_TAG_TO_SUBJECT = {
-    "agent": "robotics",
-    "coding": "developer workspace",
-    "ide": "developer workspace",
-    "developer": "developer workspace",
-    "search": "discovery",
+# PRIMARY subjects are tried before SECONDARY ones. They describe a
+# concrete domain (payments, video, biology, etc.) and almost always
+# yield a more relevant photo than the generic shape of the news
+# (agent / infra / api). Putting "payment" in PRIMARY means a record
+# tagged ["agent", "operation", "payment", "integration"] picks
+# fintech imagery instead of a literal robot.
+_PRIMARY_TAG_TO_SUBJECT = {
+    "payment": "fintech digital payment",
+    "fintech": "fintech digital payment",
+    "finance": "financial district",
+    "trading": "trading floor",
     "video": "cinema",
     "image": "studio lighting",
     "image-gen": "studio lighting",
@@ -166,9 +169,33 @@ _TAG_TO_SUBJECT = {
     "audio": "audio waveform",
     "speech": "audio waveform",
     "asr": "audio waveform",
-    "payment": "fintech",
-    "fintech": "fintech",
-    "robotics": "robotics",
+    "robotics": "humanoid robot",
+    "biology": "microscope",
+    "science": "microscope",
+    "health": "medical lab",
+    "medical": "medical lab",
+    "security": "cybersecurity",
+    "privacy": "cybersecurity",
+    "compliance": "cybersecurity",
+    "vision": "camera lens",
+    "marketing": "marketing campaign",
+    "ecommerce": "shopping",
+    "shopping": "shopping",
+    "education": "library books",
+    "learning": "library books",
+    "search": "discovery",
+}
+
+# SECONDARY subjects are abstract / shape-of-news tags. They're
+# fallbacks — if no PRIMARY tag matched, pick the first SECONDARY
+# tag from the record. Keeping "agent" non-literal here ("automation
+# network" vs the previous "robotics") so we don't keep landing on
+# toy-robot photos for every agent story.
+_SECONDARY_TAG_TO_SUBJECT = {
+    "agent": "automation network",
+    "coding": "developer workspace",
+    "ide": "developer workspace",
+    "developer": "developer workspace",
     "data": "data center",
     "infra": "data center",
     "infrastructure": "data center",
@@ -184,32 +211,21 @@ _TAG_TO_SUBJECT = {
     "workflow": "office workflow",
     "productivity": "office workflow",
     "enterprise": "modern office",
-    "security": "cybersecurity",
-    "privacy": "cybersecurity",
-    "compliance": "cybersecurity",
     "multimodal": "abstract pattern",
-    "vision": "camera lens",
     "rl": "abstract pattern",
     "api": "abstract grid",
     "webhook": "abstract grid",
     "notebook": "writing desk",
     "writing": "writing desk",
-    "education": "library books",
-    "learning": "library books",
-    "biology": "microscope",
-    "science": "microscope",
-    "health": "medical lab",
-    "medical": "medical lab",
-    "finance": "financial district",
-    "trading": "financial district",
-    "marketing": "marketing campaign",
-    "ecommerce": "shopping",
-    "shopping": "shopping",
     "consumer": "smartphone",
     "mobile": "smartphone",
     "desktop": "minimal workspace",
     "browser": "minimal workspace",
 }
+
+# Combined view used for `extra`-tag deduping (a tag that already gave
+# us a subject must not be re-emitted as a freeform extra).
+_TAG_TO_SUBJECT = {**_PRIMARY_TAG_TO_SUBJECT, **_SECONDARY_TAG_TO_SUBJECT}
 
 
 def _ascii_only(text: str) -> str:
@@ -239,10 +255,17 @@ def build_query(rec: dict[str, Any]) -> str:
     tags = [str(t).lower() for t in (rec.get("tags") or []) if isinstance(t, str)]
 
     subject: str | None = None
+    # PRIMARY first — a record tagged ["agent", "payment"] should pick
+    # fintech imagery, not robots.
     for t in tags:
-        if t in _TAG_TO_SUBJECT:
-            subject = _TAG_TO_SUBJECT[t]
+        if t in _PRIMARY_TAG_TO_SUBJECT:
+            subject = _PRIMARY_TAG_TO_SUBJECT[t]
             break
+    if not subject:
+        for t in tags:
+            if t in _SECONDARY_TAG_TO_SUBJECT:
+                subject = _SECONDARY_TAG_TO_SUBJECT[t]
+                break
 
     extra: list[str] = []
     for t in tags:
@@ -272,7 +295,7 @@ def build_query(rec: dict[str, Any]) -> str:
     if not parts:
         # Absolute last resort: a generic technology query. Better to send a
         # bland but valid query than no query at all.
-        parts = ["technology abstract"]
+        parts = ["modern technology"]
 
     query = " ".join(parts).strip()
     # Hard cap: 6 tokens. Anything longer hurts Unsplash relevance.

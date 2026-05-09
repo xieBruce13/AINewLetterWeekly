@@ -135,12 +135,12 @@ export function CardImage({
         className={cn(
           "transition-transform duration-300",
           isLetterbox
-            // Padding scales with the slot: thumbnails get a tiny
-            // breathing room, full cards get generous margins so a
-            // wordmark doesn't fill the entire frame.
+            // Tight breathing room only: enough that a logo doesn't
+            // touch the card edges, but small enough that the colored
+            // surface around the image isn't visually a "frame".
             ? isFill
-              ? "object-contain p-2"
-              : "object-contain p-6 md:p-10"
+              ? "object-contain p-1"
+              : "object-contain p-3 md:p-5"
             : "object-cover group-hover:scale-[1.02]"
         )}
         onLoad={(e) => {
