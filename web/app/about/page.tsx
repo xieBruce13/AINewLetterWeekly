@@ -1,15 +1,14 @@
 import Link from "next/link";
 import { sqlClient } from "@/lib/db/client";
 
-// Re-render at most once an hour. /about has no per-user state and only
-// reads two lightweight aggregates from `news_items`, so there's no reason
-// to pay the dynamic-render cost on every navigation.
-export const revalidate = 3600;
+// Dynamic — revalidate on every request so pipeline / PRD changes
+// are visible immediately without waiting for cache expiry.
+export const revalidate = 0;
 
 export const metadata = {
   title: "如何运作 · ZenoNews",
   description:
-    "ZenoNews 的内容流水线、更新频率与后台数据库说明。",
+    "ZenoNews 的编辑流水线、个性化机制、数据来源与成本参考。",
 };
 
 /**
@@ -26,127 +25,123 @@ export default async function AboutPage() {
     <article className="bg-claude-canvas dark:bg-claude-dark">
       <div className="container-tight py-12 sm:py-20">
         <div className="text-[12px] font-medium uppercase tracking-uc text-claude-coral">
-          关于
+          如何运作
         </div>
         <h1 className="mt-4 max-w-3xl font-display text-[40px] leading-[1.1] tracking-display text-claude-ink dark:text-white sm:text-[52px]">
           这份周报是<span className="text-claude-coral">怎么做出来的</span>
         </h1>
         <p className="mt-5 max-w-3xl text-[18px] leading-[1.6] text-claude-body dark:text-white/80">
-          九个 agent 的流水线 · 每周一发布一期 · 个性化在你登录的瞬间发生。
-          下面把它拆开讲清楚。
+          上游是一条十步的多 agent 编辑流水线，把原始信号收敛成可追溯的结构化周报；
+          下游是个性化阅读站，同一套入库数据按你的画像重排、生成解释，并支持对话。
         </p>
 
         <StatStrip stats={stats} />
 
         {/* 1. Pipeline */}
-        <Section title="01 · 内容流水线" eyebrow="九个 agent，一次跑完">
+        <Section title="01 · 编辑流水线" eyebrow="10 步 · 专职 agent · 一步一产物">
           <p>
-            上游是一个九步骤的多 agent 流水线（在仓库的{" "}
-            <Code>.claude/agents/</Code> 下），由 <Code>newsletter-orchestrator
-            </Code>{" "}
-            协调。每一步只做一件事，把状态写到{" "}
+            流水线由{" "}
+            <Code>newsletter-orchestrator</Code>{" "}
+            按顺序调度，定义见{" "}
+            <Code>skill/SKILL.md</Code>，角色提示在{" "}
+            <Code>.claude/agents/</Code>。每一步只做一件事，把中间产物写进{" "}
             <Code>newsletter_runs/YYYY-MM-DD/</Code>{" "}
-            目录里的一个 JSON 文件，下一步从那里继续。
+            ，下一步读取后继续。
           </p>
 
           <ol className="mt-6 space-y-3">
             <PipelineStep
+              n={0}
+              name="orchestrator"
+              out="run_header.md"
+              desc="范围锁定：时间窗、模块、语言、深度等写进本期 run header。"
+            />
+            <PipelineStep
               n={1}
-              name="scope-lock"
-              out="scope.json"
-              desc="锁定本期的扫描范围（截止日期、覆盖语种、模块权重）。"
+              name="newsletter-collector"
+              out="raw_*_records.json"
+              desc="按 SKILL 规定的 Tier 扫信源（官方 changelog、技术信号、行业简报、社区）；候选带可点击 URL。"
             />
             <PipelineStep
               n={2}
-              name="collector"
-              out="raw_model_records.json / raw_product_records.json"
-              desc="按官方 → 技术信号 → newsletter → 社区四层抓候选；每条带 source URL 和 source_tier。"
+              name="newsletter-filter"
+              out="filtered_records.json"
+              desc="按 rubric gate 预筛：明显不合格丢弃，边缘进 watchlist。"
             />
             <PipelineStep
               n={3}
-              name="filter"
-              out="filtered_records.json"
-              desc="跑 rubric 里的 gate：明显不及格的丢掉，边缘的进 watchlist。"
+              name="newsletter-normalizer"
+              out="normalized_records.json"
+              desc="按 record_schemas.json 展开：官方声明、第三方验证、社区反馈分字段存放。"
             />
             <PipelineStep
               n={4}
-              name="normalizer"
-              out="normalized_records.json"
-              desc="把过 gate 的条目按 record_schemas.json 展开成结构化 JSON（官方声明、第三方验证、社区反馈分别字段化）。"
+              name="newsletter-verifier"
+              out="verified_records.json"
+              desc="官方 claim 对一手出处；主条目从 Reddit 等取 2–4 条真实用户原话。"
             />
             <PipelineStep
               n={5}
-              name="verifier"
-              out="verified_records.json"
-              desc="把每一条官方声明对到一手来源；每条主条目还要从 Reddit 抓 2–4 条真实用户引用。"
+              name="newsletter-scorer"
+              out="scored_records.json"
+              desc="按模块 rubric 各维度打分并写一句理由。"
             />
             <PipelineStep
               n={6}
-              name="scorer"
-              out="scored_records.json"
-              desc="按模块的 rubric 给每个维度打分 + 一句理由。"
+              name="newsletter-triage"
+              out="triage_decisions.json"
+              desc="main / brief / drop 分档；多样性、初创 inclusion、编辑覆写。"
             />
             <PipelineStep
               n={7}
-              name="triage"
-              out="triage_decisions.json"
-              desc="把每条分到 main / brief / drop；执行多样性、初创、编辑覆写。"
+              name="newsletter-writer"
+              out="newsletter_draft.md"
+              desc="按 output_template 写成稿（用户引用译成中文等）。"
             />
             <PipelineStep
               n={8}
-              name="writer"
-              out="newsletter_draft.md"
-              desc="把保留的条目写成最终的 markdown 周报草稿。"
+              name="newsletter-qa"
+              out="PASS / 修订意见"
+              desc="对照 SKILL 质检清单；不过则退回 writer。"
             />
             <PipelineStep
               n={9}
-              name="qa"
-              out="（PASS / 修订意见）"
-              desc="跑编辑 QA checklist，不通过则把意见返给 writer 再写一遍。"
-            />
-            <PipelineStep
-              n={10}
-              name="publisher"
-              out="HTML / PDF / DB rows"
-              desc="转 HTML/PDF，并执行最重要的一步：调用 sync_to_db.py 把所有最终条目 upsert 到 Postgres，让网站能看到。"
+              name="newsletter-publisher"
+              out="HTML / sync → Postgres"
+              desc="排版、下图、转 HTML/PDF；运行 sync_to_db.py 把条目 upsert 到 news_items，网站立即可读。"
             />
           </ol>
 
           <p className="mt-6 text-claude-muted">
-            最后一步的 <Code>sync_to_db.py</Code>{" "}
-            就是「PDF / Markdown 周报」与「这个网站」之间唯一的桥梁。改 record schema、加新字段，只要 sync 脚本会带过去，详情页立刻能用。
+            每一档内容（官方声明 / 第三方验证 / 社区声音 / 编辑判断）在流程里分字段存放，
+            不混写。最终由{" "}
+            <Code>sync_to_db.py</Code>{" "}
+            upsert 到 Postgres，网站立即可读。
           </p>
         </Section>
 
         {/* 2. Cadence */}
-        <Section title="02 · 更新频率" eyebrow="周一发布、按需补丁">
+        <Section title="02 · 更新节奏" eyebrow="素材滚动 · 按需出刊 · 个性化实时">
           <ul className="space-y-3">
             <Bullet>
-              <strong>每周一上午发布一期</strong>。
-              扫描窗口是「上一周一 00:00 → 本周日 23:59 (UTC)」，所以你每周一打开看到的是过去 7 天的事。
+              <strong>素材窗口默认 7 天</strong>。
+              每期扫描「过去 7 天」的信号，范围可在出刊前的范围锁定步骤（Step 0）按需调整。
             </Bullet>
             <Bullet>
-              <strong>每天一次自动 collector pass</strong>。
-              每天夜里跑一次 collector，把候选写进
-              <Code>newsletter_runs/YYYY-MM-DD/</Code>
-              的 raw 文件，但<em>不</em>触发后续步骤。这样下周一编辑跑全流水线时，候选已经新鲜。
+              <strong>入库新鲜度由运行频率决定</strong>。
+              可以每日跑一次{" "}
+              <Code>ai_filter → sync_to_db</Code>
+              {" "}保持数据库新鲜，也可以每周跑完整的多 agent 流水线后一次性入库——两种路径产物结构相同，不互斥。
             </Bullet>
             <Bullet>
-              <strong>突发新闻会另起一期</strong>（例如 GPT 5 / Claude 5
-              发布日）。带 <Code>--midweek</Code>{" "}
-              标志的人工触发，跑完整流水线但只产出 1–3 条主条目，issue_date 是触发当天。
+              <strong>个性化实时计算</strong>。
+              登录、改档案、保存或屏蔽一条，下次刷新首页都会按最新画像重排，不需要等下一期出刊。
             </Bullet>
             <Bullet>
-              <strong>个性化是在线发生的</strong> ——
-              不是每周一才更新。你每次登录、修改档案、保存或屏蔽一条，下一次刷新都会按你最新的偏好重排（见 03 节）。
+              <strong>个性化候选追溯约 4 期</strong>。
+              首页排序不只看当期，会从近 4 期内容里挑最贴合你画像的条目，避免「本期恰好没你关心的」时首页空洞。
             </Bullet>
           </ul>
-
-          <Aside>
-            想看历史所有期？翻一下{" "}
-            <Code>newsletter_runs/</Code>{" "}
-            目录就是 —— 一个文件夹一期，按 ISO 日期命名。每个文件夹都自带完整的 JSON 工件，可以重新 sync 到任意数据库。
-          </Aside>
         </Section>
 
         {/* 3. Database */}
@@ -221,35 +216,30 @@ export default async function AboutPage() {
 
           <p className="mt-6">
             <strong>个性化的两层重排</strong>：
-            首页加载时先在 Postgres 里做一次「便宜重排」（你 profile embedding 与每条的 cosine 相似度 + tag 重合度 - dislikes 重合度 - 被屏蔽公司），取 top 30；再把它们交给 Claude Sonnet 做「智能重排」并为留下来的每条写一段中文 blurb / reason。结果缓存在{" "}
+            首页加载时先在 Postgres 里做一次「便宜重排」（profile 向量与条目的 cosine、标签重合、排除不感兴趣项与被屏蔽公司），取一批候选；再调用{" "}
+            <strong>OpenAI</strong>（代码默认 <Code>gpt-4o-mini</Code>，可改为更强模型）生成每条的中文短摘要与「为何与你相关」的理由。结果缓存在{" "}
             <Code>user_item_state</Code>{" "}
-            ，下次刷新直接命中缓存（除非你的 profile 改了 / 你触发了 invalidate）。
+            ；档案变更或显式失效后会重算。
           </p>
         </Section>
 
         {/* 4. From pipeline to website */}
-        <Section title="04 · 从流水线到网站" eyebrow="一条命令，30 秒">
+        <Section title="04 · 从流水线到网站" eyebrow="一条命令同步">
           <p>
-            一期跑完之后，把它推到网站需要做的就是：
+            一期流水线跑完后，把结果推到网站只需一步：
           </p>
           <pre className="mt-4 overflow-x-auto rounded-lg bg-claude-dark p-5 text-[13px] leading-[1.65] text-claude-on-dark">
-            <code>{`# 在仓库根目录
-python tools/sync_to_db.py newsletter_runs/2026-05-02
+            <code>{`python tools/sync_to_db.py newsletter_runs/YYYY-MM-DD
 
-#   → 读 verified_records.json / triage_decisions.json
-#   → 派生 tags、计算 OpenAI text-embedding-3-small 向量
-#   → 按 slug upsert 到 news_items（已有的更新、新的插入）
-#   → 网站会立刻看到新一期内容（首页查 latest issue_date）`}</code>
+# → 读取 verified_records.json / triage_decisions.json
+# → 计算 text-embedding-3-small 向量
+# → upsert 到 news_items（已有的更新，新的插入）
+# → 首页立刻看到新一期内容`}</code>
           </pre>
-
-          <p className="mt-6">
-            想跳过 LLM 调用、纯刷一波 demo 数据：
+          <p className="mt-5 text-claude-muted">
+            这一步是「PDF / Markdown 周报」与「网站」之间唯一的桥梁。
+            schema 字段有变化，只要 sync 脚本带过去，详情页立刻能用。
           </p>
-          <pre className="mt-3 overflow-x-auto rounded-lg bg-claude-dark p-5 text-[13px] leading-[1.65] text-claude-on-dark">
-            <code>{`python tools/seed_demo_data.py
-#   → 生成 newsletter_runs/<today>/verified_records.json
-#   → 自动调 sync_to_db.py 上库`}</code>
-          </pre>
         </Section>
 
         {/* 5. Personalization layer */}
@@ -260,13 +250,60 @@ python tools/sync_to_db.py newsletter_runs/2026-05-02
               <Code>user_profiles.profile_embedding</Code>。
             </NumberedItem>
             <NumberedItem n={2} label="每次首页加载时">
-              先在 Postgres 里做便宜重排（cosine + tag），再交给 Claude Sonnet 智能重排。第一次会调一次 LLM，之后命中缓存直接返回。
+              先在 Postgres 里做便宜重排（向量 + 标签），再交给 OpenAI（默认{" "}
+              <Code>gpt-4o-mini</Code>
+              ）写个性化文案。首次请求会调 LLM，之后命中{" "}
+              <Code>user_item_state</Code> 缓存。
             </NumberedItem>
             <NumberedItem n={3} label="每次保存 / 屏蔽 / 聊天时">
               动作写进 <Code>user_item_state</Code> 与{" "}
               <Code>memory_facts</Code> 。屏蔽某家公司 N 次以上，那家会进 dismissed_companies 自动降权。聊天里说出来的偏好（「我只在乎 coding agent」）会被后台抽成 fact 存下来供下次重排参考。
             </NumberedItem>
           </ol>
+        </Section>
+
+        <Section title="06 · 数据来源" eyebrow="自动化 RSS + 人工深读">
+          <ul className="space-y-3">
+            <Bullet>
+              <strong>程序化抓取</strong>：<Code>tools/sources.yaml</Code>{" "}
+              是唯一配置源，当前接入约 54 条官方与媒体 RSS、11 个 Reddit 子版、Hacker News 前 500 条按分数过滤。增删信源只需改 YAML，不动 Python。
+            </Bullet>
+            <Bullet>
+              <strong>深度出刊另补</strong>：TLDR AI、Import AI、Ben&apos;s Bites 等行业 Newsletter；Y Combinator 公司目录；Product Hunt AI 日榜；各产品官方 Release Notes。由编辑或 agent 按需浏览，不全部进 YAML。
+            </Bullet>
+            <Bullet>
+              <strong>分层权重</strong>：官方源 +3 分 / 科技媒体 +1 分 / 社区 0 分（用帖子热度代替）。规则过滤在 AI 扩写之前完成，AI 只对「头部候选」做深度结构化。
+            </Bullet>
+            <Bullet>
+              <strong>配图</strong>：卡片主视觉默认走{" "}
+              <strong>Unsplash</strong> Search API；品牌标识使用各公司官方{" "}
+              <strong>Logo</strong>，与 Unsplash 图并存。可选 OpenAI 图像 API 生成插画封面，成本另计。
+            </Bullet>
+          </ul>
+        </Section>
+
+        <Section title="07 · 模型与运营成本" eyebrow="OpenAI API · 示意非账单">
+          <ul className="space-y-3">
+            <Bullet>
+              <strong>入库扩写</strong>：<Code>gpt-4.1</Code>（每期约 30 条，批量处理）
+            </Bullet>
+            <Bullet>
+              <strong>向量</strong>：<Code>text-embedding-3-small</Code>（入库与检索共用）
+            </Bullet>
+            <Bullet>
+              <strong>首页精排 / 聊天 / 记忆</strong>：默认{" "}
+              <Code>gpt-4o-mini</Code>，可换成更强模型
+            </Bullet>
+          </ul>
+          <Aside>
+            <strong>参考预算（50 名活跃用户 · 日更入库）</strong>：对话与记忆用{" "}
+            <Code>gpt-4o</Code>，首页精排用缓存 + mini 或改为周更，
+            OpenAI 文本与向量账单建议控制在{" "}
+            <strong>人民币 200–400 元 / 月</strong>（约 28–55 美元）。
+            若每人每天用 <Code>gpt-4o</Code>{" "}
+            做全量精排，账单会明显升高。完整算式见{" "}
+            <Code>docs/Newsletter机制说明.md</Code> 第六章。
+          </Aside>
         </Section>
 
         <FooterNote />
@@ -304,7 +341,7 @@ function StatStrip({
       <Stat label="本周主条目" value={String(stats.main)} unit="条" />
       <Stat label="累计入库" value={String(stats.total)} unit="条" />
       <Stat label="最新一期" value={stats.latest ?? "—"} />
-      <Stat label="发布频率" value="每周一" />
+      <Stat label="素材时间窗" value="7 天滚动" />
     </div>
   );
 }
@@ -478,6 +515,9 @@ function FooterNote() {
         </li>
         <li>
           · 个性化重排：<Code>web/lib/personalization/rerank.ts</Code>
+        </li>
+        <li>
+          · 产品说明文档：<Code>docs/Newsletter机制说明.md</Code>
         </li>
         <li>
           · Chat agent：<Code>web/lib/agent/</Code>
