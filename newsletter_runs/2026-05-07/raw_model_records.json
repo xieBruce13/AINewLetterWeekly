@@ -49,11 +49,23 @@
     "community_zh": "社区关注实际应用案例，但期待更多技术细节",
     "issue_date": "2026-05-07",
     "image_urls": [
+      "https://images.unsplash.com/photo-1590038667005-7d82ac6f864b?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxyb2JvdGljcyUyMGltcGFjdHxlbnwxfDB8fHwxNzc4Mjk2OTY0fDA&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
       "/generated-covers/2026-05-07/2026-05-07-google-deepmind-alphaevolve.png"
     ],
-    "primary_image": "/generated-covers/2026-05-07/2026-05-07-google-deepmind-alphaevolve.png",
-    "cover_image_kind": "ai-generated",
-    "cover_image_prompt": "News item:\n- Module: model\n- Company: Google DeepMind\n- Product / event: AlphaEvolve\n- Headline: AlphaEvolve, powered by Gemini, is driving impact across business, infrastructure, and science.\n- What changed: Gemini 算法赋能多领域智能体；强调跨行业应用潜力\n- Use cases or affected workflow: machine intelligence 工程师可参考智能体在业务自动化和科研中的应用；产品经理关注跨行业落地案例\n- Editorial judgment: 更多为案例宣传，实际技术更新有限\n- Tags: agent, coding, model, impact\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow."
+    "primary_image": "https://images.unsplash.com/photo-1590038667005-7d82ac6f864b?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxyb2JvdGljcyUyMGltcGFjdHxlbnwxfDB8fHwxNzc4Mjk2OTY0fDA&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
+    "cover_image_kind": "unsplash",
+    "cover_image_prompt": "News item:\n- Module: model\n- Company: Google DeepMind\n- Product / event: AlphaEvolve\n- Headline: AlphaEvolve, powered by Gemini, is driving impact across business, infrastructure, and science.\n- What changed: Gemini 算法赋能多领域智能体；强调跨行业应用潜力\n- Use cases or affected workflow: machine intelligence 工程师可参考智能体在业务自动化和科研中的应用；产品经理关注跨行业落地案例\n- Editorial judgment: 更多为案例宣传，实际技术更新有限\n- Tags: agent, coding, model, impact\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow.",
+    "source_image_urls": [
+      "/generated-covers/2026-05-07/2026-05-07-google-deepmind-alphaevolve.png"
+    ],
+    "unsplash_photo_id": "cu1vF_AcQUs",
+    "unsplash_query": "robotics impact",
+    "unsplash_attribution": {
+      "photographer_name": "Syntechs Robotics",
+      "photographer_username": "6408syntechs",
+      "photographer_url": "https://unsplash.com/@6408syntechs",
+      "photo_url": "https://unsplash.com/photos/assorted-plastic-bottles-on-grocery-store-cu1vF_AcQUs"
+    }
   },
   {
     "name": "Google AI Mode in Search",
@@ -104,11 +116,23 @@
     "community_zh": "社区关注 AI 搜索实际应用场景",
     "issue_date": "2026-05-07",
     "image_urls": [
+      "https://images.unsplash.com/photo-1592890288564-76628a30a657?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxzbWFydHBob25lfGVufDF8MHx8fDE3NzgyOTY5NjZ8MA&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
       "/generated-covers/2026-05-07/2026-05-07-google-google-ai-mode-in-search.png"
     ],
-    "primary_image": "/generated-covers/2026-05-07/2026-05-07-google-google-ai-mode-in-search.png",
-    "cover_image_kind": "ai-generated",
-    "cover_image_prompt": "News item:\n- Module: model\n- Company: Google\n- Product / event: Google machine intelligence Mode in Search\n- Headline: Google highlights machine intelligence Mode, Search Live, and Shopping features for gardening tips in Search.\n- What changed: machine intelligence Mode 支持园艺知识问答；结合购物推荐，提升用户体验\n- Use cases or affected workflow: machine intelligence 工程师可参考消费级 machine intelligence 搜索场景；产品经理关注用户端 machine intelligence 体验\n- Editorial judgment: 偏消费端展示，对工程团队参考价值有限\n- Tags: model, consumer, search\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow."
+    "primary_image": "https://images.unsplash.com/photo-1592890288564-76628a30a657?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxzbWFydHBob25lfGVufDF8MHx8fDE3NzgyOTY5NjZ8MA&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
+    "cover_image_kind": "unsplash",
+    "cover_image_prompt": "News item:\n- Module: model\n- Company: Google\n- Product / event: Google machine intelligence Mode in Search\n- Headline: Google highlights machine intelligence Mode, Search Live, and Shopping features for gardening tips in Search.\n- What changed: machine intelligence Mode 支持园艺知识问答；结合购物推荐，提升用户体验\n- Use cases or affected workflow: machine intelligence 工程师可参考消费级 machine intelligence 搜索场景；产品经理关注用户端 machine intelligence 体验\n- Editorial judgment: 偏消费端展示，对工程团队参考价值有限\n- Tags: model, consumer, search\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow.",
+    "source_image_urls": [
+      "/generated-covers/2026-05-07/2026-05-07-google-google-ai-mode-in-search.png"
+    ],
+    "unsplash_photo_id": "wK-elt11pF0",
+    "unsplash_query": "smartphone",
+    "unsplash_attribution": {
+      "photographer_name": "Jonas Leupe",
+      "photographer_username": "jonasleupe",
+      "photographer_url": "https://unsplash.com/@jonasleupe",
+      "photo_url": "https://unsplash.com/photos/person-holding-black-android-smartphone-wK-elt11pF0"
+    }
   },
   {
     "name": "Future Vision Film Competition",
@@ -160,11 +184,23 @@
     "community_zh": "社区关注 AI 在影视内容生成领域的创新潜力",
     "issue_date": "2026-05-07",
     "image_urls": [
+      "https://images.unsplash.com/photo-1765810655625-eb46a71df2ce?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMHBhdHRlcm4lMjBjb21wZXRpdGlvbnxlbnwxfDB8fHwxNzc4Mjk2OTcxfDA&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
       "/generated-covers/2026-05-07/2026-05-07-google-future-vision-film-competition.png"
     ],
-    "primary_image": "/generated-covers/2026-05-07/2026-05-07-google-future-vision-film-competition.png",
-    "cover_image_kind": "ai-generated",
-    "cover_image_prompt": "News item:\n- Module: model\n- Company: Google\n- Product / event: Future Vision Film Competition\n- Headline: Google partners with XPRIZE and Range Media Partners on the $3.5 million Future Vision film competition.\n- What changed: 推动 machine intelligence 在影视创意领域应用；高额奖金激励创新；多方合作提升行业影响力\n- Use cases or affected workflow: machine intelligence 工程师可关注多模态内容生成；产品经理可探索 intelligent systems + 媒体新场景\n- Editorial judgment: 适合关注 machine intelligence 创意与多模态内容的团队参考\n- Tags: model, multimodal, competition, media\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow."
+    "primary_image": "https://images.unsplash.com/photo-1765810655625-eb46a71df2ce?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMHBhdHRlcm4lMjBjb21wZXRpdGlvbnxlbnwxfDB8fHwxNzc4Mjk2OTcxfDA&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
+    "cover_image_kind": "unsplash",
+    "cover_image_prompt": "News item:\n- Module: model\n- Company: Google\n- Product / event: Future Vision Film Competition\n- Headline: Google partners with XPRIZE and Range Media Partners on the $3.5 million Future Vision film competition.\n- What changed: 推动 machine intelligence 在影视创意领域应用；高额奖金激励创新；多方合作提升行业影响力\n- Use cases or affected workflow: machine intelligence 工程师可关注多模态内容生成；产品经理可探索 intelligent systems + 媒体新场景\n- Editorial judgment: 适合关注 machine intelligence 创意与多模态内容的团队参考\n- Tags: model, multimodal, competition, media\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow.",
+    "source_image_urls": [
+      "/generated-covers/2026-05-07/2026-05-07-google-future-vision-film-competition.png"
+    ],
+    "unsplash_photo_id": "tVY09wmDOGY",
+    "unsplash_query": "abstract pattern competition",
+    "unsplash_attribution": {
+      "photographer_name": "Sebastian Schuster",
+      "photographer_username": "sschusterphotoart",
+      "photographer_url": "https://unsplash.com/@sschusterphotoart",
+      "photo_url": "https://unsplash.com/photos/two-yellow-lines-on-a-green-surface-tVY09wmDOGY"
+    }
   },
   {
     "name": "Google AI April 2026 Updates",
@@ -214,11 +250,23 @@
     "community_zh": "社区关注整体趋势，但期待更多具体更新",
     "issue_date": "2026-05-07",
     "image_urls": [
+      "https://images.unsplash.com/photo-1644088379091-d574269d422f?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHx0ZWNobm9sb2d5JTIwYWJzdHJhY3R8ZW58MXwwfHx8MTc3ODI5Njk3NXww&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
       "/generated-covers/2026-05-07/2026-05-07-google-google-ai-april-2026-updates.png"
     ],
-    "primary_image": "/generated-covers/2026-05-07/2026-05-07-google-google-ai-april-2026-updates.png",
-    "cover_image_kind": "ai-generated",
-    "cover_image_prompt": "News item:\n- Module: model\n- Company: Google\n- Product / event: Google machine intelligence April 2026 Updates\n- Headline: Google recaps its latest machine intelligence updates from April 2026.\n- What changed: 汇总 Google machine intelligence 近期动态；便于了解整体趋势\n- Use cases or affected workflow: machine intelligence 工程师和产品经理可快速了解 Google machine intelligence 生态最新进展\n- Editorial judgment: 适合宏观了解行业动态，缺乏落地参考\n- Tags: model, update, news\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow."
+    "primary_image": "https://images.unsplash.com/photo-1644088379091-d574269d422f?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHx0ZWNobm9sb2d5JTIwYWJzdHJhY3R8ZW58MXwwfHx8MTc3ODI5Njk3NXww&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
+    "cover_image_kind": "unsplash",
+    "cover_image_prompt": "News item:\n- Module: model\n- Company: Google\n- Product / event: Google machine intelligence April 2026 Updates\n- Headline: Google recaps its latest machine intelligence updates from April 2026.\n- What changed: 汇总 Google machine intelligence 近期动态；便于了解整体趋势\n- Use cases or affected workflow: machine intelligence 工程师和产品经理可快速了解 Google machine intelligence 生态最新进展\n- Editorial judgment: 适合宏观了解行业动态，缺乏落地参考\n- Tags: model, update, news\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow.",
+    "source_image_urls": [
+      "/generated-covers/2026-05-07/2026-05-07-google-google-ai-april-2026-updates.png"
+    ],
+    "unsplash_photo_id": "xuTJZ7uD7PI",
+    "unsplash_query": "technology abstract",
+    "unsplash_attribution": {
+      "photographer_name": "Conny Schneider",
+      "photographer_username": "choys_",
+      "photographer_url": "https://unsplash.com/@choys_",
+      "photo_url": "https://unsplash.com/photos/a-blue-background-with-lines-and-dots-xuTJZ7uD7PI"
+    }
   },
   {
     "name": "Gemini API Webhooks",
@@ -271,11 +319,23 @@
     "community_zh": "社区积极评价 Webhook 对开发体验的提升",
     "issue_date": "2026-05-07",
     "image_urls": [
+      "https://images.unsplash.com/photo-1747948254100-bafa6e7e979b?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGdyaWR8ZW58MXwwfHx8MTc3ODI5Njk3N3ww&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
       "/generated-covers/2026-05-07/2026-05-07-google-gemini-api-webhooks.png"
     ],
-    "primary_image": "/generated-covers/2026-05-07/2026-05-07-google-gemini-api-webhooks.png",
-    "cover_image_kind": "ai-generated",
-    "cover_image_prompt": "News item:\n- Module: model\n- Company: Google\n- Product / event: Gemini API Webhooks\n- Headline: Google introduces event-driven Webhooks in Gemini API to reduce latency for long-running jobs.\n- What changed: 支持推送式通知，替代轮询机制；提升长任务处理效率；简化异步工作流集成\n- Use cases or affected workflow: machine intelligence 工程师可用 Webhook 实现实时任务回调；产品经理可提升产品响应速度\n- Editorial judgment: Webhooks 是提升异步 machine intelligence 应用体验的重要基础设施\n- Tags: model, api, webhook, workflow\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow."
+    "primary_image": "https://images.unsplash.com/photo-1747948254100-bafa6e7e979b?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGdyaWR8ZW58MXwwfHx8MTc3ODI5Njk3N3ww&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
+    "cover_image_kind": "unsplash",
+    "cover_image_prompt": "News item:\n- Module: model\n- Company: Google\n- Product / event: Gemini API Webhooks\n- Headline: Google introduces event-driven Webhooks in Gemini API to reduce latency for long-running jobs.\n- What changed: 支持推送式通知，替代轮询机制；提升长任务处理效率；简化异步工作流集成\n- Use cases or affected workflow: machine intelligence 工程师可用 Webhook 实现实时任务回调；产品经理可提升产品响应速度\n- Editorial judgment: Webhooks 是提升异步 machine intelligence 应用体验的重要基础设施\n- Tags: model, api, webhook, workflow\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow.",
+    "source_image_urls": [
+      "/generated-covers/2026-05-07/2026-05-07-google-gemini-api-webhooks.png"
+    ],
+    "unsplash_photo_id": "czQmLYawFl4",
+    "unsplash_query": "abstract grid",
+    "unsplash_attribution": {
+      "photographer_name": "Logan Voss",
+      "photographer_username": "loganvoss",
+      "photographer_url": "https://unsplash.com/@loganvoss",
+      "photo_url": "https://unsplash.com/photos/colorful-squares-form-a-repeating-abstract-pattern-czQmLYawFl4"
+    }
   },
   {
     "name": "vLLM V0 to V1: Correctness Before Corrections in RL",
@@ -324,11 +384,23 @@
     "community_zh": "社区关注 RL 正确性与模型演进",
     "issue_date": "2026-05-07",
     "image_urls": [
+      "https://images.unsplash.com/photo-1585854467604-cf2080ccef31?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMHBhdHRlcm58ZW58MXwwfHx8MTc3ODI5Njk4MXww&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
       "/generated-covers/2026-05-07/2026-05-07-servicenow-vllm-v0-to-v1-correctness-before-corrections-in-rl.png"
     ],
-    "primary_image": "/generated-covers/2026-05-07/2026-05-07-servicenow-vllm-v0-to-v1-correctness-before-corrections-in-rl.png",
-    "cover_image_kind": "ai-generated",
-    "cover_image_prompt": "News item:\n- Module: model\n- Company: ServiceNow\n- Product / event: vLLM V0 to V1: Correctness Before Corrections in RL\n- Headline: ServiceNow discusses the transition from vLLM V0 to V1, emphasizing correctness in reinforcement learning.\n- What changed: 关注 RL 模型开发中的正确性；强调研究导向\n- Use cases or affected workflow: machine intelligence 工程师和研究员可参考 RL 正确性优化思路\n- Editorial judgment: 适合关注 RL 研究方向的团队参考\n- Tags: model, rl, research\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow."
+    "primary_image": "https://images.unsplash.com/photo-1585854467604-cf2080ccef31?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMHBhdHRlcm58ZW58MXwwfHx8MTc3ODI5Njk4MXww&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
+    "cover_image_kind": "unsplash",
+    "cover_image_prompt": "News item:\n- Module: model\n- Company: ServiceNow\n- Product / event: vLLM V0 to V1: Correctness Before Corrections in RL\n- Headline: ServiceNow discusses the transition from vLLM V0 to V1, emphasizing correctness in reinforcement learning.\n- What changed: 关注 RL 模型开发中的正确性；强调研究导向\n- Use cases or affected workflow: machine intelligence 工程师和研究员可参考 RL 正确性优化思路\n- Editorial judgment: 适合关注 RL 研究方向的团队参考\n- Tags: model, rl, research\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow.",
+    "source_image_urls": [
+      "/generated-covers/2026-05-07/2026-05-07-servicenow-vllm-v0-to-v1-correctness-before-corrections-in-rl.png"
+    ],
+    "unsplash_photo_id": "dOG0z4-gqp0",
+    "unsplash_query": "abstract pattern",
+    "unsplash_attribution": {
+      "photographer_name": "Debora Pilati",
+      "photographer_username": "_debs_",
+      "photographer_url": "https://unsplash.com/@_debs_",
+      "photo_url": "https://unsplash.com/photos/blue-and-white-striped-textile-dOG0z4-gqp0"
+    }
   },
   {
     "name": "Benchmaxxer Repellant on Open ASR Leaderboard",
@@ -378,11 +450,23 @@
     "community_zh": "社区认可榜单机制优化，关注评测透明度",
     "issue_date": "2026-05-07",
     "image_urls": [
+      "https://images.unsplash.com/photo-1642516303080-431f6681f864?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGNoYXJ0fGVufDF8MHx8fDE3NzgyOTY5ODN8MA&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
       "/generated-covers/2026-05-07/2026-05-07-none-benchmaxxer-repellant-on-open-asr-leaderboard.png"
     ],
-    "primary_image": "/generated-covers/2026-05-07/2026-05-07-none-benchmaxxer-repellant-on-open-asr-leaderboard.png",
-    "cover_image_kind": "ai-generated",
-    "cover_image_prompt": "News item:\n- Module: model\n- Company: Unknown\n- Product / event: Benchmaxxer Repellant on Open ASR Leaderboard\n- Headline: Benchmaxxer Repellant added to the Open ASR Leaderboard to address private data concerns.\n- What changed: 防止私有数据泄漏影响榜单结果；提升 ASR 评测透明度与可信度\n- Use cases or affected workflow: machine intelligence 工程师可更放心提交 ASR 模型评测；产品经理关注榜单公正性\n- Editorial judgment: 榜单机制优化有助于行业健康发展\n- Tags: benchmark, model, asr, privacy\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow."
+    "primary_image": "https://images.unsplash.com/photo-1642516303080-431f6681f864?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGNoYXJ0fGVufDF8MHx8fDE3NzgyOTY5ODN8MA&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
+    "cover_image_kind": "unsplash",
+    "cover_image_prompt": "News item:\n- Module: model\n- Company: Unknown\n- Product / event: Benchmaxxer Repellant on Open ASR Leaderboard\n- Headline: Benchmaxxer Repellant added to the Open ASR Leaderboard to address private data concerns.\n- What changed: 防止私有数据泄漏影响榜单结果；提升 ASR 评测透明度与可信度\n- Use cases or affected workflow: machine intelligence 工程师可更放心提交 ASR 模型评测；产品经理关注榜单公正性\n- Editorial judgment: 榜单机制优化有助于行业健康发展\n- Tags: benchmark, model, asr, privacy\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow.",
+    "source_image_urls": [
+      "/generated-covers/2026-05-07/2026-05-07-none-benchmaxxer-repellant-on-open-asr-leaderboard.png"
+    ],
+    "unsplash_photo_id": "kE8-rUKjtQU",
+    "unsplash_query": "abstract chart",
+    "unsplash_attribution": {
+      "photographer_name": "Maxim Berg",
+      "photographer_username": "maxberg",
+      "photographer_url": "https://unsplash.com/@maxberg",
+      "photo_url": "https://unsplash.com/photos/a-very-large-group-of-trees-that-are-very-colorful-kE8-rUKjtQU"
+    }
   },
   {
     "name": "Together AI Efficient Inference Research",
@@ -434,10 +518,22 @@
     "community_zh": "社区关注生产级 AI 推理的最佳实践",
     "issue_date": "2026-05-07",
     "image_urls": [
+      "https://images.unsplash.com/photo-1680992046626-418f7e910589?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxzZXJ2ZXIlMjByb29tJTIwc2NhbGFiaWxpdHl8ZW58MXwwfHx8MTc3ODI5Njk4NXww&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
       "/generated-covers/2026-05-07/2026-05-07-together-ai-together-ai-efficient-inference-research.png"
     ],
-    "primary_image": "/generated-covers/2026-05-07/2026-05-07-together-ai-together-ai-efficient-inference-research.png",
-    "cover_image_kind": "ai-generated",
-    "cover_image_prompt": "News item:\n- Module: model\n- Company: Together machine intelligence\n- Product / event: Together machine intelligence Efficient Inference Research\n- Headline: Together machine intelligence shares foundational research on powering efficient inference at scale for machine intelligence-native teams.\n- What changed: 聚焦高效、可靠、可扩展的模型推理；为 machine intelligence 团队提供生产落地经验\n- Use cases or affected workflow: machine intelligence 工程师可参考推理优化方案；产品经理关注大规模部署挑战\n- Editorial judgment: 为生产级 machine intelligence 推理提供有价值的研究参考\n- Tags: model, research, inference, scalability\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow."
+    "primary_image": "https://images.unsplash.com/photo-1680992046626-418f7e910589?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxzZXJ2ZXIlMjByb29tJTIwc2NhbGFiaWxpdHl8ZW58MXwwfHx8MTc3ODI5Njk4NXww&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
+    "cover_image_kind": "unsplash",
+    "cover_image_prompt": "News item:\n- Module: model\n- Company: Together machine intelligence\n- Product / event: Together machine intelligence Efficient Inference Research\n- Headline: Together machine intelligence shares foundational research on powering efficient inference at scale for machine intelligence-native teams.\n- What changed: 聚焦高效、可靠、可扩展的模型推理；为 machine intelligence 团队提供生产落地经验\n- Use cases or affected workflow: machine intelligence 工程师可参考推理优化方案；产品经理关注大规模部署挑战\n- Editorial judgment: 为生产级 machine intelligence 推理提供有价值的研究参考\n- Tags: model, research, inference, scalability\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow.",
+    "source_image_urls": [
+      "/generated-covers/2026-05-07/2026-05-07-together-ai-together-ai-efficient-inference-research.png"
+    ],
+    "unsplash_photo_id": "OnI_TNcIv9U",
+    "unsplash_query": "server room scalability",
+    "unsplash_attribution": {
+      "photographer_name": "Tyler",
+      "photographer_username": "tylergm",
+      "photographer_url": "https://unsplash.com/@tylergm",
+      "photo_url": "https://unsplash.com/photos/a-rack-of-electronic-equipment-in-a-dark-room-OnI_TNcIv9U"
+    }
   }
 ]

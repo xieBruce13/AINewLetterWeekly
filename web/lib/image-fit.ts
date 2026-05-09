@@ -35,7 +35,16 @@ const LETTERBOX_PATTERNS: RegExp[] = [
 
 export function shouldLetterbox(url: string | null | undefined): boolean {
   if (!url) return false;
+  // Unsplash covers are pre-cropped to 16:9 by the publish-time script, so
+  // they should always fill the slot — no letterbox even if the URL happens
+  // to match a wordmark-ish heuristic.
+  if (isUnsplashUrl(url)) return false;
   return LETTERBOX_PATTERNS.some((rx) => rx.test(url));
+}
+
+export function isUnsplashUrl(url: string | null | undefined): boolean {
+  if (!url) return false;
+  return /(?:^|\/\/)images\.unsplash\.com\//i.test(url);
 }
 
 /**

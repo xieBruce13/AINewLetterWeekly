@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { cn } from "@/lib/utils";
-import { fitFromAspect, shouldLetterbox } from "@/lib/image-fit";
+import { fitFromAspect, isUnsplashUrl, shouldLetterbox } from "@/lib/image-fit";
 
 interface CardImageProps {
   image: string | null;
@@ -81,8 +81,12 @@ export function CardImage({
   // URL hint wins immediately (avoids a frame of cropped wordmark).
   // The aspect-ratio measurement only ever flips us TO `contain`, never
   // back to `cover`, which keeps the transition one-way and unflickery.
-  const urlLetterbox = shouldLetterbox(image);
-  const isLetterbox = urlLetterbox || autoFit === "contain";
+  // Unsplash covers are pre-cropped to 16:9 by the publish step, so we
+  // pin them to `cover` and skip the auto-fit measurement entirely —
+  // that removes the colored frame around editorial photos.
+  const forceCover = isUnsplashUrl(image);
+  const urlLetterbox = forceCover ? false : shouldLetterbox(image);
+  const isLetterbox = !forceCover && (urlLetterbox || autoFit === "contain");
 
   if (!showImage) {
     const initial = (company || name || "?").trim().slice(0, 1).toUpperCase();
@@ -113,10 +117,11 @@ export function CardImage({
       ref={containerRef}
       className={cn(
         "overflow-hidden",
-        // Letterboxed slot gets the soft gradient backdrop so the image
-        // doesn't sit on a stark white panel; photo slots use the
-        // standard card surface.
-        isLetterbox ? `bg-gradient-to-br ${palette}` : "bg-claude-surface-card",
+        // Both letterboxed and cover slots use the neutral card surface as
+        // backdrop. The previous gradient palette read as a colored frame
+        // around photos that landed on `contain`; the neutral surface keeps
+        // the eye on the image.
+        "bg-claude-surface-card",
         containerClass,
         rounded
       )}
@@ -139,9 +144,9 @@ export function CardImage({
             : "object-cover group-hover:scale-[1.02]"
         )}
         onLoad={(e) => {
-          // Skip if the URL already letterboxed; the measurement would
-          // only confirm it.
-          if (urlLetterbox) return;
+          // Skip if the URL already letterboxed or we've pinned to cover;
+          // the measurement would only confirm it (or worse, fight it).
+          if (urlLetterbox || forceCover) return;
           const img = e.currentTarget;
           const box = containerRef.current?.getBoundingClientRect();
           if (!box || !box.width || !box.height) return;

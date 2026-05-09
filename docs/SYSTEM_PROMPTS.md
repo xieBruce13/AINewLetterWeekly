@@ -16,7 +16,29 @@
   - 这里更多是 SQL + rerank 逻辑，不是完整 system prompt。
   - 影响首页为登录用户排序新闻、生成推荐理由时使用哪些字段。
 
-## AI 生成新闻封面图
+## 新闻封面图
+
+封面图默认走 Unsplash 关键词搜索，AI 生图作为可选备选。
+
+### 默认：Unsplash 封面（推荐）
+
+- 关键词构造：`tools/fetch_unsplash_covers.py`
+  - 函数：`build_query()`、常量 `_TAG_TO_SUBJECT`
+  - 影响每条新闻送给 Unsplash Search API 的英文关键词（基于 tags、module 等推导，避免直接传中文长句）。
+
+- 运行方式：
+
+```bash
+python tools/fetch_unsplash_covers.py newsletter_runs/2026-05-07
+```
+
+脚本会调用 `GET /search/photos`，挑一张 landscape 图，把 16:9 裁剪 URL 写到 run JSON 的 `image_urls[0]` 与 `primary_image`，并设 `cover_image_kind: "unsplash"`。重复关键词会命中 `tools/.unsplash_query_cache.json` 缓存，不再消耗 API 配额。
+
+环境变量：`UNSPLASH_ACCESS_KEY`（Demo 配额 50 次/小时，足够单次出刊）。
+
+之后跑 `tools/sync_to_db.py` 即可。Unsplash CDN 的图片直接上线，不需要重新部署。
+
+### 备选：AI 生成封面图
 
 - 封面图生成 system prompt：`tools/generate_cover_images.py`
   - 常量：`COVER_IMAGE_SYSTEM_PROMPT`
@@ -27,13 +49,13 @@
   - 函数：`build_cover_prompt()`
   - 影响每条新闻送给图片模型的具体信息：公司、产品/事件、标题、能力变化、使用场景、编辑判断、标签。
 
-- 运行方式：
+- 运行方式（仅在某条新闻确实需要原创插画时再跑）：
 
 ```bash
-python tools/generate_cover_images.py newsletter_runs/2026-05-07 --limit 6
+python tools/generate_cover_images.py newsletter_runs/2026-05-07 --name-contains "alphaevolve"
 ```
 
-脚本会把图片保存到 `web/public/generated-covers/YYYY-MM-DD/`，并把 run JSON 里的 `image_urls[0]` 和 `primary_image` 改成 `/generated-covers/...`。之后运行 `tools/sync_to_db.py` 会把新封面同步到数据库。因为图片是 Next.js 静态资源，线上站点要重新部署后才能访问这些新文件。
+脚本会把图片保存到 `web/public/generated-covers/YYYY-MM-DD/`，并把 run JSON 里的 `image_urls[0]` 和 `primary_image` 改成 `/generated-covers/...`，同时把 `cover_image_kind` 标为 `ai-generated`。如果想让 Unsplash 步骤跳过这些条目，给 `fetch_unsplash_covers.py` 加 `--respect-ai-covers`。AI 图是 Next.js 静态资源，线上需要重新部署后才能访问。
 
 ## 周报流水线 Agent 提示词
 

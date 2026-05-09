@@ -52,11 +52,23 @@
     "community_zh": "社区关注 agent 金融能力的合规与安全性，实际应用场景有待进一步验证",
     "issue_date": "2026-05-07",
     "image_urls": [
+      "https://images.unsplash.com/photo-1767716134877-82b74809e431?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxyb2JvdGljcyUyMGludGVncmF0aW9ufGVufDF8MHx8fDE3NzgyOTY5OTB8MA&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
       "/generated-covers/2026-05-07/2026-05-07-amazon-amazon-bedrock-agentcore-payments.png"
     ],
-    "primary_image": "/generated-covers/2026-05-07/2026-05-07-amazon-amazon-bedrock-agentcore-payments.png",
-    "cover_image_kind": "ai-generated",
-    "cover_image_prompt": "News item:\n- Module: operation\n- Company: Amazon\n- Product / event: Amazon Bedrock AgentCore Payments\n- Headline: Amazon announced a preview of Bedrock AgentCore Payments, enabling machine intelligence agents to transact using Coinbase and Stripe.\n- What changed: 支持 machine intelligence agent 直接发起和完成支付流程；集成 Coinbase 和 Stripe 两大支付平台；拓展 agent 在实际业务场景中的应用能力\n- Use cases or affected workflow: machine intelligence 工程师可开发具备自动采购、订阅管理等支付能力的智能体；产品经理可探索自动化服务购买等新型业务模式\n- Editorial judgment: machine intelligence agent 支付能力是迈向自主智能体的重要一步，值得关注其后续发展和合规实现\n- Tags: agent, operation, payment, integration\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow."
+    "primary_image": "https://images.unsplash.com/photo-1767716134877-82b74809e431?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxyb2JvdGljcyUyMGludGVncmF0aW9ufGVufDF8MHx8fDE3NzgyOTY5OTB8MA&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
+    "cover_image_kind": "unsplash",
+    "cover_image_prompt": "News item:\n- Module: operation\n- Company: Amazon\n- Product / event: Amazon Bedrock AgentCore Payments\n- Headline: Amazon announced a preview of Bedrock AgentCore Payments, enabling machine intelligence agents to transact using Coinbase and Stripe.\n- What changed: 支持 machine intelligence agent 直接发起和完成支付流程；集成 Coinbase 和 Stripe 两大支付平台；拓展 agent 在实际业务场景中的应用能力\n- Use cases or affected workflow: machine intelligence 工程师可开发具备自动采购、订阅管理等支付能力的智能体；产品经理可探索自动化服务购买等新型业务模式\n- Editorial judgment: machine intelligence agent 支付能力是迈向自主智能体的重要一步，值得关注其后续发展和合规实现\n- Tags: agent, operation, payment, integration\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow.",
+    "source_image_urls": [
+      "/generated-covers/2026-05-07/2026-05-07-amazon-amazon-bedrock-agentcore-payments.png"
+    ],
+    "unsplash_photo_id": "4qq2MASzVzQ",
+    "unsplash_query": "robotics integration",
+    "unsplash_attribution": {
+      "photographer_name": "Enchanted Tools",
+      "photographer_username": "enchantedtools",
+      "photographer_url": "https://unsplash.com/@enchantedtools",
+      "photo_url": "https://unsplash.com/photos/two-orange-robots-with-animal-like-features-4qq2MASzVzQ"
+    }
   },
   {
     "name": "Amazon Bedrock Feedback Analysis",
@@ -111,11 +123,23 @@
     "community_zh": "社区关注企业级 AI 应用的可扩展性与集成难度",
     "issue_date": "2026-05-07",
     "image_urls": [
+      "https://images.unsplash.com/photo-1713946598491-4f85decbeaaf?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBvZmZpY2UlMjBmZWVkYmFja3xlbnwxfDB8fHwxNzc4Mjk2OTkzfDA&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
       "/generated-covers/2026-05-07/2026-05-07-amazon-amazon-bedrock-feedback-analysis.png"
     ],
-    "primary_image": "/generated-covers/2026-05-07/2026-05-07-amazon-amazon-bedrock-feedback-analysis.png",
-    "cover_image_kind": "ai-generated",
-    "cover_image_prompt": "News item:\n- Module: operation\n- Company: Amazon\n- Product / event: Amazon Bedrock Feedback Analysis\n- Headline: Hapag-Lloyd uses Amazon Bedrock, Elasticsearch, and open-source tools to analyze customer feedback with generative machine intelligence.\n- What changed: 结合生成式 machine intelligence 自动分析大规模客户反馈；与企业现有数据系统无缝集成；提升客户体验与产品优化效率\n- Use cases or affected workflow: machine intelligence 工程师可参考企业级反馈分析方案；产品经理可借鉴生成式 machine intelligence 在客户体验提升中的应用\n- Editorial judgment: 生成式 machine intelligence 在企业反馈分析中的应用已具备可复制性，值得关注其扩展性\n- Tags: operation, enterprise, feedback, analytics\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow."
+    "primary_image": "https://images.unsplash.com/photo-1713946598491-4f85decbeaaf?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBvZmZpY2UlMjBmZWVkYmFja3xlbnwxfDB8fHwxNzc4Mjk2OTkzfDA&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
+    "cover_image_kind": "unsplash",
+    "cover_image_prompt": "News item:\n- Module: operation\n- Company: Amazon\n- Product / event: Amazon Bedrock Feedback Analysis\n- Headline: Hapag-Lloyd uses Amazon Bedrock, Elasticsearch, and open-source tools to analyze customer feedback with generative machine intelligence.\n- What changed: 结合生成式 machine intelligence 自动分析大规模客户反馈；与企业现有数据系统无缝集成；提升客户体验与产品优化效率\n- Use cases or affected workflow: machine intelligence 工程师可参考企业级反馈分析方案；产品经理可借鉴生成式 machine intelligence 在客户体验提升中的应用\n- Editorial judgment: 生成式 machine intelligence 在企业反馈分析中的应用已具备可复制性，值得关注其扩展性\n- Tags: operation, enterprise, feedback, analytics\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow.",
+    "source_image_urls": [
+      "/generated-covers/2026-05-07/2026-05-07-amazon-amazon-bedrock-feedback-analysis.png"
+    ],
+    "unsplash_photo_id": "l6I8PWGnAVQ",
+    "unsplash_query": "modern office feedback",
+    "unsplash_attribution": {
+      "photographer_name": "Vitaly Gariev",
+      "photographer_username": "silverkblack",
+      "photographer_url": "https://unsplash.com/@silverkblack",
+      "photo_url": "https://unsplash.com/photos/a-man-and-a-woman-sitting-at-a-table-high-fiving-each-other-l6I8PWGnAVQ"
+    }
   },
   {
     "name": "MLflow v3.10 on Amazon SageMaker AI",
@@ -170,11 +194,23 @@
     "community_zh": "社区关注与主流 MLflow 生态兼容性及迁移成本",
     "issue_date": "2026-05-07",
     "image_urls": [
+      "https://images.unsplash.com/photo-1606857521015-7f9fcf423740?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxvZmZpY2UlMjB3b3JrZmxvdyUyMG1sb3BzfGVufDF8MHx8fDE3NzgyOTY5OTd8MA&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
       "/generated-covers/2026-05-07/2026-05-07-amazon-mlflow-v3-10-on-amazon-sagemaker-ai.png"
     ],
-    "primary_image": "/generated-covers/2026-05-07/2026-05-07-amazon-mlflow-v3-10-on-amazon-sagemaker-ai.png",
-    "cover_image_kind": "ai-generated",
-    "cover_image_prompt": "News item:\n- Module: operation\n- Company: Amazon\n- Product / event: MLflow v3.10 on Amazon SageMaker machine intelligence\n- Headline: Amazon SageMaker machine intelligence now supports MLflow v3.10, enhancing generative machine intelligence development and experiment tracking.\n- What changed: 支持最新 MLflow 版本，增强实验追踪与评估；提升生成式 machine intelligence 工作流可观测性；优化模型开发与部署流程\n- Use cases or affected workflow: machine intelligence 工程师可高效管理生成式模型实验；产品经理可提升团队开发与上线效率\n- Editorial judgment: SageMaker 持续对齐主流 ML 工具链，有助于提升团队协作与效率\n- Tags: operation, workflow, mlops, generative-ai\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow."
+    "primary_image": "https://images.unsplash.com/photo-1606857521015-7f9fcf423740?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxvZmZpY2UlMjB3b3JrZmxvdyUyMG1sb3BzfGVufDF8MHx8fDE3NzgyOTY5OTd8MA&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
+    "cover_image_kind": "unsplash",
+    "cover_image_prompt": "News item:\n- Module: operation\n- Company: Amazon\n- Product / event: MLflow v3.10 on Amazon SageMaker machine intelligence\n- Headline: Amazon SageMaker machine intelligence now supports MLflow v3.10, enhancing generative machine intelligence development and experiment tracking.\n- What changed: 支持最新 MLflow 版本，增强实验追踪与评估；提升生成式 machine intelligence 工作流可观测性；优化模型开发与部署流程\n- Use cases or affected workflow: machine intelligence 工程师可高效管理生成式模型实验；产品经理可提升团队开发与上线效率\n- Editorial judgment: SageMaker 持续对齐主流 ML 工具链，有助于提升团队协作与效率\n- Tags: operation, workflow, mlops, generative-ai\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow.",
+    "source_image_urls": [
+      "/generated-covers/2026-05-07/2026-05-07-amazon-mlflow-v3-10-on-amazon-sagemaker-ai.png"
+    ],
+    "unsplash_photo_id": "YI_9SivVt_s",
+    "unsplash_query": "office workflow mlops",
+    "unsplash_attribution": {
+      "photographer_name": "Israel Andrade",
+      "photographer_username": "israelandrxde",
+      "photographer_url": "https://unsplash.com/@israelandrxde",
+      "photo_url": "https://unsplash.com/photos/people-sitting-on-chair-in-front-of-computer-YI_9SivVt_s"
+    }
   },
   {
     "name": "AgentCore Quality Optimization",
@@ -229,11 +265,23 @@
     "community_zh": "社区关注工具链的易用性与实际提升效果",
     "issue_date": "2026-05-07",
     "image_urls": [
+      "https://images.unsplash.com/photo-1531837404483-bdbd0d209ec1?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxyb2JvdGljcyUyMHF1YWxpdHl8ZW58MXwwfHx8MTc3ODI5NzAwMHww&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
       "/generated-covers/2026-05-07/2026-05-07-amazon-agentcore-quality-optimization.png"
     ],
-    "primary_image": "/generated-covers/2026-05-07/2026-05-07-amazon-agentcore-quality-optimization.png",
-    "cover_image_kind": "ai-generated",
-    "cover_image_prompt": "News item:\n- Module: operation\n- Company: Amazon\n- Product / event: AgentCore Quality Optimization\n- Headline: Amazon introduced agent quality optimization in AgentCore, now in preview, to improve agent performance via recommendations and evaluation.\n- What changed: 自动生成优化建议，基于生产数据追踪；支持批量评估与 A/B 测试；提升 agent 持续表现与可靠性\n- Use cases or affected workflow: machine intelligence 工程师可持续监控和优化 agent 质量；产品经理可用数据驱动 agent 迭代\n- Editorial judgment: 为 agent 持续优化提供工具链，适合关注生产质量的团队\n- Tags: agent, operation, quality, evaluation\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow."
+    "primary_image": "https://images.unsplash.com/photo-1531837404483-bdbd0d209ec1?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxyb2JvdGljcyUyMHF1YWxpdHl8ZW58MXwwfHx8MTc3ODI5NzAwMHww&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
+    "cover_image_kind": "unsplash",
+    "cover_image_prompt": "News item:\n- Module: operation\n- Company: Amazon\n- Product / event: AgentCore Quality Optimization\n- Headline: Amazon introduced agent quality optimization in AgentCore, now in preview, to improve agent performance via recommendations and evaluation.\n- What changed: 自动生成优化建议，基于生产数据追踪；支持批量评估与 A/B 测试；提升 agent 持续表现与可靠性\n- Use cases or affected workflow: machine intelligence 工程师可持续监控和优化 agent 质量；产品经理可用数据驱动 agent 迭代\n- Editorial judgment: 为 agent 持续优化提供工具链，适合关注生产质量的团队\n- Tags: agent, operation, quality, evaluation\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow.",
+    "source_image_urls": [
+      "/generated-covers/2026-05-07/2026-05-07-amazon-agentcore-quality-optimization.png"
+    ],
+    "unsplash_photo_id": "Uz0uQXvOtEY",
+    "unsplash_query": "robotics quality",
+    "unsplash_attribution": {
+      "photographer_name": "Possessed Photography",
+      "photographer_username": "possessedphotography",
+      "photographer_url": "https://unsplash.com/@possessedphotography",
+      "photo_url": "https://unsplash.com/photos/gray-metal-machine-stand-Uz0uQXvOtEY"
+    }
   },
   {
     "name": "Amazon SageMaker AI Agent-Guided Workflows",
@@ -288,10 +336,22 @@
     "community_zh": "社区关注自动化流程的灵活性与适用范围",
     "issue_date": "2026-05-07",
     "image_urls": [
+      "https://images.unsplash.com/photo-1762379042461-422c7e64dcd5?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxyb2JvdGljcyUyMGN1c3RvbWl6YXRpb258ZW58MXwwfHx8MTc3ODI5NzAwM3ww&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png"
     ],
-    "primary_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png",
-    "cover_image_kind": "company-logo"
+    "primary_image": "https://images.unsplash.com/photo-1762379042461-422c7e64dcd5?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxyb2JvdGljcyUyMGN1c3RvbWl6YXRpb258ZW58MXwwfHx8MTc3ODI5NzAwM3ww&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
+    "cover_image_kind": "unsplash",
+    "source_image_urls": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png"
+    ],
+    "unsplash_photo_id": "CmbaCGs0pvs",
+    "unsplash_query": "robotics customization",
+    "unsplash_attribution": {
+      "photographer_name": "Sulhan Aldani",
+      "photographer_username": "sul_hans",
+      "photographer_url": "https://unsplash.com/@sul_hans",
+      "photo_url": "https://unsplash.com/photos/a-small-robot-toy-hides-in-tall-grass-CmbaCGs0pvs"
+    }
   },
   {
     "name": "OpenClaw: After Hours @ GitHub",
@@ -346,10 +406,22 @@
     "community_zh": "社区积极参与，关注开源创新与合作机会",
     "issue_date": "2026-05-07",
     "image_urls": [
+      "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxjb21tdW5pdHl8ZW58MXwwfHx8MTc3ODI5NzAwNnww&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/1280px-Microsoft_logo_%282012%29.svg.png"
     ],
-    "primary_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/1280px-Microsoft_logo_%282012%29.svg.png",
-    "cover_image_kind": "company-logo"
+    "primary_image": "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxjb21tdW5pdHl8ZW58MXwwfHx8MTc3ODI5NzAwNnww&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
+    "cover_image_kind": "unsplash",
+    "source_image_urls": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/1280px-Microsoft_logo_%282012%29.svg.png"
+    ],
+    "unsplash_photo_id": "Zyx1bK9mqmA",
+    "unsplash_query": "community",
+    "unsplash_attribution": {
+      "photographer_name": "Hannah Busing",
+      "photographer_username": "hannahbusing",
+      "photographer_url": "https://unsplash.com/@hannahbusing",
+      "photo_url": "https://unsplash.com/photos/person-in-red-sweater-holding-babys-hand-Zyx1bK9mqmA"
+    }
   },
   {
     "name": "EC2 Capacity Blocks for ML and SageMaker Training Plans",
@@ -403,10 +475,22 @@
     "community_zh": "社区关注资源灵活性与实际可用性",
     "issue_date": "2026-05-07",
     "image_urls": [
+      "https://images.unsplash.com/photo-1760539165425-f76a6da1e50e?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxjb21wdXRlciUyMGNoaXAlMjByZXNvdXJjZXxlbnwxfDB8fHwxNzc4Mjk3MDA4fDA&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png"
     ],
-    "primary_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png",
-    "cover_image_kind": "company-logo"
+    "primary_image": "https://images.unsplash.com/photo-1760539165425-f76a6da1e50e?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxjb21wdXRlciUyMGNoaXAlMjByZXNvdXJjZXxlbnwxfDB8fHwxNzc4Mjk3MDA4fDA&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
+    "cover_image_kind": "unsplash",
+    "source_image_urls": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png"
+    ],
+    "unsplash_photo_id": "1I6hzQPu-CA",
+    "unsplash_query": "computer chip resource",
+    "unsplash_attribution": {
+      "photographer_name": "BoliviaInteligente",
+      "photographer_username": "boliviainteligente",
+      "photographer_url": "https://unsplash.com/@boliviainteligente",
+      "photo_url": "https://unsplash.com/photos/amd-ryzen-6000-series-processor-on-circuit-board-1I6hzQPu-CA"
+    }
   },
   {
     "name": "GRPO on SageMaker AI",
@@ -461,10 +545,22 @@
     "community_zh": "社区关注 RL 训练的可解释性和透明度提升。",
     "issue_date": "2026-05-07",
     "image_urls": [
+      "https://images.unsplash.com/photo-1758687126493-c31e40d92dbd?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxyZWluZm9yY2VtZW50JTIwbGVhcm5pbmd8ZW58MXwwfHx8MTc3ODI5NzAxMnww&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png"
     ],
-    "primary_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png",
-    "cover_image_kind": "company-logo"
+    "primary_image": "https://images.unsplash.com/photo-1758687126493-c31e40d92dbd?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxyZWluZm9yY2VtZW50JTIwbGVhcm5pbmd8ZW58MXwwfHx8MTc3ODI5NzAxMnww&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
+    "cover_image_kind": "unsplash",
+    "source_image_urls": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png"
+    ],
+    "unsplash_photo_id": "yifjmlBkiMI",
+    "unsplash_query": "reinforcement learning",
+    "unsplash_attribution": {
+      "photographer_name": "Vitaly Gariev",
+      "photographer_username": "silverkblack",
+      "photographer_url": "https://unsplash.com/@silverkblack",
+      "photo_url": "https://unsplash.com/photos/father-helps-son-with-homework-at-a-colorful-desk-yifjmlBkiMI"
+    }
   },
   {
     "name": "Pet Behavior Detection on AWS Inferentia2",
@@ -515,7 +611,20 @@
     "relevance_zh": "展示多模态 AI 在专用硬件上的实际落地经验，对工程部署有参考价值。",
     "official_zh": "EC2 Inf2 实例结合 Inferentia2 芯片，降低视觉语言模型推理成本并保持准确率。",
     "community_zh": "社区关注 AI 芯片在实际产品中的降本增效作用。",
-    "issue_date": "2026-05-07"
+    "issue_date": "2026-05-07",
+    "image_urls": [
+      "https://images.unsplash.com/photo-1661655885970-4e05dba2fcfc?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMHBhdHRlcm4lMjBpbmZlcmVudGlhMnxlbnwxfDB8fHwxNzc4Mjk3MDE1fDA&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format"
+    ],
+    "primary_image": "https://images.unsplash.com/photo-1661655885970-4e05dba2fcfc?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMHBhdHRlcm4lMjBpbmZlcmVudGlhMnxlbnwxfDB8fHwxNzc4Mjk3MDE1fDA&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
+    "cover_image_kind": "unsplash",
+    "unsplash_photo_id": "D3txInaxtPQ",
+    "unsplash_query": "abstract pattern inferentia2",
+    "unsplash_attribution": {
+      "photographer_name": "Susan Wilkinson",
+      "photographer_username": "susan_wilkinson",
+      "photographer_url": "https://unsplash.com/@susan_wilkinson",
+      "photo_url": "https://unsplash.com/photos/background-pattern-D3txInaxtPQ"
+    }
   },
   {
     "name": "OS Level Actions in Amazon Bedrock AgentCore Browser",
@@ -568,10 +677,22 @@
     "community_zh": "社区关注代理自动化能力的拓展与安全性挑战。",
     "issue_date": "2026-05-07",
     "image_urls": [
+      "https://images.unsplash.com/photo-1674027326254-88c960d8e561?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxyb2JvdGljcyUyMGJyb3dzZXIlMjBhZ2VudHxlbnwxfDB8fHwxNzc4Mjk3MDE4fDA&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png"
     ],
-    "primary_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png",
-    "cover_image_kind": "company-logo"
+    "primary_image": "https://images.unsplash.com/photo-1674027326254-88c960d8e561?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxyb2JvdGljcyUyMGJyb3dzZXIlMjBhZ2VudHxlbnwxfDB8fHwxNzc4Mjk3MDE4fDA&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
+    "cover_image_kind": "unsplash",
+    "source_image_urls": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png"
+    ],
+    "unsplash_photo_id": "183Yxo3vsGY",
+    "unsplash_query": "robotics browser agent",
+    "unsplash_attribution": {
+      "photographer_name": "Growtika",
+      "photographer_username": "growtika",
+      "photographer_url": "https://unsplash.com/@growtika",
+      "photo_url": "https://unsplash.com/photos/a-white-robot-holding-a-magnifying-glass-next-to-a-white-box-183Yxo3vsGY"
+    }
   },
   {
     "name": "Bedrock AgentCore Identity on Amazon ECS",
@@ -624,10 +745,22 @@
     "community_zh": "社区关注代理安全与合规能力的提升。",
     "issue_date": "2026-05-07",
     "image_urls": [
+      "https://images.unsplash.com/photo-1684395882899-571db620132b?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxyb2JvdGljcyUyMGlkZW50aXR5fGVufDF8MHx8fDE3NzgyOTcwMjR8MA&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png"
     ],
-    "primary_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png",
-    "cover_image_kind": "company-logo"
+    "primary_image": "https://images.unsplash.com/photo-1684395882899-571db620132b?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxyb2JvdGljcyUyMGlkZW50aXR5fGVufDF8MHx8fDE3NzgyOTcwMjR8MA&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
+    "cover_image_kind": "unsplash",
+    "source_image_urls": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png"
+    ],
+    "unsplash_photo_id": "UvStmNQQdBo",
+    "unsplash_query": "robotics identity",
+    "unsplash_attribution": {
+      "photographer_name": "LekoArts",
+      "photographer_username": "lekoarts",
+      "photographer_url": "https://unsplash.com/@lekoarts",
+      "photo_url": "https://unsplash.com/photos/a-person-holding-a-nintendo-wii-game-controller-UvStmNQQdBo"
+    }
   },
   {
     "name": "Message Defense and Insights using Amazon Bedrock",
@@ -680,10 +813,22 @@
     "community_zh": "社区关注生成式 AI 在安全与分析场景的实际效果。",
     "issue_date": "2026-05-07",
     "image_urls": [
+      "https://images.unsplash.com/photo-1761496851678-6c0cc91b4482?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxjeWJlcnNlY3VyaXR5JTIwYW5hbHl0aWNzfGVufDF8MHx8fDE3NzgyOTcwMjh8MA&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png"
     ],
-    "primary_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png",
-    "cover_image_kind": "company-logo"
+    "primary_image": "https://images.unsplash.com/photo-1761496851678-6c0cc91b4482?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxjeWJlcnNlY3VyaXR5JTIwYW5hbHl0aWNzfGVufDF8MHx8fDE3NzgyOTcwMjh8MA&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
+    "cover_image_kind": "unsplash",
+    "source_image_urls": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png"
+    ],
+    "unsplash_photo_id": "1-Od3lDKkT0",
+    "unsplash_query": "cybersecurity analytics",
+    "unsplash_attribution": {
+      "photographer_name": "Amal S",
+      "photographer_username": "b45i",
+      "photographer_url": "https://unsplash.com/@b45i",
+      "photo_url": "https://unsplash.com/photos/two-portable-electronic-devices-on-a-reflective-surface-1-Od3lDKkT0"
+    }
   },
   {
     "name": "Dataset Q&A in Amazon Quick",
@@ -736,10 +881,22 @@
     "community_zh": "社区关注自然语言数据分析的易用性与准确性。",
     "issue_date": "2026-05-07",
     "image_urls": [
+      "https://images.unsplash.com/photo-1599344941143-a421299d6d69?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxubHF8ZW58MXwwfHx8MTc3ODI5NzAzN3ww&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png"
     ],
-    "primary_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png",
-    "cover_image_kind": "company-logo"
+    "primary_image": "https://images.unsplash.com/photo-1599344941143-a421299d6d69?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxubHF8ZW58MXwwfHx8MTc3ODI5NzAzN3ww&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
+    "cover_image_kind": "unsplash",
+    "source_image_urls": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png"
+    ],
+    "unsplash_photo_id": "OddoMIl3hEA",
+    "unsplash_query": "nlq",
+    "unsplash_attribution": {
+      "photographer_name": "Wesley Tingey",
+      "photographer_username": "wesleyphotography",
+      "photographer_url": "https://unsplash.com/@wesleyphotography",
+      "photo_url": "https://unsplash.com/photos/yellow-and-white-square-box-OddoMIl3hEA"
+    }
   },
   {
     "name": "Generate Dashboards from Natural Language in Amazon Quick",
@@ -793,10 +950,22 @@
     "community_zh": "社区关注自然语言驱动 BI 自动化的实际效果。",
     "issue_date": "2026-05-07",
     "image_urls": [
+      "https://images.unsplash.com/photo-1692208774700-0299abbbaf4d?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxiaXxlbnwxfDB8fHwxNzc4Mjk3MDQ3fDA&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png"
     ],
-    "primary_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png",
-    "cover_image_kind": "company-logo"
+    "primary_image": "https://images.unsplash.com/photo-1692208774700-0299abbbaf4d?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxiaXxlbnwxfDB8fHwxNzc4Mjk3MDQ3fDA&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
+    "cover_image_kind": "unsplash",
+    "source_image_urls": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png"
+    ],
+    "unsplash_photo_id": "pwHWoHSilDw",
+    "unsplash_query": "bi",
+    "unsplash_attribution": {
+      "photographer_name": "Pham Luan",
+      "photographer_username": "oracle_0712",
+      "photographer_url": "https://unsplash.com/@oracle_0712",
+      "photo_url": "https://unsplash.com/photos/a-figurine-of-gohan-and-a-laptop-on-a-desk-pwHWoHSilDw"
+    }
   },
   {
     "name": "Amazon S3 Tables in Amazon Quick",
@@ -852,10 +1021,22 @@
     "community_zh": "社区关注数据湖与 AI 分析的集成能力。",
     "issue_date": "2026-05-07",
     "image_urls": [
+      "https://images.unsplash.com/photo-1640158615573-cd28feb1bf4e?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxkYXRhJTIwbGFrZXxlbnwxfDB8fHwxNzc4Mjk3MDU2fDA&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png"
     ],
-    "primary_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png",
-    "cover_image_kind": "company-logo"
+    "primary_image": "https://images.unsplash.com/photo-1640158615573-cd28feb1bf4e?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxkYXRhJTIwbGFrZXxlbnwxfDB8fHwxNzc4Mjk3MDU2fDA&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
+    "cover_image_kind": "unsplash",
+    "source_image_urls": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png"
+    ],
+    "unsplash_photo_id": "fyeOxvYvIyY",
+    "unsplash_query": "data lake",
+    "unsplash_attribution": {
+      "photographer_name": "Claudio Schwarz",
+      "photographer_username": "purzlbaum",
+      "photographer_url": "https://unsplash.com/@purzlbaum",
+      "photo_url": "https://unsplash.com/photos/a-close-up-of-a-window-with-a-building-in-the-background-fyeOxvYvIyY"
+    }
   },
   {
     "name": "Capacity-Aware Inference for SageMaker AI Endpoints",
@@ -965,10 +1146,22 @@
     "community_zh": "社区关注自动化迁移工具对数据平台升级的推动作用。",
     "issue_date": "2026-05-07",
     "image_urls": [
+      "https://images.unsplash.com/photo-1692208774700-0299abbbaf4d?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxiaXxlbnwxfDB8fHwxNzc4Mjk3MDQ3fDA&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png"
     ],
-    "primary_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png",
-    "cover_image_kind": "company-logo"
+    "primary_image": "https://images.unsplash.com/photo-1692208774700-0299abbbaf4d?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxiaXxlbnwxfDB8fHwxNzc4Mjk3MDQ3fDA&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
+    "cover_image_kind": "unsplash",
+    "source_image_urls": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png"
+    ],
+    "unsplash_photo_id": "pwHWoHSilDw",
+    "unsplash_query": "bi",
+    "unsplash_attribution": {
+      "photographer_name": "Pham Luan",
+      "photographer_username": "oracle_0712",
+      "photographer_url": "https://unsplash.com/@oracle_0712",
+      "photo_url": "https://unsplash.com/photos/a-figurine-of-gohan-and-a-laptop-on-a-desk-pwHWoHSilDw"
+    }
   },
   {
     "name": "Powering the Next American Century: Genesis Mission",
@@ -1019,10 +1212,22 @@
     "community_zh": "社区关注 AI 在能源等关键行业的落地与合作前景。",
     "issue_date": "2026-05-07",
     "image_urls": [
+      "https://images.unsplash.com/photo-1765211003026-f7666ea3a948?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxkYXRhJTIwY2VudGVyJTIwZW5lcmd5fGVufDF8MHx8fDE3NzgyOTcwNjh8MA&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
       "https://upload.wikimedia.org/wikipedia/sco/thumb/2/21/Nvidia_logo.svg/1280px-Nvidia_logo.svg.png"
     ],
-    "primary_image": "https://upload.wikimedia.org/wikipedia/sco/thumb/2/21/Nvidia_logo.svg/1280px-Nvidia_logo.svg.png",
-    "cover_image_kind": "company-logo"
+    "primary_image": "https://images.unsplash.com/photo-1765211003026-f7666ea3a948?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxkYXRhJTIwY2VudGVyJTIwZW5lcmd5fGVufDF8MHx8fDE3NzgyOTcwNjh8MA&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
+    "cover_image_kind": "unsplash",
+    "source_image_urls": [
+      "https://upload.wikimedia.org/wikipedia/sco/thumb/2/21/Nvidia_logo.svg/1280px-Nvidia_logo.svg.png"
+    ],
+    "unsplash_photo_id": "E4Oz0TZUDe8",
+    "unsplash_query": "data center energy",
+    "unsplash_attribution": {
+      "photographer_name": "Wesley Tingey",
+      "photographer_username": "wesleyphotography",
+      "photographer_url": "https://unsplash.com/@wesleyphotography",
+      "photo_url": "https://unsplash.com/photos/close-up-of-a-car-battery-with-wires-connected-E4Oz0TZUDe8"
+    }
   },
   {
     "name": "Gaijin Single Sign-On on GeForce NOW",
@@ -1074,10 +1279,22 @@
     "community_zh": "社区关注云游戏平台用户体验提升措施。",
     "issue_date": "2026-05-07",
     "image_urls": [
+      "https://images.unsplash.com/photo-1640695257754-7e2932f9ad0f?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxjbG91ZCUyMGdhbWluZ3xlbnwxfDB8fHwxNzc4Mjk3MDczfDA&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
       "https://upload.wikimedia.org/wikipedia/sco/thumb/2/21/Nvidia_logo.svg/1280px-Nvidia_logo.svg.png"
     ],
-    "primary_image": "https://upload.wikimedia.org/wikipedia/sco/thumb/2/21/Nvidia_logo.svg/1280px-Nvidia_logo.svg.png",
-    "cover_image_kind": "company-logo"
+    "primary_image": "https://images.unsplash.com/photo-1640695257754-7e2932f9ad0f?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxjbG91ZCUyMGdhbWluZ3xlbnwxfDB8fHwxNzc4Mjk3MDczfDA&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
+    "cover_image_kind": "unsplash",
+    "source_image_urls": [
+      "https://upload.wikimedia.org/wikipedia/sco/thumb/2/21/Nvidia_logo.svg/1280px-Nvidia_logo.svg.png"
+    ],
+    "unsplash_photo_id": "5IB2fQHVvm4",
+    "unsplash_query": "cloud gaming",
+    "unsplash_attribution": {
+      "photographer_name": "Clastr Cloud Gaming",
+      "photographer_username": "clastr",
+      "photographer_url": "https://unsplash.com/@clastr",
+      "photo_url": "https://unsplash.com/photos/a-laptop-computer-sitting-on-top-of-a-desk-5IB2fQHVvm4"
+    }
   },
   {
     "name": "NVIDIA Spectrum-X with MRC",

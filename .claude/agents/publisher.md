@@ -21,7 +21,29 @@ The site is the primary surface. The HTML/PDF is the permanent archive.
 
 ## Pipeline
 
-### 1. Download all referenced images
+### 1. Pick Unsplash covers — default
+
+Run the cover-picker against the run folder before any download or sync step:
+
+```bash
+python tools/fetch_unsplash_covers.py newsletter_runs/YYYY-MM-DD
+```
+
+The script searches Unsplash for each non-dropped record, picks one
+landscape photo, writes its 16:9 crop URL onto the record (`primary_image`
++ `cover_image_kind: "unsplash"`), and stores attribution. Identical
+queries are cached in `tools/.unsplash_query_cache.json` so re-runs cost
+zero API calls.
+
+Required env: `UNSPLASH_ACCESS_KEY` (Unsplash Access Key, not Secret Key).
+The 50 req/hour demo cap is fine for a single weekly run; a typical issue
+makes ~10–25 fresh API calls.
+
+If you specifically want AI-generated covers for some items instead, run
+`tools/generate_cover_images.py` afterward with `--name-contains` to scope
+it. By default Unsplash is the cover source.
+
+### 2. Download all referenced images
 
 Grep `newsletter_draft.md` for `![...](images/filename.ext)` references. For each:
 
@@ -30,7 +52,7 @@ Grep `newsletter_draft.md` for `![...](images/filename.ext)` references. For eac
 - Prefer `curl` via Bash; fall back to WebFetch if headers block the direct download.
 - If a download fails, report the failure — do NOT silently leave the image broken.
 
-### 2. Render the archival HTML
+### 3. Render the archival HTML
 
 From inside the run folder:
 
@@ -43,7 +65,7 @@ The script reads `newsletter_draft.md` (hard-coded filename, relative to cwd), i
 
 If `markdown` module is missing, install with `python -m pip install markdown` and re-run.
 
-### 3. Sync records to the live web app — MANDATORY
+### 4. Sync records to the live web app — MANDATORY
 
 This is what makes the issue actually appear on the website. From the same run folder:
 
@@ -59,7 +81,7 @@ Required env (see `web/.env.example`):
 
 If embeddings need to be skipped temporarily (e.g. local dev without an OpenAI key), pass `--no-embed`. Production runs must NOT skip embeddings — the personalization rerank depends on them.
 
-### 4. Verify output
+### 5. Verify output
 
 - Confirm `ai_newsletter_weekly_YYYY-MM-DD.html` exists and is non-trivial (~20KB+).
 - Confirm `sync_to_db.py` printed `✓ Upserted N rows.` with N matching the number of MAIN/BRIEF entries in this issue.
