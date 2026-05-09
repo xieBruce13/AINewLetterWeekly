@@ -7,6 +7,9 @@ Search Photos, pick a landscape result, and persist the photo's ix-cropped
 URL plus attribution onto the record. `tools/sync_to_db.py` will then publish
 that URL as `primary_image` exactly like any other cover.
 
+RSS / OG-first: records that already have a non-Unsplash `primary_image`
+(from `image_resolver` or hand-edited JSON) are skipped unless `--overwrite`.
+
 Why a separate publish-time step instead of doing it from the web app:
   - Unsplash demo keys are 50 req/hour. Running it at publish (~once a week)
     keeps us comfortably under the limit AND removes Unsplash from the live
@@ -417,9 +420,29 @@ def save_query_cache(cache: dict[str, Any]) -> None:
 # Record updates
 # ---------------------------------------------------------------------------
 
+def _looks_like_unsplash_url(url: str) -> bool:
+    return bool(url and "images.unsplash.com/" in url.lower())
+
+
+def has_editorial_primary_image(rec: dict[str, Any]) -> bool:
+    """RSS / OG / resolver / YAML / self-hosted path already supplied a cover."""
+    pi = rec.get("primary_image")
+    if not pi or not isinstance(pi, str):
+        return False
+    s = pi.strip()
+    if not s:
+        return False
+    # Stock Unsplash fills the gap; editorial sources are anything else (http(s),
+    # /generated-covers/, /brand-logos/, etc.).
+    return not _looks_like_unsplash_url(s)
+
+
 def should_skip(rec: dict[str, Any], *, overwrite: bool, respect_ai: bool) -> bool:
     if overwrite:
         return False
+    # Prefer feed + article OG imagery over generic stock covers.
+    if has_editorial_primary_image(rec):
+        return True
     kind = rec.get("cover_image_kind")
     if kind == "unsplash":
         return True
@@ -493,7 +516,7 @@ def main() -> int:
         help="Restrict to records with this item_tier",
     )
     parser.add_argument("--overwrite", action="store_true",
-                        help="Re-pick covers even when one is already set")
+                        help="Re-pick Unsplash even when editorial or prior cover exists")
     parser.add_argument("--respect-ai-covers", action="store_true",
                         help="Skip records whose cover_image_kind is already 'ai-generated'")
     parser.add_argument("--dry-run", action="store_true",

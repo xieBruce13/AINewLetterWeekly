@@ -29,15 +29,17 @@ Run the cover-picker against the run folder before any download or sync step:
 python tools/fetch_unsplash_covers.py newsletter_runs/YYYY-MM-DD
 ```
 
-The script searches Unsplash for each non-dropped record, picks one
-landscape photo, writes its 16:9 crop URL onto the record (`primary_image`
-+ `cover_image_kind: "unsplash"`), and stores attribution. Identical
-queries are cached in `tools/.unsplash_query_cache.json` so re-runs cost
+The script skips any record whose `primary_image` is already set to a **non-Unsplash**
+URL (RSS / `image_resolver` / OG scrape / YAML / self-hosted `/brand-logos/` etc.);
+Unsplash fills only gaps. Pass `--overwrite` to force stock picks for every item.
+For remaining records it picks one landscape photo, writes its 16:9 crop URL
+(`primary_image` + `cover_image_kind: "unsplash"`), and stores attribution.
+Identical queries are cached in `tools/.unsplash_query_cache.json` so re-runs cost
 zero API calls.
 
 Required env: `UNSPLASH_ACCESS_KEY` (Unsplash Access Key, not Secret Key).
 The 50 req/hour demo cap is fine for a single weekly run; a typical issue
-makes ~10–25 fresh API calls.
+typically makes fewer API calls when many items already have editorial art.
 
 If you specifically want AI-generated covers for some items instead, run
 `tools/generate_cover_images.py` afterward with `--name-contains` to scope

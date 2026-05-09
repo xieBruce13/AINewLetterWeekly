@@ -18,7 +18,7 @@
 
 ## 新闻封面图
 
-封面图默认走 Unsplash 关键词搜索，AI 生图作为可选备选。
+封面图：**已存在**编辑向主图（`primary_image` 为任意非 `images.unsplash.com` 的 URL，含 RSS、OG、解析器、YAML、`/brand-logos/` 等）时，Unsplash 步骤会**跳过**该条；**尚未有**这类主图时才用 Unsplash 搜索补缺。`--overwrite` 可强制对全部重选 Unsplash。AI 生图仍为可选备选。
 
 ### 默认：Unsplash 封面（推荐）
 
@@ -32,7 +32,7 @@
 python tools/fetch_unsplash_covers.py newsletter_runs/2026-05-07
 ```
 
-脚本会调用 `GET /search/photos`，挑一张 landscape 图，把 16:9 裁剪 URL 写到 run JSON 的 `image_urls[0]` 与 `primary_image`，并设 `cover_image_kind: "unsplash"`。重复关键词会命中 `tools/.unsplash_query_cache.json` 缓存，不再消耗 API 配额。
+脚本会跳过已有非 Unsplash `primary_image` 的条目（除非加 `--overwrite`）。对其余条目调用 `GET /search/photos`，挑一张 landscape 图，把 16:9 裁剪 URL 写到 `image_urls[0]` 与 `primary_image`，并设 `cover_image_kind: "unsplash"`。重复关键词会命中 `tools/.unsplash_query_cache.json` 缓存，不再消耗 API 配额。
 
 环境变量：`UNSPLASH_ACCESS_KEY`（Demo 配额 50 次/小时，足够单次出刊）。
 
