@@ -52,22 +52,22 @@
     "community_zh": "社区关注 agent 金融能力的合规与安全性，实际应用场景有待进一步验证",
     "issue_date": "2026-05-07",
     "image_urls": [
-      "https://images.unsplash.com/photo-1767716134877-82b74809e431?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxyb2JvdGljcyUyMGludGVncmF0aW9ufGVufDF8MHx8fDE3NzgyOTY5OTB8MA&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
       "/generated-covers/2026-05-07/2026-05-07-amazon-amazon-bedrock-agentcore-payments.png"
     ],
-    "primary_image": "https://images.unsplash.com/photo-1767716134877-82b74809e431?ixid=M3w5NDY0MTd8MHwxfHNlYXJjaHwxfHxyb2JvdGljcyUyMGludGVncmF0aW9ufGVufDF8MHx8fDE3NzgyOTY5OTB8MA&ixlib=rb-4.1.0&w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
+    "primary_image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=80&auto=format",
     "cover_image_kind": "unsplash",
     "cover_image_prompt": "News item:\n- Module: operation\n- Company: Amazon\n- Product / event: Amazon Bedrock AgentCore Payments\n- Headline: Amazon announced a preview of Bedrock AgentCore Payments, enabling machine intelligence agents to transact using Coinbase and Stripe.\n- What changed: 支持 machine intelligence agent 直接发起和完成支付流程；集成 Coinbase 和 Stripe 两大支付平台；拓展 agent 在实际业务场景中的应用能力\n- Use cases or affected workflow: machine intelligence 工程师可开发具备自动采购、订阅管理等支付能力的智能体；产品经理可探索自动化服务购买等新型业务模式\n- Editorial judgment: machine intelligence agent 支付能力是迈向自主智能体的重要一步，值得关注其后续发展和合规实现\n- Tags: agent, operation, payment, integration\n\nCreate one metaphorical cover image for this specific story. Make the main\nvisual idea obvious without using text or logos. If the story is about agent\npayments, show autonomous transactions and secure rails. If it is about model\ninference, show efficient compute flow. If it is about search, show discovery\nand decision-making. If it is about creative tools, show the creation workflow.",
     "source_image_urls": [
       "/generated-covers/2026-05-07/2026-05-07-amazon-amazon-bedrock-agentcore-payments.png"
     ],
-    "unsplash_photo_id": "4qq2MASzVzQ",
-    "unsplash_query": "robotics integration",
+    "unsplash_photo_id": "",
+    "unsplash_query": "manual override - dashboard photo (matches LangChain item)",
     "unsplash_attribution": {
-      "photographer_name": "Enchanted Tools",
-      "photographer_username": "enchantedtools",
-      "photographer_url": "https://unsplash.com/@enchantedtools",
-      "photo_url": "https://unsplash.com/photos/two-orange-robots-with-animal-like-features-4qq2MASzVzQ"
+      "photographer_name": "",
+      "photographer_username": "",
+      "photographer_url": "",
+      "photo_url": "https://unsplash.com/photos/photo-1551288049-bebda4e38f71"
     }
   },
   {

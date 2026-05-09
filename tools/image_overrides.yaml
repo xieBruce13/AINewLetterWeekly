@@ -79,8 +79,8 @@
   caption: "Notion"
 
 - match: { company: "Figma" }
-  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/1280px-Figma-logo.svg.png"
-  caption: "Figma"
+  image: "/brand-logos/figma.png"
+  caption: "Figma (icon + wordmark, self-hosted under web/public/brand-logos/)"
 
 - match: { company: "Cursor" }
   image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Cursor_AI.svg/1280px-Cursor_AI.svg.png"

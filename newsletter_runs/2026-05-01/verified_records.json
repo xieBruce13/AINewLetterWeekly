@@ -213,9 +213,12 @@
       "total": 11
     },
     "image_urls": [
+      "/brand-logos/figma.png",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/512px-Figma-logo.svg.png",
       "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200&auto=format&fit=crop&q=80"
     ],
+    "primary_image": "/brand-logos/figma.png",
+    "cover_image_kind": "self-hosted-logo",
     "raw_urls": [
       "https://www.figma.com/blog/"
     ],

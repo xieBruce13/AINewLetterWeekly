@@ -72,8 +72,17 @@ def _request(url: str, *, method: str = "GET", timeout: int = HTML_TIMEOUT):
 
 
 def _head_image(url: str) -> bool:
-    """Return True if `url` looks like a real image (HEAD, then short GET)."""
-    if not url or not url.startswith(("http://", "https://")):
+    """Return True if `url` looks like a real image (HEAD, then short GET).
+
+    Site-relative paths like `/brand-logos/figma.png` are accepted as-is —
+    they point at files we self-host under `web/public/`, validated at
+    deploy time, not over the network.
+    """
+    if not url:
+        return False
+    if url.startswith("/") and not url.startswith("//"):
+        return True
+    if not url.startswith(("http://", "https://")):
         return False
     # Drop obvious non-image URL shapes early (we've seen these slip
     # through og:image: pages serving an HTML "image not found" page,
