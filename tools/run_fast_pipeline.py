@@ -197,7 +197,7 @@ def main():
         print("\nSkipping DB sync (--skip-db).")
 
     print("\n" + "=" * 60)
-    print(f"✓ Fast pipeline complete! Run dir: {run_dir}")
+    print(f"[OK] Fast pipeline complete! Run dir: {run_dir}")
     print("=" * 60)
     print("\nOutput files:")
     print(f"  raw_scraped.json       — all scraped items")

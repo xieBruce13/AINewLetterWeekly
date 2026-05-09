@@ -1,0 +1,47 @@
+{
+  "theme": "大模型行业落地提速，安全合规与开源部署工具受关注",
+  "bullets": [
+    {
+      "text": "**Amazon Bedrock**：Halliburton 借助生成式AI实现地震工作流自动化，效率提升高达95%，展现行业智能化加速落地趋势",
+      "slugs": [
+        "2026-05-09-amazon-halliburton-seismic-workflow-ai"
+      ]
+    },
+    {
+      "text": "**Together AI**：上线一键部署 HuggingFace 模型服务，助力开源模型敏捷上线，降低工程门槛，利好初创与开发者生态",
+      "slugs": [
+        "2026-05-09-together-ai-deploy-inference-any-huggingface-model"
+      ]
+    },
+    {
+      "text": "**Qwen**：发布 CyberSecQwen-4B 小型本地网络安全模型，强化本地自动化防御，聚焦隐私与合规场景",
+      "slugs": [
+        "2026-05-09-qwen-cybersecqwen-4b"
+      ]
+    },
+    {
+      "text": "**OpenAI**：扩大 GPT-5.5 Trusted Access 计划，强化模型安全合规访问，提升专业安全团队信心",
+      "slugs": [
+        "2026-05-09-openai-gpt-5-5-gpt-5-5-cyber-trusted-access"
+      ]
+    },
+    {
+      "text": "**Uber**：集成 OpenAI AI 助手与语音功能，提升司机与乘客实时体验，为高频服务平台智能化树立新范例",
+      "slugs": [
+        "2026-05-09-uber-uber-openai-ai-assistants"
+      ]
+    },
+    {
+      "text": "**xAI**：推出 Grok Imagine Quality Mode API，提升图像生成真实感与文本渲染，丰富创意工具链",
+      "slugs": [
+        "2026-05-09-xai-grok-imagine-quality-mode-api"
+      ]
+    },
+    {
+      "text": "**Anthropic & SpaceXAI**：签署 Colossus 1 算力合作协议，推动跨界AI研发，释放算力资源整合新信号",
+      "slugs": [
+        "2026-05-09-anthropic-anthropic-compute-partnership"
+      ]
+    }
+  ]
+}

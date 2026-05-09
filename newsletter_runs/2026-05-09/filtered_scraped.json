@@ -1,0 +1,3367 @@
+{
+  "filtered_at": "2026-05-09T06:37:09.609193+00:00",
+  "source_count": 1311,
+  "filtered_count": 133,
+  "top_n": 150,
+  "min_importance": 2,
+  "items": [
+    {
+      "title": "Scaling Trusted Access for Cyber with GPT-5.5 and GPT-5.5-Cyber",
+      "url": "https://openai.com/index/gpt-5-5-with-trusted-access-for-cyber",
+      "summary": "OpenAI expands Trusted Access for Cyber with GPT-5.5 and GPT-5.5-Cyber, helping verified defenders accelerate vulnerability research and protect critical infrastructure.",
+      "published_raw": "Thu, 07 May 2026 13:00:00 GMT",
+      "source": "OpenAI Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "openai",
+        "gpt",
+        "chatgpt",
+        "llm"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-07T13:00:00+00:00",
+      "module": "model",
+      "importance_score": 4,
+      "matched_company": "OpenAI",
+      "matched_tags": [
+        "model",
+        "research"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Testing ads in ChatGPT",
+      "url": "https://openai.com/index/testing-ads-in-chatgpt",
+      "summary": "OpenAI begins testing ads in ChatGPT to support free access, with clear labeling, answer independence, strong privacy protections, and user control.",
+      "published_raw": "Thu, 07 May 2026 00:00:00 GMT",
+      "source": "OpenAI Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "openai",
+        "gpt",
+        "chatgpt",
+        "llm"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-07T00:00:00+00:00",
+      "module": "model",
+      "importance_score": 4,
+      "matched_company": "OpenAI",
+      "matched_tags": [
+        "model"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "GPT-5.5 Instant: smarter, clearer, and more personalized",
+      "url": "https://openai.com/index/gpt-5-5-instant",
+      "summary": "GPT-5.5 Instant updates ChatGPT’s default model with smarter, more accurate answers, reduced hallucinations, and improved personalization controls.",
+      "published_raw": "Tue, 05 May 2026 10:00:00 GMT",
+      "source": "OpenAI Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "openai",
+        "gpt",
+        "chatgpt",
+        "llm"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-05T10:00:00+00:00",
+      "module": "model",
+      "importance_score": 4,
+      "matched_company": null,
+      "matched_tags": [
+        "model"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "GPT-5.5 Instant System Card",
+      "url": "https://openai.com/index/gpt-5-5-instant-system-card",
+      "summary": "",
+      "published_raw": "Tue, 05 May 2026 10:00:00 GMT",
+      "source": "OpenAI Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "openai",
+        "gpt",
+        "chatgpt",
+        "llm"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-05T10:00:00+00:00",
+      "module": "model",
+      "importance_score": 4,
+      "matched_company": null,
+      "matched_tags": [
+        "model"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "New Compute Partnership with Anthropic",
+      "url": "https://x.ai/news/anthropic-compute-partnership",
+      "summary": "SpaceXAI has signed an agreement with Anthropic to provide access to Colossus 1.",
+      "published_raw": "Wed, 06 May 2026 00:00:00 +0000",
+      "source": "xAI News",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "xai",
+        "grok",
+        "llm"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-06T00:00:00+00:00",
+      "module": "model",
+      "importance_score": 4,
+      "matched_company": "Anthropic",
+      "matched_tags": [
+        "coding",
+        "model"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Halliburton enhances seismic workflow creation with Amazon Bedrock and Generative AI",
+      "url": "https://aws.amazon.com/blogs/machine-learning/halliburton-enhances-seismic-workflow-creation-with-amazon-bedrock-and-generative-ai/",
+      "summary": "In this post, we'll explore how we built a proof-of-concept that converts natural language queries into executable seismic workflows while providing a question-answering capability for Halliburton's Seismic Engine tools and documentation. We'll cover the technical details of the solution, share evaluation results showing workflow acceleration of up to 95%, and discuss key learnings that can help other organizations enhance their complex technical workflows with generative AI.",
+      "published_raw": "Fri, 08 May 2026 13:20:30 +0000",
+      "source": "AWS Machine Learning Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "aws",
+        "amazon",
+        "cloud",
+        "mlops"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-08T13:20:30+00:00",
+      "module": "operation",
+      "importance_score": 4,
+      "matched_company": "Amazon",
+      "matched_tags": [
+        "creative-tool",
+        "funding",
+        "operation",
+        "workflow"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Agents that transact: Introducing Amazon Bedrock AgentCore payments, built with Coinbase and Stripe",
+      "url": "https://aws.amazon.com/blogs/machine-learning/agents-that-transact-introducing-amazon-bedrock-agentcore-payments-built-with-coinbase-and-stripe/",
+      "summary": "Today, we're announcing a preview of Amazon Bedrock AgentCore Payments, a new set of features in Amazon Bedrock AgentCore that enables AI agents to instantly access and pay for what they use. AgentCore Payments was developed in partnership with Coinbase and Stripe.",
+      "published_raw": "Thu, 07 May 2026 12:55:17 +0000",
+      "source": "AWS Machine Learning Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "aws",
+        "amazon",
+        "cloud",
+        "mlops"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-07T12:55:17+00:00",
+      "module": "operation",
+      "importance_score": 4,
+      "matched_company": "Amazon",
+      "matched_tags": [
+        "agent",
+        "operation"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "How Hapag-Lloyd uses Amazon Bedrock to transform customer feedback into actionable insights",
+      "url": "https://aws.amazon.com/blogs/machine-learning/how-hapag-lloyd-uses-amazon-bedrock-to-transform-customer-feedback-into-actionable-insights/",
+      "summary": "Hapag-Lloyd's Digital Customer Experience and Engineering team, distributed between Hamburg and Gdańsk, drives digital innovation by developing and maintaining customer-facing web and mobile products. In this post, we walk you through our generative AI–powered feedback analysis solution built using Amazon Bedrock, Elasticsearch, and open-source frameworks like LangChain and LangGraph",
+      "published_raw": "Tue, 05 May 2026 16:55:42 +0000",
+      "source": "AWS Machine Learning Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "aws",
+        "amazon",
+        "cloud",
+        "mlops"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-05T16:55:42+00:00",
+      "module": "operation",
+      "importance_score": 4,
+      "matched_company": "Amazon",
+      "matched_tags": [
+        "operation"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Streamlining generative AI development with MLflow v3.10 on Amazon SageMaker AI",
+      "url": "https://aws.amazon.com/blogs/machine-learning/streamlining-generative-ai-development-with-mlflow-v3-10-on-amazon-sagemaker-ai/",
+      "summary": "Today, we’re excited to announce that Amazon SageMaker AI MLflow Apps now support MLflow version 3.10, bringing enhanced capabilities for generative AI development and streamlined experiment tracking to your generative AI workflows. Building on the foundations established with Amazon SageMaker AI MLflow Apps, this latest version introduces powerful new features for observability, evaluation, and generative […]",
+      "published_raw": "Tue, 05 May 2026 16:55:18 +0000",
+      "source": "AWS Machine Learning Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "aws",
+        "amazon",
+        "cloud",
+        "mlops"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-05T16:55:18+00:00",
+      "module": "operation",
+      "importance_score": 4,
+      "matched_company": "Amazon",
+      "matched_tags": [
+        "funding",
+        "operation",
+        "research",
+        "workflow"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Introducing agent quality optimization in AgentCore, now in preview",
+      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-agent-quality-optimization-in-agentcore-now-in-preview/",
+      "summary": "Generate recommendations from production traces, validate them with batch evaluation and A/B testing, and ship with confidence. AI agents that perform well at launch don’t stay that way. As models evolve, user behavior shifts, and prompts get reused in new contexts they were never designed for. Agent quality quietly degrades. In most teams, the improvement […]",
+      "published_raw": "Mon, 04 May 2026 17:13:42 +0000",
+      "source": "AWS Machine Learning Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "aws",
+        "amazon",
+        "cloud",
+        "mlops"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-04T17:13:42+00:00",
+      "module": "operation",
+      "importance_score": 4,
+      "matched_company": null,
+      "matched_tags": [
+        "agent",
+        "coding",
+        "design",
+        "funding",
+        "operation"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Agent-guided workflows to accelerate model customization in Amazon SageMaker AI",
+      "url": "https://aws.amazon.com/blogs/machine-learning/agent-guided-workflows-to-accelerate-model-customization-in-amazon-sagemaker-ai/",
+      "summary": "Amazon SageMaker AI now offers an agentic experience that changes this. Developers describe their use case using natural language, and the AI coding agent streamlines the entire journey, from use case definition and data preparation through technique selection, evaluation, and deployment. In this post, we walk you through the model customization lifecycle using SageMaker AI agent skills.",
+      "published_raw": "Mon, 04 May 2026 17:10:46 +0000",
+      "source": "AWS Machine Learning Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "aws",
+        "amazon",
+        "cloud",
+        "mlops"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-04T17:10:46+00:00",
+      "module": "operation",
+      "importance_score": 4,
+      "matched_company": "Amazon",
+      "matched_tags": [
+        "agent",
+        "coding",
+        "funding",
+        "operation",
+        "workflow"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Register now for OpenClaw: After Hours @ GitHub",
+      "url": "https://github.blog/open-source/register-now-for-openclaw-after-hours-github/",
+      "summary": "<p>OpenClaw builders will gather at GitHub HQ during Microsoft Build 2026 for demos and conversations. Join in person, or watch the livestream on Twitch.</p>\n<p>The post <a href=\"https://github.blog/open-source/register-now-for-openclaw-after-hours-github/\">Register now for OpenClaw: After Hours @ GitHub</a> appeared first on <a href=\"https://github.blog\">The GitHub Blog</a>.</p>",
+      "published_raw": "Mon, 04 May 2026 15:00:00 +0000",
+      "source": "GitHub Blog AI",
+      "tier": "official",
+      "module_hint": "product",
+      "source_tags": [
+        "github",
+        "copilot",
+        "coding",
+        "agent"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-04T15:00:00+00:00",
+      "module": "product",
+      "importance_score": 4,
+      "matched_company": "Microsoft",
+      "matched_tags": [
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Running Codex safely at OpenAI",
+      "url": "https://openai.com/index/running-codex-safely",
+      "summary": "How OpenAI runs Codex securely with sandboxing, approvals, network policies, and agent-native telemetry to support safe and compliant coding agent adoption.",
+      "published_raw": "Fri, 08 May 2026 12:30:00 GMT",
+      "source": "OpenAI Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "openai",
+        "gpt",
+        "chatgpt",
+        "llm"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-08T12:30:00+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": "OpenAI",
+      "matched_tags": [
+        "agent",
+        "coding",
+        "model"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Parloa builds service agents customers want to talk to",
+      "url": "https://openai.com/index/parloa",
+      "summary": "Parloa leverages OpenAI models to power scalable, voice-driven AI customer service agents, enabling enterprises to design, simulate, and deploy reliable, real-time interactions.",
+      "published_raw": "Thu, 07 May 2026 11:00:00 GMT",
+      "source": "OpenAI Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "openai",
+        "gpt",
+        "chatgpt",
+        "llm"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-07T11:00:00+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": "OpenAI",
+      "matched_tags": [
+        "agent",
+        "design",
+        "model",
+        "pricing",
+        "voice"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Advancing voice intelligence with new models in the API",
+      "url": "https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api",
+      "summary": "Explore new realtime voice models in the OpenAI API that can reason, translate, and transcribe speech, enabling more natural and intelligent voice experiences.",
+      "published_raw": "Thu, 07 May 2026 10:00:00 GMT",
+      "source": "OpenAI Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "openai",
+        "gpt",
+        "chatgpt",
+        "llm"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-07T10:00:00+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": "OpenAI",
+      "matched_tags": [
+        "model",
+        "voice"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Introducing Trusted Contact in ChatGPT",
+      "url": "https://openai.com/index/introducing-trusted-contact-in-chatgpt",
+      "summary": "Introducing Trusted Contact in ChatGPT, an optional safety feature that notifies someone you trust if serious self-harm concerns are detected.",
+      "published_raw": "Thu, 07 May 2026 00:00:00 GMT",
+      "source": "OpenAI Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "openai",
+        "gpt",
+        "chatgpt",
+        "llm"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-07T00:00:00+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "model",
+        "safety"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Simplex rethinks software development with Codex",
+      "url": "https://openai.com/index/simplex",
+      "summary": "Simplex boosts software development with ChatGPT Enterprise and Codex, reducing design, build, and testing time while scaling AI-driven workflows.",
+      "published_raw": "Thu, 07 May 2026 00:00:00 GMT",
+      "source": "OpenAI Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "openai",
+        "gpt",
+        "chatgpt",
+        "llm"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-07T00:00:00+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "coding",
+        "design",
+        "model",
+        "pricing",
+        "workflow"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "How ChatGPT learns about the world while protecting privacy",
+      "url": "https://openai.com/index/how-chatgpt-protects-privacy",
+      "summary": "Learn how ChatGPT safeguards your privacy, reduces personal data in training, and gives you control over whether your conversations improve AI models.",
+      "published_raw": "Wed, 06 May 2026 08:00:00 GMT",
+      "source": "OpenAI Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "openai",
+        "gpt",
+        "chatgpt",
+        "llm"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-06T08:00:00+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "model"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Uber uses OpenAI to help people earn smarter and book faster",
+      "url": "https://openai.com/index/uber",
+      "summary": "Uber uses OpenAI to power AI assistants and voice features that help drivers earn smarter and riders book faster across a global real-time marketplace.",
+      "published_raw": "Wed, 06 May 2026 00:00:00 GMT",
+      "source": "OpenAI Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "openai",
+        "gpt",
+        "chatgpt",
+        "llm"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-06T00:00:00+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": "OpenAI",
+      "matched_tags": [
+        "coding",
+        "model",
+        "voice"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "How frontier firms are pulling ahead",
+      "url": "https://openai.com/index/introducing-b2b-signals",
+      "summary": "OpenAI’s B2B Signals research shows how frontier enterprises deepen AI adoption, scale Codex-powered agentic workflows, and build durable competitive advantage.",
+      "published_raw": "Wed, 06 May 2026 00:00:00 GMT",
+      "source": "OpenAI Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "openai",
+        "gpt",
+        "chatgpt",
+        "llm"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-06T00:00:00+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": "OpenAI",
+      "matched_tags": [
+        "agent",
+        "coding",
+        "model",
+        "pricing",
+        "research",
+        "workflow"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Introducing ChatGPT Futures: Class of 2026",
+      "url": "https://openai.com/index/introducing-chatgpt-futures-class-of-2026",
+      "summary": "Meet the ChatGPT Futures Class of 2026—26 student innovators using AI to build, research, and drive real-world impact. Discover how this generation is redefining learning, creativity, and opportunity with ChatGPT.",
+      "published_raw": "Wed, 06 May 2026 00:00:00 GMT",
+      "source": "OpenAI Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "openai",
+        "gpt",
+        "chatgpt",
+        "llm"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-06T00:00:00+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "model",
+        "research"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Singular Bank helps bankers move fast with ChatGPT and Codex",
+      "url": "https://openai.com/index/singular-bank",
+      "summary": "Singular Bank built Singularity, an internal assistant using ChatGPT and Codex to help bankers save 60–90 minutes daily on meeting prep, portfolio analysis, and follow-up.",
+      "published_raw": "Wed, 06 May 2026 00:00:00 GMT",
+      "source": "OpenAI Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "openai",
+        "gpt",
+        "chatgpt",
+        "llm"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-06T00:00:00+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "coding",
+        "model"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Unlocking large scale AI training networks with MRC (Multipath Reliable Connection)",
+      "url": "https://openai.com/index/mrc-supercomputer-networking",
+      "summary": "OpenAI introduces MRC (Multipath Reliable Connection), a new supercomputer networking protocol released via OCP to improve resilience and performance in large-scale AI training clusters.",
+      "published_raw": "Tue, 05 May 2026 10:00:00 GMT",
+      "source": "OpenAI Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "openai",
+        "gpt",
+        "chatgpt",
+        "llm"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-05T10:00:00+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": "OpenAI",
+      "matched_tags": [
+        "model"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Advancing youth safety and wellbeing in EMEA",
+      "url": "https://openai.com/index/advancing-youth-safety-in-emea",
+      "summary": "Explore OpenAI’s European Youth Safety Blueprint and EMEA Youth & Wellbeing Grants, advancing safe, responsible AI for teens, families, and educators.",
+      "published_raw": "Tue, 05 May 2026 00:00:00 GMT",
+      "source": "OpenAI Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "openai",
+        "gpt",
+        "chatgpt",
+        "llm"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-05T00:00:00+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": "OpenAI",
+      "matched_tags": [
+        "model",
+        "safety"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "New ways to buy ChatGPT ads",
+      "url": "https://openai.com/index/new-ways-to-buy-chatgpt-ads",
+      "summary": "OpenAI expands ChatGPT ads with a beta self-serve Ads Manager, CPC bidding, and enhanced measurement tools—built to protect privacy and keep conversations separate from ads.",
+      "published_raw": "Tue, 05 May 2026 00:00:00 GMT",
+      "source": "OpenAI Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "openai",
+        "gpt",
+        "chatgpt",
+        "llm"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-05T00:00:00+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": "OpenAI",
+      "matched_tags": [
+        "model"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "OpenAI and PwC collaborate to reimagine the office of the CFO",
+      "url": "https://openai.com/index/openai-pwc-finance-collaboration",
+      "summary": "OpenAI and PwC are partnering to help enterprises use AI agents to automate finance workflows, improve forecasting, strengthen controls, and modernize the CFO function.",
+      "published_raw": "Mon, 04 May 2026 21:00:00 GMT",
+      "source": "OpenAI Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "openai",
+        "gpt",
+        "chatgpt",
+        "llm"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-04T21:00:00+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": "OpenAI",
+      "matched_tags": [
+        "agent",
+        "model",
+        "pricing",
+        "workflow"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "How OpenAI delivers low-latency voice AI at scale",
+      "url": "https://openai.com/index/delivering-low-latency-voice-ai-at-scale",
+      "summary": "How OpenAI rebuilt its WebRTC stack to power real-time Voice AI with low latency, global scale, and seamless conversational turn-taking.",
+      "published_raw": "Mon, 04 May 2026 00:00:00 GMT",
+      "source": "OpenAI Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "openai",
+        "gpt",
+        "chatgpt",
+        "llm"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-04T00:00:00+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": "OpenAI",
+      "matched_tags": [
+        "model",
+        "voice"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "AlphaEvolve: How our Gemini-powered coding agent is scaling impact across fields",
+      "url": "https://deepmind.google/blog/alphaevolve-impact/",
+      "summary": "Explore how AlphaEvolve's Gemini-powered algorithms are driving impact across business, infrastructure, and science.",
+      "published_raw": "Wed, 06 May 2026 10:43:49 +0000",
+      "source": "Google DeepMind",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "google",
+        "deepmind",
+        "gemini",
+        "llm"
+      ],
+      "image_candidates": [
+        "https://lh3.googleusercontent.com/UNlyTVoqkmAoTzbbF4QRoPXr-X-QBkXeVpcHxIjte0y5mn_f6ZYHVsynQswOhGLJx-7hnbwt1NcTOQDQoCbum3-l8wPPP5dC6kw0tGmBQAw60nEHog=w528-h297-n-nu-rw-lo"
+      ],
+      "published_at": "2026-05-06T10:43:49+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "agent",
+        "coding",
+        "model"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "See what happens when creative legends use AI to make ads for small businesses.",
+      "url": "https://blog.google/company-news/inside-google/company-announcements/the-small-brief/",
+      "summary": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Group_Icons_1x1.max-600x600.format-webp.webp\">Today we're launching The Small Brief, an initiative bringing together three ad industry icons to champion a local businesses they love. Their mission is to build breakt…",
+      "published_raw": "Fri, 08 May 2026 15:00:00 +0000",
+      "source": "Google AI Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "google",
+        "ai",
+        "gemini"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-08T15:00:00+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": "Google",
+      "matched_tags": [
+        "creative-tool",
+        "model"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "5 gardening tips you can try right in Search",
+      "url": "https://blog.google/products-and-platforms/products/search/gardening-tips/",
+      "summary": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/01-Google_Gardening_Header.max-600x600.format-webp.webp\">We’ve rounded up the top ways you can use Google’s AI Mode, Search Live and Shopping to help your plants thrive.",
+      "published_raw": "Wed, 06 May 2026 16:00:00 +0000",
+      "source": "Google AI Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "google",
+        "ai",
+        "gemini"
+      ],
+      "image_candidates": [
+        "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/01-Google_Gardening_Header.max-600x600.format-webp.webp"
+      ],
+      "published_at": "2026-05-06T16:00:00+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": "Google",
+      "matched_tags": [
+        "model"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Google is partnering with XPRIZE and Range Media Partners on the $3.5 million Future Vision film competition.",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/future-vision-film-competition-xprize/",
+      "summary": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/futurevisionxprize_social.max-600x600.format-webp.webp\">Google is partnering with XPRIZE and Range Media Partners on the $3.5 million Future Vision film competition.",
+      "published_raw": "Tue, 05 May 2026 16:00:00 +0000",
+      "source": "Google AI Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "google",
+        "ai",
+        "gemini"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-05T16:00:00+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": "Google",
+      "matched_tags": [
+        "model",
+        "multimodal",
+        "pricing"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "The latest AI news we announced in April 2026",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-april-2026/",
+      "summary": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/April_2026_AI_Recap_still.max-600x600.format-webp.webp\">Here are Google’s latest AI updates from April 2026",
+      "published_raw": "Mon, 04 May 2026 17:00:00 +0000",
+      "source": "Google AI Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "google",
+        "ai",
+        "gemini"
+      ],
+      "image_candidates": [
+        "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/April_2026_AI_Recap_still.max-600x600.format-webp.webp"
+      ],
+      "published_at": "2026-05-04T17:00:00+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": "Google",
+      "matched_tags": [
+        "model"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Reduce friction and latency for long-running jobs with Webhooks in Gemini API",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/event-driven-webhooks/",
+      "summary": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/WebhooksGeminiAPI-hero.max-600x600.format-webp.webp\">Event-Driven Webhooks are a push-based notification system that eliminates the need for inefficient polling.",
+      "published_raw": "Mon, 04 May 2026 15:30:00 +0000",
+      "source": "Google AI Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "google",
+        "ai",
+        "gemini"
+      ],
+      "image_candidates": [
+        "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/WebhooksGeminiAPI-hero.max-600x600.format-webp.webp"
+      ],
+      "published_at": "2026-05-04T15:30:00+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": "Google",
+      "matched_tags": [
+        "model"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "CyberSecQwen-4B: Why Defensive Cyber Needs Small, Specialized, Locally-Runnable Models",
+      "url": "https://huggingface.co/blog/lablab-ai-amd-developer-hackathon/cybersecqwen-4b",
+      "summary": "",
+      "published_raw": "Fri, 08 May 2026 17:41:05 GMT",
+      "source": "HuggingFace Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "huggingface",
+        "open-weight",
+        "training",
+        "dataset"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-08T17:41:05+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": "Qwen",
+      "matched_tags": [
+        "model",
+        "startup"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "EMO: Pretraining mixture of experts for emergent modularity",
+      "url": "https://huggingface.co/blog/allenai/emo",
+      "summary": "",
+      "published_raw": "Fri, 08 May 2026 16:03:50 GMT",
+      "source": "HuggingFace Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "huggingface",
+        "open-weight",
+        "training",
+        "dataset"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-08T16:03:50+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "model"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "vLLM V0 to V1: Correctness Before Corrections in RL",
+      "url": "https://huggingface.co/blog/ServiceNow-AI/correctness-before-corrections",
+      "summary": "",
+      "published_raw": "Wed, 06 May 2026 19:06:55 GMT",
+      "source": "HuggingFace Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "huggingface",
+        "open-weight",
+        "training",
+        "dataset"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-06T19:06:55+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "model"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Adding Benchmaxxer Repellant to the Open ASR Leaderboard",
+      "url": "https://huggingface.co/blog/open-asr-leaderboard-private-data",
+      "summary": "",
+      "published_raw": "Wed, 06 May 2026 00:00:00 GMT",
+      "source": "HuggingFace Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "huggingface",
+        "open-weight",
+        "training",
+        "dataset"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-06T00:00:00+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "benchmark",
+        "model"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Grok Imagine Quality Mode API",
+      "url": "https://x.ai/news/grok-imagine-quality-mode",
+      "summary": "Higher realism. Stronger text rendering. Better creative control.",
+      "published_raw": "Wed, 06 May 2026 00:00:00 +0000",
+      "source": "xAI News",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "xai",
+        "grok",
+        "llm"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-06T00:00:00+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "creative-tool",
+        "model"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Connectors in web, iOS, and Android",
+      "url": "https://x.ai/news/grok-connectors",
+      "summary": "Deep integrations that bring the apps you use every day directly into Grok.",
+      "published_raw": "Wed, 06 May 2026 00:00:00 +0000",
+      "source": "xAI News",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "xai",
+        "grok",
+        "llm"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-06T00:00:00+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "model"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Deploy and inference any model from HuggingFace",
+      "url": "https://www.together.ai/blog/deploy-and-inference-any-model-from-huggingface",
+      "summary": "Learn how to deploy any Hugging Face model in one session using Goose and Together's Dedicated Container Inference. Skip the setup complexity — one prompt gets your model running in a production-grade GPU environment on release day.",
+      "published_raw": "Fri, 08 May 2026 00:00:00 GMT",
+      "source": "Together AI Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "together",
+        "open-weight",
+        "inference"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-08T00:00:00+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": "HuggingFace",
+      "matched_tags": [
+        "model",
+        "open-weight",
+        "startup"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Serving DeepSeek-V4: why million-token context is an inference systems problem",
+      "url": "https://www.together.ai/blog/serving-deepseek-v4-why-million-token-context-is-an-inference-systems-problem",
+      "summary": "DeepSeek-V4 makes million-token context a serving-systems problem. Together AI explores the inference work behind V4 on NVIDIA HGX B200, including compressed KV layouts, prefix caching, kernel maturity, and endpoint profiles for long-context workloads.",
+      "published_raw": "Fri, 08 May 2026 00:00:00 GMT",
+      "source": "Together AI Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "together",
+        "open-weight",
+        "inference"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-08T00:00:00+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": "NVIDIA",
+      "matched_tags": [
+        "model"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Foundational research powering efficient inference at scale",
+      "url": "https://www.together.ai/blog/foundational-research-powering-efficient-inference-at-scale",
+      "summary": "As AI moves from research to production, the challenge for AI-native teams shifts from building models to running them — efficiently, reliably, and at scale.",
+      "published_raw": "Mon, 04 May 2026 00:00:00 GMT",
+      "source": "Together AI Blog",
+      "tier": "official",
+      "module_hint": "model",
+      "source_tags": [
+        "together",
+        "open-weight",
+        "inference"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-04T00:00:00+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "model",
+        "research"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Secure short-term GPU capacity for ML workloads with EC2 Capacity Blocks for ML and SageMaker training plans",
+      "url": "https://aws.amazon.com/blogs/machine-learning/secure-short-term-gpu-capacity-for-ml-workloads-with-ec2-capacity-blocks-for-ml-and-sagemaker-training-plans/",
+      "summary": "In this post, you will learn how to secure reserved GPU capacity for short-term workloads using Amazon Elastic Compute Cloud (Amazon EC2) Capacity Blocks for ML and Amazon SageMaker training plans. These solutions can address GPU availability challenges when you need short-term capacity for load testing, model validation, time-bound workshops, or preparing inference capacity ahead of a release.",
+      "published_raw": "Thu, 07 May 2026 15:59:50 +0000",
+      "source": "AWS Machine Learning Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "aws",
+        "amazon",
+        "cloud",
+        "mlops"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-07T15:59:50+00:00",
+      "module": "operation",
+      "importance_score": 3,
+      "matched_company": "Amazon",
+      "matched_tags": [
+        "operation"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Overcoming reward signal challenges: Verifiable rewards-based reinforcement learning with GRPO on SageMaker AI",
+      "url": "https://aws.amazon.com/blogs/machine-learning/overcoming-reward-signal-challenges-verifiable-rewards-based-reinforcement-learning-with-grpo-on-sagemaker-ai/",
+      "summary": "In this post, you will learn how to implement reinforcement learning with verifiable rewards (RLVR) to introduce verification and transparency into reward signals to improve training performance. This approach works best when outputs can be objectively verified for correctness, such as in mathematical reasoning, code generation, or symbolic manipulation tasks. You will also learn how to layer techniques like Group Relative Policy Optimization (GRPO) and few-shot examples to further improve results. You’ll use the GSM8K dataset (Grade School Math 8K: a collection of grade school math problems) ",
+      "published_raw": "Thu, 07 May 2026 15:53:30 +0000",
+      "source": "AWS Machine Learning Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "aws",
+        "amazon",
+        "cloud",
+        "mlops"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-07T15:53:30+00:00",
+      "module": "operation",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "coding",
+        "operation",
+        "reasoning"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Cost effective deployment of vision-language models for pet behavior detection on AWS Inferentia2",
+      "url": "https://aws.amazon.com/blogs/machine-learning/cost-effective-deployment-of-vision-language-models-for-pet-behavior-detection-on-aws-inferentia2/",
+      "summary": "Tomofun, the Taiwan-headquartered pet-tech startup behind the Furbo Pet Camera, is redefining how pet owners interact with their pets remotely. To reduce costs and maintain accuracy, Tomofun turned to EC2 Inf2 instances powered by&nbsp;AWS Inferentia2, the Amazon purpose-built AI chips. In this post, we walk through the following sections in detail.",
+      "published_raw": "Wed, 06 May 2026 15:37:08 +0000",
+      "source": "AWS Machine Learning Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "aws",
+        "amazon",
+        "cloud",
+        "mlops"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-06T15:37:08+00:00",
+      "module": "operation",
+      "importance_score": 3,
+      "matched_company": "Amazon",
+      "matched_tags": [
+        "multimodal",
+        "operation"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Introducing OS Level Actions in Amazon Bedrock AgentCore Browser",
+      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-os-level-actions-in-amazon-bedrock-agentcore-browser/",
+      "summary": "We’re announcing OS Level Actions for AgentCore Browser. This new capability unblocks these scenarios by exposing direct OS control through the InvokeBrowser API, so agents can interact with content visible on the screen, not only what's accessible through the browser's web layer. By combining full-desktop screenshots with mouse and keyboard control at the OS level, agents can observe native UI, reason about it, and act on it within the same session. This post walks through how OS Level Actions work, what actions are supported, and how to get started.",
+      "published_raw": "Tue, 05 May 2026 16:54:35 +0000",
+      "source": "AWS Machine Learning Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "aws",
+        "amazon",
+        "cloud",
+        "mlops"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-05T16:54:35+00:00",
+      "module": "operation",
+      "importance_score": 3,
+      "matched_company": "Amazon",
+      "matched_tags": [
+        "agent",
+        "browser-agent",
+        "operation"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Secure AI agents with Amazon Bedrock AgentCore Identity on Amazon ECS",
+      "url": "https://aws.amazon.com/blogs/machine-learning/secure-ai-agents-with-amazon-bedrock-agentcore-identity-on-amazon-ecs/",
+      "summary": "AI agents in production require secure access to external services. Amazon Bedrock AgentCore Identity, available as a standalone service, secures how your AI agents access external services whether they run on compute platforms like Amazon ECS, Amazon EKS, AWS Lambda, or on-premises. This post implements Authorization Code Grant (3-legged OAuth) on Amazon ECS with secure session binding and scoped tokens.",
+      "published_raw": "Tue, 05 May 2026 15:27:30 +0000",
+      "source": "AWS Machine Learning Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "aws",
+        "amazon",
+        "cloud",
+        "mlops"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-05T15:27:30+00:00",
+      "module": "operation",
+      "importance_score": 3,
+      "matched_company": "Amazon",
+      "matched_tags": [
+        "agent",
+        "coding",
+        "operation"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Intelligence-driven message defense and insights using Amazon Bedrock",
+      "url": "https://aws.amazon.com/blogs/machine-learning/intelligence-driven-message-defense-and-insights-using-amazon-bedrock/",
+      "summary": "In this post, you will learn how you can use Amazon Nova Foundation Models in Amazon Bedrock to apply generative AI techniques for both business protection and enhancement. You can identify obvious and disguised attempts at direct contact while gaining valuable insights into customer sentiment and service improvement opportunities.",
+      "published_raw": "Tue, 05 May 2026 15:20:54 +0000",
+      "source": "AWS Machine Learning Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "aws",
+        "amazon",
+        "cloud",
+        "mlops"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-05T15:20:54+00:00",
+      "module": "operation",
+      "importance_score": 3,
+      "matched_company": "Amazon",
+      "matched_tags": [
+        "coding",
+        "operation"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Beyond BI: How the Dataset Q&A feature of Amazon Quick powers the next generation of data decisions",
+      "url": "https://aws.amazon.com/blogs/machine-learning/beyond-bi-how-the-dataset-qa-feature-of-amazon-quick-powers-the-next-generation-of-data-decisions/",
+      "summary": "Business leaders across industries rely on operational dashboards as the shared source of truth that their teams execute against daily. But dashboards are built to answer known questions. When teams need to explore further, ad-hoc, multi-dimensional, or unforeseen questions, they hit a bottleneck. They wait hours or days for BI teams to build new views […]",
+      "published_raw": "Mon, 04 May 2026 17:46:32 +0000",
+      "source": "AWS Machine Learning Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "aws",
+        "amazon",
+        "cloud",
+        "mlops"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-04T17:46:32+00:00",
+      "module": "operation",
+      "importance_score": 3,
+      "matched_company": "Amazon",
+      "matched_tags": [
+        "operation"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Generate dashboards from natural language prompts in Amazon Quick",
+      "url": "https://aws.amazon.com/blogs/machine-learning/generate-dashboards-from-natural-language-prompts-in-amazon-quick/",
+      "summary": "Building meaningful dashboards demands hours of manual setup, even for experienced BI professionals.&nbsp;Amazon Quick now generates complete multi-sheet dashboards from natural language prompts, taking you from one or more datasets to a production-ready analysis in minutes. Data analysts building recurring operations reports, program managers preparing a leadership review, or engineers exploring a new dataset can […]",
+      "published_raw": "Mon, 04 May 2026 16:51:37 +0000",
+      "source": "AWS Machine Learning Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "aws",
+        "amazon",
+        "cloud",
+        "mlops"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-04T16:51:37+00:00",
+      "module": "operation",
+      "importance_score": 3,
+      "matched_company": "Amazon",
+      "matched_tags": [
+        "operation"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "From data lake to AI-ready analytics: Introducing new data source with S3 Tables in Amazon Quick",
+      "url": "https://aws.amazon.com/blogs/machine-learning/from-data-lake-to-ai-ready-analytics-introducing-direct-query-with-s3-tables-in-amazon-quick/",
+      "summary": "Amazon Quick introduces Amazon S3 Tables (Apache Iceberg tables) as a new data source. With this feature, customers can directly query and visualize Apache Iceberg tables stored in an Amazon S3 table bucket without the need for intermediate data layers. In this post, we explored how Amazon Quick’s new Amazon S3 Tables data source enables near real-time analytics while streamlining modern data architectures.",
+      "published_raw": "Mon, 04 May 2026 16:12:37 +0000",
+      "source": "AWS Machine Learning Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "aws",
+        "amazon",
+        "cloud",
+        "mlops"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-04T16:12:37+00:00",
+      "module": "operation",
+      "importance_score": 3,
+      "matched_company": "Amazon",
+      "matched_tags": [
+        "operation"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Introducing Dataset Q&A: Expanding natural language querying for structured datasets in Amazon Quick",
+      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-dataset-qa-expanding-natural-language-querying-for-structured-datasets-in-amazon-quick/",
+      "summary": "In this post, you learn how to get started with Dataset Q&amp;A, explore real-world use cases with hands-on examples, and discover advanced capabilities like auto-discovery across all your data assets and multi-dataset querying in a single conversation.",
+      "published_raw": "Mon, 04 May 2026 16:08:12 +0000",
+      "source": "AWS Machine Learning Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "aws",
+        "amazon",
+        "cloud",
+        "mlops"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-04T16:08:12+00:00",
+      "module": "operation",
+      "importance_score": 3,
+      "matched_company": "Amazon",
+      "matched_tags": [
+        "operation"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Capacity-aware inference: Automatic instance fallback for SageMaker AI endpoints",
+      "url": "https://aws.amazon.com/blogs/machine-learning/capacity-aware-inference-automatic-instance-fallback-for-sagemaker-ai-endpoints/",
+      "summary": "Today, Amazon SageMaker AI introduces capacity aware instance pool for new and existing inference endpoints. You define a prioritized list of instance types, and SageMaker AI automatically works through your list whenever capacity is constrained at creation, during scale-out, and during scale-in. Your endpoint provisions on available AI Infrastructure without manual intervention. This capability is available for Single Model Endpoints, Inference Component-based endpoints, and Asynchronous Inference&nbsp;endpoints.",
+      "published_raw": "Mon, 04 May 2026 16:05:02 +0000",
+      "source": "AWS Machine Learning Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "aws",
+        "amazon",
+        "cloud",
+        "mlops"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-04T16:05:02+00:00",
+      "module": "operation",
+      "importance_score": 3,
+      "matched_company": "Amazon",
+      "matched_tags": [
+        "creative-tool",
+        "multimodal",
+        "operation"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Powering the Next American Century: US Energy Secretary Chris Wright and NVIDIA’s Ian Buck on the Genesis Mission",
+      "url": "https://blogs.nvidia.com/blog/energy-secretary-chris-wright-ian-buck/",
+      "summary": "AI will help build the energy it needs. That’s the case U.S. Energy Secretary Chris Wright and NVIDIA Vice President of Hyperscale and High-Performance Computing Ian Buck made Thursday morning at the SCSP AI+ Expo. The 30-minute fireside chat, moderated by SCSP president Ylli Bajraktari, was called “Powering the Next American Century.” Their argument: American [&#8230;]",
+      "published_raw": "Thu, 07 May 2026 19:14:38 +0000",
+      "source": "NVIDIA AI Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "nvidia",
+        "gpu",
+        "hardware",
+        "training"
+      ],
+      "image_candidates": [
+        "https://blogs.nvidia.com/wp-content/uploads/2019/06/DC-skyline.jpg",
+        "https://blogs.nvidia.com/wp-content/uploads/2019/06/DC-skyline-842x450.jpg"
+      ],
+      "published_at": "2026-05-07T19:14:38+00:00",
+      "module": "operation",
+      "importance_score": 3,
+      "matched_company": "NVIDIA",
+      "matched_tags": [
+        "coding",
+        "operation"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Linked and Loaded: Gaijin Single Sign-On Now Available on GeForce NOW",
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-gaijin-sso/",
+      "summary": "Less typing, more tanking. Faster logins mean more time in the gaming action — and this week provides GeForce NOW members with a smoother path straight into the battlefield. Cloud gaming is all about instant access to titles across devices, and the latest GeForce NOW update removes another layer for members jumping into their Gaijin [&#8230;]",
+      "published_raw": "Thu, 07 May 2026 13:00:27 +0000",
+      "source": "NVIDIA AI Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "nvidia",
+        "gpu",
+        "hardware",
+        "training"
+      ],
+      "image_candidates": [
+        "https://blogs.nvidia.com/wp-content/uploads/2026/05/gfn-thursday-gaijin-sso-nv-blog-1280x680-logo.jpg",
+        "https://blogs.nvidia.com/wp-content/uploads/2026/05/gfn-thursday-gaijin-sso-nv-blog-1280x680-logo-842x450.jpg"
+      ],
+      "published_at": "2026-05-07T13:00:27+00:00",
+      "module": "operation",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "coding",
+        "operation"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "NVIDIA Spectrum-X — the Open, AI-Native Ethernet Fabric — Sets the Standard for Gigascale AI, Now With MRC",
+      "url": "https://blogs.nvidia.com/blog/spectrum-x-ethernet-mrc/",
+      "summary": "The race to build the world’s most powerful AI factories demands networking that keeps pace with the ambitions of AI itself.  NVIDIA Spectrum-X Ethernet scale-out infrastructure stands at the forefront of that race as the most advanced AI networking technology available today, deployed by industry leaders who can’t afford to compromise on performance, resilience or [&#8230;]",
+      "published_raw": "Wed, 06 May 2026 11:30:20 +0000",
+      "source": "NVIDIA AI Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "nvidia",
+        "gpu",
+        "hardware",
+        "training"
+      ],
+      "image_candidates": [
+        "https://blogs.nvidia.com/wp-content/uploads/2026/05/ethernet-press-spectrum-x-corp-blog-1920x1080-1.jpg",
+        "https://blogs.nvidia.com/wp-content/uploads/2026/05/ethernet-press-spectrum-x-corp-blog-1920x1080-1-842x450.jpg"
+      ],
+      "published_at": "2026-05-06T11:30:20+00:00",
+      "module": "operation",
+      "importance_score": 3,
+      "matched_company": "NVIDIA",
+      "matched_tags": [
+        "operation"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "NVIDIA and ServiceNow Partner on New Autonomous AI Agents for Enterprises",
+      "url": "https://blogs.nvidia.com/blog/servicenow-autonomous-ai-agents-enterprises/",
+      "summary": "Enterprise AI has learned to generate. It has learned to reason. Now companies are asking the next question: How should AI act? Early agent systems have shown what’s possible, moving beyond simple prompts to take on more complex tasks. The next step is bringing those capabilities into enterprise environments — where agents must operate with [&#8230;]",
+      "published_raw": "Tue, 05 May 2026 17:00:40 +0000",
+      "source": "NVIDIA AI Blog",
+      "tier": "official",
+      "module_hint": "operation",
+      "source_tags": [
+        "nvidia",
+        "gpu",
+        "hardware",
+        "training"
+      ],
+      "image_candidates": [
+        "https://blogs.nvidia.com/wp-content/uploads/2026/05/26-servicenow-jhh-bill-KLUB1672-3-scaled.jpg",
+        "https://blogs.nvidia.com/wp-content/uploads/2026/05/26-servicenow-jhh-bill-KLUB1672-3-842x450.jpg"
+      ],
+      "published_at": "2026-05-05T17:00:40+00:00",
+      "module": "operation",
+      "importance_score": 3,
+      "matched_company": "NVIDIA",
+      "matched_tags": [
+        "agent",
+        "operation",
+        "pricing"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "PR Review, Build Plan in Parallel, and Split PRs",
+      "url": "https://cursor.com/changelog/05-07-26",
+      "summary": "This release introduces a new PR review experience, faster execution on plans through parallel agents, and new quick-action pills for common workflows.",
+      "published_raw": "Thu, 07 May 2026 00:00:00 GMT",
+      "source": "Cursor Changelog",
+      "tier": "official",
+      "module_hint": "product",
+      "source_tags": [
+        "cursor",
+        "coding",
+        "agent",
+        "ide"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-07T00:00:00+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "agent",
+        "product",
+        "workflow"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Context Usage Breakdown",
+      "url": "https://cursor.com/changelog/05-06-26",
+      "summary": "You can now see a breakdown of your agent's context usage .",
+      "published_raw": "Wed, 06 May 2026 00:00:00 GMT",
+      "source": "Cursor Changelog",
+      "tier": "official",
+      "module_hint": "product",
+      "source_tags": [
+        "cursor",
+        "coding",
+        "agent",
+        "ide"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-06T00:00:00+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "agent",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Model controls, spend management, and usage analytics",
+      "url": "https://cursor.com/changelog/05-04-26",
+      "summary": "This release introduces updates for Enterprise admins: a new system for model controls, updated spend management, and more detail for usage analytics.",
+      "published_raw": "Mon, 04 May 2026 00:00:00 GMT",
+      "source": "Cursor Changelog",
+      "tier": "official",
+      "module_hint": "product",
+      "source_tags": [
+        "cursor",
+        "coding",
+        "agent",
+        "ide"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-04T00:00:00+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "pricing",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Improving token efficiency in GitHub Agentic Workflows",
+      "url": "https://github.blog/ai-and-ml/github-copilot/improving-token-efficiency-in-github-agentic-workflows/",
+      "summary": "<p>Agentic workflows that run on every pull request can quietly accumulate large API bills. Here's how we instrumented our own production workflows, found the inefficiencies, and built agents to fix them.</p>\n<p>The post <a href=\"https://github.blog/ai-and-ml/github-copilot/improving-token-efficiency-in-github-agentic-workflows/\">Improving token efficiency in GitHub Agentic Workflows</a> appeared first on <a href=\"https://github.blog\">The GitHub Blog</a>.</p>",
+      "published_raw": "Thu, 07 May 2026 23:00:00 +0000",
+      "source": "GitHub Blog AI",
+      "tier": "official",
+      "module_hint": "product",
+      "source_tags": [
+        "github",
+        "copilot",
+        "coding",
+        "agent"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-07T23:00:00+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "agent",
+        "coding",
+        "product",
+        "workflow"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Agent pull requests are everywhere. Here’s how to review them.",
+      "url": "https://github.blog/ai-and-ml/generative-ai/agent-pull-requests-are-everywhere-heres-how-to-review-them/",
+      "summary": "<p>A practical guide to reviewing agent-generated pull requests: what to look for, where issues hide, and how to catch technical debt before it ships.</p>\n<p>The post <a href=\"https://github.blog/ai-and-ml/generative-ai/agent-pull-requests-are-everywhere-heres-how-to-review-them/\">Agent pull requests are everywhere. Here&#8217;s how to review them.</a> appeared first on <a href=\"https://github.blog\">The GitHub Blog</a>.</p>",
+      "published_raw": "Thu, 07 May 2026 19:00:00 +0000",
+      "source": "GitHub Blog AI",
+      "tier": "official",
+      "module_hint": "product",
+      "source_tags": [
+        "github",
+        "copilot",
+        "coding",
+        "agent"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-07T19:00:00+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "agent",
+        "coding",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Validating agentic behavior when “correct” isn’t deterministic",
+      "url": "https://github.blog/ai-and-ml/generative-ai/validating-agentic-behavior-when-correct-isnt-deterministic/",
+      "summary": "<p>How to build the “Trust Layer” for Github Copilot Coding Agents without brittle scripts or black-box judgements by using dominatory analysis.</p>\n<p>The post <a href=\"https://github.blog/ai-and-ml/generative-ai/validating-agentic-behavior-when-correct-isnt-deterministic/\">Validating agentic behavior when “correct” isn’t deterministic</a> appeared first on <a href=\"https://github.blog\">The GitHub Blog</a>.</p>",
+      "published_raw": "Wed, 06 May 2026 21:16:31 +0000",
+      "source": "GitHub Blog AI",
+      "tier": "official",
+      "module_hint": "product",
+      "source_tags": [
+        "github",
+        "copilot",
+        "coding",
+        "agent"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-06T21:16:31+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "agent",
+        "coding",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Chat SDK adds Messenger adapter support",
+      "url": "https://vercel.com/changelog/chat-sdk-adds-messenger-adapter",
+      "summary": "",
+      "published_raw": "2026-05-08T04:00:00.000Z",
+      "source": "Vercel Blog",
+      "tier": "official",
+      "module_hint": "product",
+      "source_tags": [
+        "vercel",
+        "nextjs",
+        "deployment",
+        "developer-tools"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-08T04:00:00+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Chat SDK now supports conversation history",
+      "url": "https://vercel.com/changelog/chat-sdk-conversation-history",
+      "summary": "",
+      "published_raw": "2026-05-08T00:00:00.000Z",
+      "source": "Vercel Blog",
+      "tier": "official",
+      "module_hint": "product",
+      "source_tags": [
+        "vercel",
+        "nextjs",
+        "deployment",
+        "developer-tools"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-08T00:00:00+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Next.js May 2026 security release",
+      "url": "https://vercel.com/changelog/next-js-may-2026-security-release",
+      "summary": "",
+      "published_raw": "2026-05-07T13:00:00.000Z",
+      "source": "Vercel Blog",
+      "tier": "official",
+      "module_hint": "product",
+      "source_tags": [
+        "vercel",
+        "nextjs",
+        "deployment",
+        "developer-tools"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-07T13:00:00+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Vercel Flags now supports JSON values",
+      "url": "https://vercel.com/changelog/vercel-flags-now-supports-json-values",
+      "summary": "",
+      "published_raw": "2026-05-07T09:00:00.000Z",
+      "source": "Vercel Blog",
+      "tier": "official",
+      "module_hint": "product",
+      "source_tags": [
+        "vercel",
+        "nextjs",
+        "deployment",
+        "developer-tools"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-07T09:00:00+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": "Vercel",
+      "matched_tags": [
+        "product",
+        "startup"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Auto-add Git committers to your team",
+      "url": "https://vercel.com/changelog/auto-add-git-committers-to-your-team",
+      "summary": "",
+      "published_raw": "2026-05-06T00:00:00.000Z",
+      "source": "Vercel Blog",
+      "tier": "official",
+      "module_hint": "product",
+      "source_tags": [
+        "vercel",
+        "nextjs",
+        "deployment",
+        "developer-tools"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-06T00:00:00+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Secure Marketplace credentials with Production-only access",
+      "url": "https://vercel.com/changelog/secure-marketplace-credentials-with-production-only-access",
+      "summary": "",
+      "published_raw": "2026-05-06T00:00:00.000Z",
+      "source": "Vercel Blog",
+      "tier": "official",
+      "module_hint": "product",
+      "source_tags": [
+        "vercel",
+        "nextjs",
+        "deployment",
+        "developer-tools"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-06T00:00:00+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Query observability metrics using the Vercel CLI",
+      "url": "https://vercel.com/changelog/vercel-metrics-in-cli",
+      "summary": "",
+      "published_raw": "2026-05-05T08:00:00.000Z",
+      "source": "Vercel Blog",
+      "tier": "official",
+      "module_hint": "product",
+      "source_tags": [
+        "vercel",
+        "nextjs",
+        "deployment",
+        "developer-tools"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-05T08:00:00+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": "Vercel",
+      "matched_tags": [
+        "product",
+        "startup"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "How KIKO Milano scales for Black Friday",
+      "url": "https://vercel.com/blog/how-kiko-milano-scales-for-black-friday",
+      "summary": "",
+      "published_raw": "2026-05-05T07:00:00.000Z",
+      "source": "Vercel Blog",
+      "tier": "official",
+      "module_hint": "product",
+      "source_tags": [
+        "vercel",
+        "nextjs",
+        "deployment",
+        "developer-tools"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-05T07:00:00+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "How General Intelligence used agents to build an agent platform on Vercel",
+      "url": "https://vercel.com/blog/how-general-intelligence-used-agents-to-build-an-agent-platform-on-vercel",
+      "summary": "",
+      "published_raw": "2026-05-04T04:00:00.000Z",
+      "source": "Vercel Blog",
+      "tier": "official",
+      "module_hint": "product",
+      "source_tags": [
+        "vercel",
+        "nextjs",
+        "deployment",
+        "developer-tools"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-04T04:00:00+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": "Vercel",
+      "matched_tags": [
+        "agent",
+        "product",
+        "startup"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Introducing deepsec: The security harness for finding vulnerabilities in your codebase",
+      "url": "https://vercel.com/blog/introducing-deepsec-find-and-fix-vulnerabilities-in-your-code-base",
+      "summary": "",
+      "published_raw": "2026-05-04T04:00:00.000Z",
+      "source": "Vercel Blog",
+      "tier": "official",
+      "module_hint": "product",
+      "source_tags": [
+        "vercel",
+        "nextjs",
+        "deployment",
+        "developer-tools"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-04T04:00:00+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "coding",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "China’s Moonshot AI raises $2B at $20B valuation as demand for open source AI skyrockets",
+      "url": "https://techcrunch.com/2026/05/07/chinas-moonshot-ai-raises-2b-at-20b-valuation-as-demand-for-open-source-ai-skyrockets/",
+      "summary": "Moonshot's annualized recurring revenue topped $200 million in April, driven by rapid growth in paid subscriptions and API usage.",
+      "published_raw": "Thu, 07 May 2026 13:44:25 +0000",
+      "source": "TechCrunch AI",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "startup",
+        "funding"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-07T13:44:25+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "funding",
+        "pricing",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Anthropic to reach 100% global GDP in 21 months",
+      "url": "https://i.redd.it/4j2yhac41wzg1.png",
+      "summary": "Obviously they won't actually stay on this trend for this long, but it's funny how the trendline extrapolates",
+      "published_raw": "2026-05-08T10:09:35+00:00",
+      "source": "r/singularity",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "futurism"
+      ],
+      "reddit_score": 1747,
+      "reddit_comments": 152,
+      "image_candidates": [
+        "https://i.redd.it/4j2yhac41wzg1.png",
+        "https://preview.redd.it/4j2yhac41wzg1.png?auto=webp&s=ae99d8fbe685ba3f6f032827bb5a0d993e0b7330",
+        "https://preview.redd.it/4j2yhac41wzg1.png?width=140&amp;height=99&amp;auto=webp&amp;s=176c9487e4b9a77ecf6709fcc0612641195d79f6"
+      ],
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": "Anthropic",
+      "matched_tags": [
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Google Chrome silently installs a 4 GB AI model on your device without consent",
+      "url": "https://www.thatprivacyguy.com/blog/chrome-silent-nano-install/",
+      "summary": "HN score: 1732 | comments: 1128",
+      "published_raw": "2026-05-05T07:34:55+00:00",
+      "source": "Hacker News",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "hacker-news"
+      ],
+      "hn_score": 1732,
+      "hn_comments": 1128,
+      "image_candidates": [],
+      "published_at": "2026-05-05T07:34:55+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": "Google",
+      "matched_tags": [
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Firefox reports a massive April spike in security fixes after using Claude Mythos for bug hunting",
+      "url": "https://i.redd.it/7jbvcfs6zszg1.png",
+      "summary": "Source: [Behind the Scenes Hardening Firefox with Claude Mythos Preview - Mozilla Hacks](https://hacks.mozilla.org/2026/05/behind-the-scenes-hardening-firefox/)",
+      "published_raw": "2026-05-07T23:54:20+00:00",
+      "source": "r/singularity",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "futurism"
+      ],
+      "reddit_score": 1303,
+      "reddit_comments": 109,
+      "image_candidates": [
+        "https://i.redd.it/7jbvcfs6zszg1.png",
+        "https://preview.redd.it/7jbvcfs6zszg1.png?auto=webp&s=efbf605951837fcef83476ab06f660cbb4fc146b",
+        "https://preview.redd.it/7jbvcfs6zszg1.png?width=140&amp;height=78&amp;auto=webp&amp;s=8e34d22722790f522511a805f609abc371628f55"
+      ],
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Anthropic partnered with SpaceX to use colossus 1 to increase their rate limits",
+      "url": "https://i.redd.it/9x97c08dnjzg1.jpeg",
+      "summary": "",
+      "published_raw": "2026-05-06T16:28:44+00:00",
+      "source": "r/singularity",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "futurism"
+      ],
+      "reddit_score": 1128,
+      "reddit_comments": 295,
+      "image_candidates": [
+        "https://i.redd.it/9x97c08dnjzg1.jpeg",
+        "https://preview.redd.it/9x97c08dnjzg1.jpeg?auto=webp&s=88db768379a139e39aa875d794cb653b3db02397",
+        "https://preview.redd.it/9x97c08dnjzg1.jpeg?width=140&amp;height=82&amp;auto=webp&amp;s=05fc245bc9162e91dfc535551221e4a5ebe0bab3"
+      ],
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": "Anthropic",
+      "matched_tags": [
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Dirty Frag: Universal Linux LPE",
+      "url": "https://www.openwall.com/lists/oss-security/2026/05/07/8",
+      "summary": "HN score: 803 | comments: 314",
+      "published_raw": "2026-05-07T19:21:32+00:00",
+      "source": "Hacker News",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "hacker-news"
+      ],
+      "hn_score": 803,
+      "hn_comments": 314,
+      "image_candidates": [],
+      "published_at": "2026-05-07T19:21:32+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Vibe coding and agentic engineering are getting closer than I'd like",
+      "url": "https://simonwillison.net/2026/May/6/vibe-coding-and-agentic-engineering/",
+      "summary": "HN score: 778 | comments: 874",
+      "published_raw": "2026-05-06T15:06:37+00:00",
+      "source": "Hacker News",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "hacker-news"
+      ],
+      "hn_score": 778,
+      "hn_comments": 874,
+      "image_candidates": [],
+      "published_at": "2026-05-06T15:06:37+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "agent",
+        "coding",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Accelerating Gemma 4: faster inference with multi-token prediction drafters",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/multi-token-prediction-gemma-4/",
+      "summary": "HN score: 683 | comments: 327",
+      "published_raw": "2026-05-05T16:14:17+00:00",
+      "source": "Hacker News",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "hacker-news"
+      ],
+      "hn_score": 683,
+      "hn_comments": 327,
+      "image_candidates": [],
+      "published_at": "2026-05-05T16:14:17+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "DeepClaude – Claude Code agent loop with DeepSeek V4 Pro",
+      "url": "https://github.com/aattaran/deepclaude",
+      "summary": "HN score: 676 | comments: 280",
+      "published_raw": "2026-05-03T22:13:20+00:00",
+      "source": "Hacker News",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "hacker-news"
+      ],
+      "hn_score": 676,
+      "hn_comments": 280,
+      "image_candidates": [],
+      "published_at": "2026-05-03T22:13:20+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": "DeepSeek",
+      "matched_tags": [
+        "agent",
+        "coding",
+        "product",
+        "startup"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "SQLite Is a Library of Congress Recommended Storage Format",
+      "url": "https://sqlite.org/locrsf.html",
+      "summary": "HN score: 649 | comments: 192",
+      "published_raw": "2026-05-06T21:58:43+00:00",
+      "source": "Hacker News",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "hacker-news"
+      ],
+      "hn_score": 649,
+      "hn_comments": 192,
+      "image_candidates": [],
+      "published_at": "2026-05-06T21:58:43+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Fields Medal winning mathematician Timothy Gowers used GPT5.5 Pro to solve open problems, believes mathematical research will face a ‘crisis’ very soon with current rate of progress",
+      "url": "https://www.reddit.com/gallery/1t7iyis",
+      "summary": "Link to tweet: \n\nhttps://x.com/wtgowers/status/2052830948685676605\n\nLink to blog post:\n\nhttps://gowers.wordpress.com/2026/05/08/a-recent-experience-with-chatgpt-5-5-pro/",
+      "published_raw": "2026-05-08T20:02:16+00:00",
+      "source": "r/singularity",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "futurism"
+      ],
+      "reddit_score": 611,
+      "reddit_comments": 147,
+      "image_candidates": [
+        "https://preview.redd.it/365juonazyzg1.jpg?width=140&amp;height=140&amp;crop=1:1,smart&amp;auto=webp&amp;s=e575e0c02ec540ea9f70c9db68978d3116367d1a"
+      ],
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "model",
+        "research"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Higher usage limits for Claude and a compute deal with SpaceX",
+      "url": "https://www.anthropic.com/news/higher-limits-spacex",
+      "summary": "HN score: 507 | comments: 479",
+      "published_raw": "2026-05-06T16:17:33+00:00",
+      "source": "Hacker News",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "hacker-news"
+      ],
+      "hn_score": 507,
+      "hn_comments": 479,
+      "image_candidates": [],
+      "published_at": "2026-05-06T16:17:33+00:00",
+      "module": "product",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "OpenAI’s o1 correctly diagnosed 67% of ER patients vs. 50-55% by triage doctors",
+      "url": "https://www.theguardian.com/technology/2026/apr/30/ai-outperforms-doctors-in-harvard-trial-of-emergency-triage-diagnoses",
+      "summary": "HN score: 503 | comments: 473",
+      "published_raw": "2026-05-03T00:30:50+00:00",
+      "source": "Hacker News",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "hacker-news"
+      ],
+      "hn_score": 503,
+      "hn_comments": 473,
+      "image_candidates": [],
+      "published_at": "2026-05-03T00:30:50+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": "OpenAI",
+      "matched_tags": [
+        "model"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "GPT-5.5 Price Increase: What It Costs",
+      "url": "https://openrouter.ai/announcements/gpt55-cost-analysis",
+      "summary": "HN score: 206 | comments: 63",
+      "published_raw": "2026-05-08T01:02:28+00:00",
+      "source": "Hacker News",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "hacker-news"
+      ],
+      "hn_score": 206,
+      "hn_comments": 63,
+      "image_candidates": [],
+      "published_at": "2026-05-08T01:02:28+00:00",
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": null,
+      "matched_tags": [
+        "model",
+        "pricing"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Reports suggest DeepSeek is seeking $7.35 billion in funding and plans to release its V4.1 update next month.",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1t7bfpw/reports_suggest_deepseek_is_seeking_735_billion/",
+      "summary": "DeepSeek Reportedly Seeking to Raise Over RMB 50 Billion ($7.35 Billion), Accelerating Its Commercialization and Monetization Strategy\n\nAccording to two people familiar with the matter, DeepSeek founder and CEO Liang Wenfeng plans to contribute the maximum allowable amount in the company’s first funding round.\n\nDeepSeek is targeting a fundraising size of up to RMB 50 billion, or approximately $7.3",
+      "published_raw": "2026-05-08T15:34:12+00:00",
+      "source": "r/LocalLLaMA",
+      "tier": "community",
+      "module_hint": "model",
+      "source_tags": [
+        "open-weight",
+        "inference",
+        "community"
+      ],
+      "reddit_score": 116,
+      "reddit_comments": 30,
+      "image_candidates": [],
+      "module": "model",
+      "importance_score": 3,
+      "matched_company": "DeepSeek",
+      "matched_tags": [
+        "funding",
+        "model",
+        "pricing",
+        "startup"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "The “people’s airline” and the enterprise AI gold rush",
+      "url": "https://techcrunch.com/podcast/the-peoples-airline-and-the-enterprise-ai-gold-rush/",
+      "summary": "Everyone wants a piece of the&#160;enterprise&#160;AI pie, and this week, we saw a string of companies making their moves. From&#160;Anthropic and OpenAI announcing new joint ventures&#160;targeting enterprise AI deployment to&#160;SAP dropping $1B&#160;on German AI startup Prior Labs,&#160;it&#8217;s&#160;becoming clear that if&#160;you&#8217;re&#160;a startup building enterprise tools,&#160;you&#8217;re&#160;likely an&#160;acquisition target.&#160; On this episode of TechCrunch&#8217;s&#160;Equity&#160;podcast, hosts Kirsten Korosec, Anthony [&#8230;]",
+      "published_raw": "Fri, 08 May 2026 15:46:17 +0000",
+      "source": "TechCrunch AI",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "startup",
+        "funding"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-08T15:46:17+00:00",
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": "OpenAI",
+      "matched_tags": [
+        "pricing",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Startup Battlefield 200 applications close May 27: A shot at VC access, global visibility, TechCrunch coverage, and $100K",
+      "url": "https://techcrunch.com/2026/05/07/startup-battlefield-200-applications-close-may-27-a-shot-at-vc-access-global-visibility-techcrunch-coverage-and-100k/",
+      "summary": "Startup Battlefield 200 applications are open, but only for three more weeks. Apply by May 27 for your shot at VC access, global visibility, TechCrunch coverage, $100,000 equity-free, and more opportunities for major scaling impact.",
+      "published_raw": "Thu, 07 May 2026 15:00:00 +0000",
+      "source": "TechCrunch AI",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "startup",
+        "funding"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-07T15:00:00+00:00",
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "pricing",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Microsoft was worried OpenAI would run off to Amazon and ‘shit-talk’ Azure",
+      "url": "https://www.theverge.com/report/926771/microsoft-openai-amazon-worries-shit-talk-azure",
+      "summary": "When OpenAI was busy experimenting with AI-powered gaming bots, Microsoft CEO Satya Nadella and OpenAI CEO Sam Altman were in the early days of forming an AI partnership. Court documents from the ongoing Musk v. Altman trial have provided a rare look at the communications between Microsoft's top executives about investing in OpenAI and fears [&#8230;]",
+      "published_raw": "2026-05-08T11:25:02-04:00",
+      "source": "The Verge AI",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "consumer",
+        "product"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-08T11:25:02-04:00",
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": "OpenAI",
+      "matched_tags": [
+        "coding",
+        "product",
+        "research"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "SpaceX has a $55 billion plan to build AI chips in Texas",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/926356/spacex-terafab-plant-cost-ai-chips",
+      "summary": "Elon Musk's plans to get into the AI chip manufacturing business are going to be costly. As the The New York Times and CNBC report, SpaceX is planning to invest at least $55 billion into its \"Terafab\" chip plant in Austin, Texas. That's according to the details of a public hearing notice filed in Grimes [&#8230;]",
+      "published_raw": "2026-05-07T15:26:16-04:00",
+      "source": "The Verge AI",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "consumer",
+        "product"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-07T15:26:16-04:00",
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "pricing",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "GameStop offers $56 billion for eBay, struggles to explain how it'll pay for it",
+      "url": "https://arstechnica.com/tech-policy/2026/05/gamestop-offers-56-billion-for-ebay-struggles-to-explain-how-itll-pay-for-it/",
+      "summary": "Amid falling revenue and store closures, GameStop wants to buy the much larger eBay.",
+      "published_raw": "Mon, 04 May 2026 17:57:46 +0000",
+      "source": "Ars Technica Technology",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "deep-dive",
+        "research"
+      ],
+      "image_candidates": [
+        "https://cdn.arstechnica.net/wp-content/uploads/2026/05/gamestop-store-1152x648-1777915631.jpg",
+        "https://cdn.arstechnica.net/wp-content/uploads/2026/05/gamestop-store-500x500-1777915641.jpg"
+      ],
+      "published_at": "2026-05-04T17:57:46+00:00",
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "pricing",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Rocket Lab surges 34% in best day ever on revenue beat, record-setting launch deal",
+      "url": "https://www.cnbc.com/2026/05/08/rocket-lab-rklb-q1-earnings-2026.html",
+      "summary": "Enthusiasm for space stocks has skyrocketed ahead of SpaceX's anticipated IPO.",
+      "published_raw": "Fri, 08 May 2026 21:15:33 GMT",
+      "source": "CNBC Technology",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "business",
+        "funding"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-08T21:15:33+00:00",
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "funding",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Akamai stock soars 20% on earnings, $1.8 billion AI infrastructure deal",
+      "url": "https://www.cnbc.com/2026/05/08/akamai-stock-ai-cloud-infrastructure-deal.html",
+      "summary": "Cybersecurity and cloud computing firm Akamai reported first-quarter earnings on Thursday and saw its cloud infrastructure business grow 40% year-on-year.",
+      "published_raw": "Fri, 08 May 2026 15:05:24 GMT",
+      "source": "CNBC Technology",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "business",
+        "funding"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-08T15:05:24+00:00",
+      "module": "operation",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "operation",
+        "pricing"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Nvidia CEO says AI partnership with Corning will 'revitalize American manufacturing'",
+      "url": "https://www.cnbc.com/2026/05/07/nvidia-ceo-ai-partnership-corning-revitalize-american-manufacturing.html",
+      "summary": "Nvidia CEO Jensen Huang highlighted his company's partnership with Corning as an opportunity to reinvest in American manufacturing.",
+      "published_raw": "Thu, 07 May 2026 22:57:30 GMT",
+      "source": "CNBC Technology",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "business",
+        "funding"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-07T22:57:30+00:00",
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": "NVIDIA",
+      "matched_tags": [
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "OpenAI rolls out new model for cybersecurity teams a month after Anthropic's Mythos debut",
+      "url": "https://www.cnbc.com/2026/05/07/openai-rolls-out-new-gpt-5point5-cyber-to-vetted-cybersecurity-teams.html",
+      "summary": "OpenAI said GPT-5.5-Cyber, a variation of its latest AI model, is rolling out in a limited preview capacity to vetted cybersecurity teams.",
+      "published_raw": "Thu, 07 May 2026 22:06:20 GMT",
+      "source": "CNBC Technology",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "business",
+        "funding"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-07T22:06:20+00:00",
+      "module": "model",
+      "importance_score": 2,
+      "matched_company": "OpenAI",
+      "matched_tags": [
+        "model"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "IREN inks AI infrastructure deal with Nvidia",
+      "url": "https://www.cnbc.com/2026/05/07/iren-stock-ai-infrastructure-nvidia.html",
+      "summary": "Data center operator IREN announced a partnership with semiconductor giant Nvidia.",
+      "published_raw": "Fri, 08 May 2026 17:48:41 GMT",
+      "source": "CNBC Technology",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "business",
+        "funding"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-08T17:48:41+00:00",
+      "module": "operation",
+      "importance_score": 2,
+      "matched_company": "NVIDIA",
+      "matched_tags": [
+        "browser-agent",
+        "operation"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "10 secret Netflix codes I use to find hidden movies (and how to enter them) - it's easy",
+      "url": "https://www.zdnet.com/article/netflix-codes-how-to-find-hidden-movies-free/",
+      "summary": "Netflix codes let you access movies in buried genres and micro-categories - for free. Here's how, plus my favorites.",
+      "published_raw": "Thu, 07 May 2026 12:10:00 GMT",
+      "source": "ZDNet AI",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "enterprise",
+        "product"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-07T12:10:00+00:00",
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "coding",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "How I upgraded my Sonos soundbar's audio quality - 3 easy and free methods",
+      "url": "https://www.zdnet.com/article/how-to-improve-sonos-soundbar-quality/",
+      "summary": "If you're not satisfied with your soundbar's audio performance, these quick and simple tweaks made a big difference for me.",
+      "published_raw": "Thu, 07 May 2026 01:00:50 GMT",
+      "source": "ZDNet AI",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "enterprise",
+        "product"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-07T01:00:50+00:00",
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": "Udio",
+      "matched_tags": [
+        "multimodal",
+        "product",
+        "startup"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "GPT-5.5 Instant ⚡, SubQ 12M context 🧠, Gemini Flash upgrades 🚀",
+      "url": "https://tldr.tech/ai/2026-05-06",
+      "summary": "",
+      "published_raw": "Wed, 06 May 2026 00:00:00 GMT",
+      "source": "TLDR AI",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "newsletter",
+        "daily",
+        "summary"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-06T00:00:00+00:00",
+      "module": "model",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "model"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "YC’s OpenAI stake 💰, Gemini API Webhooks 🧑‍💻, AI PE partnerships 🏦",
+      "url": "https://tldr.tech/ai/2026-05-05",
+      "summary": "",
+      "published_raw": "Tue, 05 May 2026 00:00:00 GMT",
+      "source": "TLDR AI",
+      "tier": "press",
+      "module_hint": null,
+      "source_tags": [
+        "newsletter",
+        "daily",
+        "summary"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-05T00:00:00+00:00",
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": "OpenAI",
+      "matched_tags": [
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Zuckerberg 'Personally Authorized and Encouraged' Meta's Copyright Infringement",
+      "url": "https://variety.com/2026/digital/news/meta-ai-mark-zuckerberg-copyright-infringement-lawsuit-publishers-scott-turow-1236738383/",
+      "summary": "HN score: 489 | comments: 450",
+      "published_raw": "2026-05-05T18:04:25+00:00",
+      "source": "Hacker News",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "hacker-news"
+      ],
+      "hn_score": 489,
+      "hn_comments": 450,
+      "image_candidates": [],
+      "published_at": "2026-05-05T18:04:25+00:00",
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": "Meta",
+      "matched_tags": [
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "DeepSeek 4 Flash local inference engine for Metal",
+      "url": "https://github.com/antirez/ds4",
+      "summary": "HN score: 481 | comments: 152",
+      "published_raw": "2026-05-07T15:40:24+00:00",
+      "source": "Hacker News",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "hacker-news"
+      ],
+      "hn_score": 481,
+      "hn_comments": 152,
+      "image_candidates": [],
+      "published_at": "2026-05-07T15:40:24+00:00",
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": "Meta",
+      "matched_tags": [
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Train Your Own LLM from Scratch",
+      "url": "https://github.com/angelos-p/llm-from-scratch",
+      "summary": "HN score: 474 | comments: 50",
+      "published_raw": "2026-05-05T04:09:17+00:00",
+      "source": "Hacker News",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "hacker-news"
+      ],
+      "hn_score": 474,
+      "hn_comments": 50,
+      "image_candidates": [],
+      "published_at": "2026-05-05T04:09:17+00:00",
+      "module": "model",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "model"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Y Combinator's Stake in OpenAI (0.6%?)",
+      "url": "https://daringfireball.net/2026/05/y_combinators_stake_in_openai",
+      "summary": "HN score: 378 | comments: 68",
+      "published_raw": "2026-05-05T00:09:01+00:00",
+      "source": "Hacker News",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "hacker-news"
+      ],
+      "hn_score": 378,
+      "hn_comments": 68,
+      "image_candidates": [],
+      "published_at": "2026-05-05T00:09:01+00:00",
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": "OpenAI",
+      "matched_tags": [
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Natural Language Autoencoders: Turning Claude's Thoughts into Text",
+      "url": "https://www.anthropic.com/research/natural-language-autoencoders",
+      "summary": "HN score: 363 | comments: 119",
+      "published_raw": "2026-05-07T17:54:02+00:00",
+      "source": "Hacker News",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "hacker-news"
+      ],
+      "hn_score": 363,
+      "hn_comments": 119,
+      "image_candidates": [],
+      "published_at": "2026-05-07T17:54:02+00:00",
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "coding",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Hardening Firefox with Claude Mythos Preview",
+      "url": "https://hacks.mozilla.org/2026/05/behind-the-scenes-hardening-firefox/",
+      "summary": "HN score: 347 | comments: 155",
+      "published_raw": "2026-05-07T16:05:33+00:00",
+      "source": "Hacker News",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "hacker-news"
+      ],
+      "hn_score": 347,
+      "hn_comments": 155,
+      "image_candidates": [],
+      "published_at": "2026-05-07T16:05:33+00:00",
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "The levels of realism in the image generation are getting ridiculous",
+      "url": "https://www.reddit.com/gallery/1t7qbf3",
+      "summary": "",
+      "published_raw": "2026-05-09T01:01:29+00:00",
+      "source": "r/ChatGPT",
+      "tier": "community",
+      "module_hint": "product",
+      "source_tags": [
+        "openai",
+        "consumer"
+      ],
+      "reddit_score": 304,
+      "reddit_comments": 48,
+      "image_candidates": [
+        "https://preview.redd.it/08bvij8hczzg1.png?width=140&amp;height=105&amp;auto=webp&amp;s=d6b4e6c32a562ea1d720d87c0aed3e8698ead443"
+      ],
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "image-gen",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "vLLM ROCm has been added to Lemonade as an experimental backend",
+      "url": "https://i.redd.it/kesrnt4lgyzg1.png",
+      "summary": "vLLM has the ability to run .safetensors LLMs before they are converted to GGUF and represents a new engine to explore. I personally had never tried it out until u/krishna2910-amd/ u/mikkoph and u/sa1sr1 made it as easy as running llama.cpp in Lemonade:\n\n```\nlemonade backends install vllm:rocm\nlemonade run Qwen3.5-0.8B-vLLM\n```\n\nThis is an experimental backend for us in the sense that the essentia",
+      "published_raw": "2026-05-08T18:21:15+00:00",
+      "source": "r/LocalLLaMA",
+      "tier": "community",
+      "module_hint": "model",
+      "source_tags": [
+        "open-weight",
+        "inference",
+        "community"
+      ],
+      "reddit_score": 288,
+      "reddit_comments": 68,
+      "image_candidates": [
+        "https://i.redd.it/kesrnt4lgyzg1.png",
+        "https://preview.redd.it/kesrnt4lgyzg1.png?auto=webp&s=c2937cf53f62152bbe762bb7213872aaac1b3e36",
+        "https://preview.redd.it/kesrnt4lgyzg1.png?width=140&amp;height=78&amp;auto=webp&amp;s=5cc8650bb730bc119939d708881755f5fe35ac6b"
+      ],
+      "module": "model",
+      "importance_score": 2,
+      "matched_company": "Qwen",
+      "matched_tags": [
+        "model",
+        "research",
+        "startup"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Lessons for Agentic Coding: What should we do when code is cheap?",
+      "url": "https://www.dbreunig.com/2026/05/04/10-lessons-for-agentic-coding.html",
+      "summary": "HN score: 268 | comments: 238",
+      "published_raw": "2026-05-05T07:05:25+00:00",
+      "source": "Hacker News",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "hacker-news"
+      ],
+      "hn_score": 268,
+      "hn_comments": 238,
+      "image_candidates": [],
+      "published_at": "2026-05-05T07:05:25+00:00",
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "agent",
+        "coding",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "OpenAI's WebRTC problem",
+      "url": "https://moq.dev/blog/webrtc-is-the-problem/",
+      "summary": "HN score: 245 | comments: 62",
+      "published_raw": "2026-05-07T17:11:59+00:00",
+      "source": "Hacker News",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "hacker-news"
+      ],
+      "hn_score": 245,
+      "hn_comments": 62,
+      "image_candidates": [],
+      "published_at": "2026-05-07T17:11:59+00:00",
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": "OpenAI",
+      "matched_tags": [
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Open Design: Use Your Coding Agent as a Design Engine",
+      "url": "https://github.com/nexu-io/open-design",
+      "summary": "HN score: 230 | comments: 92",
+      "published_raw": "2026-05-02T12:16:16+00:00",
+      "source": "Hacker News",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "hacker-news"
+      ],
+      "hn_score": 230,
+      "hn_comments": 92,
+      "image_candidates": [],
+      "published_at": "2026-05-02T12:16:16+00:00",
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "agent",
+        "coding",
+        "design",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "I finetuned Qwen3-1.7B to imitate original Z-Image text encoder. 21% less VRAM",
+      "url": "https://www.reddit.com/gallery/1t71hvm",
+      "summary": "First image is from orignal pipeline, second is from pipeline with replaced text encoder.  \n  \nI finetuned Qwen3-1.7B with small adapter to imitate Qwen3-4B. Idea was simple: recreate hidden states of Qwen3-4B and pass it to DiT.\n\n  \nI tested it using fp16 \n\n|Metric|Original (4B)|Student (1.7B)|Savings|\n|:-|:-|:-|:-|\n|Weight VRAM|20.70 GB|16.30 GB|**4.40 GB (21%)**|\n|Peak VRAM|21.35 GB|16.76 GB|**",
+      "published_raw": "2026-05-08T08:09:31+00:00",
+      "source": "r/StableDiffusion",
+      "tier": "community",
+      "module_hint": "product",
+      "source_tags": [
+        "image-gen",
+        "creative-tool",
+        "open-weight"
+      ],
+      "reddit_score": 214,
+      "reddit_comments": 49,
+      "image_candidates": [
+        "https://preview.redd.it/2r8p6apidvzg1.png?width=140&amp;height=140&amp;auto=webp&amp;s=2528398425787f7929ea5f114c5fec0213596ba0"
+      ],
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": "Qwen",
+      "matched_tags": [
+        "coding",
+        "product",
+        "startup",
+        "workflow"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Qwen 35B-A3B is very usable with 12GB of VRAM",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1t7l56a/qwen_35ba3b_is_very_usable_with_12gb_of_vram/",
+      "summary": "Hardware:\n\n    RTX 3060 12GB\n    32GB DDR4-3200\n    Windows\n    CUDA 13.x\n\nModel:\n\n    Qwen3.6-35B-A3B-MTP-IQ4_XS.gguf\n\nThe model is a 35B MoE, so `-ncmoe` matters a lot. Lower `-ncmoe` means more MoE blocks stay on GPU.\n\n# Main takeaway\n\n**12GB VRAM feels like a very practical size for this model.** It lets you keep enough MoE blocks on GPU that plain decoding becomes quite strong, while still le",
+      "published_raw": "2026-05-08T21:22:55+00:00",
+      "source": "r/LocalLLaMA",
+      "tier": "community",
+      "module_hint": "model",
+      "source_tags": [
+        "open-weight",
+        "inference",
+        "community"
+      ],
+      "reddit_score": 138,
+      "reddit_comments": 34,
+      "image_candidates": [],
+      "module": "model",
+      "importance_score": 2,
+      "matched_company": "Qwen",
+      "matched_tags": [
+        "coding",
+        "model",
+        "startup"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "[Google DeepMind] the AI co-mathematician also achieves state of the art results on hard problemsolving benchmarks, including scoring 48% on FrontierMath Tier 4, a new high score among all AI systems evaluated.",
+      "url": "https://www.reddit.com/r/singularity/comments/1t7dcum/google_deepmind_the_ai_comathematician_also/",
+      "summary": "[https://arxiv.org/pdf/2605.06651](https://arxiv.org/pdf/2605.06651)",
+      "published_raw": "2026-05-08T16:43:05+00:00",
+      "source": "r/singularity",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "futurism"
+      ],
+      "reddit_score": 130,
+      "reddit_comments": 7,
+      "image_candidates": [],
+      "module": "model",
+      "importance_score": 2,
+      "matched_company": "Google",
+      "matched_tags": [
+        "benchmark",
+        "model",
+        "research"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Qwen3.6 35B A3B uncensored heretic Native MTP Preserved is Out Now With KLD 0.0015, 10/100 Refusals and the Full 19 MTPs Preserved and Retained, Available in Safetensors, GGUFs. NVFP4, NVFP4 GGUFs and GPTQ-Int4 Formats",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1t7qfaq/qwen36_35b_a3b_uncensored_heretic_native_mtp/",
+      "summary": "llmfan46/Qwen3.6-35B-A3B-uncensored-heretic-Native-MTP-Preserved: [https://huggingface.co/llmfan46/Qwen3.6-35B-A3B-uncensored-heretic-Native-MTP-Preserved](https://huggingface.co/llmfan46/Qwen3.6-35B-A3B-uncensored-heretic-Native-MTP-Preserved)\n\nllmfan46/Qwen3.6-35B-A3B-uncensored-heretic-Native-MTP-Preserved-GGUF: [https://huggingface.co/llmfan46/Qwen3.6-35B-A3B-uncensored-heretic-Native-MTP-Pres",
+      "published_raw": "2026-05-09T01:06:22+00:00",
+      "source": "r/LocalLLaMA",
+      "tier": "community",
+      "module_hint": "model",
+      "source_tags": [
+        "open-weight",
+        "inference",
+        "community"
+      ],
+      "reddit_score": 115,
+      "reddit_comments": 17,
+      "image_candidates": [
+        "https://external-preview.redd.it/AGfQNWuImy8bx2GT8s64HLw2k0TVWb3JDFreHL75IvY.png?auto=webp&s=7b16e4953c17c93daea05339661288ed588d4dc6"
+      ],
+      "module": "model",
+      "importance_score": 2,
+      "matched_company": "HuggingFace",
+      "matched_tags": [
+        "model",
+        "open-weight",
+        "startup"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "I built a Pokémon-styled multi-agent dashboard to manage all Claude Code sessions",
+      "url": "https://www.reddit.com/gallery/1t7m3j3",
+      "summary": "Like many others here, I got frustrated with managing all my different claude/codex sessions, so i built Pokegents, which is an open source multi-agent workspace for coding agents. It has a Pokemon-themed dashboard/chat interface plus a local orchestration server for managing agent sessions (currently supports Claude Code in iTerm2, plus Claude and Codex through ACP-based chat runtimes), persisten",
+      "published_raw": "2026-05-08T22:00:25+00:00",
+      "source": "r/ClaudeAI",
+      "tier": "community",
+      "module_hint": "product",
+      "source_tags": [
+        "anthropic",
+        "consumer"
+      ],
+      "reddit_score": 108,
+      "reddit_comments": 17,
+      "image_candidates": [
+        "https://preview.redd.it/6t36vhs6kzzg1.png?width=140&amp;height=71&amp;auto=webp&amp;s=b93c483f184a238383635404dd3045854dc1fc78"
+      ],
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "agent",
+        "coding",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Anthropic Secures SpaceX Colossus 1 After Growing 80x to a $1.2T Valuation",
+      "url": "https://blocknow.com/anthropic-ipo-valuation-80x-growth-spacex/",
+      "summary": "",
+      "published_raw": "2026-05-07T13:51:56+00:00",
+      "source": "r/artificial",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "general"
+      ],
+      "reddit_score": 106,
+      "reddit_comments": 31,
+      "image_candidates": [
+        "https://external-preview.redd.it/_36WANz0oyk-09wSX8GplGhOERTuCjDLPZm732eYne4.jpeg?auto=webp&s=457fe81119acf2425ff78ef82c4ade23d3e66a19",
+        "https://external-preview.redd.it/_36WANz0oyk-09wSX8GplGhOERTuCjDLPZm732eYne4.jpeg?width=140&amp;height=78&amp;auto=webp&amp;s=9caed4108dd52e4489565c12ac6973a10b10e732"
+      ],
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": "Anthropic",
+      "matched_tags": [
+        "funding",
+        "pricing",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Ring 2.6 1T",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1t7bvmq/ring_26_1t/",
+      "summary": "Listed on Open Router only so far: [https://openrouter.ai/inclusionai/ring-2.6-1t:free](https://openrouter.ai/inclusionai/ring-2.6-1t:free)\n\nLing 2.6 is open weights, so was Ring 2.5 so hopefully this will be released as well.",
+      "published_raw": "2026-05-08T15:50:00+00:00",
+      "source": "r/LocalLLaMA",
+      "tier": "community",
+      "module_hint": "model",
+      "source_tags": [
+        "open-weight",
+        "inference",
+        "community"
+      ],
+      "reddit_score": 40,
+      "reddit_comments": 17,
+      "image_candidates": [
+        "https://external-preview.redd.it/HZwOxoELAwvs4nE4-OiSV0qy_SEHCpN0DrtwUm5EE-o.png?auto=webp&s=ee458553e360174f131ff0446dc3c0b5e95e1b3d"
+      ],
+      "module": "model",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "model",
+        "open-weight"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "I built a local AI companion with GWT, IIT proxy, ChromaDB hybrid retrieval, and Ollama fallback — here's every architectural decision I made and why",
+      "url": "https://www.reddit.com/r/artificial/comments/1t6v8rw/i_built_a_local_ai_companion_with_gwt_iit_proxy/",
+      "summary": "Been building this for a while. Sharing now because it's past the point where I'm embarrassed by the code.\n\n\\*\\*The stack:\\*\\*\n\n\\* Python 3.12, 18k+ lines, 470+ tests passing\n\n\\* Gemini 2.5 Flash (primary) + Ollama qwen3:4b (local fallback via circuit breaker)\n\n\\* ChromaDB for persistence — hybrid retrieval weighted at 55% semantic / 25% importance / 20% recency\n\n\\* \\`sentence-transformers all-Min",
+      "published_raw": "2026-05-08T02:40:28+00:00",
+      "source": "r/artificial",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "general"
+      ],
+      "reddit_score": 5,
+      "reddit_comments": 4,
+      "image_candidates": [],
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": "Qwen",
+      "matched_tags": [
+        "coding",
+        "product",
+        "startup"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "**Built my own model-agnostic AI workstation because I was tired of platform lock-in — free, BYOAK, open source**",
+      "url": "https://www.reddit.com/r/artificial/comments/1t7ai7r/built_my_own_modelagnostic_ai_workstation_because/",
+      "summary": "Tired of rebuilding context every time I switched models. Tired of my personas living inside OpenAI's walled garden. Built something to fix it.\n\n\n\n\\*\\*Architect's Domain\\*\\*, a workstation UI that sits on top of any provider.\n\nCore features:\n\n\\- \\*\\*Workspace system\\*\\*, persistent environments with pinned context, imported files, notes. Think Claude Projects but provider-agnostic\n\n\\- \\*\\*Manual m",
+      "published_raw": "2026-05-08T15:01:07+00:00",
+      "source": "r/artificial",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "general"
+      ],
+      "reddit_score": 3,
+      "reddit_comments": 4,
+      "image_candidates": [
+        "https://external-preview.redd.it/rRDGOTZd1prv-7QHj5_Degzi3zpUKn55iTiFjQ3pvaY.jpeg?auto=webp&s=3121ab5ec731e4be34789a56365615de9adddcd8"
+      ],
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": "OpenAI",
+      "matched_tags": [
+        "coding",
+        "product"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "BioMedArena: An Open-source Toolkit for Building and Evaluating Biomedical Deep Research Agents",
+      "url": "https://arxiv.org/abs/2605.06177",
+      "summary": "arXiv:2605.06177v1 Announce Type: new \nAbstract: Building a deep research agent today is an exercise in glue code: the same backbone evaluated on the same benchmark can report different accuracies in different papers because harness and tool registry all differ, and integrating a new foundation model into a comparable evaluation surface costs weeks of model-specific engineering. We call this the per-paper engineering tax and release BioMedArena, an open-source toolkit that not only alleviates it but also provides an arena for fair comparison of different foundation models when evaluating them ",
+      "published_raw": "Sat, 09 May 2026 00:00:00 -0400",
+      "source": "arXiv cs.AI",
+      "tier": "community",
+      "module_hint": "model",
+      "source_tags": [
+        "arxiv",
+        "ai",
+        "research"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-09T00:00:00-04:00",
+      "module": "model",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "agent",
+        "benchmark",
+        "coding",
+        "funding",
+        "model",
+        "research"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Towards Annotation-Free Validation of MLLMs: A Vision-Language Logical Consistency Metric",
+      "url": "https://arxiv.org/abs/2605.06201",
+      "summary": "arXiv:2605.06201v1 Announce Type: new \nAbstract: Dominant accuracy evaluation might reward unwarranted guessing of Large Language Models, and it might not be applicable to novel tasks for model validation without ground-truth (gt) annotation. Based on basic logic principle, we propose a novel framework to evaluate the vision-language logical consistency of MLLMs on both sufficient and necessary cause-effect relations. We define Vision-Language Logical Consistency Metric (VL-LCM) on traditional MC-VQA tests, and recent NaturalBench tests without the need for gt annotation. Through systematic ex",
+      "published_raw": "Sat, 09 May 2026 00:00:00 -0400",
+      "source": "arXiv cs.AI",
+      "tier": "community",
+      "module_hint": "model",
+      "source_tags": [
+        "arxiv",
+        "ai",
+        "research"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-09T00:00:00-04:00",
+      "module": "model",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "funding",
+        "model",
+        "multimodal",
+        "research"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "NeuroAgent: LLM Agents for Multimodal Neuroimaging Analysis and Research",
+      "url": "https://arxiv.org/abs/2605.06584",
+      "summary": "arXiv:2605.06584v1 Announce Type: new \nAbstract: Multimodal neuroimaging analysis often involves complex, modality-specific preprocessing workflows that require careful configuration, quality control, and coordination across heterogeneous toolchains. Beyond preprocessing, downstream statistical analysis and disease classification commonly require task-specific code, evaluation protocols, and data-format conventions, creating additional barriers between raw acquisitions and reproducible scientific analysis. We present NeuroAgent, an LLM-driven agentic framework that automates key preprocessing ",
+      "published_raw": "Sat, 09 May 2026 00:00:00 -0400",
+      "source": "arXiv cs.AI",
+      "tier": "community",
+      "module_hint": "model",
+      "source_tags": [
+        "arxiv",
+        "ai",
+        "research"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-09T00:00:00-04:00",
+      "module": "model",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "agent",
+        "coding",
+        "funding",
+        "model",
+        "multimodal",
+        "research",
+        "workflow"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "ViTok-v2: Scaling Native Resolution Auto-Encoders to 5 Billion Parameters",
+      "url": "https://arxiv.org/abs/2605.05331",
+      "summary": "arXiv:2605.05331v1 Announce Type: cross \nAbstract: Vision Transformer (ViT) autoencoders have emerged as compelling tokenizers for images, offering improved reconstruction over convolutional tokenizers. However, existing ViT tokenizers cannot explore this landscape as performance degrades outside training resolutions, and reliance on adversarial losses prevents stable scaling. ViTok (Hansen-Estruch et al., 2025) found that the compression ratio r mediates a reconstruction-generation trade-off where lower r means better reconstructions but harder generations, so improving tokenizer reconstructi",
+      "published_raw": "Sat, 09 May 2026 00:00:00 -0400",
+      "source": "arXiv cs.AI",
+      "tier": "community",
+      "module_hint": "model",
+      "source_tags": [
+        "arxiv",
+        "ai",
+        "research"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-09T00:00:00-04:00",
+      "module": "model",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "coding",
+        "model",
+        "multimodal",
+        "research"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "WARP: A Benchmark for Primal-Dual Warm-Starting of Interior-Point Solvers",
+      "url": "https://arxiv.org/abs/2605.05728",
+      "summary": "arXiv:2605.05728v1 Announce Type: cross \nAbstract: Solving AC Optimal Power Flow (AC-OPF) is of central importance in electricity market operations, where interior-point methods (IPMs) such as IPOPT are the standard solvers. A growing body of work uses machine learning to predict primal warm-start iterates, reporting iteration reductions of 30-46\\%. We show that these reported gains rest on an inappropriate evaluation baseline: prior methods benchmark against the flat start $V_m = 1, V_a = 0$, whereas the solver's actual default - the variable-bound midpoint $(l+u)/2$ - is near-optimal for log",
+      "published_raw": "Sat, 09 May 2026 00:00:00 -0400",
+      "source": "arXiv cs.AI",
+      "tier": "community",
+      "module_hint": "model",
+      "source_tags": [
+        "arxiv",
+        "ai",
+        "research"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-09T00:00:00-04:00",
+      "module": "model",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "benchmark",
+        "funding",
+        "model",
+        "pricing",
+        "research"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "DBMSolver: A Training-free Diffusion Bridge Sampler for High-Quality Image-to-Image Translation",
+      "url": "https://arxiv.org/abs/2605.05889",
+      "summary": "arXiv:2605.05889v1 Announce Type: cross \nAbstract: Diffusion-based image-to-image (I2I) translation excels in high-fidelity generation but suffers from slow sampling in state-of-the-art Diffusion Bridge Models (DBMs), often requiring dozens of function evaluations (NFEs). We introduce DBMSolver, a training-free sampler that exploits the semi-linear structure of DBM's underlying SDE and ODE via exponential integrators, yielding highly-efficient 1st- and 2nd-order solutions. This reduces NFEs by up to 5x while boosting quality (e.g., FID drops 53% on DIODE at 20 NFEs vs. 2nd-order baseline). Exp",
+      "published_raw": "Sat, 09 May 2026 00:00:00 -0400",
+      "source": "arXiv cs.AI",
+      "tier": "community",
+      "module_hint": "model",
+      "source_tags": [
+        "arxiv",
+        "ai",
+        "research"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-09T00:00:00-04:00",
+      "module": "model",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "coding",
+        "funding",
+        "image-gen",
+        "model",
+        "research"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Towards Reliable LLM Evaluation: Correcting the Winner's Curse in Adaptive Benchmarking",
+      "url": "https://arxiv.org/abs/2605.05973",
+      "summary": "arXiv:2605.05973v1 Announce Type: cross \nAbstract: Adaptive prompt and program search makes LLM evaluation selection-sensitive. Once benchmark items are reused inside tuning, the observed winner's score need not estimate the fresh-data performance of the full tune-then-deploy procedure. We study inference for this procedure-level target under explicit tuning budgets. We propose SIREN, a selection-aware repeated-split reporting protocol that freezes the post-search shortlist, separates splitwise selection from held-out evaluation, and uses an item-level Gaussian multiplier bootstrap for uncerta",
+      "published_raw": "Sat, 09 May 2026 00:00:00 -0400",
+      "source": "arXiv cs.AI",
+      "tier": "community",
+      "module_hint": "model",
+      "source_tags": [
+        "arxiv",
+        "ai",
+        "research"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-09T00:00:00-04:00",
+      "module": "model",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "benchmark",
+        "coding",
+        "funding",
+        "model",
+        "research"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "ORTHOBO: Orthogonal Bayesian Hyperparameter Optimization",
+      "url": "https://arxiv.org/abs/2605.06454",
+      "summary": "arXiv:2605.06454v1 Announce Type: cross \nAbstract: Bayesian optimization is widely used for hyperparameter optimization when model evaluations are expensive; however, noisy acquisition estimates can lead to unstable decisions. We identify acquisition estimation noise as a failure mode that was previously overlooked: even when the surrogate model and acquisition target are correctly specified, finite-sample Monte Carlo error can perturb acquisition values. This can, in turn, flip candidate rankings and lead to suboptimal BO decisions. As a remedy, we aim at variance reduction and propose an ort",
+      "published_raw": "Sat, 09 May 2026 00:00:00 -0400",
+      "source": "arXiv cs.AI",
+      "tier": "community",
+      "module_hint": "model",
+      "source_tags": [
+        "arxiv",
+        "ai",
+        "research"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-09T00:00:00-04:00",
+      "module": "model",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "coding",
+        "funding",
+        "model",
+        "research"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Evaluating Prompting and Execution-Based Methods for Deterministic Computation in LLMs",
+      "url": "https://arxiv.org/abs/2605.03227",
+      "summary": "arXiv:2605.03227v2 Announce Type: replace \nAbstract: Large Language Models (LLMs) have demonstrated strong capabilities in natural language understanding and reasoning. However, their ability to perform exact, deterministic computation remains unclear. In this work, we systematically evaluate multiple prompting strategies, including Chain-of-Thought (CoT), Least-to-Most decomposition, Program-of-Thought (PoT), and Self-Consistency (SC), on tasks requiring precise and error-free outputs, including binary counting, longest substring detection, and arithmetic evaluation. To support this study, we",
+      "published_raw": "Sat, 09 May 2026 00:00:00 -0400",
+      "source": "arXiv cs.AI",
+      "tier": "community",
+      "module_hint": "model",
+      "source_tags": [
+        "arxiv",
+        "ai",
+        "research"
+      ],
+      "image_candidates": [],
+      "published_at": "2026-05-09T00:00:00-04:00",
+      "module": "model",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "funding",
+        "model",
+        "reasoning",
+        "research"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "We built and open-sourced Caliby: An embedded, high-performance vector database for AI Agents (Beats pgvector by 4x, outperforms FAISS on disk)",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1t7vumj/we_built_and_opensourced_caliby_an_embedded/",
+      "summary": "Hi Reddit, we are a team of database researchers (including a PhD from MIT DB Group) and we just open-sourced an embedded vector database for agent/LLM applications.\n\n&gt; An embedded vector database supporting both text and vectors. It outperforms pgvector by 4x and significantly surpasses FAISS in disk-storage scenarios. It supports DiskANN, HNSW, and IVF+PQ indexes, maintains high performance o",
+      "published_raw": "2026-05-09T05:29:34+00:00",
+      "source": "r/LocalLLaMA",
+      "tier": "community",
+      "module_hint": "model",
+      "source_tags": [
+        "open-weight",
+        "inference",
+        "community"
+      ],
+      "reddit_score": 0,
+      "reddit_comments": 1,
+      "image_candidates": [
+        "https://external-preview.redd.it/rDlKyd0sB4aX63zQzU_iZ6SHSwYy3ruYG-GTjNo5nqo.png?auto=webp&s=50ff0a1a6cee5c629dd861f908c9f50f4085e4d6"
+      ],
+      "module": "model",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "agent",
+        "model",
+        "research"
+      ],
+      "rule_filtered": true
+    },
+    {
+      "title": "Launched an open source preflight billing guard for AI agents 3 days ago. 560 downloads and counting. [apparently I'm not the only one who got burned.]",
+      "url": "https://www.reddit.com/r/artificial/comments/1t67kt0/launched_an_open_source_preflight_billing_guard/",
+      "summary": "The pattern I kept seeing: monthly caps are useless for agents. One misconfigured loop can exhaust a monthly budget in hours. A per-request ceiling that blocks BEFORE compute starts is the actual fix.\n\nComment \"Repo\" to get a free access.\n\nCurious what others are using for agent spend control.",
+      "published_raw": "2026-05-07T11:22:05+00:00",
+      "source": "r/artificial",
+      "tier": "community",
+      "module_hint": null,
+      "source_tags": [
+        "news",
+        "general"
+      ],
+      "reddit_score": 0,
+      "reddit_comments": 12,
+      "image_candidates": [],
+      "module": "product",
+      "importance_score": 2,
+      "matched_company": null,
+      "matched_tags": [
+        "agent",
+        "product"
+      ],
+      "rule_filtered": true
+    }
+  ]
+}

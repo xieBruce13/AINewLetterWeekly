@@ -30,16 +30,18 @@ rss_sources:
   # ── Official AI model labs ──────────────────────────────────────────────
 
   - name: OpenAI Blog
-    url: https://openai.com/blog/rss/
+    url: https://openai.com/news/rss.xml
     tier: official
     module: model
     tags: [openai, gpt, chatgpt, llm]
+    notes: Moved from /blog/rss/ to /news/rss.xml after the 2025 site refresh.
 
   - name: Anthropic News
-    url: https://www.anthropic.com/news/rss.xml
+    url: https://www.anthropic.com/news/feed_anthropic.xml
     tier: official
     module: model
     tags: [anthropic, claude, llm]
+    notes: Official endpoint — old /news/rss.xml 404s.
 
   - name: Google DeepMind
     url: https://deepmind.google/blog/feed/basic/
@@ -58,12 +60,16 @@ rss_sources:
     tier: official
     module: model
     tags: [meta, llama, llm]
+    active: false
+    notes: 2026-05 — Meta no longer publishes a public RSS for ai.meta.com/blog. Cover via SOP browsing.
 
   - name: Mistral AI News
     url: https://mistral.ai/news/rss.xml
     tier: official
     module: model
     tags: [mistral, llm, open-weight]
+    active: false
+    notes: 2026-05 — mistral.ai/news has no native RSS. Fall back to SOP browsing or third-party (spyingbee).
 
   - name: HuggingFace Blog
     url: https://huggingface.co/blog/feed.xml
@@ -78,10 +84,11 @@ rss_sources:
     tags: [cohere, llm, enterprise]
 
   - name: xAI News
-    url: https://x.ai/news/rss
+    url: https://raw.githubusercontent.com/Olshansk/rss-feeds/main/feeds/feed_xainews.xml
     tier: official
     module: model
     tags: [xai, grok, llm]
+    notes: xAI has no native RSS; using community-maintained mirror of x.ai/news.
 
   - name: Stability AI Blog
     url: https://stability.ai/news/rss.xml
@@ -100,18 +107,24 @@ rss_sources:
     tier: official
     module: model
     tags: [groq, inference, hardware]
+    active: false
+    notes: 2026-05 — 404 on /blog/rss.xml; no replacement found. SOP only.
 
   - name: Cerebras Blog
     url: https://www.cerebras.net/blog/rss.xml
     tier: official
     module: model
     tags: [cerebras, hardware, inference]
+    active: false
+    notes: 2026-05 — 404; no public RSS.
 
   - name: Perplexity Blog
     url: https://blog.perplexity.ai/rss
     tier: official
     module: product
     tags: [perplexity, search, llm]
+    active: false
+    notes: 2026-05 — 403 Forbidden on default UA; cover via SOP browsing.
 
   - name: Scale AI Blog
     url: https://scale.com/blog/rss.xml
@@ -142,12 +155,16 @@ rss_sources:
     tier: official
     module: model
     tags: [allenai, research, open-weight]
+    active: false
+    notes: 2026-05 — 404; allenai.org no longer publishes RSS.
 
   - name: Qwen Blog (Alibaba)
     url: https://qwenlm.github.io/feed.xml
     tier: official
     module: model
     tags: [qwen, alibaba, llm, open-weight, chinese]
+    active: false
+    notes: 2026-05 — qwenlm.github.io feed.xml is gone; check huggingface.co/Qwen instead.
 
   # ── AI Creative / Image / Video / Design tools ───────────────────────────
 
@@ -162,48 +179,64 @@ rss_sources:
     tier: official
     module: product
     tags: [runway, video-gen, creative-tool]
+    active: false
+    notes: 2026-05 — 500; intermittent. Cover via SOP browsing.
 
   - name: Runway Research
     url: https://research.runwayml.com/feed.xml
     tier: official
     module: product
     tags: [runway, research, video-gen]
+    active: false
+    notes: 2026-05 — 404.
 
   - name: Pika Blog
     url: https://pika.art/blog/rss.xml
     tier: official
     module: product
     tags: [pika, video-gen, creative-tool]
+    active: false
+    notes: 2026-05 — 404; no native RSS.
 
   - name: Midjourney Updates
     url: https://updates.midjourney.com/rss.xml
     tier: official
     module: product
     tags: [midjourney, image-gen, creative-tool]
+    active: false
+    notes: 2026-05 — 404; status page no longer exposes RSS.
 
   - name: Adobe Blog AI
     url: https://blog.adobe.com/en/topics/ai-ml/feed
     tier: official
     module: product
     tags: [adobe, firefly, creative-tool, design]
+    active: false
+    notes: 2026-05 — 404; topic feeds removed in Adobe blog refresh.
 
   - name: Figma Blog
     url: https://www.figma.com/blog/rss.xml
     tier: official
     module: product
     tags: [figma, design, creative-tool]
+    active: false
+    notes: 2026-05 — 404.
 
   - name: Canva Newsroom
     url: https://www.canva.com/newsroom/rss.xml
     tier: official
     module: product
     tags: [canva, design, creative-tool]
+    active: false
+    notes: 2026-05 — 404; newsroom removed RSS.
 
   - name: ElevenLabs Blog
     url: https://elevenlabs.io/blog/rss.xml
     tier: official
     module: product
     tags: [elevenlabs, voice, tts, audio]
+    active: false
+    notes: 2026-05 — 404.
 
   - name: Suno Blog
     url: https://suno.com/blog/rss.xml
@@ -216,12 +249,16 @@ rss_sources:
     tier: official
     module: product
     tags: [udio, music-gen, audio]
+    active: false
+    notes: 2026-05 — 404.
 
   - name: Krea AI Blog
     url: https://www.krea.ai/blog/rss.xml
     tier: official
     module: product
     tags: [krea, image-gen, creative-tool]
+    active: false
+    notes: 2026-05 — 404.
 
   - name: Kling AI Blog
     url: https://klingai.com/blog/rss.xml
@@ -245,10 +282,11 @@ rss_sources:
     tags: [github, copilot, coding, agent]
 
   - name: Vercel Blog
-    url: https://vercel.com/blog/rss.xml
+    url: https://vercel.com/atom
     tier: official
     module: product
     tags: [vercel, nextjs, deployment, developer-tools]
+    notes: vercel.com/blog/rss.xml 404s; /atom is the documented endpoint.
 
   - name: LangChain Blog
     url: https://blog.langchain.dev/rss/
@@ -261,12 +299,16 @@ rss_sources:
     tier: official
     module: product
     tags: [llamaindex, rag, agent, framework]
+    active: false
+    notes: 2026-05 — 404; LlamaIndex blog moved off RSS.
 
   - name: Replit Blog
     url: https://blog.replit.com/rss
     tier: official
     module: product
     tags: [replit, coding, agent, ide]
+    active: false
+    notes: 2026-05 — 404.
 
   - name: Codeium (Windsurf) Blog
     url: https://codeium.com/blog/rss.xml
@@ -275,16 +317,19 @@ rss_sources:
     tags: [codeium, windsurf, coding, agent, ide]
 
   - name: Linear Blog
-    url: https://linear.app/blog/rss.xml
+    url: https://linear.app/rss/blog.xml
     tier: official
     module: product
     tags: [linear, project-management, developer-tools]
+    notes: linear.app/blog/rss.xml 404s; correct path is /rss/blog.xml.
 
   - name: Notion Blog
     url: https://www.notion.com/blog/rss.xml
     tier: official
     module: product
     tags: [notion, knowledge, productivity, ai]
+    active: false
+    notes: 2026-05 — Notion has no native RSS for blog; would need third-party generator.
 
   - name: Weights & Biases Blog
     url: https://wandb.ai/fully-connected/rss.xml
@@ -301,16 +346,18 @@ rss_sources:
     tags: [news, startup, funding]
 
   - name: VentureBeat AI
-    url: https://venturebeat.com/ai/feed/
+    url: https://venturebeat.com/category/ai/feed/
     tier: press
     module: null
     tags: [news, enterprise, research]
+    notes: /ai/feed/ 404s; current path is /category/ai/feed/.
 
   - name: The Verge AI
-    url: https://www.theverge.com/ai-artificial-intelligence/rss/index.xml
+    url: https://www.theverge.com/rss/ai-artificial-intelligence/index.xml
     tier: press
     module: null
     tags: [news, consumer, product]
+    notes: 2025 RSS path swap — /rss/<topic>/index.xml replaces /<topic>/rss/index.xml.
 
   - name: Ars Technica Technology
     url: https://feeds.arstechnica.com/arstechnica/technology-lab
@@ -341,6 +388,8 @@ rss_sources:
     tier: press
     module: null
     tags: [news, enterprise, exclusive]
+    active: false
+    notes: 2026-05 — 403; paywalled feed requires subscription auth.
 
   - name: CNBC Technology
     url: https://www.cnbc.com/id/19854910/device/rss/rss.html
@@ -353,6 +402,8 @@ rss_sources:
     tier: press
     module: null
     tags: [news, business, enterprise]
+    active: false
+    notes: 2026-05 — 404; Fortune dropped section feeds.
 
   - name: ZDNet AI
     url: https://www.zdnet.com/topic/artificial-intelligence/rss.xml
@@ -365,6 +416,76 @@ rss_sources:
     tier: press
     module: null
     tags: [research, technical, hardware]
+    active: false
+    notes: 2026-05 — 404; topic feed removed.
+
+  # ── PRD Tier-3 / community supplements added 2026-05-09 ─────────────────
+  # These cover sources the PRD lists under "深度刊补充" (newsletters, YC,
+  # Product Hunt) that were previously SOP-only. Now that they're in YAML
+  # the scraper picks them up automatically.
+
+  - name: Product Hunt (all launches)
+    url: https://www.producthunt.com/feed
+    tier: community
+    module: product
+    tags: [product-hunt, launch, indie, startup]
+    notes: Site-wide launch feed; rule_filter keeps AI-tagged items via tag overlap.
+
+  - name: Y Combinator Launches
+    url: https://www.ycombinator.com/launches/feed
+    tier: community
+    module: product
+    tags: [yc, startup, launch, indie]
+
+  - name: TLDR AI
+    url: https://tldr.tech/api/rss/ai
+    tier: press
+    module: null
+    tags: [newsletter, daily, summary]
+
+  - name: Import AI (Jack Clark)
+    url: https://importai.substack.com/feed
+    tier: press
+    module: null
+    tags: [newsletter, research, weekly]
+
+  - name: The Rundown AI
+    url: https://www.therundown.ai/feed
+    tier: press
+    module: null
+    tags: [newsletter, daily, product]
+    notes: Beehiiv-hosted; if it 404s, fall back to www.therundown.ai/rss.
+
+  - name: Ben's Bites
+    url: https://www.bensbites.com/rss/feed.xml
+    tier: press
+    module: null
+    tags: [newsletter, indie, product]
+
+  - name: Hugging Face Papers (daily)
+    url: https://jamesg.blog/hf-papers.xml
+    tier: community
+    module: model
+    tags: [arxiv, papers, research]
+    notes: Community mirror of huggingface.co/papers daily picks (HF has no native RSS).
+
+  - name: arXiv cs.CL
+    url: https://rss.arxiv.org/rss/cs.CL
+    tier: community
+    module: model
+    tags: [arxiv, nlp, research]
+
+  - name: arXiv cs.LG
+    url: https://rss.arxiv.org/rss/cs.LG
+    tier: community
+    module: model
+    tags: [arxiv, ml, research]
+
+  - name: arXiv cs.AI
+    url: https://rss.arxiv.org/rss/cs.AI
+    tier: community
+    module: model
+    tags: [arxiv, ai, research]
 
 # ---------------------------------------------------------------------------
 # Reddit communities

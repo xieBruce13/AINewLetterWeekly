@@ -4,9 +4,10 @@ Hard policy enforced by sync_to_db.py before any record reaches the
 database. Two failure modes catch most "stale or fabricated content"
 incidents:
 
-  1. Freshness — every record must have `published_date` within the last
-     `--max-age` days (default 14). Older items are rejected unless the
-     editor passes `--allow-stale`.
+  1. Freshness — every record must have a parseable date (`published_date`,
+     `story_date`, or fast-pipeline `updated_at`) within the last `--max-age`
+     days (default 14). Older items are rejected unless the editor passes
+     `--allow-stale`.
 
   2. Source reachability — every URL in the record's `raw_urls` array
      must respond to a HEAD request without 4xx/5xx. We follow redirects
@@ -91,9 +92,17 @@ def check_freshness(
     max_age_days: int,
 ) -> RecordIssue | None:
     name = rec.get("name") or "(unnamed)"
-    pub = _parse_date(rec.get("published_date") or rec.get("story_date"))
+    pub = _parse_date(
+        rec.get("published_date")
+        or rec.get("story_date")
+        or rec.get("updated_at")
+    )
     if not pub:
-        return RecordIssue(name, "bad-date", "missing or unparseable published_date")
+        return RecordIssue(
+            name,
+            "bad-date",
+            "missing or unparseable published_date/story_date/updated_at",
+        )
     age = (today - pub).days
     if age < 0:
         # Future-dated: warn but don't reject (could be a planned launch).

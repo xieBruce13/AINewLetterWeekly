@@ -8,6 +8,8 @@ NO AI CALLS. Reads raw_scraped.json, applies rule-based logic to:
   3. Importance score — 0–10 from tier + social signals + keyword weights
   4. Deduplication    — drop near-duplicate titles (same domain + 80% word overlap)
   5. Tag extraction   — structured tags from keyword matching
+  6. Publisher spread — soft per-vendor caps on the ranked output so one loud
+                         official blog (e.g. AWS) cannot dominate the batch
 
 Output: filtered_scraped.json — a ranked subset ready for AI enrichment.
 
@@ -156,6 +158,24 @@ KNOWN_COMPANIES: dict[str, str] = {
     "alibaba": "Alibaba",
     "qwen": "Qwen",
     "baidu": "Baidu",
+}
+
+# Soft caps on how many items from one publisher may appear in the ranked
+# output. Stops high-volume official blogs (especially AWS) from crowding out
+# everyone else while preserving global score order within each publisher.
+PUBLISHER_SOFT_CAPS: dict[str, int] = {
+    "Amazon": 3,
+    "Google": 6,
+    "Microsoft": 6,
+    "NVIDIA": 5,
+    "Meta": 5,
+}
+DEFAULT_PUBLISHER_CAP = 12
+
+# Merge domain-heuristic buckets with KNOWN_COMPANIES display names
+PUBLISHER_ALIASES: dict[str, str] = {
+    "Openai": "OpenAI",
+    "Arxiv": "arXiv",
 }
 
 # Tag extraction map: tag → list of keyword triggers
@@ -313,6 +333,102 @@ def _title_words(title: str) -> frozenset[str]:
     return frozenset(w for w in words if w not in stop)
 
 
+def publisher_key(item: dict) -> str:
+    """Bucket items for diversity caps (company / major outlet, not URL)."""
+    c = item.get("matched_company")
+    if c == "DeepMind":
+        return _canonical_publisher("Google")
+    if c:
+        return _canonical_publisher(c)
+
+    src = _lower(item.get("source", ""))
+    if "aws" in src or "amazon" in src:
+        return "Amazon"
+    if "google" in src or "deepmind" in src or "gemini" in src:
+        return "Google"
+    if "microsoft" in src or "azure" in src:
+        return "Microsoft"
+    if "nvidia" in src:
+        return "NVIDIA"
+    if "meta ai" in src or src.startswith("meta"):
+        return "Meta"
+    if "hugging" in src:
+        return "HuggingFace"
+    if "github blog" in src:
+        return "GitHub"
+
+    host = _domain(item.get("url", ""))
+    hl = host.lower()
+    if "aws.amazon.com" in hl or hl.endswith("amazon.com") or ".amazon." in hl:
+        return "Amazon"
+    if "google" in hl or "deepmind" in hl or "blog.google" in hl:
+        return "Google"
+    if "microsoft" in hl or "azure" in hl:
+        return "Microsoft"
+    if "nvidia" in hl:
+        return "NVIDIA"
+    if "meta.com" in hl or "facebook.com" in hl:
+        return "Meta"
+    if "huggingface" in hl:
+        return "HuggingFace"
+    if "github.blog" in hl:
+        return "GitHub"
+
+    parts = host.split(".")
+    if len(parts) >= 2:
+        base = parts[-2].lower()
+        if base == "openai":
+            return _canonical_publisher("OpenAI")
+        if base == "arxiv":
+            return _canonical_publisher("arXiv")
+        return _canonical_publisher(parts[-2].title())
+    return _canonical_publisher(host or "unknown")
+
+
+def _canonical_publisher(name: str) -> str:
+    return PUBLISHER_ALIASES.get(name, name)
+
+
+def diversify_ranked(items: list[dict], top_n: int) -> list[dict]:
+    """Greedy take in score order while respecting per-publisher soft caps."""
+    if top_n <= 0:
+        return []
+
+    def cap_for(k: str) -> int:
+        return PUBLISHER_SOFT_CAPS.get(k, DEFAULT_PUBLISHER_CAP)
+
+    out: list[dict] = []
+    seen_url: set[str] = set()
+    counts: dict[str, int] = defaultdict(int)
+
+    def try_take(it: dict, max_for_key: int) -> bool:
+        url = (it.get("url") or "").strip()
+        if not url or url in seen_url:
+            return False
+        k = publisher_key(it)
+        if counts[k] >= max_for_key:
+            return False
+        seen_url.add(url)
+        counts[k] += 1
+        out.append(it)
+        return True
+
+    for it in items:
+        if len(out) >= top_n:
+            break
+        try_take(it, cap_for(publisher_key(it)))
+
+    # Relax caps (+4) if we still need more rows and the corpus is vendor-heavy.
+    if len(out) < top_n:
+        for it in items:
+            if len(out) >= top_n:
+                break
+            k = publisher_key(it)
+            try_take(it, cap_for(k) + 3)
+
+    return out
+
+
 def deduplicate(items: list[dict]) -> list[dict]:
     """
     Remove near-duplicate items.
@@ -362,6 +478,7 @@ def filter_items(
     items: list[dict],
     top_n: int = 60,
     min_importance: int = 2,
+    diversify: bool = True,
 ) -> list[dict]:
     """
     Apply the full rule-based pipeline and return ranked filtered items.
@@ -407,6 +524,8 @@ def filter_items(
         )
     )
 
+    if diversify:
+        return diversify_ranked(filtered, top_n)
     return filtered[:top_n]
 
 
@@ -424,6 +543,8 @@ def main() -> int:
                         help="Drop items scoring below this threshold (default: 2)")
     parser.add_argument("--stats",  action="store_true",
                         help="Print per-module breakdown to stderr")
+    parser.add_argument("--no-diversify", action="store_true",
+                        help="Disable per-publisher soft caps (legacy behaviour)")
     args = parser.parse_args()
 
     input_path  = Path(args.input)
@@ -439,7 +560,12 @@ def main() -> int:
     items: list[dict] = raw.get("items", raw) if isinstance(raw, dict) else raw
     print(f"rule_filter: {len(items)} raw items loaded", file=sys.stderr)
 
-    filtered = filter_items(items, top_n=args.top, min_importance=args.min_importance)
+    filtered = filter_items(
+        items,
+        top_n=args.top,
+        min_importance=args.min_importance,
+        diversify=not args.no_diversify,
+    )
     print(
         f"rule_filter: {len(filtered)} items after filter "
         f"(dropped {len(items) - len(filtered)})",
@@ -458,6 +584,11 @@ def main() -> int:
         print("  by module:    " + json.dumps(dict(by_module)), file=sys.stderr)
         print("  by tier:      " + json.dumps(dict(by_tier)), file=sys.stderr)
         print("  by score:     " + json.dumps(dict(sorted(score_dist.items(), reverse=True))), file=sys.stderr)
+        by_pub: dict[str, int] = defaultdict(int)
+        for item in filtered:
+            by_pub[publisher_key(item)] += 1
+        top_pub = dict(sorted(by_pub.items(), key=lambda kv: -kv[1])[:12])
+        print("  by publisher: " + json.dumps(top_pub), file=sys.stderr)
 
     output: dict = {
         "filtered_at": datetime.now(timezone.utc).isoformat(),
